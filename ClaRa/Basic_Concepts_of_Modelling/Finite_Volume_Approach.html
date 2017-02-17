@@ -1,0 +1,640 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Finite Volume Approach</title>
+	<meta name="generator" content="Zim 0.65">
+	<meta name="viewport" content="width=device-width">
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
+	<![if !IE]>
+	<!-- comment out for IE since it spams the user with warnings -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+	<script type='text/javascript'>
+		$(window).load(function(){$("#navigation").height( $("#content").height()+65 );});
+	</script>
+	<![endif]>
+	<style>
+		body, html {
+			height:100%;
+			font-family:'Open Sans', sans-serif;
+			line-height:1.5em;
+			font-weight:300;
+			background-color:#FAFAFA;
+			text-rendering:geometricPrecision;
+			margin:0;
+			padding:0;
+		}
+		.wrapper {
+			height:100%;
+			position:relative;
+		}
+		#navigation {
+			background-color:#e8e9e9;
+			display:inline-block;
+			border-right:1px solid #EAEAEA;
+			padding-right:65px;
+			padding-top:20px;
+			padding-left:25px;
+			position:relative;
+			float:left;
+			min-height:100%;
+		}
+		#content {
+			float:left;
+			display:inline-block;
+			position:absolute;
+			max-width:960px;
+			padding:65px;
+		}
+		#navigation ul {
+			margin-top:0;
+			margin-bottom:0;
+			padding-left:40px;
+			color: #0083A9
+		}
+		#navigation li {
+			list-style-type:none;
+		}
+		#navigation a {
+			text-decoration:none;
+			color:#495055;
+		}
+		#navigation strong {
+			color:#0083A9;
+			font-weight:400;
+		}
+		#navigation a:hover {
+			text-decoration:underline;
+			color: #767c7f
+		}
+		#content h1:nth-child(1) {
+			margin-top:0;
+		}
+		h1 {
+			color:#0083A9;
+			font-weight:700;
+			margin-bottom: 5;
+			text-decoration: underline;
+		}
+		h2,h3 {
+			color:#0083A9;
+			font-weight:300;
+			margin-bottom: 2;
+			text-decoration: none;
+		}
+		h4 {
+			color:#767c7f;
+			font-weight:200;
+			margin-bottom: 0;
+		}
+		h5 {
+			color:#66b5cb;
+			font-weight:200;
+			margin-bottom: 0;
+		}
+		p {
+			margin-top: 0;
+		}
+		#content a {
+			color:#739600;
+			text-decoration: none;
+		}
+		#content a:hover {
+			text-decoration: underline;
+		}
+		#content a:active {
+			text-decoration: underline;
+		}
+		#content strike {
+			color: grey;
+		}
+		#content u {
+			text-decoration: none;
+			background-color: none;
+			color: #a71930
+		}
+		#content tt {
+			color: #495055;
+		}
+		#content pre {
+			color: #495055;
+			margin-left: 20px;
+		}
+		#content b {
+			color: #1b242a;
+			font-weight: bold;
+		}
+		# kopfzeile{
+			background-color:#739600;
+			display:inline-block;
+			border-right:1px solid #EAEAEA;
+			padding-right:65px;
+			padding-top:65px;
+			padding-left:25px;
+			position:relative;
+			float:left;
+			min-height:100%;
+		}
+		.backlinks {
+			color:#495055;
+		}
+		hr.footnotes {
+			width: 20%;
+			margin-left: 0;
+		}
+		@media print{
+			#navigation{
+				background-color:#FFF;
+			}
+		}
+
+		span.zim-tag {
+			color: #739600;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="kopfzeile"> <img src = "../../_resources/ClaRaInfoHeader.png" alt=""/></div><br>
+		<div id="navigation"> <ul>
+<li><a href="../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
+<ul>
+<li><a href="../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
+<li><a href="../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a>
+<ul>
+<li><a href="./Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a></li>
+<li><b>Finite Volume Approach</b></li>
+<li><a href="./Initialisation.html" title="Initialisation" class="page">Initialisation</a></li>
+<li><a href="./Pressure_Loss_L4_Volumes.html" title="Pressure Loss L4 Volumes" class="page">Pressure Loss L4 Volumes</a></li>
+<li><a href="./Stucture_of_Models.html" title="Stucture of Models" class="page">Stucture of Models</a></li>
+</ul>
+</li>
+<li><a href="../Basics.html" title="Basics" class="page">Basics</a></li>
+<li><a href="../Components.html" title="Components" class="page">Components</a></li>
+<li><a href="../Examples.html" title="Examples" class="page">Examples</a></li>
+<li><a href="../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
+<li><a href="../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
+<li><a href="../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
+<li><a href="../Visualisation.html" title="Visualisation" class="page">Visualisation</a></li>
+</ul>
+</li>
+<li><a href="../../ZIM_DocumentationTemplate.html" title="ZIM DocumentationTemplate" class="page">ZIM DocumentationTemplate</a></li>
+</ul>
+ </div>
+		<div id="content">
+			<h1>Finite Volume Approach <a name='ClaRa:Basic Concepts of Modelling:Finite Volume Approach'></a></h1>
+
+			<p>
+Created Dienstag 08 März 2016
+</p>
+
+<p>
+<b>This chapter explains the derivation of the conservation equations from the general form of the consevation equations by the finite volume approach. The resulting equations are implemented in Modelica code in the ClaRa components. </b>
+</p>
+
+<p>
+The finite volume approach is a widely used method in order to discretize physics laws in differential form, such that they can be implemented on a computer and numerically solved. 
+</p>
+
+<h2>1 General Integral Form of Conservation Laws</h2>
+
+<br>
+
+<p>
+In the finite volume approach the integral form (1) of an according <a href="./Conservation_Laws.html" title="conservation law" class="page">conservation law</a> is taken:
+</p>
+
+<p>
+<img src="./Finite_Volume_Approach/equation.png">
+</p>
+
+<p>
+In what follows we will always consider control volumes, which are independent of time.
+</p>
+
+<h2>2 Idea of Finite Volume Approach</h2>
+
+<p>
+The basic idea is to replace the density <img src="./Finite_Volume_Approach/equation041.png"> by its average:  <br>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation043.png">  
+</div>
+where <img src="./Finite_Volume_Approach/equation044.png"> is the coordinate volume of <img src="./Finite_Volume_Approach/equation042.png">. This is equivalent to assuming  <img src="./Finite_Volume_Approach/equation041.png"> as constant over <img src="./Finite_Volume_Approach/equation042.png"> and justified if <img src="./Finite_Volume_Approach/equation041.png"> varies moderately inside <img src="./Finite_Volume_Approach/equation042.png">. <br>
+The same is done for the source density <img src="./Finite_Volume_Approach/equation046.png">.  Furthermore, we introduce the flows <br>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation032.png"> 
+</div>
+where <img src="./Finite_Volume_Approach/equation029.png"> represents an elements of a convenient partition of <img src="./Finite_Volume_Approach/equation030.png">. Then (1) can be rewritten as<br>
+<img src="./Finite_Volume_Approach/equation045.png"><br>
+In all ClaRa models the flows <img src="./Finite_Volume_Approach/equation051.png"> will effectively be connector flows or flows between neighboured control volumes.
+</p>
+
+<h4>Controversy on the Approach:</h4>
+
+<p>
+A <b>great advantage</b> of the finite volume approach is that it is inherent conservative: by construction conservation laws are respected.<br>
+One <b>disadvantage</b> of the finite volume approach is the neglect of finite propagation times (e.g. temperature steps in mass flows, pressure shocks). Due to the averaging process, we loose spatially resolved information: We assume physical quantities such as temperature to be constant over the control volume. This means for example, that a temperature step in the incoming mass flows has an immediate effect on the temperature throughout the whole control volume. Outgoing mass flows will immediately notice a temperature change as well. Sometimes this may lead to oscillatory behaviour (chattering) of numerical solutions, e.g. if the medium state inside a control volume is close to the two-phase-region. <b>Another side-effect</b> is  the 'washing out' of steep steps, due to the mixing inside the control volume. For example, a steep increase of temperature in the incoming mass flows will manifest itself in an immediately starting but less steep temperature change of the outgoing mass flows. This effect is called <b>numerical diffusion</b>. 
+</p>
+
+<h4>Spatial Information and Geometry</h4>
+
+<p>
+In order to re-establish spatial resolution in a finite volume based model one needs to arrange several control volumes according to the underlying geometry of the system. Such a spatial arrangement of cells is called a grid. <br>
+The individual value of a conserved quantity is then assumed to be located at the centre  (e.g. centre of mass) of each individual control volume of the grid. Depending on the relative locations of the cell centres, a zero dimensional (one cell only), one dimensional, two dimensional or three dimensional grid can be built, as shown in the figure below.. 
+</p>
+
+<p>
+<img src="./Finite_Volume_Approach/discretisation-0D">	<img src="./Finite_Volume_Approach/discretisation-1D">		<img src="./Finite_Volume_Approach/discretisation-2D">		<img src="./Finite_Volume_Approach/discretisation-3D"> <br>
+0D          1D                            2D                             3D
+</p>
+
+<h4>ClaRa Application</h4>
+
+<p>
+Within ClaRa, the finite volume approach is widely used, in order to ensure closed mass and energy and momentum balances, as this is the crucial aspect for the analysis and evaluation of dynamic processes in power plants. If needed spatially resolved information will be provided by grids, which are adapted such that the crucial physical properties of a particular component can be captured. There can be different levels of detail for a particular component or system model. See <a href="../A_User_Guide/GettingStarted/Model_Design_Principles.html" title="ClaRa:A User Guide:GettingStarted:Model Design Principles" class="page">ClaRa:A User Guide:GettingStarted:Model Design Principles</a> 
+</p>
+
+<br>
+
+<h2>3 Generic Control Volumes</h2>
+
+<br>
+
+<p>
+As shown in the <a href="./Conservation_Laws.html" title="general chapter on conservation laws," class="page">general chapter on conservation laws,</a> we can  specify <img src="./Finite_Volume_Approach/equation061.png"> in equation (2) in order to obtain all relevant balance equations 
+</p>
+
+<p>
+<ol type="1" start="1">
+<li>by setting <img src="./Finite_Volume_Approach/equation061.png">  to the mass density <img src="./Finite_Volume_Approach/equation021.png"> one obtains mass conservation</li>
+<li>by setting <img src="./Finite_Volume_Approach/equation061.png">  to the inner energy density <img src="./Finite_Volume_Approach/equation023.png"> (u being the specific inner energy) one obtains energy conservation</li>
+<li>by setting <img src="./Finite_Volume_Approach/equation061.png">  to <img src="./Finite_Volume_Approach/equation025.png"> one obtains momentum conservation in (x,y,z) - direction respectively </li>
+</ol>
+</p>
+
+<p>
+In what follows we will  write down the generic balance equations for the finite volume approach.
+</p>
+
+<h3>3.1 Mass Balance</h3>
+
+<br>
+
+<h4>3.1.1 Single Component</h4>
+
+<p>
+Introducing the  mass flows <img src="./Finite_Volume_Approach/equation028.png">, where <img src="./Finite_Volume_Approach/equation029.png"> represents elements of a partition of  <img src="./Finite_Volume_Approach/equation091.png">  we can write (2) as<br>
+<img src="./Finite_Volume_Approach/equation027.png"> <br>
+The mass flows can be caused either by convection or by diffusion (compare to <a href="./Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a> eqn (6) ). <br>
+Here we neglect internal mass flow sources.
+</p>
+
+<p>
+In ClaRa models equation (2) is used in order to define the time derivative for pressure according to (compare to <a href="./Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a> eqn(12)).
+</p>
+
+<p>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation070.png">
+</div>
+</p>
+
+<p>
+Usually the pressure is taken as a state instead of the density.
+</p>
+
+<h4>3.1.2 Species Balance for Multi Component Media</h4>
+
+<br>
+
+<p>
+If the medium is a mixture consisting of <img src="./Finite_Volume_Approach/equation076.png"> components, a mass balance for each species has to be solved. However in practical applications it is more instructive to introduce mass fractions <img src="./Finite_Volume_Approach/equation075.png">  (i=1...<img src="./Finite_Volume_Approach/equation085.png">) of each substance (we leave out the <img src="./Finite_Volume_Approach/equation080.png"> in the subscript):<br>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation077.png">  where <img src="./Finite_Volume_Approach/equation078.png">  denotes the total mass of the control volume. 
+</div>
+</p>
+
+<p>
+By definition of the mass fractions we have the constraint<br>
+ <img src="./Finite_Volume_Approach/equation087.png">
+</p>
+
+<p>
+Instead of <img src="./Finite_Volume_Approach/equation085.png"> constituent mass balances  we can then write up <img src="./Finite_Volume_Approach/equation084.png"> species balance equations and one total mass balance:
+</p>
+
+<p>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation079.png">
+</div>
+</p>
+
+<p>
+Here we have neglected all processes that change the mass fractions inside the control volume, e.g. chemical reactions.<br>
+Using (2) for each component (<img src="./Finite_Volume_Approach/equation083.png"> ) and the total medium we finally arrive at
+</p>
+
+<p>
+<img src="./Finite_Volume_Approach/equation082.png">
+</p>
+
+<p>
+Notice again that by (3) we only have <img src="./Finite_Volume_Approach/equation088.png"> time derivatives. In ClaRa we follow the convention that <img src="./Finite_Volume_Approach/equation089.png"> is dependent variable. It is computed according to (3).
+</p>
+
+<p>
+In the presence of a multi-component medium  <a href="./Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a> eqn(12) will obtain additional terms:<br>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation086.png"> ,
+</div>
+and accordingly one finds for the time derivative of the pressure<br>
+<div style='padding-left: 30pt'>
+<img src="./Finite_Volume_Approach/equation090.png">
+</div>
+</p>
+
+<br>
+<br>
+
+<h3>3.3 Energy Balance</h3>
+
+<p>
+Introducing the inner energy <img src="./Finite_Volume_Approach/equation031.png">and the energy flows <img src="./Finite_Volume_Approach/equation032.png"> we may write<br>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation033.png">
+</div>
+As soon as phase change has to be considered, enthalpy is a better choice as state variable. Using <img src="./Finite_Volume_Approach/equation038.png"> (<img src="./Finite_Volume_Approach/equation040.png"> denotes the pressure) we write<br>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation039.png">
+</div>
+Usually the energy flows <img src="./Finite_Volume_Approach/equation052.png"> through the control volume boundaries can be heat flows <img src="./Finite_Volume_Approach/equation053.png"> due to heat conduction (="heat diffusion", <img src="./Finite_Volume_Approach/equation062.png"> denotes the temperature inside the control volume, <img src="./Finite_Volume_Approach/equation063.png"> denotes the according temperature at the surface <img src="./Finite_Volume_Approach/equation064.png"> ) or convective enthalpy flows denoted by <img src="./Finite_Volume_Approach/equation054.png"> (compare to <a href="./Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a> eqn (6) ). <br>
+The latter can be understood as follows: fluid entering / leaving the control volume contributes inner energy  <img src="./Finite_Volume_Approach/equation055.png">. Additionally mechanical work has to be performed in order to inject / extract fluid from the control volume. This mechanical work (in German: "Einschubarbeit") contributes to the inner energy of the fluid inside the control volume and is accounted  for by the term <img src="./Finite_Volume_Approach/equation056.png"> (<img src="./Finite_Volume_Approach/equation057.png"> denotes the specific volume of the injected/extracted fluid). <br>
+For this reason enthalpy flows enter the energy balances in the ClaRa fluid models.<br>
+Therefore the energy balance takes the form
+</p>
+
+<p>
+<img src="./Finite_Volume_Approach/equation060.png"><br>
+Here we neglect internal energy sources.
+</p>
+
+<h3>3.4 Momentum Balance</h3>
+
+<p>
+In order to evaluate the momentum balance for the so far unspecified control volume <img src="./Finite_Volume_Approach/equation042.png"> we  <br>
+introduce the momentum in <img src="./Finite_Volume_Approach/equation048.png"> - direction <img src="./Finite_Volume_Approach/equation049.png"> and the according k'th component <img src="./Finite_Volume_Approach/equation050.png">  of the momentum flows  <img src="./Finite_Volume_Approach/equation068.png">.<br>
+<img src="./Finite_Volume_Approach/equation047.png"><br>
+Since the shape of <img src="./Finite_Volume_Approach/equation042.png"> is not specified, additional information on the connector location as well as on possible pressure loss models are required. These information are provided using replaceable geometry models. Notice that momentum flows describe forces acting on the control volume. Usually we have
+</p>
+
+<p>
+<ol type="1" start="1">
+<li>Forces due to friction caused by velocity gradients and the viscosity of the medium</li>
+</ol>
+<div style='padding-left: 30pt'>
+<img src="./Finite_Volume_Approach/equation065.png">
+</div>
+<ol type="1" start="2">
+<li>Forces due to pressure </li>
+</ol>
+<div style='padding-left: 30pt'>
+<img src="./Finite_Volume_Approach/equation069.png">
+</div>
+<ol type="1" start="3">
+<li>Forces due to convection (sometimes also referred to as advection)</li>
+</ol>
+<div style='padding-left: 30pt'>
+<img src="./Finite_Volume_Approach/equation066.png">
+</div>
+<ol type="1" start="4">
+<li>Internal gravitational source  </li>
+</ol>
+<div style='padding-left: 30pt'>
+<img src="./Finite_Volume_Approach/equation067.png">
+</div>
+</p>
+
+<br>
+<br>
+
+<h2>4 Examples for Specific Dimensions and Shapes</h2>
+
+<br>
+
+<h3>4.2 Generic 0-D Control Volume</h3>
+
+<p>
+Think of a single control volume. Assume  we only have a mass flow in positive x-direction (from West to East co-linear to the according surface normals. We have to specify the flow cross-sectional areas (<img src="./Finite_Volume_Approach/equation017.png">) as shown in the left figure below. We are flexible in choosing thee shape of the cross sectional areas . Beside quadratic it could for example be circular. In the latter case the volume <img src="./Finite_Volume_Approach/equation018.png"> is a cylinder as shown in the second figure below.
+</p>
+
+<p>
+<img src="./Finite_Volume_Approach/1sDiscreizationAndShape.png" width="250">           <img src="./Finite_Volume_Approach/1sDiscretizationAndCylindricShape.png" width="250">         
+</p>
+
+<br>
+
+<p>
+In the sequel we will denote the "wall surface" by <img src="./Finite_Volume_Approach/equation019.png"> and the cross sectional areas by <img src="./Finite_Volume_Approach/equation074.png">. We can abstract this situation as follows.
+</p>
+
+<p>
+<img src="./Finite_Volume_Approach/0dDiscretization.png" width="400"><br>
+We have an inlet and outlet to the control volume, indicated by the two icons of the according ClaRa fluid connectors. The heat transfer through the outer surface of the control volume is indicated by the presence of a heat port. Together with a suitable heat transfer model the heat flows are computed.
+</p>
+
+<p>
+Then we obtain for the balance equations:
+</p>
+
+<h4>Mass Balance</h4>
+
+<p>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation071.png">
+</div>
+</p>
+
+<br>
+
+<h4>Species Balance</h4>
+
+<p>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation081.png">
+</div>
+</p>
+
+<br>
+
+<h4>Energy Balance</h4>
+
+<p>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation072.png">  
+</div>
+</p>
+
+<br>
+
+<h4>Momentum Balance</h4>
+
+<p>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation073.png">
+</div>
+</p>
+
+<p>
+Gravitational pressure difference <img src="./Finite_Volume_Approach/equation107.png"> will be computed from the z-position of inlet and outlet. Pressure difference due to friction <img src="./Finite_Volume_Approach/equation108.png"> has to be computed from a pressure loss model. Pressure difference due to convection <img src="./Finite_Volume_Approach/equation109.png"> is computed from the momentum carried by the mass flows at inlet and outlet.
+</p>
+
+<p>
+If a steady state momentum balance is used then<br>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation106.png"> 
+</div>
+In this case the momentum is not a state. Mass flows / flow velocities are computed algebraically from the pressure loss model. Convective pressure differences are neglected, since a close-to-steady state momentum is assumed.
+</p>
+
+<br>
+<br>
+
+<h3>4.2 Different Shapes for Arrangement of 1D Pipe Flow</h3>
+
+<p>
+In many situations (e.g. pipe models) it is reasonable to simplify models by restricting to 1 dimensional mass flows. <br>
+ Then a 1-dimensional spatially discretized pipe flow can be modelled by <img src="./Finite_Volume_Approach/equation058.png"> control volumes. The cross sectional areas are then denoted by <img src="./Finite_Volume_Approach/equation059.png">. Each control volume now carries a label 1,2,3,...,<img src="./Finite_Volume_Approach/equation058.png"> .<br>
+<img src="./Finite_Volume_Approach/1dDiscretizationPipe.png" width="500">
+</p>
+
+<p>
+This leads to a the following 1-dimensional discretization scheme, where we have introduced a labelling by <img src="./Finite_Volume_Approach/equation096.png"> .
+</p>
+
+<p>
+<img src="./Finite_Volume_Approach/1dDiscretizationSchemeEnergyCells.png" width="900">
+</p>
+
+<p>
+In the figure above each control volume is given similar to the 0-dimensional case. 
+</p>
+
+<h4>Mass Balance</h4>
+
+<p>
+<div style='padding-left: 60pt'>
+ <img src="./Finite_Volume_Approach/equation092.png">
+</div>
+<img src="./Finite_Volume_Approach/equation100.png">
+</p>
+
+<h4>Species Balance</h4>
+
+<p>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation095.png">
+</div>
+<img src="./Finite_Volume_Approach/equation101.png">
+</p>
+
+<br>
+
+<h4>Energy Balance</h4>
+
+<p>
+<div style='padding-left: 60pt'>
+<img src="./Finite_Volume_Approach/equation093.png">
+</div>
+<img src="./Finite_Volume_Approach/equation102.png">
+</p>
+
+<p>
+Notice that we have mass flows and state locations shifted by a half cell. This implies that we have to work effectively with a double resolution grid, as can be seen in the balance equations. Therefore we have introduced the formal <img src="./Finite_Volume_Approach/equation099.png"> in the labelling.<br>
+When working with a double resolution grid in the Modelica code it is  necessary to introduce a second label <img src="./Finite_Volume_Approach/equation097.png"> where even  <img src="./Finite_Volume_Approach/equation097.png"> label energy state locations and odd <img src="./Finite_Volume_Approach/equation097.png"> label mass flow locations, as can be seen from the figure above. <br>
+This implies that <img src="./Finite_Volume_Approach/equation098.png"> need to be interpolated at odd <img src="./Finite_Volume_Approach/equation097.png"> and mass flows / velocities need to be interpolated at even <img src="./Finite_Volume_Approach/equation097.png">.
+</p>
+
+<h4>Momentum Balance</h4>
+
+<p>
+The necessity of working with a double resolution grid becomes more clear, if we take a look at the momentum balance:<br>
+The momentum states are located at the mass flow locations at the border between two energy cells. Hence we need to introduce momentum control volumes that are shifted by a half cell from the energy cells. This is sometimes called a staggered grid in the literature [1,2]. The situation can be seen in the following figure, where we have introduced the flow grid and add subscripts "FM" to quantities of the flow model.
+</p>
+
+<p>
+<img src="./Finite_Volume_Approach/1dDiscretizationSchemeEnergyFlowCells.png" width="900">
+</p>
+
+<p>
+<div style='padding-left: 90pt'>
+<img src="./Finite_Volume_Approach/equation094.png">
+</div>
+ <img src="./Finite_Volume_Approach/equation103.png"><br>
+Notice that we have used the definition of the volume of a flow model cell as <img src="./Finite_Volume_Approach/equation104.png">, so the flow cross sectional area has cancelled here.<br>
+Gravitational pressure difference <img src="./Finite_Volume_Approach/equation107.png"> will be computed from the z-position of the flow cell boundaries. Pressure difference due to friction <img src="./Finite_Volume_Approach/equation108.png"> has to be computed from a pressure loss model (see <a href="./Pressure_Loss_L4_Volumes.html" title="ClaRa:Basic Concepts of Modelling:Pressure Loss L4 Volumes" class="page">ClaRa:Basic Concepts of Modelling:Pressure Loss L4 Volumes</a>). Pressure difference due to convection <img src="./Finite_Volume_Approach/equation109.png"> is computed from the momentum carried by the mass flows at the flow cell boundaries.
+</p>
+
+<p>
+If (close to) steady flows have to be modelled, a steady state momentum balance can be sufficient. Then we have <br>
+<div style='padding-left: 90pt'>
+<img src="./Finite_Volume_Approach/equation105.png">
+</div>
+In this case we also neglect <img src="./Finite_Volume_Approach/equation109.png">.
+</p>
+
+<p>
+In the steady  case it is not mandatory to use the staggered grid, since the momentum is computed directly from the pressure loss model.<br>
+Application of these concepts can be found at <a href="../Basics/ControlVolumes/FluidVolumes/VolumeVLE_L4_Advanced.html" title="ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced" class="page">ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced</a> .
+</p>
+
+<br>
+
+<h3>4.3 Cylindric Shell Shape for Arrangement of 1D Heat Flow Through Thick Walls</h3>
+
+<p>
+Another example for the usage of the finite volume approach can be found at <a href="../Basics/ControlVolumes/SolidVolumes/ThickWall_L4.html" title="ClaRa:Basics:ControlVolumes:SolidVolumes:ThickWall L4" class="page">ClaRa:Basics:ControlVolumes:SolidVolumes:ThickWall L4</a> .
+</p>
+
+<br>
+<br>
+
+<h2>References</h2>
+
+<p>
+[1] <b>S.V. Patankar</b>, "Numerical Heat Transfer and Fluid Flow", Hemisphere Publishing Corporation, 1980.<br>
+[2] <b>H.K. Versteeg and W. Malalasekera</b>, "An introduction to computational fluid dynamics, The finite volume method", Longman Scientific &amp; Technical, 1995
+</p>
+
+<h2>Version History</h2>
+
+<p>
+ Date - Version - Description of changes - author/reviser<br>
+30.04.2014 - v0.1 - initial implementation - Johannes Brunnemann, XRG Simulation<br>
+03.02.2017 - v1.2.0 - extensions  - Johannes Brunnemann, XRG Simulation
+</p>
+
+
+			<br>
+			<span class="backlinks">
+			</span>
+
+			
+		</div>
+	</div>
+</body>
+</html>
+

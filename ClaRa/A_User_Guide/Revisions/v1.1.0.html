@@ -1,0 +1,572 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>v1.1.0</title>
+	<meta name="generator" content="Zim 0.65">
+	<meta name="viewport" content="width=device-width">
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
+	<![if !IE]>
+	<!-- comment out for IE since it spams the user with warnings -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+	<script type='text/javascript'>
+		$(window).load(function(){$("#navigation").height( $("#content").height()+65 );});
+	</script>
+	<![endif]>
+	<style>
+		body, html {
+			height:100%;
+			font-family:'Open Sans', sans-serif;
+			line-height:1.5em;
+			font-weight:300;
+			background-color:#FAFAFA;
+			text-rendering:geometricPrecision;
+			margin:0;
+			padding:0;
+		}
+		.wrapper {
+			height:100%;
+			position:relative;
+		}
+		#navigation {
+			background-color:#e8e9e9;
+			display:inline-block;
+			border-right:1px solid #EAEAEA;
+			padding-right:65px;
+			padding-top:20px;
+			padding-left:25px;
+			position:relative;
+			float:left;
+			min-height:100%;
+		}
+		#content {
+			float:left;
+			display:inline-block;
+			position:absolute;
+			max-width:960px;
+			padding:65px;
+		}
+		#navigation ul {
+			margin-top:0;
+			margin-bottom:0;
+			padding-left:40px;
+			color: #0083A9
+		}
+		#navigation li {
+			list-style-type:none;
+		}
+		#navigation a {
+			text-decoration:none;
+			color:#495055;
+		}
+		#navigation strong {
+			color:#0083A9;
+			font-weight:400;
+		}
+		#navigation a:hover {
+			text-decoration:underline;
+			color: #767c7f
+		}
+		#content h1:nth-child(1) {
+			margin-top:0;
+		}
+		h1 {
+			color:#0083A9;
+			font-weight:700;
+			margin-bottom: 5;
+			text-decoration: underline;
+		}
+		h2,h3 {
+			color:#0083A9;
+			font-weight:300;
+			margin-bottom: 2;
+			text-decoration: none;
+		}
+		h4 {
+			color:#767c7f;
+			font-weight:200;
+			margin-bottom: 0;
+		}
+		h5 {
+			color:#66b5cb;
+			font-weight:200;
+			margin-bottom: 0;
+		}
+		p {
+			margin-top: 0;
+		}
+		#content a {
+			color:#739600;
+			text-decoration: none;
+		}
+		#content a:hover {
+			text-decoration: underline;
+		}
+		#content a:active {
+			text-decoration: underline;
+		}
+		#content strike {
+			color: grey;
+		}
+		#content u {
+			text-decoration: none;
+			background-color: none;
+			color: #a71930
+		}
+		#content tt {
+			color: #495055;
+		}
+		#content pre {
+			color: #495055;
+			margin-left: 20px;
+		}
+		#content b {
+			color: #1b242a;
+			font-weight: bold;
+		}
+		# kopfzeile{
+			background-color:#739600;
+			display:inline-block;
+			border-right:1px solid #EAEAEA;
+			padding-right:65px;
+			padding-top:65px;
+			padding-left:25px;
+			position:relative;
+			float:left;
+			min-height:100%;
+		}
+		.backlinks {
+			color:#495055;
+		}
+		hr.footnotes {
+			width: 20%;
+			margin-left: 0;
+		}
+		@media print{
+			#navigation{
+				background-color:#FFF;
+			}
+		}
+
+		span.zim-tag {
+			color: #739600;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="kopfzeile"> <img src = "../../../_resources/ClaRaInfoHeader.png" alt=""/></div><br>
+		<div id="navigation"> <ul>
+<li><a href="../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
+<ul>
+<li><a href="../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a>
+<ul>
+<li><a href="../Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="../GettingStarted.html" title="GettingStarted" class="page">GettingStarted</a></li>
+<li><a href="../Licence.html" title="Licence" class="page">Licence</a></li>
+<li><a href="../Revisions.html" title="Revisions" class="page">Revisions</a>
+<ul>
+<li><a href="./v0.2.2_alpha.html" title="v0.2.2 alpha" class="page">v0.2.2 alpha</a></li>
+<li><a href="./v1.0.0.html" title="v1.0.0" class="page">v1.0.0</a></li>
+<li><a href="./v1.0.1.html" title="v1.0.1" class="page">v1.0.1</a></li>
+<li><b>v1.1.0</b>
+<ul>
+<li><a href="./v1.1.0/Review_of_HeatExchangers.html" title="Review of HeatExchangers" class="page">Review of HeatExchangers</a></li>
+</ul>
+</li>
+<li><a href="./v1.1.1.html" title="v1.1.1" class="page">v1.1.1</a></li>
+<li><a href="./v1.1.2.html" title="v1.1.2" class="page">v1.1.2</a></li>
+<li><a href="./v1.2.0.html" title="v1.2.0" class="page">v1.2.0</a></li>
+<li><a href="./v1.2.1.html" title="v1.2.1" class="page">v1.2.1</a></li>
+<li><a href="./v1.3.0.html" title="v1.3.0" class="page">v1.3.0</a></li>
+<li><a href="./v1.4.0.html" title="v1.4.0" class="page">v1.4.0</a></li>
+<li><a href="./v1.5.0.html" title="v1.5.0" class="page">v1.5.0</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
+<li><a href="../../Basics.html" title="Basics" class="page">Basics</a></li>
+<li><a href="../../Components.html" title="Components" class="page">Components</a></li>
+<li><a href="../../Examples.html" title="Examples" class="page">Examples</a></li>
+<li><a href="../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
+<li><a href="../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
+<li><a href="../../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
+<li><a href="../../Visualisation.html" title="Visualisation" class="page">Visualisation</a></li>
+</ul>
+</li>
+<li><a href="../../../ZIM_DocumentationTemplate.html" title="ZIM DocumentationTemplate" class="page">ZIM DocumentationTemplate</a></li>
+</ul>
+ </div>
+		<div id="content">
+			<h1>v1.1.0 <a name='ClaRa:A User Guide:Revisions:v1.1.0'></a></h1>
+
+			<p>
+Created Monday 12 January 2015
+</p>
+
+<p>
+<b>This version was released 10.03.2016</b>
+</p>
+
+<h1>New Features</h1>
+
+<br>
+<br>
+
+<h2>Documentation</h2>
+
+<p>
+<ul>
+<li class="checked-box">From this release on we will provide an extensive documentation giving deep insight into the physics underlying the models and. The documentation is currently still under development. If you encounter any blank pages for which you need a documentation we will prioritise it - just write an email to <a href="mailto:info@claralib.com" title="info@claralib.com" class="mailto">info@claralib.com</a>.</li>
+</ul>
+</p>
+
+<h2>General</h2>
+
+<p>
+<ul>
+<li class="checked-box">simCenter:
+<ul>
+<li class="checked-box">T_amb, p_amb are variable now. The previously provided parameters are renamed to p_amb_start and T_amb_start and will be initialised with p_amb and T_amb, respectively</li>
+<li class="checked-box">introduce phi_amb</li>
+</ul></li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li class="checked-box">VLE components: included T_sat, h_dew and h_bub in summaries</li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li class="checked-box">"ClaRa.SubSystems.Boiler.ConvectiveHeatingPart_3SH" and "ClaRa.SubSystems.Boiler.ConvectiveHeatingPart_4SH" were moved to package ClaRa_obsolete.SubSystems</li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li class="checked-box">removed ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.ConstantHTC_AMTD to ClaRa_obsolete (convert script ensures backward compatibility)</li>
+<li class="checked-box">removed ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.CharLineHTC_AMTD to ClaRa_obsolete (convert script ensures backward compatibility)</li>
+<li class="checked-box">removed ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.CharLine_AR_L4 to ClaRa_obsolete (convert script ensures backward compatibility)</li>
+<li class="checked-box">functionality of ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.CharLine_AR_L4 is transferred to ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.CharLine_L4(temperatureDifference= "Logarithmic mean")) (convert script ensures backward compatibility)</li>
+</ul>
+</p>
+
+<br>
+
+<h2>Basics</h2>
+
+<br>
+
+<h3>HeatTransfer</h3>
+
+<p>
+<ul>
+<li class="checked-box">New HT model for L3 volume models: ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.Ideal_L3  → model for no HT</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltPipe2ph_L2 now allows to define "temperatureDifference" default is "Logarithmic mean" which is compatible with version 1.0.1</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltPipe1ph_L2 now allows to define "temperatureDifference" default is "Logarithmic mean" which is compatible with version 1.0.1</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltShell2ph_L2 now allows to define "temperatureDifference" default is "Logarithmic mean" which is compatible with version 1.0.1</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltShell1ph_L2 now allows to define "temperatureDifference" default is "Logarithmic mean" which is compatible with version 1.0.1</li>
+<li class="checked-box">Convective and radiant heat transfer model inside tube banks now features particle radiation</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltPipe_L4 parameter for boundary conditions introduced, relevant for laminar flow heat transfer model</li>
+</ul>
+</p>
+
+<br>
+<br>
+
+<h3>PressureLoss</h3>
+
+<p>
+<ul>
+<li class="checked-box">New PL model for L4 volume models: ClaRa.Basics.ControlVolumes.Fundamentals.PressureLoss.Generic_PL.NoFriction_L4  → model for no PL</li>
+<li class="checked-box">Dependency of the discretisation is introduced for the parameter dp_smooth. -&gt; Script entry for backwards compatibility</li>
+</ul>
+</p>
+
+<br>
+
+<h3>Geometry</h3>
+
+<p>
+<ul>
+<li class="checked-box">introduce parameter for actual position (or length) Delta_z(x) of discretized volumes</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.Geometry.GenericGeometry_N_cv (and descendents): diameter_hyd is not a vector of length N_cv </li>
+<li class="checked-box">enhanced validity of shape table in HollowBlockWithTubesAndHotwell: correct level calculation above hotwell.</li>
+<li class="checked-box">improved control of inconsistent parameters, e.g. abs(z_out-z_in)&lt;height by using asserts</li>
+</ul>
+</p>
+
+<br>
+<br>
+
+<h3>ControlVolumes</h3>
+
+<p>
+<ul>
+<li class="checked-box">FlueGasCell_L4 revised. The component now uses the discretized geometry correctly and is capable to be used as extension for  appropriate models for example like the TubeBundleGas_L2_simple</li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li class="checked-box">summaries for thin and thick wall components added</li>
+<li class="checked-box">cp and rho added to the solid wall component summary</li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li class="checked-box">Delta_p in summary of L4 volumes is defined as positive, if m_flow&gt;0.</li>
+</ul>
+</p>
+
+<h3>Media Data</h3>
+
+<p>
+<ul>
+<li class="checked-box">The initial lower heating value of coal is now set on the boundaries and not inside the combustion chamber models. It is a variable which can be modified for example by the drying process inside the mills.</li>
+</ul>
+</p>
+
+<h2>Components.TurboMachines</h2>
+
+<p>
+<ul>
+<li class="checked-box">GasCompressor_L4_StageStacked and GasTurbine_L4_StageStacked now can be simulated with varying stage diameters</li>
+<li class="checked-box">in CompressorGas_L1_simple, CompressorGas_L1_affinity, CompressorGas_L1_stageStacked and TurbineGas_L1_stageStacked shaft connector now disappears when no mechanical port is used</li>
+<li class="checked-box">in PumpVLE_L1_afinity, PumpVLE_L2_affinity and CompressoreVLE_L1_stageStacked shaft connector now disappears when no mechanical port is used</li>
+<li class="checked-box">VLECompressor_L4_StageStacked now can be simulated with varying stage diameters</li>
+</ul>
+</p>
+
+<br>
+
+<h2>Components.Mills</h2>
+
+<p>
+<ul>
+<li class="checked-box">Drying affects lower heating value of coal inside vertical coal mill. Different calculations provided.</li>
+<li class="checked-box">The vertical mill now calculates the coal composition dynamically</li>
+</ul>
+</p>
+
+<br>
+
+<h2>Components.MechanicalSeparation</h2>
+
+<p>
+<ul>
+<li class="checked-box">SteamSeparatorVLE_L1 for modelling of a steam separator like a cyclone</li>
+<li class="checked-box">SteamSeparatorVLE_L3 for modelling of steam separators and start-up vessels</li>
+<li class="checked-box">ClaRa.Components.MechanicalSeparation.Drum_L3_advanced: full access to wall parameterisation at top level</li>
+<li class="checked-box">ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3: full access to wall parameterisation and wall heat transfer at top level</li>
+</ul>
+</p>
+
+<h2>Components.Furnace</h2>
+
+<p>
+<ul>
+<li class="checked-box">The replaceable model RadiationTimeConstant in models descending from ClaRa.Components.Furnace.BaseClasses(ClaRa.Components.Furnace.GeneralTransportPhenomena.ThermalCapacities.ThermalLowPass) <u>now is fixed (not replaceable any more). Re-declaration of this model will be deleted as the default (which is propagated to top level now (group "heat Transfer") will work in most cases)</u></li>
+</ul>
+</p>
+
+<br>
+
+<h2>Components.VolumesValvesFittings</h2>
+
+<p>
+<ul>
+<li class="checked-box">revised connector naming in the spray injector package being consistent with library naming and Modelica naming conventions. For backwards compatibility the following spray injector models can now be found in the ClaRa_Obsolete package:
+<ul>
+<li>ClaRa.Components.VolumesValvesFittings.Fittings.SprayInjector_Kvs_L3</li>
+<li>ClaRa.Components.VolumesValvesFittings.Fittings.SprayInjector_Kvs_L3_noMixer</li>
+<li>ClaRa.Components.VolumesValvesFittings.Fittings.SprayInjector_L3</li>
+<li>ClaRa.Components.VolumesValvesFittings.Fittings.SprayInjector_L3_advanced</li>
+</ul>
+</li>
+<li class="checked-box">The model ClaRa.Components.VolumesValvesFittings.Fittings.SprayInjectorVLE_L3 is added
+<ul>
+<li>Pressure Loss models of the submodels can now be set as a parameter and adjusted individually</li>
+<li>The expert settings parameter dialog is improved</li>
+</ul>
+</li>
+<li class="checked-box">The model ClaRa.Components.VolumesValvesFittings.Fittings.SprayInjectorVLE_L3_advanced is added
+<ul>
+<li>The expert settings parameter dialog is improved</li>
+</ul>
+</li>
+<li class="checked-box">TubeBundleGas_L2_simple is revised and is no longer a duplicate of VolumeGas_L4 but extends this component and uses the pipe geometry for discretisable components</li>
+<li class="checked-box">Renamed models in ClaRa.Components.VolumesValvesFittings.Pipes to follow the naming scheme</li>
+</ul>
+</p>
+
+<br>
+
+<h2>Components.HeatExchangers</h2>
+
+<p>
+This package was completely reviewed and a lot of details were improved:<br>
+<ul>
+<li>giving the user a better control to geometry details and expert settings</li>
+<li>added descriptive figures to the parameter dialogues (work in progress)</li>
+<li>fixed a number of minor bugs. We tried to provide script entries to allow to reproduce former results (even if they were inaccurate). </li>
+</ul>
+<u>So please check out the details in</u> <a href="./v1.1.0/Review_of_HeatExchangers.html" title="Review of HeatExchangers" class="page">Review of HeatExchangers</a> <u>to check whether you require to manually adapt your models further or not.</u>
+</p>
+
+<h2>Visualisation</h2>
+
+<p>
+<ul>
+<li class="checked-box">DynDisplay now features an optional Real output connector allowing to connect the displayed variable to other MSL compatible blocks. This way a virtual measurement can be introduced.</li>
+<li class="checked-box">New </li>
+</ul>
+visualiser: DynamicBar, a dynamically animated bar. 
+</p>
+
+<br>
+
+<h1>Bug Fixes</h1>
+
+<br>
+
+<h2>General</h2>
+
+<p>
+<ul>
+<li class="checked-box">GasBoundaries did not work with some medias (e.g. VDI4670.MoistAir, TILMedia.MoistAir)</li>
+</ul>
+</p>
+
+<br>
+
+<h2>Examples</h2>
+
+<p>
+<ul>
+<li class="checked-box">applied the nominal values for two valves calculated by the static cycle NOM instance</li>
+</ul>
+</p>
+
+<h2>Basics</h2>
+
+<br>
+
+<h3>ControlVolumes</h3>
+
+<p>
+<ul>
+<li class="checked-box">VolumeVLE_L4: corrected geodetic pressure calculation for non-equidistant discretised applications</li>
+<li class="checked-box">VolumeVLE_L4_advanced: for improved numerical robustness the geodetic pressure loss is allocated in accordance with the friction loss, i.e. there is no geostatic pressure difference if <tt>frictionAtInlet = false</tt></li>
+</ul>
+</p>
+
+<br>
+
+<p>
+<ul>
+<li class="checked-box">NTU_L3_Standalone: The time constant for anti-wind-up compensation was reduced to 0.01 → Nonphysical transient behaviour is avoided if inlet flow is subject to phase change.</li>
+</ul>
+</p>
+
+<h3>HeatTransfer</h3>
+
+<p>
+<ul>
+<li class="checked-box">bugfixed kc calculation for N_passes &gt;1 in ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltPipe2ph_L2 (the length now takes the number of passes into account)</li>
+<li class="checked-box">bugfixed kc calculation for N_passes &gt;1 in ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltPipe1ph_L2 (the length now takes the number of passes into account)</li>
+<li class="checked-box">"ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.Ideal_L3" calculates ideal HT by a very large HT coefficient -&gt; numerically unstable. The model now sets the volume temperature to the heat port temperature.</li>
+<li class="checked-box">"ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltPipe_L4" the discretized pipe length was given as a parameter to the IN_con record for the FluidDissipation function. The complete length is now handed over as the mean htc is calculated with the complete pipe length.</li>
+</ul>
+</p>
+
+<br>
+
+<h3>PressureLoss</h3>
+
+<p>
+<ul>
+<li class="checked-box">For Pressure Loss Model ClaRa.Basics.ControlVolumes.Fundamentals.PressureLoss.Generic_PL.LinearPressureLoss_L4  the flow model no friction at inlet can not be chosen, no friction at outlet is used instead.</li>
+<li class="checked-box">Homotopy pressure loss is not calculated correctly in models "ClaRa.Basics.ControlVolumes.Fundamentals.PressureLoss.VLE_PL.QuadraticNominalPoint_L4"</li>
+</ul>
+</p>
+
+<br>
+<br>
+
+<h3>Geometry</h3>
+
+<p>
+<ul>
+<li class="checked-box">moved Condenser, Preheater_LP, CU_Nports, CH_Nports to the obsolete package (with script entry)</li>
+<li class="checked-box">bugfixed A_heat[1] in HollowBlockWithTubesAndHotwell → this heating surface relates to the ambient surfaces and is not used in current ClaRa models</li>
+<li class="checked-box">for the sake of transparency geometry definitions of block shapes are equalised. This results in a changed interpretation of length and width in  HollowBlockWithTubesAndHotwell. This results in:
+<ul>
+<li>changed calculation of A_heat[2], see <a href="./v1.1.0/Review_of_HeatExchangers.html" title="Review of HeatExchangers" class="page">Review of HeatExchangers</a></li>
+<li>changed calculation of the volume, see <a href="./v1.1.0/Review_of_HeatExchangers.html" title="Review of HeatExchangers" class="page">Review of HeatExchangers</a></li>
+</ul>
+</li>
+<li class="checked-box">in cylinder geometry added face sides to A_heat[1] <u>this will result in slightly higher heat flow rates in transient situations</u> (currently, no heat loss supported but planned for future versions)</li>
+<li class="checked-box">in HollowCylinderWithTubes the volume in case of parallelTube=true was overestimated. <u>This bug fix is not backwards compatible and affects the level calculation</u> of ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CU_simple and ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CU_ntu, see <a href="./v1.1.0/Review_of_HeatExchangers.html" title="Review of HeatExchangers" class="page">Review of HeatExchangers</a></li>
+<li class="checked-box">in HollowCylinderWithTubes A_front was not calculated correctly, see <a href="./v1.1.0/Review_of_HeatExchangers.html" title="Review of HeatExchangers" class="page">Review of HeatExchangers</a></li>
+<li class="checked-box">bugfixed A_cross in ClaRa.Basics.ControlVolumes.Fundamentals.Geometry.PipeWithHotwell → this parameter is not used in current ClaRa models </li>
+</ul>
+</p>
+
+<br>
+
+<h2>Components.VolumesValvesFittings</h2>
+
+<p>
+<ul>
+<li class="checked-box">PipeFlowVLE_L4_advanced: corrected geodetic pressure calculation for non-equidistant discretised applications</li>
+<li class="checked-box">PipeFlowVLE_L4_simple: for improved numerical robustness the geodetic pressure loss is allocated in accordance with the friction loss, i.e. there is no geostatic pressure difference if <tt>frictionAtInlet = false</tt></li>
+</ul>
+</p>
+
+<h2>Components.TurboMachines</h2>
+
+<p>
+<ul>
+<li class="checked-box">removed unused parameter eta_hyd in PumpVLE_L1_simple (script entry)</li>
+</ul>
+</p>
+
+<h2>Visualisation</h2>
+
+<p>
+<ul>
+<li class="checked-box">Hexdisplay: rename yps_o, yps_i → z_o, z_i with comments being {"Position of zone limits at outer side","Position of zone limits at inner side"}</li>
+</ul>
+</p>
+
+
+
+			<br>
+			<span class="backlinks">
+			</span>
+
+			
+		</div>
+	</div>
+</body>
+</html>
+

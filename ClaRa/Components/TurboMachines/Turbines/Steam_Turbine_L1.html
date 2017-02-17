@@ -1,0 +1,590 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Steam Turbine L1</title>
+	<meta name="generator" content="Zim 0.65">
+	<meta name="viewport" content="width=device-width">
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
+	<![if !IE]>
+	<!-- comment out for IE since it spams the user with warnings -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+	<script type='text/javascript'>
+		$(window).load(function(){$("#navigation").height( $("#content").height()+65 );});
+	</script>
+	<![endif]>
+	<style>
+		body, html {
+			height:100%;
+			font-family:'Open Sans', sans-serif;
+			line-height:1.5em;
+			font-weight:300;
+			background-color:#FAFAFA;
+			text-rendering:geometricPrecision;
+			margin:0;
+			padding:0;
+		}
+		.wrapper {
+			height:100%;
+			position:relative;
+		}
+		#navigation {
+			background-color:#e8e9e9;
+			display:inline-block;
+			border-right:1px solid #EAEAEA;
+			padding-right:65px;
+			padding-top:20px;
+			padding-left:25px;
+			position:relative;
+			float:left;
+			min-height:100%;
+		}
+		#content {
+			float:left;
+			display:inline-block;
+			position:absolute;
+			max-width:960px;
+			padding:65px;
+		}
+		#navigation ul {
+			margin-top:0;
+			margin-bottom:0;
+			padding-left:40px;
+			color: #0083A9
+		}
+		#navigation li {
+			list-style-type:none;
+		}
+		#navigation a {
+			text-decoration:none;
+			color:#495055;
+		}
+		#navigation strong {
+			color:#0083A9;
+			font-weight:400;
+		}
+		#navigation a:hover {
+			text-decoration:underline;
+			color: #767c7f
+		}
+		#content h1:nth-child(1) {
+			margin-top:0;
+		}
+		h1 {
+			color:#0083A9;
+			font-weight:700;
+			margin-bottom: 5;
+			text-decoration: underline;
+		}
+		h2,h3 {
+			color:#0083A9;
+			font-weight:300;
+			margin-bottom: 2;
+			text-decoration: none;
+		}
+		h4 {
+			color:#767c7f;
+			font-weight:200;
+			margin-bottom: 0;
+		}
+		h5 {
+			color:#66b5cb;
+			font-weight:200;
+			margin-bottom: 0;
+		}
+		p {
+			margin-top: 0;
+		}
+		#content a {
+			color:#739600;
+			text-decoration: none;
+		}
+		#content a:hover {
+			text-decoration: underline;
+		}
+		#content a:active {
+			text-decoration: underline;
+		}
+		#content strike {
+			color: grey;
+		}
+		#content u {
+			text-decoration: none;
+			background-color: none;
+			color: #a71930
+		}
+		#content tt {
+			color: #495055;
+		}
+		#content pre {
+			color: #495055;
+			margin-left: 20px;
+		}
+		#content b {
+			color: #1b242a;
+			font-weight: bold;
+		}
+		# kopfzeile{
+			background-color:#739600;
+			display:inline-block;
+			border-right:1px solid #EAEAEA;
+			padding-right:65px;
+			padding-top:65px;
+			padding-left:25px;
+			position:relative;
+			float:left;
+			min-height:100%;
+		}
+		.backlinks {
+			color:#495055;
+		}
+		hr.footnotes {
+			width: 20%;
+			margin-left: 0;
+		}
+		@media print{
+			#navigation{
+				background-color:#FFF;
+			}
+		}
+
+		span.zim-tag {
+			color: #739600;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="kopfzeile"> <img src = "../../../../_resources/ClaRaInfoHeader.png" alt=""/></div><br>
+		<div id="navigation"> <ul>
+<li><a href="../../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
+<ul>
+<li><a href="../../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
+<li><a href="../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
+<li><a href="../../../Basics.html" title="Basics" class="page">Basics</a></li>
+<li><a href="../../../Components.html" title="Components" class="page">Components</a>
+<ul>
+<li><a href="../../Adapters.html" title="Adapters" class="page">Adapters</a></li>
+<li><a href="../../BoundaryConditions.html" title="BoundaryConditions" class="page">BoundaryConditions</a></li>
+<li><a href="../../Electrical.html" title="Electrical" class="page">Electrical</a></li>
+<li><a href="../../FlueGasCleaning.html" title="FlueGasCleaning" class="page">FlueGasCleaning</a></li>
+<li><a href="../../Furnace.html" title="Furnace" class="page">Furnace</a></li>
+<li><a href="../../HeatExchangers.html" title="HeatExchangers" class="page">HeatExchangers</a></li>
+<li><a href="../../MechanicalSeparation.html" title="MechanicalSeparation" class="page">MechanicalSeparation</a></li>
+<li><a href="../../Mills.html" title="Mills" class="page">Mills</a></li>
+<li><a href="../../Sensors.html" title="Sensors" class="page">Sensors</a></li>
+<li><a href="../../TurboMachines.html" title="TurboMachines" class="page">TurboMachines</a>
+<ul>
+<li><a href="../Compressors.html" title="Compressors" class="page">Compressors</a></li>
+<li><a href="../Pumps.html" title="Pumps" class="page">Pumps</a></li>
+<li><a href="../Turbines.html" title="Turbines" class="page">Turbines</a>
+<ul>
+<li><b>Steam Turbine L1</b></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="../../Utilities.html" title="Utilities" class="page">Utilities</a></li>
+<li><a href="../../VolumesValvesFittings.html" title="VolumesValvesFittings" class="page">VolumesValvesFittings</a></li>
+</ul>
+</li>
+<li><a href="../../../Examples.html" title="Examples" class="page">Examples</a></li>
+<li><a href="../../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
+<li><a href="../../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
+<li><a href="../../../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
+<li><a href="../../../Visualisation.html" title="Visualisation" class="page">Visualisation</a></li>
+</ul>
+</li>
+<li><a href="../../../../ZIM_DocumentationTemplate.html" title="ZIM DocumentationTemplate" class="page">ZIM DocumentationTemplate</a></li>
+</ul>
+ </div>
+		<div id="content">
+			<h1>Steam Turbine L1 <a name='ClaRa:Components:TurboMachines:Turbines:Steam Turbine L1'></a></h1>
+
+			<p>
+Created Monday 03 December 2012
+</p>
+
+<p>
+<b>An analytic model for a turbine is derived using conservation of mass and energy together with Stodola's law. An adiabatic expansion is assumed in which isentropic efficiency is present. The mechanical efficiency of the turbine is also considered in the model.</b>
+</p>
+
+<h2>1. Purpose of Model</h2>
+
+<p>
+<img src="./Steam_Turbine_L1/Turbine_L1.PNG"><br>
+In this model the time behaviour of mass flow, temperature, pressure and density is modelled for a turbine that employs simple impulse rotors separated essentially by a partition wall with a series of tunnels cut into it; the steam jets are assumed to be directed onto the impulse rotor (Zolley nozzle). A mechanical port can be included optionally.
+</p>
+
+<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
+
+<br>
+
+<h3>2.1 Physical Effects Considered</h3>
+
+<p>
+Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L1</b> because a single mass balance is considered in the turbine where the hydraulic efficiency of the turbine is defined by its characteristic line.
+</p>
+
+<h3>2.2 Physical Effects Considered</h3>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>The expansion of the vapour is adiabatic (Isentropic process).</li>
+<li>Kinetic and potential energy are neglected.</li>
+<li>Rate of heat transfer between the nozzle and the surroundings  <img src="./Steam_Turbine_L1/equation.png">.</li>
+</ul>
+</p>
+
+<h2>3 Limits of Validity</h2>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>Backflow is not supported.</li>
+<li>High backpressure.</li>
+<li>adiabatic expansion</li>
+<li>changes in kinetic energy between inlet and outlet are negligible</li>
+<li>hydraulic efficiency depends on mass flow rate only and is defined via a characteristic line</li>
+</ul>
+</p>
+
+<h2>4. Interfaces</h2>
+
+<br>
+
+<h3>4.1 Physical Connectors</h3>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>Inlet and outlet connectors combined for:
+<ul>
+<li>Mass flow rate in the connection ports [kg/s].</li>
+<li>Thermodynamic pressure in the connection ports [Pa].</li>
+<li>Specific thermodynamic enthalpy close to the connection ports [J/kg].</li>
+<li>Medium properties at the ports.</li>
+</ul></li>
+</ul>
+</p>
+
+<h3>4.2 Summaries</h3>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>The medium properties are inherited from the Records model, in this model the next <b>summaries</b> are included:
+<ul>
+<li>Mass specific 0-D.</li>
+</ul></li>
+</ul>
+</p>
+
+<h3>4.3 Tables</h3>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>Hydraulic Efficiency interpolation table for the mass flow rate.</li>
+</ul>
+</p>
+
+<h3>4.4 Medium Models</h3>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>Fluid Medium Model.</li>
+<li>Fluid Medium Model for an isentropic process.</li>
+</ul>
+</p>
+
+<h2>5. Nomenclature</h2>
+
+<br>
+
+<p>
+<img src="./Steam_Turbine_L1/equation019.png">
+</p>
+
+<h2>6. Governing Equations</h2>
+
+<br>
+
+<h3>6.1 System Description and General model approach</h3>
+
+<p>
+The turbine is considered, as mentioned, as a Zolley Nozzle in which steady incompressible flow is flowing in-out, so that no reversal is allowed. Balances of energy and mass are done to compute the power produced by the turbine. Efficiencies are considered, one mechanical and one isentropic for the adiabatic process of the turbine. The dynamical relation between pressure and mass flow is considered using Stodola's law. For this type of turbine it can be noted that the pressure ratio in terms of the mass flow produces geometrically an ellipsoidal shape in which a highly nonlinear dependence of extraction pressures is modelled using such geometrical shape.
+</p>
+
+<h3>6.2 Governing Model Equations</h3>
+
+<br>
+
+<h4>Boundary Conditions</h4>
+
+<p>
+The boundary conditions are the pressure conditions. They are chosen so that its values match the physical location of the turbine's inlet and outlet valves.
+</p>
+
+<p>
+<img src="./Steam_Turbine_L1/equation009.png">
+</p>
+
+<p>
+The values of the enthalpy at the boundaries are chosen so that at no point reverse flow is supported. Therefore, the inlet enthalpy is that of the medium flowing at the point where it enters the turbine, the outlet enthalpy is the actual values of the state
+</p>
+
+<p>
+<img src="./Steam_Turbine_L1/equation011.png">
+</p>
+
+<h4>Mass Balance</h4>
+
+<p>
+Conservation of mass for incompressible steady flow is considered 
+</p>
+
+<p>
+<img src="./Steam_Turbine_L1/equation012.png">
+</p>
+
+<p>
+*The outlet flow from the object is considered as negative inflow in the turbine.
+</p>
+
+<h4>Efficiency</h4>
+
+<br>
+
+<p>
+The hydraulic efficiency is calculated in a separate model. All losses which occur by friction of the working fluid are summarised in this factor. Also the kinetic energy which leaves the tubrine is included, see [2]. Three models for the efficiency can be chosen:
+</p>
+
+<p>
+<ul>
+<li>A mass flow rate dependent model, given by the characteristic line  <img src="./Steam_Turbine_L1/equation005.png"> in which its range is defined by the  static isentropic efficiency <img src="./Steam_Turbine_L1/equation004.png">:</li>
+</ul>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+<img src="./Steam_Turbine_L1/equation006.png"><br>
+The time varying efficiency is then proportional to the inlet mass flow and the nominal mass flow where the proportionality is determined by a linear interpolation of the values given by the characteristic line <img src="./Steam_Turbine_L1/equation008.png">.
+</div>
+<ul>
+<li>A volume flow dependent model , given by the characteristic line <img src="./Steam_Turbine_L1/equation030.png"></li>
+</ul>
+<div style='padding-left: 30pt'>
+<img src="./Steam_Turbine_L1/equation031.png">
+</div>
+<ul>
+<li>A semi-empirical model according to [5]. Its idea is to express the efficiency of the blade tip velocity to a theoretical steam velocity. The blade speed is proportional to the turbine shaft speed, the steam velocity is proportional to the square root of the enthalpy drop over the turbine.</li>
+</ul>
+<div style='padding-left: 30pt'>
+<img src="./Steam_Turbine_L1/equation032.png">
+</div>
+</p>
+
+<br>
+
+<h4>Output State</h4>
+
+<br>
+<br>
+
+<p>
+ The enthalpy of the system is an adiabatic process which considers isentropic efficiency for the enthalpy changes in the turbine,
+</p>
+
+<p>
+<img src="./Steam_Turbine_L1/equation014.png">
+</p>
+
+<p>
+where <img src="./Steam_Turbine_L1/equation015.png"> is the measured enthalpy corresponding to the enthalpy at the end of the adiabatic process and <img src="./Steam_Turbine_L1/equation016.png"> is the enthalpy value at the inlet of the turbine. 
+</p>
+
+<h4>Mass Flow Rate and Pressure</h4>
+
+<p>
+The nonlinear dependence of mass flow rate and pressure in the turbine defines a line which has the shape of an ellipse, see figure 1. 
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+<img src="./Steam_Turbine_L1/stodola.png" width="700">
+</div>
+<div style='padding-left: 270pt'>
+a									b
+</div>
+<div style='padding-left: 180pt'>
+ Figure 1 Elipsoidal Curve from Stodola Law not choked (a) and choked for small number of stages (b).      
+</div>
+</p>
+
+<p>
+The equation relating pressure and mass flow follow this geometrical representation also called Stodola's Law; confining the rate of pressure at the input and output it is possible to determine the outlet mass flow by:
+</p>
+
+<p>
+<img src="./Steam_Turbine_L1/equation003.png"><br>
+please note that in the common literature Stodola's law is formulated applying the inlet temperature. This comes from the application of the ideal gas law. Thus, the above equation (6a) is more precise in flows near the dew line. <br>
+According to [3] the Stodola's Law changes with a small number of turbine stages for choked flow conditions, the mass flow rate does not depend on the outlet pressure. With the parameter <tt>chokedFlow==true </tt>equation (6a) changes to:<br>
+<img src="./Steam_Turbine_L1/equation024.png"><br>
+with the Laval pressure defined as:<br>
+<img src="./Steam_Turbine_L1/equation025.png">
+</p>
+
+<p>
+Also the nonlinear relationship is applied to the nominal operation values for density, pressure and mass flow on the coefficient:
+</p>
+
+<p>
+<img src="./Steam_Turbine_L1/equation001.png"> 
+</p>
+
+<br>
+
+<p>
+Where  <img src="./Steam_Turbine_L1/equation021.png">  and    <img src="./Steam_Turbine_L1/equation020.png">
+</p>
+
+<p>
+Taking into consideration the physical effects mentioned in section 2. Using equation 3)  and  4) it is possible to apply an energy balance in the turbine to obtain the work produced during the process,
+</p>
+
+<p>
+<img src="./Steam_Turbine_L1/equation017.png"> 
+</p>
+
+<p>
+Mechanical ports can be used, to attach e.g. a generator to the turbine. This is set by the parameter <tt>useMechanicalPort==true</tt>. Thus, a momentum balance is introduced:<br>
+<img src="./Steam_Turbine_L1/equation026.png"><br>
+The rotational speed is calculated:<br>
+<img src="./Steam_Turbine_L1/equation028.png"><br>
+If no mechanical port is used the rotational speed is set fixed:<br>
+<img src="./Steam_Turbine_L1/equation027.png">
+</p>
+
+<p>
+Notice that the mechanical efficiency of the turbine is also considered. 
+</p>
+
+<h4>The inherent assumptions of the cone of STODOLA:</h4>
+
+<p>
+see Sigloch, H.: "Strömungsmaschinen - Grundlagen und Anwendungen" , Menny, K. : "Strömungsmaschinen" , Traupel:  "Thermische Turbomaschinen II" for further details,<br>
+<ul>
+<li>the turbine is considered as a ZOLLEY nozzle</li>
+<li>constant rotation speed (which is true for most steam turbine applications during normal operation)</li>
+<li>constant inlet temperatures - to cope with varying temperatures a density correction term is added in the above equations</li>
+<li>constant flow cross section so the discussion always takes the states of the fully loaded inlet cross section into account, i.e. when using a turbine valve the inlet state is the state after the valve, when using a regulating wheel (LAVAL or CURTIS type) then the state after the regulation wheel has to be used</li>
+<li>the mass flow mus be subcritical, i.e. Ma &lt; 1 this is true for most applications and only small deviations occur for the last low pressure stages where considerable supersonic speed may be present</li>
+<li>an infinite number of stages is assumed. However, literature claims that the STODOLA law fits well for a finite number of stages, too.</li>
+<li>The polynomial exponent of the expansion is constant for nominal load and part load</li>
+</ul>
+</p>
+
+<h4>Fluid Mixtures and Chemical Reactions</h4>
+
+<p>
+No chemical reactions are considered in the equation; the mixtures at the input port equal the mixtures at the outlet port so the mass fractions form the system's medium are the same at all times; the inlet and outlet mass fractions are constant in time.
+</p>
+
+<p>
+<img src="./Steam_Turbine_L1/equation013.png">
+</p>
+
+<p>
+<img src="./Steam_Turbine_L1/equation023.png">
+</p>
+
+<h2>7. Remarks for Usage</h2>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>Homotopy initialisation is supported.</li>
+<li>No control volume included.</li>
+</ul>
+</p>
+
+<h2>8. Validation</h2>
+
+<br>
+
+<h3>8.1 Scenario Description</h3>
+
+<p>
+In figure 2 a test scenario with duration of 4 hours is created in order to test the turbine model. During the testing a pressure gradient approx 80 bars is induced to the turbines inlet in an interval of approx. 2.5 hours, while small variations on the turbine inlet are induced during the whole test.
+</p>
+
+<p>
+<div style='padding-left: 60pt'>
+   <img src="./Steam_Turbine_L1/TurbineBoundaries.png" width="328">
+</div>
+<div style='padding-left: 330pt'>
+   Figure 2- Test scenario for Inlet Pressure and Temperature
+</div>
+</p>
+
+<br>
+
+<h3>8.2 Validation Results</h3>
+
+<br>
+
+<p>
+Concerning the turbines mass flow rate and power the Modelica model agrees perfectly with the measurement data for the testing scenario. 
+</p>
+
+<p>
+<img src="./Steam_Turbine_L1/TurbineMassFlowRate.png" width="392">                                                  <img src="./Steam_Turbine_L1/TurbineOutletTemperature.png" width="392"><br>
+Figure 3- Response to Test scenario outlet Turbine Mass Flow                             Figure 4- Response to Test scenario outlet Turbine Temperature
+</p>
+
+<h2>9. References</h2>
+
+<br>
+
+<p>
+[1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulationof Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 <br>
+[2] <b>Sigloch, H.:</b> "Strömungsmaschinen - Grundlagen und Anwendungen" (in German), Hanser publishing, Munich, 1993, 2nd edition<br>
+[3] <b>Menny, K. :</b> "Strömungsmaschinen" (in German), Teubner publishing, Wiesbaden, 2011, 5th edition. <br>
+[4] <b>Traupel:</b>  "Thermische Turbomaschinen 2: Geänderte Betriebsbedingungen, Regelung, machinsche Probleme, Temperaturprobleme (in German), Springer publishing, Berlin,1982, 3rd edition. <br>
+[5] <b>Ray, A:</b> Dynamic modelling of power plant turbines for controller design, Appl. Math. Modelling, 1980, Vol. 4
+</p>
+
+<h2>10. Version History</h2>
+
+<p>
+01.11.2012 - v0.1 - initial implementation - Friedrich Gottelt XRG Simulation<br>
+25.04.2016 - v1.1.1 - included optional mechanical ports, included option to calculate choked flow conditions - Timm Hoppe XRG Simulation<br>
+20.01.2017 - v1.2.0 - included replaceable models for hydraulic efficiency - Timm Hoppe XRG Simulation 
+</p>
+
+
+			<br>
+			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../Pumps/PumpVLE_L1_affinity.html'>ClaRa:Components:TurboMachines:Pumps:PumpVLE L1 affinity</a>
+				<br /><br />
+			</span>
+
+			
+		</div>
+	</div>
+</body>
+</html>
+

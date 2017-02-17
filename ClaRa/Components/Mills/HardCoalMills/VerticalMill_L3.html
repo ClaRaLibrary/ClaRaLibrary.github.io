@@ -1,0 +1,605 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>VerticalMill L3</title>
+	<meta name="generator" content="Zim 0.65">
+	<meta name="viewport" content="width=device-width">
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
+	<![if !IE]>
+	<!-- comment out for IE since it spams the user with warnings -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+	<script type='text/javascript'>
+		$(window).load(function(){$("#navigation").height( $("#content").height()+65 );});
+	</script>
+	<![endif]>
+	<style>
+		body, html {
+			height:100%;
+			font-family:'Open Sans', sans-serif;
+			line-height:1.5em;
+			font-weight:300;
+			background-color:#FAFAFA;
+			text-rendering:geometricPrecision;
+			margin:0;
+			padding:0;
+		}
+		.wrapper {
+			height:100%;
+			position:relative;
+		}
+		#navigation {
+			background-color:#e8e9e9;
+			display:inline-block;
+			border-right:1px solid #EAEAEA;
+			padding-right:65px;
+			padding-top:20px;
+			padding-left:25px;
+			position:relative;
+			float:left;
+			min-height:100%;
+		}
+		#content {
+			float:left;
+			display:inline-block;
+			position:absolute;
+			max-width:960px;
+			padding:65px;
+		}
+		#navigation ul {
+			margin-top:0;
+			margin-bottom:0;
+			padding-left:40px;
+			color: #0083A9
+		}
+		#navigation li {
+			list-style-type:none;
+		}
+		#navigation a {
+			text-decoration:none;
+			color:#495055;
+		}
+		#navigation strong {
+			color:#0083A9;
+			font-weight:400;
+		}
+		#navigation a:hover {
+			text-decoration:underline;
+			color: #767c7f
+		}
+		#content h1:nth-child(1) {
+			margin-top:0;
+		}
+		h1 {
+			color:#0083A9;
+			font-weight:700;
+			margin-bottom: 5;
+			text-decoration: underline;
+		}
+		h2,h3 {
+			color:#0083A9;
+			font-weight:300;
+			margin-bottom: 2;
+			text-decoration: none;
+		}
+		h4 {
+			color:#767c7f;
+			font-weight:200;
+			margin-bottom: 0;
+		}
+		h5 {
+			color:#66b5cb;
+			font-weight:200;
+			margin-bottom: 0;
+		}
+		p {
+			margin-top: 0;
+		}
+		#content a {
+			color:#739600;
+			text-decoration: none;
+		}
+		#content a:hover {
+			text-decoration: underline;
+		}
+		#content a:active {
+			text-decoration: underline;
+		}
+		#content strike {
+			color: grey;
+		}
+		#content u {
+			text-decoration: none;
+			background-color: none;
+			color: #a71930
+		}
+		#content tt {
+			color: #495055;
+		}
+		#content pre {
+			color: #495055;
+			margin-left: 20px;
+		}
+		#content b {
+			color: #1b242a;
+			font-weight: bold;
+		}
+		# kopfzeile{
+			background-color:#739600;
+			display:inline-block;
+			border-right:1px solid #EAEAEA;
+			padding-right:65px;
+			padding-top:65px;
+			padding-left:25px;
+			position:relative;
+			float:left;
+			min-height:100%;
+		}
+		.backlinks {
+			color:#495055;
+		}
+		hr.footnotes {
+			width: 20%;
+			margin-left: 0;
+		}
+		@media print{
+			#navigation{
+				background-color:#FFF;
+			}
+		}
+
+		span.zim-tag {
+			color: #739600;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="kopfzeile"> <img src = "../../../../_resources/ClaRaInfoHeader.png" alt=""/></div><br>
+		<div id="navigation"> <ul>
+<li><a href="../../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
+<ul>
+<li><a href="../../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
+<li><a href="../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
+<li><a href="../../../Basics.html" title="Basics" class="page">Basics</a></li>
+<li><a href="../../../Components.html" title="Components" class="page">Components</a>
+<ul>
+<li><a href="../../Adapters.html" title="Adapters" class="page">Adapters</a></li>
+<li><a href="../../BoundaryConditions.html" title="BoundaryConditions" class="page">BoundaryConditions</a></li>
+<li><a href="../../Electrical.html" title="Electrical" class="page">Electrical</a></li>
+<li><a href="../../FlueGasCleaning.html" title="FlueGasCleaning" class="page">FlueGasCleaning</a></li>
+<li><a href="../../Furnace.html" title="Furnace" class="page">Furnace</a></li>
+<li><a href="../../HeatExchangers.html" title="HeatExchangers" class="page">HeatExchangers</a></li>
+<li><a href="../../MechanicalSeparation.html" title="MechanicalSeparation" class="page">MechanicalSeparation</a></li>
+<li><a href="../../Mills.html" title="Mills" class="page">Mills</a>
+<ul>
+<li><a href="../HardCoalMills.html" title="HardCoalMills" class="page">HardCoalMills</a>
+<ul>
+<li><b>VerticalMill L3</b></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="../../Sensors.html" title="Sensors" class="page">Sensors</a></li>
+<li><a href="../../TurboMachines.html" title="TurboMachines" class="page">TurboMachines</a></li>
+<li><a href="../../Utilities.html" title="Utilities" class="page">Utilities</a></li>
+<li><a href="../../VolumesValvesFittings.html" title="VolumesValvesFittings" class="page">VolumesValvesFittings</a></li>
+</ul>
+</li>
+<li><a href="../../../Examples.html" title="Examples" class="page">Examples</a></li>
+<li><a href="../../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
+<li><a href="../../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
+<li><a href="../../../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
+<li><a href="../../../Visualisation.html" title="Visualisation" class="page">Visualisation</a></li>
+</ul>
+</li>
+<li><a href="../../../../ZIM_DocumentationTemplate.html" title="ZIM DocumentationTemplate" class="page">ZIM DocumentationTemplate</a></li>
+</ul>
+ </div>
+		<div id="content">
+			<h1>VerticalMill L3 <a name='ClaRa:Components:Mills:HardCoalMills:VerticalMill L3'></a></h1>
+
+			<p>
+<b>A grey box model for a hard coal mill comprehending both, ball-and race and bowl mills.</b><br>
+The model is taken from Niemczyk et al. [1]. It provides information about the time-dependent behaviour of vertical roller bowl mills concerning mass and energy storage. The model is based on mass balances and energy balances but there are a number of parameters that must be determined by evaluation of measurement data (this is why it is referred to as a grey box model).  The model also takes short-term changes of the classifier speed into account.
+</p>
+
+<h2>1. Purpose of Model</h2>
+
+<br>
+
+<p>
+<img src="./VerticalMill_L3/MillComponent.PNG">
+</p>
+
+<p>
+The model is appropriate whenever the pulverised coal mass flow and its temperature shall be calculated depending on the corresponding mass and energy flows and the classifier speed. Please be aware that the available parameter sets refer to specific mills and are taken from the literature, see [1]. Start up and shut down of the mill is not modelled.
+</p>
+
+<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
+
+<br>
+
+<h3>2.1 Level of Detail</h3>
+
+<br>
+
+<p>
+Referring to Brunnemann et al. [2], this model refers to the level of detail <b>L3</b> because the mill is subdivided into three balance rooms, namely the storage volumes of raw coal on the table, the storage volume of pulverised coal on the table and the pulverised coal in the primary air. 
+</p>
+
+<h3>2.2 Physical Effects Considered</h3>
+
+<br>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>Mass storage in the above named control volumes taking classifier speed into account.</li>
+<li>Mass transport between the storage volumes due to phenomenological considerations.</li>
+<li>Energy storage in the mill, the temperature is homogeneously distributed.</li>
+<li>Static pressure loss calculation, no shock waves considered.</li>
+<li>Dry out of the coal, the water of the raw coal is transferred to the moist gas flow.</li>
+</ul>
+</p>
+
+<h3>2.3 Level of Insight</h3>
+
+<p>
+No different levels of insight are available
+</p>
+
+<h2>3. Limits of Validity</h2>
+
+<br>
+
+<p>
+The limits of validity are reached if one of the following assumptions lose validity:
+</p>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>Perfect grinding process, i.e. the pulverised coal has only one particle size.</li>
+<li>The table is filled with raw coal such that the grinding process can take place, i.e. the table is neither overfilled nor empty.</li>
+<li>The temperature is homogeneously distributed.</li>
+<li>No shock waves are of relevance for the component behaviour. </li>
+</ul>
+</p>
+
+<h2>4. Interfaces</h2>
+
+<br>
+
+<h3>4.1 Physical Connectors</h3>
+
+<br>
+
+<p>
+<a href="../../../Basics/Interfaces/FuelFlueGas_inlet.html" title="ClaRa:Basics:Interfaces:FuelFlueGas inlet" class="page">ClaRa:Basics:Interfaces:FuelFlueGas inlet</a> inlet<br>
+<a href="../../../Basics/Interfaces/FuelFlueGas_outlet.html" title="ClaRa:Basics:Interfaces:FuelFlueGas outlet" class="page">ClaRa:Basics:Interfaces:FuelFlueGas outlet</a> outlet
+</p>
+
+<h3>4.2 Real Inputs</h3>
+
+<br>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>ClassifierSpeed</li>
+<li>GrindingStatus (conditional by setting the Expert Setting <tt>activateGrindingStatus==true</tt>)</li>
+</ul>
+</p>
+
+<h3>4.3 Real Outputs</h3>
+
+<br>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>Delta_p_mill Pressure difference between inlet and outlet</li>
+<li>P_mills Power of all mills in parallel</li>
+</ul>
+</p>
+
+<h2>5. Nomenclature</h2>
+
+<br>
+
+<p>
+<img src="./VerticalMill_L3/equation.png">
+</p>
+
+<h2>6. Governing Equations</h2>
+
+<br>
+
+<h3>6.1 System Description and General Model Approach</h3>
+
+<br>
+
+<p>
+The raw coal falls through a vertical funnel onto the grinding table. The coal is pulverised utilising rolling bowls or balls rolling over the grinding table. The pulverised coal is lifted by the primary air flow that transports the coal to the classifier section. Due to centrifugal forces that act on the coal particles only the smaller ones exit the mill, coarse particles fall back to the grinding table, see the figure below. The phenomenology of the grinding process allow to distinguish three main mass storages within the mill, namely the unground coal on the table, the ground coal on the table and the pulverised coal in the air volume of the mill. In the figures below, these mass are highlighted in blue, green and red, respectively.<br>
+<img src="./VerticalMill_L3/SketchBowlMill.png" width="300">    <img src="./VerticalMill_L3/SketchMillMasses.png" width="200">   
+</p>
+
+<p>
+In principle, the air mass in the mill is negligible compared to the coal masses and therefore the air mass balance will be steady state. Furthermore we assume that the drying process does not limit or interfere the grinding process. This allows us to model the grinding process and the drying process as to separate and sequentially run processes, see figure below. <br>
+ <img src="./VerticalMill_L3/SketchMillFlows.png" width="500">
+</p>
+
+<br>
+
+<h3>6.2 Governing Model Equations</h3>
+
+<p>
+The following set of equations hold for one mill. A constant number of mills can be assembled in parallel (behaving exactly the same) by setting the parameter <tt>N_mills</tt> appropriately. <br>
+The presented model takes the following mass storages into account:
+</p>
+
+<p>
+<ul>
+<li>Mass of raw coal on the table (blue highlighted in figure above)</li>
+<li>Mass of pulverised coal on the table (green highlighted in figure above)</li>
+<li>Mass of pulverised coal carried by the primary air (red highlighted in figure above).</li>
+</ul>
+</p>
+
+<h4>The Grinding Process</h4>
+
+<p>
+For these balance rooms a mass balance is derived:
+</p>
+
+<p>
+<img src="./equation.png">
+</p>
+
+<p>
+The mass flow rates between the balance rooms are calculated using simple algebraic equations without involving the physical effects:
+</p>
+
+<p>
+<img src="./equation001.png">
+</p>
+
+<p>
+The given set of equations does not take different sizes of particles into account, i.e. the coal is either pulverised or not. Please note that there is no mass storage for air or water in the system which is fine as the water and air mass in the mill is usually considerably smaller than the coal mass.<br>
+The transport coefficients arising from this simple phenomenological approach have to be quantified by fitting the model results to measurement data. However, all of these coefficients have a meaningful physical background and some of them could be calculated from geometric parameters or even replaced when applying more physical model approaches. For the sake of simplicity of the model the latter mentioned options where not pursued.<br>
+The following coefficients are involved so far:
+</p>
+
+<p>
+<img src="./equation002.png">
+</p>
+
+<p>
+The average composition of moist coal in the grinding zone is calculated as follows:
+</p>
+
+<p>
+<img src="./VerticalMill_L3/equation004.png">
+</p>
+
+<h4>Coal Drying</h4>
+
+<p>
+The moist and pulverised coal coming from the grinding zone is dried before it leaves the mill. The drying is ideal and infinitely fast leading either to complete dry coal or fully saturated moist air:
+</p>
+
+<p>
+<img src="./VerticalMill_L3/equation003.png"><br>
+<img src="./VerticalMill_L3/equation002.png">
+</p>
+
+<br>
+
+<p>
+The dry coal mass flow and its composition is calculated via static mass and species balance equations for the drying zone:<br>
+<img src="./VerticalMill_L3/equation001.png">
+</p>
+
+<p>
+<img src="./VerticalMill_L3/equation005.png"><br>
+Accordingly, the outlet gas mass flow and its composition is calculated:
+</p>
+
+<p>
+<img src="./VerticalMill_L3/equation007.png">
+</p>
+
+<p>
+<img src="./VerticalMill_L3/equation008.png">
+</p>
+
+<h4>Energy Conservation</h4>
+
+<p>
+In order to define the outlet states of the coal and the primary air a global energy balance for the complete mill including the complete interior equipment as well as the stored coal is applied:
+</p>
+
+<p>
+<img src="./equation003.png">
+</p>
+
+<p>
+This formula involves convective transport of enthalpy across the boundaries and the energy input due to the grinding process as well as the power necessary for evaporation of the coal's moisture. The corresponding equation (7) from [1] neglects the derivatives <img src="./equation004.png"> and <img src="./equation005.png"> arising from the left-hand term of the upper equation due to minor importance. The neglected terms are added for the sake of completeness. Furthermore, in equation (7) of [1] the enthalpy flow of the coal moisture leaving the mill is implicitly calculated applying the coal's specific heat capacity which introduces an error in the energy balance and was corrected in this model. <br>
+In modification of the literature the coal dust leaving the mill through the corresponding connector is completely dried. The evaporated water is transported by the primary air, i.e. the coal dust duct is split into a part transporting the dry coal and a part transporting the moist primary air including the water content of the raw coal. 
+</p>
+
+<p>
+This leads to:<br>
+<img src="./equation006.png">
+</p>
+
+<p>
+The power applied for desintegration of the coal  in W/(p.u.load)is:
+</p>
+
+<p>
+<img src="./equation012.png"><br>
+Herein, two further coefficients are used:
+</p>
+
+<p>
+<img src="./equation007.png">
+</p>
+
+<br>
+
+<h4>Hydraulics</h4>
+
+<p>
+In order to gain information of the mill's coal charge the pressure drop is of interest. This is a function of the coal mass in the transport area and a friction pressure drop due to the mass transport through the mill and a geodetic pressure difference depending on the coal particle mass in the transport area :
+</p>
+
+<p>
+<img src="./equation010.png">
+</p>
+
+<p>
+This introduces two more  coefficients:
+</p>
+
+<p>
+<img src="./equation011.png">
+</p>
+
+<p>
+The pressure drop due to friction was taken as an input by [1] but can be calculated using a equation of the form:
+</p>
+
+<p>
+<img src="./equation013.png"> <br>
+thus adding one more coefficient:
+</p>
+
+<p>
+<img src="./equation014.png">
+</p>
+
+<h4>Coal Drying and Change of the Actual Lower Heating Value</h4>
+
+<p>
+The lower heating value of dry coal leaving the mill can be calculated in two ways which is depending on whether the lower heating value is given by a predefined value or is calculated using the so-called "Verbandsformel" at the fuel boundaries:
+</p>
+
+<p>
+<img src="./VerticalMill_L3/equation006.png">
+</p>
+
+<p>
+The specific heat capacity of the dried coal changes accordingly:
+</p>
+
+<p>
+<img src="./VerticalMill_L3/equation009.png">
+</p>
+
+<h4>Shutdown</h4>
+
+<p>
+The conditional Real input <tt>grindingStatus</tt> can be used to stop the grinding process. <tt>grindingStatus=1 </tt>refers to full operation, <tt>grindingStatus=0 </tt>to a completely stopped grinding. 
+</p>
+
+<br>
+
+<h4>Summary</h4>
+
+<p>
+A summary record is available which bundles important component values.
+</p>
+
+<h2>7. Remarks for Usage</h2>
+
+<p>
+<ul>
+<li>Adjust <tt>N_mills</tt> to assemble a constant number of mills in parallel. These mills will behave exactly the same, i.e. the mass flows at the connectors are multiplied by the constant factor <tt>N_mills</tt>.</li>
+</ul>
+</p>
+
+<h2>8. Validation</h2>
+
+<br>
+
+<p>
+For validation of the model the scenario documented in [1] was rebuilt and compared with the model results of [1] and the measurement data used for calibration. For validation mill 4 of the Danish power plant at Stignaes was chosen.  This mill is one of the widely used  Babcock &amp; Wilcox type 10E ball and race mills.
+</p>
+
+<h3>8.1 Scenario Description</h3>
+
+<br>
+
+<p>
+The validation scenario comprehends 100 min of normal operation of the coal mills with the main boundary conditions as can be seen in the three figures below. The raw coal has a moisture content of 6.8 %, the primary air was said to be completely dry and the heat capacity of the coal was set to 1449 J/kg. The last mentioned value was found to be crucial for the proper calculation of the outlet temperature but was not defined in [1]. The coal's specific heat capacity was therefore adjusted to fit the measurements well.<br>
+<img src="./VerticalMill_L3/MillClassifierSpeed.png" width="500"><img src="./VerticalMill_L3/MillInletMassFlows.png" width="500"><br>
+<img src="./VerticalMill_L3/MillInletTemp.png" width="500">
+</p>
+
+<br>
+
+<h3>8.2 Validation Results</h3>
+
+<br>
+
+<p>
+Concerning the mill's power and the mass flow rate the Modelica model agrees perfectly with the model from the literature and the values also comply with the measurement data. Please note that the occurring bias error of the measurement data was also reported in [1].  
+</p>
+
+<p>
+<img src="./VerticalMill_L3/MillPower.png" width="500"><img src="./VerticalMill_L3/PulverisedMassFlowMill.png" width="500">
+</p>
+
+<p>
+The simulated outlet temperature is similar to the literature's model but with a slightly better better performance when it comes to fast load changes which is due to the included deviation terms  <img src="./equation005.png"> as mentioned above. However, the accuracy of the model is limited because only one lumped energy balance is applied for the whole mill. The mill's pressure loss also shows slight deviations from the literature because in the Modelica model no measurement of the primary air differential pressure was assumed and the pressure loss was calculated using a simple quadratic model. This model shows good results compared with the given measurements. 
+</p>
+
+<p>
+<img src="./VerticalMill_L3/MillOutletTemperature.png" width="500"><img src="./VerticalMill_L3/PressureLossMill.png" width="500">
+</p>
+
+<br>
+
+<h2>9. References</h2>
+
+<br>
+
+<p>
+[1]    <b>Piotr Niemczyk and Palle Andersen, Jan Dimon Bendtsen, Tom Søndergaard Pedersen, Anders Peter Ravn:</b> "Derivation and validation of a coal mill model for control", IFAC Symposium for Power Plant Simulation and Control, Tampere, Finland, 2009.<br>
+[2]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulationof Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 
+</p>
+
+<h2>10. Version History</h2>
+
+<p>
+2011-08-03 - v0.1 - initial implementation - Friedrich Gottelt, XRG Simulation GmbH<br>
+2012-04-20 - v0.2 - introduced the new combined gas-and-coal connectors and new definition of coal types - Friedrich Gottelt, XRG Simulation GmbH<br>
+2012-09-17 - v0.3 - corrected the energy balance and corrected the coal specific heat capacity for the validation scenario - Friedrich Gottelt, XRG Simulation GmbH<br>
+2016-01-30 - v0.4 - implemented variable heating value due to drying of coal - Lasse Nielsen, TLK-Thermo GmbH<br>
+2016-07-04 - v0.5 - bugfixed coal species balance and overall energy balance - Friedrich Gottelt, XRG Simulation GmbH<br>
+2016-09-15 - v0.6 - bugfixed calculation of dried coal's specific heat capacity and LHC - Lasse Nielsen, TLK-Thermo GmbH and Friedrich Gottelt, XRG Simulation GmbH - thanks to Marcel Richter, University of Duisburg-Essen<br>
+2017-01-25 - v1.2.0 - introduced expert setting <tt>activateGrindingStatus </tt>which makes it possible to stop the grinding process when the mill is shutdown - Timm Hoppe, XRG Simulation GmbH - thanks to Marcel Richter, University of Duisburg-Essen
+</p>
+
+
+			<br>
+			<span class="backlinks">
+			</span>
+
+			
+		</div>
+	</div>
+</body>
+</html>
+
