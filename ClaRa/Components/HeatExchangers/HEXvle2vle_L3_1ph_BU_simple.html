@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>HEXvle2gas L3 2ph BU simple</title>
+	<title>HEXvle2vle L3 1ph BU simple</title>
 	<meta name="generator" content="Zim 0.65">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
@@ -187,9 +187,9 @@
 <ul>
 <li><a href="./HEXvle2gas_L3_1ph_BU_ntu.html" title="HEXvle2gas L3 1ph BU ntu" class="page">HEXvle2gas L3 1ph BU ntu</a></li>
 <li><a href="./HEXvle2gas_L3_1ph_BU_simple.html" title="HEXvle2gas L3 1ph BU simple" class="page">HEXvle2gas L3 1ph BU simple</a></li>
-<li><b>HEXvle2gas L3 2ph BU simple</b></li>
+<li><a href="./HEXvle2gas_L3_2ph_BU_simple.html" title="HEXvle2gas L3 2ph BU simple" class="page">HEXvle2gas L3 2ph BU simple</a></li>
 <li><a href="./HEXvle2vle_L3_1ph_BU_ntu.html" title="HEXvle2vle L3 1ph BU ntu" class="page">HEXvle2vle L3 1ph BU ntu</a></li>
-<li><a href="./HEXvle2vle_L3_1ph_BU_simple.html" title="HEXvle2vle L3 1ph BU simple" class="page">HEXvle2vle L3 1ph BU simple</a></li>
+<li><b>HEXvle2vle L3 1ph BU simple</b></li>
 <li><a href="./HEXvle2vle_L3_1ph_CH_simple.html" title="HEXvle2vle L3 1ph CH simple" class="page">HEXvle2vle L3 1ph CH simple</a></li>
 <li><a href="./HEXvle2vle_L3_1ph_kA.html" title="HEXvle2vle L3 1ph kA" class="page">HEXvle2vle L3 1ph kA</a></li>
 <li><a href="./HEXvle2vle_L3_2ph_BU_ntu.html" title="HEXvle2vle L3 2ph BU ntu" class="page">HEXvle2vle L3 2ph BU ntu</a></li>
@@ -224,14 +224,14 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>HEXvle2gas L3 2ph BU simple <a name='ClaRa:Components:HeatExchangers:HEXvle2gas L3 2ph BU simple'></a></h1>
+			<h1>HEXvle2vle L3 1ph BU simple <a name='ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph BU simple'></a></h1>
 
 			<p>
-Created Monday 10 June 2013
+Created Donnerstag 23 Februar 2017
 </p>
 
 <p>
-<b>A block-shaped steam to air preheater model with flue gas/air medium at shell side and steam/water medium at the tube side. A block-geometry for low pressure air preheaters with U-type tube bundles is assumed. The tube side phases are modelled separately.</b>
+<b>A block-shaped desuperheater model with an U-type tube bundle.</b>
 </p>
 
 <h2>1. Purpose of Model</h2>
@@ -239,11 +239,7 @@ Created Monday 10 June 2013
 <br>
 
 <p>
-<img src="./HEXvle2gas_L3_2ph_BU_simple/HEXvle2gas_L3_2ph_BU_simple.PNG" width="300">
-</p>
-
-<p>
-This model is well suited to model transients of commonly designed low pressure air preheaters. This model will be the right choice if the separation processes at the tube side are of interest.
+This model is well suited to model slow transients of commonly designed desuperheaters where no phase change happens.
 </p>
 
 <h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
@@ -253,23 +249,21 @@ This model is well suited to model transients of commonly designed low pressure 
 <h3>2.1 Level of Detail</h3>
 
 <p>
-Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L3 </b>because the system is modelled with the use of balance equations applied to three different zones of the component: gas component at shell side, vapour and liquid volume at tube side.
+Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L3 </b>because the system is modelled with the use of balance equations applied to two different zones of the component: liquid condensate at tube side, vapour volume at shell side.
 </p>
 
 <h3>2.2 Physical Effects Considered</h3>
 
 <p>
 <ul>
-<li>dynamic conservation of energy (neglecting kinetic energy terms) in condensating and cooling flows</li>
-<li>dynamic conservation of mass (neglecting kinetic energy terms) in condensating and cooling flows</li>
+<li>dynamic conservation of energy (neglecting kinetic energy terms) in desuperheating and cooling flows</li>
+<li>dynamic conservation of mass (neglecting kinetic energy terms) in desuperheating and cooling flows</li>
 <li>taking static pressure differences due to friction losses and geostatic into account</li>
-<li>calculation of heat transfer resistance between the two flows and energy storage is calculated applying a wall.</li>
-<li>heat transfer from condensing steam to gas flow, losses to the ambience is neglected</li>
-<li>non-ideal phase separation at tube side</li>
+<li>heat transfer from desuperheating steam to cooling water, losses to the ambience are neglected</li>
+<li>pressure losses due to friction in desuperheating and cooling flows</li>
+<li><u>no</u> <u>phase separation</u> at the desuperheating side</li>
 </ul>
 </p>
-
-<br>
 
 <h3>2.3 Level of Insight</h3>
 
@@ -283,21 +277,21 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <p>
 <ul>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/Adiabat_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Adiabat L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Adiabat L2</a> : No heat transfer</li>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/CharLine_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:CharLine L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:CharLine L2</a> : All Geo || HTC || Characteristic Line</li>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/Constant_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Constant L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Constant L2</a> : All Geo || HTC || Constant</li>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/IdealHeatTransfer_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:IdealHeatTransfer L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:IdealHeatTransfer L2</a> : All Geo || Ideal Heat Transfer</li>
-<li>see remarks of usage</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/Constant_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Constant L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Constant L2</a> : a constant heat transfer coefficient</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/IdealHeatTransfer_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:IdealHeatTransfer L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:IdealHeatTransfer L2</a> : ideal heat transfer, i.e. kc is infinite (see also the remarks for usage)</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/CharLine_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:CharLine L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:CharLine L2</a> : heat transfer coefficient calculated from nominal value and a mass flow dependent correction</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/VLE_HT/NusseltShell1ph_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltShell1ph L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltShell1ph L2</a> :heat transfer coefficient based on <u>shell</u> geometry, media data and flow regime - Nusselt number</li>
 </ul>
 </p>
 
 <h5>tube side:</h5>
 
-<br>
-
 <p>
 <ul>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/VLE_HT/Constant_L3_ypsDependent.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:Constant L3 ypsDependent" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:Constant L3 ypsDependent</a> : a constant heat transfer coefficient in liquid and vapour zone, depending on filling level</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/Constant_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Constant L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Constant L2</a> : a constant heat transfer coefficient</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/IdealHeatTransfer_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:IdealHeatTransfer L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:IdealHeatTransfer L2</a> : ideal heat transfer, i.e. kc is infinite (see also the remarks for usage)</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/CharLine_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:CharLine L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:CharLine L2</a> : heat transfer coefficient calculated from nominal value and a mass flow dependent correction</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/VLE_HT/NusseltPipe1ph_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltPipe1ph L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltPipe1ph L2</a> :heat transfer coefficient based on <u>tube</u> geometry, media data and flow regime - Nusselt number</li>
 </ul>
 </p>
 
@@ -312,24 +306,24 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/NoFriction_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:NoFriction L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:NoFriction L2</a> : friction free flow between inlet and outlet</li>
 <li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/LinearPressureLoss_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearPressureLoss L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearPressureLoss L2</a> : Linear pressure loss based on nominal values, different zones are seen in parallel, pressure loss is located at flanges</li>
 <li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/QuadraticNominalPoint_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticNominalPoint L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticNominalPoint L2</a> : Quadratic pressure loss based on nominal values, different zones are seen in parallel, pressure loss is located at flanges, density independent</li>
-<li>see remarks of usage</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/VLE_PL/PressureLossCoefficient_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:PressureLossCoefficient L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:PressureLossCoefficient L2</a> : Density dependent pressure loss based on zeta value</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/VLE_PL/QuadraticNominalPoint_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:QuadraticNominalPoint L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:QuadraticNominalPoint L2</a> : Density dependent, quadratic pressure loss based on nominal values</li>
 </ul>
 </p>
+
+<br>
 
 <h5>tubes side</h5>
 
 <p>
 <ul>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/NoFriction_L3.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:NoFriction L3" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:NoFriction L3</a> : friction free flow between inlet and outlet</li>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/LinearParallelZones_L3.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearParallelZones L3" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearParallelZones L3</a> : Linear pressure loss based on nominal values, different zones are seen in parallel, pressure loss is located at flanges</li>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/LinearSerialZones_L3.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearSerialZones L3" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearSerialZones L3</a>  : Linear pressure loss based on nominal values, different zones are seen in series</li>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/QuadraticParallelZones_L3.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticParallelZones L3" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticParallelZones L3</a> : Quadratic pressure loss based on nominal values, different zones are seen in parallel, pressure loss is located at flanges</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/NoFriction_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:NoFriction L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:NoFriction L2</a> : friction free flow between inlet and outlet</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/LinearPressureLoss_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearPressureLoss L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearPressureLoss L2</a> : Linear pressure loss based on nominal values, different zones are seen in parallel, pressure loss is located at flanges</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/QuadraticNominalPoint_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticNominalPoint L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticNominalPoint L2</a> : Quadratic pressure loss based on nominal values, different zones are seen in parallel, pressure loss is located at flanges, density independent</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/VLE_PL/PressureLossCoefficient_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:PressureLossCoefficient L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:PressureLossCoefficient L2</a> : Density dependent pressure loss based on zeta value</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/VLE_PL/QuadraticNominalPoint_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:QuadraticNominalPoint L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:QuadraticNominalPoint L2</a> : Density dependent, quadratic pressure loss based on nominal values</li>
 </ul>
 </p>
-
-<br>
-<br>
-<br>
 
 <h4>Phase Separation</h4>
 
@@ -338,13 +332,13 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <h5>shell side</h5>
 
 <p>
-intrinsic ideally mixed gas flow.
+<a href="../../Basics/ControlVolumes/Fundamentals/SpatialDistributionAspects/IdeallyStirred.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:SpatialDistributionAspects:IdeallyStirred" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:SpatialDistributionAspects:IdeallyStirred</a> : ideally mixed phases, <u>no phase separation</u>
 </p>
 
 <h5>tube side:</h5>
 
 <p>
-<a href="../../Basics/ControlVolumes/Fundamentals/SpatialDistributionAspects/RealSeparated.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:SpatialDistributionAspects:RealSeparated" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:SpatialDistributionAspects:RealSeparated</a> : level dependent phase separation
+<a href="../../Basics/ControlVolumes/Fundamentals/SpatialDistributionAspects/IdeallyStirred.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:SpatialDistributionAspects:IdeallyStirred" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:SpatialDistributionAspects:IdeallyStirred</a> : ideally mixed phases
 </p>
 
 <br>
@@ -354,7 +348,8 @@ intrinsic ideally mixed gas flow.
 
 <p>
 <ul>
-<li>basic flow situation of the heat exchanger (e.g. counter flow, cross flow) has no influence on the heat transfer, as shell side is only modelled as single volume</li>
+<li>basic flow situation of the heat exchanger (e.g. counter flow, cross flow) has no influence on the heat transfer, as tube side is only modelled as single volume</li>
+<li>no separate balancing of phases at shell and tube side</li>
 </ul>
 </p>
 
@@ -377,15 +372,15 @@ intrinsic ideally mixed gas flow.
 <br>
 
 <p>
-<img src="./HEXvle2gas_L3_2ph_BU_simple/HEXvle2gas_L3_2ph_BU_simple_model.PNG" width="600">
+<img src="./HEXvle2vle_L3_1ph_BU_simple/HEXvle2vle_L3_1ph_BU_simple.PNG" width="600">
 </p>
 
 <p>
 This model is composed by instantiation of the following classes:<br>
 <ul>
-<li><a href="../../Basics/ControlVolumes/FluidVolumes/VolumeVLE_L3_TwoZones.html" title="ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L3 TwoZones" class="page">ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L3 TwoZones</a> : volume of the condensate volume in the pipes (allowing phase change)</li>
-<li><a href="../../Basics/ControlVolumes/GasVolumes/VolumeGas_L2.html" title="ClaRa:Basics:ControlVolumes:GasVolumes:VolumeGas L2" class="page">ClaRa:Basics:ControlVolumes:GasVolumes:VolumeGas L2</a> : volume of the shell side with gaseous media</li>
-<li><a href="../../Basics/ControlVolumes/SolidVolumes/ThinWall_L2.html" title="ClaRa:Basics:ControlVolumes:SolidVolumes:ThinWall L2" class="page">ClaRa:Basics:ControlVolumes:SolidVolumes:ThinWall L2</a> : to model the heat transfer resistance and the temperature distribution in the heat exchanger</li>
+<li><a href="../../Basics/ControlVolumes/FluidVolumes/VolumeVLE_L2.html" title="ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L2" class="page">ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L2</a> volume of the condensate volume in the pipes, with a <a href="../../Basics/ControlVolumes/Fundamentals/Geometry/PipeGeometry.html" title="PipeGeometry" class="page">PipeGeometry</a></li>
+<li><a href="../../Basics/ControlVolumes/FluidVolumes/VolumeVLE_L2.html" title="ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L2" class="page">ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L2</a> volume of the superheated steam volume in the shell side, with a <a href="../../Basics/ControlVolumes/Fundamentals/Geometry/HollowBlockWithTubes.html" title="HollowBlockWithTubes" class="page">HollowBlockWithTubes</a> geometry</li>
+<li><a href="../../Basics/ControlVolumes/SolidVolumes/ThickWall_L4.html" title="ClaRa:Basics:ControlVolumes:SolidVolumes:ThickWall L4" class="page">ClaRa:Basics:ControlVolumes:SolidVolumes:ThickWall L4</a> to model the heat transfer resistance and the temperature distribution in the heat exchanger</li>
 </ul>
 </p>
 
@@ -397,31 +392,13 @@ This model is composed by instantiation of the following classes:<br>
 
 <p>
 A record summarising the most important variables is provided. Please be aware of the boolean <tt>showExpertSummary </tt>in the parameter dialog tab "Summary and Visualisation". Setting this parameter to true will give you more detailed information on the components behaviour. The summary consists of the outline:<br>
-<img src="./HEXvle2gas_L3_2ph_BU_simple/equation.png"><br>
+<img src="./HEXvle2vle_L3_1ph_BU_simple/equation.png"><br>
  and the summaries of the class instances named in section 6.1
 </p>
-
-<br>
 
 <h2>7. Remarks for Usage</h2>
 
 <br>
-
-<p>
-<ul>
-<li>Heat transfer models which require media data can be chosen for the shell side, but cause an error, i.e.:
-<ul>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/VLE_HT/NusseltShell1ph_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltShell1ph L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltShell1ph L2</a></li>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/VLE_HT/NusseltShell2ph_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltShell2ph L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltShell2ph L2</a></li>
-</ul>
-</li>
-<li>Pressure loss models which require media data can be chosen for the shell side, but cause an error, i.e.:
-<ul>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/VLE_PL/QuadraticNominalPoint_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:QuadraticNominalPoint L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:QuadraticNominalPoint L2</a> </li>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/VLE_PL/PressureLossCoefficient_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:PressureLossCoefficient L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:PressureLossCoefficient L2</a> </li>
-</ul></li>
-</ul>
-</p>
 
 <h3>7.1 Naming</h3>
 
@@ -434,6 +411,12 @@ The naming of heat exchangers in this package follows some specific form that is
 
 <p>
 In most cases the heat transfer from one fluid to the other will be dominated by the heat transfer at one of fluid boundary layers. In that cases the heat transfer coefficient α at this side will be considerably smaller than on the other side. From a numerical point of view it is disadvantageous to have very high (close to infinite) heat transfer coefficients on either sides. If you want to take nearly ideal heat transfer at one of the sides into account please consider the corresponding replaceable model instead of defining arbitrary large heat transfer coefficients in the model.
+</p>
+
+<h3>7.3 Phase Change</h3>
+
+<p>
+Since the model has only one state on the tube side and the shell side respectively phase change is in principally possible but will result in low accuracy during the phase change transients. Furthermore, phase separation is not supported. To model phase change and separation on the shell side consider <a href="./HEXvle2vle_L3_2ph_BU_ntu.html" title="ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU ntu" class="page">ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU ntu</a> or <a href="./HEXvle2vle_L3_2ph_BU_simple.html" title="ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU simple" class="page">ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU simple</a>.
 </p>
 
 <h2>8. Validation</h2>
@@ -449,28 +432,10 @@ In most cases the heat transfer from one fluid to the other will be dominated by
 <h2>10. Version History</h2>
 
 <p>
-<ul>
-<li>2013 - v 0.1 -  initial implementation - A.Renz, F.Gottelt, XRG Simulation</li>
-<li>07.03.2016 - v 1.1.0    - propagated parameters staggeredAlignment, N_rows, Delta_z_par, Delta_z_ort, flowOrientation, parallelTubes</li>
-</ul>
-<div style='padding-left: 180pt'>
-- corrected calculation of shell side A_heat: previous versions used lateral shell surface instead of tube bundle lateral surface <br>
-- propagated parameters level_rel_start, h_liq_start, h_vap_start<br>
-- removed unused parameters verticalTubes and mainOrientation<br>
-- corrected tube side A_heat and volume which is now in consonance with the shell side definition and depends on both parameters, flowOrientation and parallelTubes. <br>
-- changed default values of z_in_shell and z_out_shell, to avoid newly introduced asserts (e.g. z_in_shell&gt;max height). Furthermore, the new values are in consonance with the default flow orientation.
-</div>
-<div style='padding-left: 270pt'>
- - T.Hoppe, F.Gottelt, XRG Simulation
-</div>
-<ul>
-<li>28.04.2016 -v 1.1.1 - offer option to set position of liquid pressure state either at the liquid surface of at the vertical middle of the zone </li>
-</ul>
-<div style='padding-left: 150pt'>
-  - added optional measurement conectors - Friedrich Gottelt, XRG Simulation GmbH
-</div>
+<ol type="1" start="11">
+<li>28.02.2017 -v 1.2.1 - initial implementation - Timm Hoppe, XRG Simulation GmbH</li>
+</ol>
 </p>
-
 
 
 			<br>
