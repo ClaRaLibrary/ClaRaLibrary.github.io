@@ -187,6 +187,7 @@
 <li><a href="../MechanicalSeparation.html" title="MechanicalSeparation" class="page">MechanicalSeparation</a>
 <ul>
 <li><a href="./BalanceTank_L3.html" title="BalanceTank L3" class="page">BalanceTank L3</a></li>
+<li><a href="./Drum_L3_advanced.html" title="Drum L3 advanced" class="page">Drum L3 advanced</a></li>
 <li><a href="./FeedWaterTank_L2.html" title="FeedWaterTank L2" class="page">FeedWaterTank L2</a></li>
 <li><b>FeedWaterTank L3</b></li>
 <li><a href="./FeedWaterTank_L3_advanced.html" title="FeedWaterTank L3 advanced" class="page">FeedWaterTank L3 advanced</a></li>
@@ -228,7 +229,7 @@ Created Monday 10 June 2013
 
 <p>
 In most cases the degasification of the feedwater is integrated in the feedwater storage tank. There are two main concepts for degasification. For small and medium capacities trickling deaerators are common, see left illustration below. In this type the condensate trickles through a structured or unstructured package or through a set of trickle plates thus increasing the condensate's surface allowing the gas to be dispensed from the liquid. For large capacities this enhancement of the liquid surface is achieved by spraying the condensate into the vessel.<br>
-Both types can be modelled with this component model. The characteristics of the heat and mass transfer between the liquid and vapour phase are defined in both cases by varying the parameters in the parameter dialogue's tab "Phase Separation". Note that the storage capacity of the package for trickling deaerators is not considered. Furthermore no ports for venting the exhaust vapour and the supply of fresh water are provided.<br>
+Both types can be modelled with this component model. The characteristics of the heat and mass transfer between the liquid and vapour phase are defined in both cases by varying the parameters in the parameter dialogue's tab "Phase Separation". No ports for venting the exhaust vapour and the supply of fresh water are provided.<br>
 <img src="./FeedWaterTank_L2/FeedwaterTankStorckShower_simple.png" width="626"><img src="./FeedWaterTank_L2/FeedwaterTankPlateCascade_simple.png" width="626"><img src="./FeedWaterTank_L3/FeedWaterTank_L3.PNG" width="300"><br>
 The model suits well if high transients with temporary subcooling or two-phase states in the liquid and vapour phase can not be ruled out. If the precise transients in the tank are not of interest the less complex model <a href="./FeedWaterTank_L2.html" title="FeedWaterTank L2" class="page">FeedWaterTank L2</a> is recommended. A typical source of high-transients in tanks are  short term changes of tapping mass flows, e.g. applying condensate stop for primary control.
 </p>
@@ -252,7 +253,8 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <li>pressure differences due to friction and geostatic pressure</li>
 <li>non-ideal, level-dependent phase separation</li>
 <li>ideal mixing of tapping mass flow and condensate mass flow</li>
-<li>energy storage in the tank walls</li>
+<li>energy storage in the tank walls, additional internal masses can be added</li>
+<li>optional insulation and heat losses to the environment</li>
 </ul>
 </p>
 
@@ -303,10 +305,8 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <h2>5. Nomenclature</h2>
 
 <p>
-— no model-specific nomenclature — 
+<img src="./FeedWaterTank_L3/equation002.png">
 </p>
-
-<br>
 
 <h2>6. Governing Equations</h2>
 
@@ -323,7 +323,10 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <h3>6.2 General Model Equations</h3>
 
-<br>
+<p>
+The heat losses to the ambient are calculated as follows<br>
+<img src="./FeedWaterTank_L3/equation001.png">
+</p>
 
 <h4>Summary</h4>
 
@@ -371,17 +374,24 @@ A summary is available including the following:<br>
 <li>2012 	    -v 0.1	- initial implementation - Friedrich Gottelt, XRG Simulation</li>
 <li>07.03.2016 -v 1.1.0 - propagated wall thickness and wall heat transfer as top level parameters - Timm Hoppe, XRG Simulation</li>
 <li>28.04.2016 -v 1.1.1 - offer option to set position of liquid pressure state either at the liauid surface of at the vertical middle of the zone and added optional visualisation and measurement conectors - Friedrich Gottelt, XRG Simulation</li>
+<li>27.06.2017 -v 1.2.2</li>
 </ul>
+<div style='padding-left: 30pt'>
+- optional insulation and heat losses<br>
+- propagated mass struc, added cylinder's top and bottom wall mass<br>
+- propagated initialisation for wall - Timm Hoppe, XRG Simulation
+</div>
 </p>
+
 
 
 			<br>
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
-				<a href='./FeedWaterTank_L3_advanced.html'>ClaRa:Components:MechanicalSeparation:FeedWaterTank L3 advanced</a>
-				
 				<a href='../../Basics/ControlVolumes/FluidVolumes/VolumeVLE_L3_TwoZonesNPort.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L3 TwoZonesNPort</a>
+				
+				<a href='./FeedWaterTank_L3_advanced.html'>ClaRa:Components:MechanicalSeparation:FeedWaterTank L3 advanced</a>
 				<br /><br />
 			</span>
 

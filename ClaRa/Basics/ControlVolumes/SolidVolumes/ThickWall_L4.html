@@ -344,10 +344,8 @@ Each shell has a dynamic energy balance<br>
 
 <p>
 where the inner energy changes due to the heat flows across the shell borders and is given by<br>
- <img src="./ThickWall_L4/equation013.png">
-</p>
-
-<p>
+ <img src="./ThickWall_L4/equation013.png"><br>
+If the parameter <img src="./ThickWall_L4/equation021.png"> then it is multiplied with the heat capacity and distributed evenly to the inner energy of each shell.<br>
 In the model it is assumed that the radial discretisation is sufficiently fine, such that the heat flow between two adjacent cells can be assumed as stationary.<br>
 However, since in principle the heat conductivity in each cell can vary with temperature, each heat flow across a shell border is modelled as a serial connection of two heat resistors (one for each half shell)<br>
 (i=2...n) : <br>
@@ -385,7 +383,8 @@ By construction, the model agrees in the stationary case with the analytic solut
 <h2>10. Version History</h2>
 
 <p>
-2013-06-28 - v 0.1 - Initial implementation - Johannes Brunnemann, XRG Símulation GmbH
+2013-06-28 - v 0.1 - Initial implementation - Johannes Brunnemann, XRG Símulation<br>
+24.04.2017 - v1.2.2 - parameter mass_struc added, the additional mass is evenly distributed to each shell - Timm Hoppe, XRG Simulation
 </p>
 
 
@@ -393,9 +392,15 @@ By construction, the model agrees in the stationary case with the analytic solut
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
+				<a href='../../../Basic_Concepts_of_Modelling/Finite_Volume_Approach.html'>ClaRa:Basic Concepts of Modelling:Finite Volume Approach</a>
+				
 				<a href='../../../Components/MechanicalSeparation/BalanceTank_L3.html'>ClaRa:Components:MechanicalSeparation:BalanceTank L3</a>
 				
 				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CH_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CH simple</a>
+				
+				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph BU simple</a>
+				
+				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU simple</a>
 				
 				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU simple</a>
 				
@@ -405,17 +410,11 @@ By construction, the model agrees in the stationary case with the analytic solut
 				
 				<a href='../../../Components/VolumesValvesFittings/Pipes/PipeFlow_L4_Simple.html'>ClaRa:Components:VolumesValvesFittings:Pipes:PipeFlow L4 Simple</a>
 				
+				<a href='../../../Components/VolumesValvesFittings/Pipes/PipeFlowGas_L4_Simple.html'>ClaRa:Components:VolumesValvesFittings:Pipes:PipeFlowGas L4 Simple</a>
+				
 				<a href='../../../Components/VolumesValvesFittings/Pipes/PipeFlow_L4_Advanced.html'>ClaRa:Components:VolumesValvesFittings:Pipes:PipeFlow L4 Advanced</a>
 				
 				<a href='../../../Components/VolumesValvesFittings/Fittings/SprayInjectorVLE_L3.html'>ClaRa:Components:VolumesValvesFittings:Fittings:SprayInjectorVLE L3</a>
-				
-				<a href='../../../Basic_Concepts_of_Modelling/Finite_Volume_Approach.html'>ClaRa:Basic Concepts of Modelling:Finite Volume Approach</a>
-				
-				<a href='../../../Components/VolumesValvesFittings/Pipes/PipeFlowGas_L4_Simple.html'>ClaRa:Components:VolumesValvesFittings:Pipes:PipeFlowGas L4 Simple</a>
-				
-				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU simple</a>
-				
-				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph BU simple</a>
 				<br /><br />
 			</span>
 

@@ -187,7 +187,6 @@
 <li><a href="../Desulfurization.html" title="Desulfurization" class="page">Desulfurization</a>
 <ul>
 <li><b>Desulfurization L1 ideal</b></li>
-<li><a href="./Internals.html" title="Internals" class="page">Internals</a></li>
 </ul>
 </li>
 <li><a href="../E-Filter.html" title="E-Filter" class="page">E-Filter</a></li>
@@ -221,7 +220,7 @@ Created Wednesday 15 October 2014
 </p>
 
 <p>
-<b>Basic model of a desulfurization component build up from a flue gas cell and a desulfurization control volume.</b>  
+<b>Basic model of a desulfurization component build up from a flue gas cell and a replaceable model for a desulfurization reaction</b>  
 </p>
 
 <h2>1. Purpose of Model</h2>
@@ -263,20 +262,22 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <p>
 <ul>
-<li><a href="../../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/Adiabat_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Adiabat L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Adiabat L2</a> : No heat transfer</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/Adiabat_L2.txt" title="ControlVolumes:Fundamentals:HeatTransport:Generic HT:Adiabat L2" class="file">ControlVolumes:Fundamentals:HeatTransport:Generic HT:Adiabat L2</a></li>
 </ul>
+<a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/IdealHeatTransfer_L2.txt" title="• ControlVolumes:Fundamentals:HeatTransport:Generic HT:IdealHeatTransfer L2" class="file">• ControlVolumes:Fundamentals:HeatTransport:Generic HT:IdealHeatTransfer L2</a><br>
+<a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/Constant_L2.txt" title="• ControlVolumes:Fundamentals:HeatTransport:Generic HT:Constant L2" class="file">• ControlVolumes:Fundamentals:HeatTransport:Generic HT:Constant L2</a><br>
+<a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/CharLine_L2.txt" title="• ControlVolumes:Fundamentals:HeatTransport:Generic HT:CharLine L2" class="file">• ControlVolumes:Fundamentals:HeatTransport:Generic HT:CharLine L2</a>
 </p>
 
 <h4>Pressure Loss</h4>
 
 <p>
-<ul>
-<li><a href="../../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/NoFriction_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:NoFriction L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:NoFriction L2</a> : Friction free flow between inlet and outlet</li>
-<li><a href="../../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/LinearPressureLoss_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearPressureLoss L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearPressureLoss L2</a> : Linear pressure loss based on nominal values</li>
-<li><a href="../../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/QuadraticNominalPoint_L2.html" title="ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticNominalPoint L2" class="page">ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticNominalPoint L2</a>: Quadratic pressure loss, but independent of gas properties</li>
-</ul>
+<a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/NoFriction_L2.txt" title="• ControlVolumes:Fundamentals:PressureLoss:Generic PL:NoFriction L2" class="file">• ControlVolumes:Fundamentals:PressureLoss:Generic PL:NoFriction L2</a><br>
+<a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/LinearPressureLoss_L2.txt" title="• ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearPressureLoss L2" class="file">• ControlVolumes:Fundamentals:PressureLoss:Generic PL:LinearPressureLoss L2</a><br>
+<a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/QuadraticNominalPoint_L2.txt" title="• ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticNominalPoint L2" class="file">• ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticNominalPoint L2</a>
 </p>
 
+<br>
 <br>
 
 <h4>Geometry</h4>
@@ -292,8 +293,6 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <br>
 
 <h2>3. Limits of Validity</h2>
-
-<br>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -319,35 +318,20 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <br>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Governing Equations</h2>
+
+<br>
+
+<h3>5.1 System Description and General model approach</h3>
 
 <br>
 
 <p>
-<img src="./Desulfurization_L1_ideal/equation.png">
+The model is build up from a <a href="../../../Basics/ControlVolumes/GasVolumes/VolumeGas_L2.html" title="FlueGasCell" class="page">FlueGasCell</a> and a <a href="../../../Basics/ControlVolumes/Fundamentals/ChemicalReactions/Desulfurization_L2.txt" title="desulfurization" class="file">desulfurization</a> model. Please have a look into these models for further details.
 </p>
 
-<h2>6. Governing Equations</h2>
-
 <br>
-
-<h3>6.1 System Description and General model approach</h3>
-
 <br>
-
-<p>
-The model is build up from a <a href="../../../Basics/ControlVolumes/GasVolumes/VolumeGas_L2.html" title="FlueGasCell" class="page">FlueGasCell</a> and a <a href="./Internals/Desulfurization_controlVolume_ideal.html" title="desulfurization control volume" class="page">desulfurization control volume</a>. Please have a look into these models for further details.<br>
-<img src="./Desulfurization_L1_ideal/ModelDesulfurizsation.png" width="450">
-</p>
-
-<h3>6.2 Governing Model Equations</h3>
-
-<br>
-
-<p>
-The electric power consumption is calculated with the standardised volume flow rate at the component inlet at 1 bar and 20 °C:<br>
-<img src="./Desulfurization_L1_ideal/equation001.png">
-</p>
 
 <h4>Summary</h4>
 

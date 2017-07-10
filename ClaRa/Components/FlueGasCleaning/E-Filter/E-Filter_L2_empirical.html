@@ -327,159 +327,22 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </p>
 
 <br>
+<br>
+<br>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Governing Equations</h2>
+
+<br>
+
+<h3>5.1 System Description and General model approach</h3>
 
 <br>
 
 <p>
-<img src="./E-Filter_L2_empirical/equation.png">
+The model is build up from a <a href="../../../Basics/ControlVolumes/GasVolumes/VolumeGas_L2.html" title="FlueGasCell" class="page">FlueGasCell</a> and a <a href="../../../Basics/ControlVolumes/Fundamentals/ChemicalReactions/E_Filter_L2_Empirical.txt" title="e filter" class="file">e filter</a> model. Please have a look into these models for further details
 </p>
 
 <br>
-
-<h2>6. Governing Equations</h2>
-
-<br>
-
-<h3>6.1 System Description and General model approach</h3>
-
-<br>
-
-<p>
-The model describes an ideally stirred volume element with heat transfer to the surrounding and a separation of the ash fraction of the flue gas.
-</p>
-
-<h3>6.2 Governing Model Equations</h3>
-
-<br>
-
-<h4>Conservation of Mass</h4>
-
-<p>
-Via parameter preset the user can determine whether the mass balance is calculated dynamic or static. The dynamic mass balance is calculated as follows:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation001.png">
-</p>
-
-<p>
-and the static mass balance:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation002.png">
-</p>
-
-<h4>Conservation of Momentum</h4>
-
-<p>
-We use balance of stationary momentum to model the pressure losses on the control volume. The friciton pressure losses are calculated with the replaceable pressure loss models. In the model the pressure distribution is given by the influence of friction in the x direction, which is given with the direction of the flow. The friction pressure loss is lumped at the inlet to avoid direct coupling of two flow models.
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation003.png">
-</p>
-
-<h4>Conservation of Energy</h4>
-
-<p>
-The energy balance considers ingoing and outgoing enthalpy flow rates as well as energy transport to the surrounding. Please note the special structure of the energy balance with the differences of ingoing and outgoing enthalpies and the cell enthalpy and the additional term for the pressure derivative which is derived from the total derivative of the inner energy of the cell. The structure results from to the special choice of state variables as discussed in Documentation:ClaRa:Basics:Basics of Modelling.
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation004.png">
-</p>
-
-<p>
-The model's density is taken as an explicit function of the states its total derivative should be used for completeness of the model given by:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation005.png">
-</p>
-
-<p>
-while for stationary mass balance the following equation is used:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation006.png">
-</p>
-
-<h4>Conservation of Components</h4>
-
-<p>
-The composition is a vector of the component mass fractions. The calculation of the outlet composition depends on the type of mass conservation. If the dynamic mass balance is used, the outlet composition is calculated as follows:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation007.png">
-</p>
-
-<p>
-while for static mass balance the following equation is used:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation008.png">
-</p>
-
-<h4>Separation process</h4>
-
-<p>
-The the separated dust mass flow and the flue gas volume flow are calculated according to the current flow direction.
-</p>
-
-<p>
-For design flow direction:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation012.png">
-</p>
-
-<p>
-And for back flow situations:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation013.png">
-</p>
-
-<p>
-And if the flue gas flow is positive at both ports:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation015.png">
-</p>
-
-<p>
-For calculation of the separation rate, the inverse of the specific collector surface k<sub>eff </sub>is needed:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation009.png">
-</p>
-
-<p>
-The separation rate is calculated with the following equation:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation010.png">
-</p>
-
-<p>
-The power consumption is calculated as follows:
-</p>
-
-<p>
-<img src="./E-Filter_L2_empirical/equation011.png">
-</p>
-
 <br>
 
 <h4>Summary</h4>
