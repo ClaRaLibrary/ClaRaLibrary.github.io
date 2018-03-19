@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>PumpVLE L1 affinity</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -180,6 +180,7 @@
 <ul>
 <li><a href="../../Adapters.html" title="Adapters" class="page">Adapters</a></li>
 <li><a href="../../BoundaryConditions.html" title="BoundaryConditions" class="page">BoundaryConditions</a></li>
+<li><a href="../../Control.html" title="Control" class="page">Control</a></li>
 <li><a href="../../Electrical.html" title="Electrical" class="page">Electrical</a></li>
 <li><a href="../../FlueGasCleaning.html" title="FlueGasCleaning" class="page">FlueGasCleaning</a></li>
 <li><a href="../../Furnace.html" title="Furnace" class="page">Furnace</a></li>
@@ -190,6 +191,7 @@
 <li><a href="../../TurboMachines.html" title="TurboMachines" class="page">TurboMachines</a>
 <ul>
 <li><a href="../Compressors.html" title="Compressors" class="page">Compressors</a></li>
+<li><a href="../Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a></li>
 <li><a href="../Pumps.html" title="Pumps" class="page">Pumps</a>
 <ul>
 <li><b>PumpVLE L1 affinity</b></li>
@@ -326,57 +328,43 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <h2>6. Governing Equations</h2>
 
 <p>
-In general the derived dynamical equations for the model consider balance of certain properties, like mass, energy and momentum. Furthermore, mechanical and hydraulic efficiency of the pump are used.
+The model considers static balance equations for mass and energy. The fluid momentum balance is reduced to a static pressure balance. In case <tt>steadyStateTorque = false</tt> a dynamic rotational momentum balance is applied. 
 </p>
 
 <h3>6.1 System Description and General model approach</h3>
 
 <p>
-The derived dynamical equations for the model are balances of mass, energy and momentum considering the Mechanic and Hydraulic efficiencies. There are no transient state variables defined, i.e. the model equations are purely algebraic (see figure 1).
+The equations for the model are balances of mass, energy and momentum considering the Mechanic and Hydraulic efficiencies. Optionally, a mechanical shaft connector can be activated applying either steady state or transient rotational dynamics.
 </p>
 
 <h3>6.2 Governing Model Equations</h3>
 
 <br>
 
-<h4>Energy Conservation</h4>
+<h3>Energy Conservation</h3>
 
 <p>
+The following powers are distinguished in the model: The shaft power is transferred by a driving turbine or an e-motor to the pump's shaft. This term is shown on the left at the figure below. On the other edge of the figure the ideal (adiabatic and friction-free) compression power at given pressure difference and volume flow is shown. It is referred to as isentropic power. Adding losses to that ideal compression power gives the power actually transferred to the fluid. Finally, the difference between the shaft power provided by an external driving unit and the power consumed for compression gives a change of rotational speed.
+</p>
+
+<br>
+
+<p>
+<img src="./PumpVLE_L1_affinity/SankeyPump.png" width="600"><br>
+The shaft power is defined as<br>
+<img src="./PumpVLE_L1_affinity/equation004.png">.<br>
 The hydraulic power necessary to pump a certain volume flow at given pressure difference is calculated by<br>
 <img src="./PumpVLE_L1_affinity/equation006.png"><br>
-assuming incompressible fluid, i.e. the density is constant between inlet and outlet. This simplification leads to an error of approx. 3% for power-plant related applications but avoids algebraic loops that would have to be solved iteratively. <br>
-For calculation of the outlet enthalpy the definition of the hydraulic efficiency is applied, yielding<br>
+For calculation of the outlet enthalpy a steady state energy balance is applied in mass specific terms:<br>
 <img src="./PumpVLE_L1_affinity/equation.png">.<br>
-In the above equation the arrows indicate a flow direction from inlet to outlet. However, since the specific enthalpies at the connectors are stream variables the reverse flow flow behaviour has to be defined. This is done in accordingly:<br>
+With the efficiency η coming from a replaceable loss model, see section <i>"Losse</i>s" below.<br>
+In the above equation (2-a) the arrows indicate a flow direction from inlet to outlet. However, since the specific enthalpies at the connectors are stream variables the reverse flow flow behaviour has to be defined. Due to the fact that the model has no thermal capacity (i.e. no control volume) there is a singularity at zero mass flow. To avoid numerical problems, no energy conservation is considered but the spec. enthalpy at the inlet equals the spec. enthalpy at the outlet:<br>
 <img src="./PumpVLE_L1_affinity/equation003.png">
 </p>
 
-<p>
- In general, three operation modes can be distinguished which are relevant for calculation of the isentropic specific enthalpy:
-</p>
+<br>
 
-<h5>a) Design operation</h5>
-
-<p>
-<img src="./PumpVLE_L1_affinity/equation004.png"> <br>
-<img src="./PumpVLE_L1_affinity/equation024.png">
-</p>
-
-<h5>b) reversed pressure difference</h5>
-
-<p>
-<img src="./PumpVLE_L1_affinity/equation005.png"><br>
-<img src="./PumpVLE_L1_affinity/equation025.png">
-</p>
-
-<h5>c) insufficient shaft power - reverse flow</h5>
-
-<p>
-<img src="./PumpVLE_L1_affinity/equation015.png"><br>
-<img src="./PumpVLE_L1_affinity/equation026.png">
-</p>
-
-<h4>Mass Conservation</h4>
+<h3>Mass Conservation</h3>
 
 <p>
 A constant fluid mass is assumed, which yields <br>
@@ -391,7 +379,7 @@ The mass flow rate is then obtained from equation (3) (as shown in figure 1) ,
 <img src="./PumpVLE_L1_affinity/equation002.png">
 </p>
 
-<h4>Momentum Conservation</h4>
+<h3>Momentum Conservation</h3>
 
 <p>
 Balance of stationary momentum is used to model the pressure changes at the outlet port of the pump,
@@ -401,13 +389,13 @@ Balance of stationary momentum is used to model the pressure changes at the outl
 <img src="./PumpVLE_L1_affinity/equation010.png">
 </p>
 
-<h4>Mechanics</h4>
+<h3>Rotational Mechanics</h3>
 
 <p>
 The mechanical connector (shaft) can dedicated whether to be used or not via the parameter <tt>useMechanicalPort. </tt>
 </p>
 
-<h5>a) mechanical port is used</h5>
+<h4>a) mechanical port is used</h4>
 
 <p>
  If the shaft is activated then a dynamic torque balance is evaluated:<br>
@@ -418,7 +406,7 @@ where the shafts acceleration may be  zero (<tt>useSteadyTorque = true</tt>) or 
 <img src="./PumpVLE_L1_affinity/equation021.png">
 </p>
 
-<h5>b) mechanical port is NOT used</h5>
+<h4>b) mechanical port is NOT used</h4>
 
 <p>
 If the mechanical port is deactivated the parameter <tt>rpm_fixed </tt>is used to define the rotational speed and the shaft angle is set to zero.<br>
@@ -428,65 +416,29 @@ If the mechanical port is deactivated the parameter <tt>rpm_fixed </tt>is used t
 <img src="./PumpVLE_L1_affinity/equation023.png">
 </p>
 
-<h4>Hydraulics</h4>
+<h3>Hydraulics</h3>
 
 <p>
-Again, three operation modes can be distinguished, see figure below. Following the figure, operation mode a) represents the normal operation of the pump, i.e. the device pumps a positive flow rate against a positive pressure difference. In operation mode b) the pressure difference has changed its sign, i.e. the inlet pressure exceeds the outlet pressure. In this case the pump behaves like a throttle. The third operation mode c) is encountered when the pressure difference exceeds the maximum pressure difference of the pump at the current speed. In this case either the pump's speed is too small or the pump is under-sized.<br>
-<img src="./PumpVLE_L1_affinity/PumpCharField5.png" width="350">
+The hydraulic characteristics is encapsulated in a replaceable model. The following characteristics are supported:<br>
+<a href="../Fundamentals/PumpHydraulics/MetaStable_Q124.html" title=":ClaRa:Components:TurboMachines:Fundamentals:PumpHydraulics:MetaStable Q124" class="page">:ClaRa:Components:TurboMachines:Fundamentals:PumpHydraulics:MetaStable Q124</a>
 </p>
 
-<h5>a) Design operation</h5>
-
-<p>
-The characteristic field of the pump is usually modelled applying a simple polynomial approach. In order to allow a more precise fitting to the pump's characteristic field a modified approach is used, see equation 12-a. The characteristic field is defined by two parameters indicating the maximum pressure difference (at zero flow rate) and the maximum volume flow rate (at zero pressure difference) at the nominal rotational speed, see figure below. In order to define the convexity of lines of constant speed the parameters exp_hyd and drp_exp are used. Usually exp_hyd is around 0.5 while drp_exp is a small negative number.<br>
-<img src="./PumpVLE_L1_affinity/PumpCharField1.png" width="350">    <img src="./PumpVLE_L1_affinity/PumpCharField6.png" width="350">
-</p>
+<h3>Losses</h3>
 
 <p>
-<img src="./PumpVLE_L1_affinity/equation009.png"><br>
- The behaviour of the pump at off-design speeds is assumed to follow a quadratic affinity law:<br>
-<img src="./PumpVLE_L1_affinity/equation007.png">
+The losses are calculated by a replaceable model. The following models are available:<br>
+<a href="../Fundamentals/PumpEfficiency/EfficiencyCurves_Q1.html" title="PumpEfficiency:EfficiencyCurves Q1" class="page">PumpEfficiency:EfficiencyCurves Q1</a>
 </p>
+
+<h3>Chemistry</h3>
+
+<p>
+No chemical reaction is considered, i.e. inlet composition equals outlet composition.
+</p>
+
+<h3>Reporting</h3>
 
 <br>
-
-<h5>b) reversed pressure difference</h5>
-
-<p>
-In this case the pump behaves like a throttle, having a specific flow resistance. In general, the flow resistance depends on geometry and rotational speed, but for the sake of simplicity this is modelled using a constant effective clearance section:
-</p>
-
-<p>
-<img src="./PumpVLE_L1_affinity/equation012.png">, <br>
-see <a href="../../../Basics/Functions/ThermoRoot.html" title="ClaRa:Basics:Functions:ThermoRoot" class="page">ClaRa:Basics:Functions:ThermoRoot</a> for details on the regularisation.
-</p>
-
-<h5>c) insufficient shaft power - reverse flow</h5>
-
-<p>
- equations (7,8,9-a) are applied<br>
-<img src="./PumpVLE_L1_affinity/equation027.png">
-</p>
-
-<h4>Losses</h4>
-
-<p>
-To model hydraulic losses a simple parameter-based model is implemented based on a nominal efficiency, an affinity exponent for the rotational speed and volume flow and a relative volume flow rate in p.u. for locating the optimal point on the flow rate axis. For rotational speed where stirring effects dominate increasingly, i.e. rpm_stirrS &lt; rpm &lt; rpm_E, the efficiency will drop to zero, applying the Stepsmoother for the sake of numeric robustness. The efficiency is defined as:<br>
-<img src="./PumpVLE_L1_affinity/equation013.png"><br>
-with the maximum flow rate at current speed defined as:<br>
-<img src="./PumpVLE_L1_affinity/equation008.png"><br>
-In the three figures below the effect of the three tuning parameters can be seen.<br>
-<img src="./PumpVLE_L1_affinity/PumpCharField2.png" width="350"><img src="./PumpVLE_L1_affinity/PumpCharField3.png" width="350"><br>
-<img src="./PumpVLE_L1_affinity/PumpCharField4.png" width="350">
-</p>
-
-<br>
-
-<h4>Chemistry</h4>
-
-<p>
-No chemical reaction is considered.
-</p>
 
 <h4>Summary</h4>
 
@@ -495,12 +447,12 @@ A summary is available including the following:<br>
 <ul>
 <li>an outline record:</li>
 </ul>
-<img src="./PumpVLE_L1_affinity/equation014.png">
+<img src="./PumpVLE_L1_affinity/equation014.png"> 
 </p>
 
 <p>
 <ul>
-<li>and two records of type FlangeVLE named inlet and outlet</li>
+<li>and two records of type <a href="../../../Basics/Records/FlangeVLE.html" title="FlangeVLE" class="page">FlangeVLE</a> named inlet and outlet</li>
 </ul>
 </p>
 
@@ -511,14 +463,15 @@ A summary is available including the following:<br>
 <p>
 <ul>
 <li>Flow rate depending on drive power and pressure difference.</li>
-<li>Please note, the performance of the pump also depends on the attatched power source (typically an e-motor or a steam turbine). If the required torque can not be supplied by this power source then the rotational speed will drop. For this reason, applying a prescribed speed/torque boundary might lead to erroneous results. For a more realistic result consider <a href="../../Electrical/AsynchronousMotor_L2.html" title="AsynchronousMotor L2" class="page">AsynchronousMotor L2</a> for a simple e-motor and <a href="../Turbines/Steam_Turbine_L1.html" title="Steam Turbine L1" class="page">Steam Turbine L1</a> for a steam turbine.</li>
+<li>Please note, the performance of the pump also depends on the attached power source (typically an e-motor or a steam turbine). If the required torque can not be supplied by this power source then the rotational speed will drop. For this reason, applying a prescribed speed/torque boundary might lead to erroneous results. For a more realistic result consider <a href="../../Electrical/AsynchronousMotor_L2.html" title="AsynchronousMotor L2" class="page">AsynchronousMotor L2</a> for a simple e-motor and <a href="../Turbines/Steam_Turbine_L1.html" title="Steam Turbine L1" class="page">Steam Turbine L1</a> for a steam turbine.</li>
+<li>The pump is encircled red in animation mode if NPSHa &lt; 0.</li>
 </ul>
 </p>
 
 <h2>8. Validation</h2>
 
 <p>
-For validation purposes a pump of a coal-fired power plant of the the 600 MW class is considered. The figures below compare values from the characteristic map of the pump with calculated data from the model. The congruence is good over a wide range of operation points and gives reasonable results beyond the normal field of operation which improves numerical robustness of applying models.<br>
+For validation purposes a feedwater pump of a coal-fired power plant of the the 600 MW class is considered. The figures below compare values from the characteristic map of the pump with calculated data from the models <a href="../Fundamentals/PumpEfficiency/EfficiencyCurves_Q1.html" title=":EfficiencyCurves Q1" class="page">:EfficiencyCurves Q1</a> and <a href="../Fundamentals/PumpHydraulics/MetaStable_Q124.html" title=":MetaStable Q124" class="page">:MetaStable Q124</a>. The congruence is good over a wide range of operation points and gives reasonable results beyond the normal field of operation which improves numerical robustness of applying models. <br>
 <img src="./PumpVLE_L1_affinity/eta_m_flow.png" width="400"><img src="./PumpVLE_L1_affinity/Delta_p_m_flow.png" width="400">
 </p>
 
@@ -527,8 +480,12 @@ For validation purposes a pump of a coal-fired power plant of the the 600 MW cla
 <br>
 
 <p>
-[1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulationof Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 
+[1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulationof Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 <br>
+[2]   <b>H.Austregesilo, C.Bals, A.Hora, G.Lerchl, P.Romstedt:</b> "ATHLET Mod 2.1 Cycle A - Models and Methods", Documentation provided by the Gesellschaft für Anlagen- und Reaktorsicherheit mbH, July 2006 <br>
+[3] <b>R.R. Schultz: </b>"RELAP5-3D Code Manual Volume V: User's Guidelines", 2nd Revision. Idaho National Engineering and Environmental Laboratory, July 2002.
 </p>
+
+<br>
 
 <h2>10. Version History</h2>
 
@@ -536,6 +493,7 @@ For validation purposes a pump of a coal-fired power plant of the the 600 MW cla
 <ul>
 <li>2013-Aug-28 - v0.0 - Initial implementation- F. Gottelt, XRG Simulation GmbH</li>
 <li>2014-Mar-11 - v0.1 - improved numerical behaviour in case of back flow and speed reduction- F. Gottelt, XRG Simulation GmbH</li>
+<li>2017-Dec.07 - v0.1 - major revision including bug fixes and introducing replaceable models for hydraulics and losses, see <a href="../../../A_User_Guide/Revisions/v1.3.0.html" title="release notes" class="page">release notes</a> - F.Gottelt, XRG Simulation GmbH</li>
 </ul>
 </p>
 
@@ -544,11 +502,15 @@ For validation purposes a pump of a coal-fired power plant of the the 600 MW cla
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
-				<a href='../../../A_User_Guide/Revisions/v1.0.1.html'>ClaRa:A User Guide:Revisions:v1.0.1</a>
-				
 				<a href='../../../A_User_Guide/Revisions/v1.0.0.html'>ClaRa:A User Guide:Revisions:v1.0.0</a>
 				
+				<a href='../../../A_User_Guide/Revisions/v1.0.1.html'>ClaRa:A User Guide:Revisions:v1.0.1</a>
+				
 				<a href='./PumpVLE_L1_simple.html'>ClaRa:Components:TurboMachines:Pumps:PumpVLE L1 simple</a>
+				
+				<a href='../Fundamentals/PumpEfficiency/EfficiencyCurves_Q1.html'>ClaRa:Components:TurboMachines:Fundamentals:PumpEfficiency:EfficiencyCurves Q1</a>
+				
+				<a href='../Fundamentals/PumpHydraulics/MetaStable_Q124.html'>ClaRa:Components:TurboMachines:Fundamentals:PumpHydraulics:MetaStable Q124</a>
 				<br /><br />
 			</span>
 

@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>PumpVLE L1 simple</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -180,6 +180,7 @@
 <ul>
 <li><a href="../../Adapters.html" title="Adapters" class="page">Adapters</a></li>
 <li><a href="../../BoundaryConditions.html" title="BoundaryConditions" class="page">BoundaryConditions</a></li>
+<li><a href="../../Control.html" title="Control" class="page">Control</a></li>
 <li><a href="../../Electrical.html" title="Electrical" class="page">Electrical</a></li>
 <li><a href="../../FlueGasCleaning.html" title="FlueGasCleaning" class="page">FlueGasCleaning</a></li>
 <li><a href="../../Furnace.html" title="Furnace" class="page">Furnace</a></li>
@@ -190,6 +191,7 @@
 <li><a href="../../TurboMachines.html" title="TurboMachines" class="page">TurboMachines</a>
 <ul>
 <li><a href="../Compressors.html" title="Compressors" class="page">Compressors</a></li>
+<li><a href="../Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a></li>
 <li><a href="../Pumps.html" title="Pumps" class="page">Pumps</a>
 <ul>
 <li><a href="./PumpVLE_L1_affinity.html" title="PumpVLE L1 affinity" class="page">PumpVLE L1 affinity</a></li>
@@ -401,14 +403,10 @@ A summary is available including the following:<br>
 
 <h2>7. Remarks for Usage</h2>
 
-<br>
-
 <p>
 <ul style='padding-left: 30pt'>
-<li>Flow rate depending on driving power and pressure difference.</li>
-<li>Stationary flow.</li>
-<li>Incompressible flow.</li>
-<li>no backflow, no zero flow</li>
+<li>no backflow supported</li>
+<li>model is singular at Δp = 0 giving infinte volume flow.</li>
 </ul>
 </p>
 
@@ -426,9 +424,10 @@ A summary is available including the following:<br>
 
 <p>
 <ul>
-<li>2011-Nov-02 - v0.0 - Initial implementation- F. Gottelt</li>
-<li>2012-Apr.-17 - v0.1 - Avoid devision by zero Delta_p - F.Gottelt</li>
-<li>2013-Mar-19 - v0.2 - introduced summary, revised nomenclature - F. Gottelt</li>
+<li>2011-Nov-02 - v0.0 - Initial implementation- F. Gottelt, XRG Simulation GmbH</li>
+<li>2012-Apr.-17 - v0.1 - Avoid devision by zero Delta_p - F.Gottelt, XRG Simulation GmbH</li>
+<li>2013-Mar-19 - v0.2 - introduced summary, revised nomenclature - F. Gottelt, XRG Simulation GmbH</li>
+<li>2017-Dec-08 - v0.3 - minor changes to summary and nomencalture, implemented visualiser - F.Gottelt, XRG Simulation GmbH</li>
 </ul>
 </p>
 

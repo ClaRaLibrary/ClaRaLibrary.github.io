@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>v1.0.0</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -189,9 +189,12 @@
 <li><a href="./v1.2.0.html" title="v1.2.0" class="page">v1.2.0</a></li>
 <li><a href="./v1.2.1.html" title="v1.2.1" class="page">v1.2.1</a></li>
 <li><a href="./v1.2.2.html" title="v1.2.2" class="page">v1.2.2</a></li>
+<li><a href="./v1.2.3.html" title="v1.2.3" class="page">v1.2.3</a></li>
 <li><a href="./v1.3.0.html" title="v1.3.0" class="page">v1.3.0</a></li>
+<li><a href="./v1.3.1.html" title="v1.3.1" class="page">v1.3.1</a></li>
 <li><a href="./v1.4.0.html" title="v1.4.0" class="page">v1.4.0</a></li>
 <li><a href="./v1.5.0.html" title="v1.5.0" class="page">v1.5.0</a></li>
+<li><a href="./vx.x.x.html" title="vx.x.x" class="page">vx.x.x</a></li>
 </ul></li>
 </ul>
 </li>
@@ -240,7 +243,7 @@ This is the first official release. Compared to the previous inoffcial versions 
 
 <p>
 <ul>
-<li class="checked-box">the basic models from which the components are mostly build  were restructured intruducing an improved structure of the internal comunication record (the so-called iCom). In former times the internal comunication between the model and the replaceable sub-models were handled via a public records that was also used as  a summary for the user. In this concept the communication record must contain the sum of all variables needed by all replaceable models. This created extra effort for maintenance and library enhancement and increases the memory used for storage and during simulation. Therefore we created a more flexible structure that especially splitted the functionality of media property calculation, summary for the user, geometry data handling, and  replaceable model's functionality. See <a href="../GettingStarted/Model_Design_Principles.html" title="A User Guide:GettingStarted:Model Design Principles" class="page">A User Guide:GettingStarted:Model Design Principles</a> for the general ideas of model design. </li>
+<li class="checked-box">the basic models from which the components are mostly build  were restructured intruducing an improved structure of the internal comunication record (the so-called iCom). In former times the internal comunication between the model and the replaceable sub-models were handled via a public records that was also used as  a summary for the user. In this concept the communication record must contain the sum of all variables needed by all replaceable models. This created extra effort for maintenance and library enhancement and increases the memory used for storage and during simulation. Therefore we created a more flexible structure that especially splitted the functionality of media property calculation, summary for the user, geometry data handling, and  replaceable model's functionality. See <a href="../GettingStarted/Model_Design_Principles.html" title=":ClaRa:A User Guide:GettingStarted:Model Design Principles" class="page">:ClaRa:A User Guide:GettingStarted:Model Design Principles</a> for the general ideas of model design. </li>
 <li class="checked-box">all heat transfer models and geometries revised (please read about the known issues after restructuring)</li>
 <li class="checked-box">the library structure changed in some minor points
 <ul>
@@ -327,246 +330,6 @@ Deviations in the simulation results may occur after the extensive renaming and 
 <li>MoistAirMixture</li>
 <li>TILMedia_PR_CCS_Mixture_with_Water</li>
 </ul></li>
-</ul>
-</p>
-
-<br>
-
-<h1>To-Do before release:</h1>
-
-<p>
-<ul>
-<li class="checked-box">check 4 obsolete functions/models</li>
-<li class="checked-box">check for obsolete directories</li>
-<li class="checked-box">cycle summary: support AutomaticEfficiencyCalculation</li>
-</ul>
-<div style='padding-left: 30pt'>
-see <a href="../../SimCenter/summary.html" title="ClaRa:SimCenter:summary" class="page">ClaRa:SimCenter:summary</a>
-</div>
-<ul style='padding-left: 30pt'>
-<li class="checked-box">check for different enthalpy zero reference</li>
-</ul>
-<ul>
-<li class="xchecked-box">revise fuel connectors and fuel media data definition</li>
-</ul>
-<div style='padding-left: 30pt'>
-→ will be done in release ClaRa v1.1
-</div>
-<ul>
-<li class="checked-box">revise solid materials, having constant density
-<ul>
-<li class="xchecked-box">include relevant steel data</li>
-</ul>
-</li>
-<li class="checked-box">cycle init
-<ul>
-<li class="checked-box">test (maria) ok.</li>
-<li class="checked-box">naming --&gt; StaticCycles</li>
-<li class="checked-box">icons</li>
-<li class="checked-box">convert script</li>
-</ul>
-</li>
-<li class="xchecked-box">grid models to be included from efacecLib?</li>
-</ul>
-<div style='padding-left: 30pt'>
-→ no, will be part of transientEE library
-</div>
-<ul>
-<li class="checked-box">other models from efacecLib to be transfered?</li>
-</ul>
-<div style='padding-left: 30pt'>
-→ no - will be done later, for ClaRa v1.1
-</div>
-<ul style='padding-left: 30pt'>
-<li class="xchecked-box">CoolingTower</li>
-<li class="xchecked-box">insulated walls + insulation material</li>
-</ul>
-<ul>
-<li class="checked-box">revise parameter dialog of ModelProperties</li>
-<li class="checked-box">collaps all relevant branches
-<ul>
-<li class="checked-box">pipeStabilisation</li>
-<li class="checked-box">pipeStabilisation_smoothFluid (esp. join/split updates)</li>
-<li class="checked-box">VLE multiComponent</li>
-<li class="checked-box">pipe revision</li>
-<li class="checked-box">NewInitCycle</li>
-</ul>
-</li>
-<li class="checked-box">summaries:
-<ul>
-<li class="checked-box">H_flow in Furnace package</li>
-<li class="checked-box">T_in and T_out in Furnace package — apply actualStream (otherwise inlet and outlet temp are the same)</li>
-<li class="checked-box">A_hor_act(time) in phaseBorder models (in branch NewIcoms)</li>
-<li class="xchecked-box">xi in VLE models</li>
-</ul></li>
-</ul>
-<div style='padding-left: 60pt'>
-→ will be done in next release
-</div>
-</p>
-
-<p>
-<ul>
-<li class="checked-box">AsynchronousMotor_L2 (in branch NewIcoms)
-<ul>
-<li class="checked-box">Check Icon</li>
-<li class="xchecked-box">reverse rotation</li>
-</ul></li>
-</ul>
-<div style='padding-left: 60pt'>
-→ will be done in DYNSTART
-</div>
-<ul style='padding-left: 30pt'>
-<li class="checked-box">efficiency and losses</li>
-<li class="checked-box">test with pump attatched</li>
-</ul>
-</p>
-
-<p>
-<ul>
-<li class="checked-box">update HEX models with NTU_L2_advanced
-<ul>
-<li class="checked-box">implement "advanced" functionality as a parameter, introducing different state locations</li>
-<li class="checked-box">NTU_L2</li>
-<li class="checked-box">NTU_L2_effectiveResistance</li>
-<li class="checked-box">add entries in convert script</li>
-</ul>
-</li>
-<li class="checked-box">review SubSystems package
-<ul>
-<li class="checked-box">check for obsolete content</li>
-<li class="xchecked-box">add minimum example for usage of subsystem definition within large projects</li>
-</ul>
-</li>
-<li class="checked-box">check control package: 
-<ul>
-<li class="checked-box">check for content in Basics.Blocks</li>
-<li class="checked-box">check initialisation of LimPID</li>
-</ul>
-</li>
-<li class="checked-box">update valve model (fluidIn.gamma and fluidOut.gamma into iCom) from pipeStabilisationSmoothFluid</li>
-<li class="checked-box">evaluate model: ThinWall_L2</li>
-<li class="checked-box">update replaceable pressure loss models in pipe_L4_simple and pipe_L4_advanced to use discretisation-dependent Delta_p_smooth 
-<ul>
-<li class="checked-box">parameter ClaRa.Basics.Units.Pressure dp_smooth=iCom.dp_nom/iCom.nCells*0.2</li>
-<li class="checked-box">add entry in convert script</li>
-</ul>
-</li>
-<li class="checked-box">pipe_L2,L4: check FlowModels</li>
-<li class="checked-box">sensor package
-<ul>
-<li class="checked-box">review icons</li>
-<li class="checked-box">review gasIndirectSensors</li>
-</ul>
-</li>
-<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.SpacialDistribustionAspects.IdeallyStirred:
-<ul>
-<li class="checked-box">add option to position the geostatic pressure loss</li>
-<li class="checked-box">add option to decide whether to use internal densitity function TILMedia.Internals.VLEFluidObjectFunctions.density_phxi (provideing its derivatives) or not -&gt; TILMedia.VLEFluidObjectFunctions.density_phxi</li>
-</ul>
-</li>
-<li class="checked-box">revise pipe parameter dialogs</li>
-<li class="checked-box">check all icons: 
-<ul>
-<li class="checked-box">color of text if applicable</li>
-<li class="xchecked-box">include name in icon?</li>
-<li class="checked-box">make library consistent</li>
-</ul>
-</li>
-<li class="checked-box">HeatTransfer: 
-<ul>
-<li class="checked-box">make (again) the ideal HT_L2 independent from the kc value thus avoiding numerical problems</li>
-</ul>
-</li>
-<li class="checked-box">thinWall: include CF_lambda for all models</li>
-<li class="checked-box">erase ClaRa.Basics.ControlVolumes.FluidVolumes.Fundamentals</li>
-<li class="checked-box">check ClaRa.Components.Control.Blocks for different LimPID</li>
-</ul>
-<div style='padding-left: 30pt'>
-→ moved additional LimPID to ClaRa_Dev as a starting point for further development
-</div>
-<ul>
-<li class="checked-box">move PCC-specific UnitFeedForward into CCS library</li>
-<li class="checked-box">erase ThermalPower adapter and corresponding fundamentals</li>
-<li class="checked-box">check convertFlueMass2Mole → depends on connector from CCS library</li>
-<li class="checked-box">update ThreeWayValveVLE_L2</li>
-<li class="checked-box">check content of threeWayValves: 
-<ul>
-<li class="checked-box">ThreeWayValveVLE_L1</li>
-<li class="checked-box">ThreeWayValveVLE_L2</li>
-<li class="checked-box">replaceable models (pressure independent characteristic, pressure dependent quadratic characteristic)</li>
-</ul>
-</li>
-<li class="checked-box">HeaderVLE_L2_flex:
-<ul>
-<li class="xchecked-box">generate icon</li>
-<li class="checked-box">naming vs. flexible functionality? mv to ClaRa_Dev</li>
-</ul>
-</li>
-<li class="checked-box">bugfix: prevent opening_ &gt;1 &amp;&amp; opening_ &lt; 0</li>
-<li class="checked-box">All iComs protected?</li>
-<li class="checked-box">check examples for warnings</li>
-<li class="checked-box">update turbine h_iso calculation to use fluidObject functions</li>
-<li class="checked-box">modelProperties:
-<ul>
-<li class="checked-box">docu entry</li>
-</ul>
-</li>
-<li class="checked-box">pipe_L2, pipe_L4: bugfix eye connector (p_out=outlet.p!)</li>
-</ul>
-</p>
-
-<p>
-<ul>
-<li class="checked-box">new Icons:
-<ul>
-<li class="checked-box">ClaRa.Components.BoundaryConditions.GasCompositionByMassFractions</li>
-<li class="checked-box">ClaRa.Components.BoundaryConditions.GasCompositionByVolFractions</li>
-<li class="checked-box">ClaRa.Components.BoundaryConditions.GasCompositionByMassFractionsWithArgon</li>
-<li class="checked-box">ClaRa.Components.Adapters.CoalSlagFlueGas_join</li>
-<li class="checked-box">ClaRa.Components.Adapters.CoalSlagFlueGas_split</li>
-<li class="checked-box">ClaRa.Components.Adapters.CoalGas_join</li>
-<li class="checked-box">ClaRa.Components.Adapters.CoalGas_split</li>
-<li class="checked-box">NTU models</li>
-<li class="checked-box">iCom</li>
-</ul></li>
-</ul>
-</p>
-
-<p>
-<ul>
-<li class="checked-box">check SlidingMean  </li>
-<li class="checked-box">finalise AsynchronousMotor </li>
-<li class="checked-box">check docu for ClaRa:Basics:Functions:RegLogMean </li>
-</ul>
-</p>
-
-<p>
-<ul>
-<li class="checked-box">create new library header + library info </li>
-<li class="checked-box">update version number in ClaRa </li>
-<li class="checked-box">update version number in model header </li>
-<li class="checked-box">tidy up this ZIM </li>
-<li class="checked-box">create release notes  
-<ul>
-<li class="checked-box">in ZIM docu</li>
-<li class="checked-box">in ClaRa info package</li>
-</ul></li>
-</ul>
-</p>
-
-<p>
-<ul>
-<li class="xchecked-box">create documentation release  </li>
-<li class="checked-box">finally check for obsolete folders and files </li>
-<li class="checked-box">create download package 
-<ul>
-<li class="checked-box">Modelica libraries</li>
-<li class="xchecked-box">Docu</li>
-<li class="checked-box">Convert advices for alpha version users</li>
-</ul>
-</li>
-<li class="checked-box">check funktions for declarative comments </li>
 </ul>
 </p>
 

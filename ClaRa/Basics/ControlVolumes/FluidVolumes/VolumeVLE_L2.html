@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>VolumeVLE L2</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -185,6 +185,7 @@
 <li><b>VolumeVLE L2</b></li>
 <li><a href="./VolumeVLE_L3_TwoZones.html" title="VolumeVLE L3 TwoZones" class="page">VolumeVLE L3 TwoZones</a></li>
 <li><a href="./VolumeVLE_L3_TwoZonesNPort.html" title="VolumeVLE L3 TwoZonesNPort" class="page">VolumeVLE L3 TwoZonesNPort</a></li>
+<li><a href="./VolumeVLE_L4.html" title="VolumeVLE L4" class="page">VolumeVLE L4</a></li>
 <li><a href="./VolumeVLE_L4_Advanced.html" title="VolumeVLE L4 Advanced" class="page">VolumeVLE L4 Advanced</a></li>
 </ul>
 </li>
@@ -323,9 +324,9 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <h3>4.1 Physical Connectors</h3>
 
 <p>
-<a href="../../Interfaces/FluidPortIn.html" title="Basics:Interfaces:FluidPortIn" class="page">Basics:Interfaces:FluidPortIn</a> inlet<br>
-<a href="../../Interfaces/FluidPortOut.html" title="Basics:Interfaces:FluidPortOut" class="page">Basics:Interfaces:FluidPortOut</a> outlet<br>
-<a href="../../Interfaces/HeatPort_a.html" title="Basics:Interfaces:HeatPort a" class="page">Basics:Interfaces:HeatPort a</a> heat
+<a href="../../Interfaces/FluidPortIn.html" title=":ClaRa:Basics:Interfaces:FluidPortIn" class="page">:ClaRa:Basics:Interfaces:FluidPortIn</a> inleti "nlet port"<br>
+<a href="../../Interfaces/FluidPortOut.html" title=":ClaRa:Basics:Interfaces:FluidPortOut" class="page">:ClaRa:Basics:Interfaces:FluidPortOut</a> outlet "outlet ports"<br>
+<a href="../../Interfaces/HeatPort_a.html" title=":ClaRa:Basics:Interfaces:HeatPort a" class="page">:ClaRa:Basics:Interfaces:HeatPort a</a> heat
 </p>
 
 <br>
@@ -391,7 +392,7 @@ In the model the pressure distribution is given by the difference in the heights
 <h4>Conservation of Energy</h4>
 
 <p>
-The energy balance for the control volume considers incoming and outgoing enthalpy flow rates as well as heat transport into the system. Please note, there are two terms in the equation below that take the derivatives of  density and pressure into account. These terms are derived from the total derivative of the inner energy of the zone and appear here due to the special choice of state variables as discussed in <a href="../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a>.
+The energy balance for the control volume considers incoming and outgoing enthalpy flow rates as well as heat transport into the system. Please note, there are two terms in the equation below that take the derivatives of  density and pressure into account. These terms are derived from the total derivative of the inner energy of the zone and appear here due to the special choice of state variables as discussed in <a href="../../../Basic_Concepts_of_Modelling.html" title=":ClaRa:Basic Concepts of Modelling" class="page">:ClaRa:Basic Concepts of Modelling</a>.
 </p>
 
 <br>
@@ -432,15 +433,17 @@ A summary is available including the following:<br>
 </ul>
 <img src="./VolumeVLE_L2/equation.png"><br>
 <ul>
-<li><a href="../../Records/FlangeVLE.html" title="Basics:Records:FlangeVLE" class="page">Basics:Records:FlangeVLE</a> inlet, outlet</li>
-<li><a href="../../Records/FluidVLE_L2.html" title="Basics:Records:FluidVLE L2" class="page">Basics:Records:FluidVLE L2</a> bulk</li>
+<li><a href="../../Records/FlangeVLE.html" title=":ClaRa:Basics:Records:FlangeVLE" class="page">:ClaRa:Basics:Records:FlangeVLE</a> inlet, outlet</li>
+<li><a href="../../Records/FluidVLE_L34.html" title=":ClaRa:Basics:Records:FluidVLE L34" class="page">:ClaRa:Basics:Records:FluidVLE L34</a> fluid</li>
 </ul>
 </p>
+
+<br>
 
 <h2>7. Remarks for Usage</h2>
 
 <p>
-This model is applied in a number of component models either via instantiation or inheritance, see for example <a href="../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_ntu.html" title="Components:HeatExchangers:HEXvle2vle L3 2ph CU ntu" class="page">Components:HeatExchangers:HEXvle2vle L3 2ph CU ntu</a>
+This model is applied in a number of component models either via instantiation or inheritance, see for example <a href="../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_ntu.html" title=":ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU ntu" class="page">:ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU ntu</a>
 </p>
 
 <h2>9. References</h2>
@@ -457,7 +460,8 @@ This model is applied in a number of component models either via instantiation o
  Date - Version - Description of changes - author/revisor<br>
 25.06.2013 - v0.1 - initial implementation of the model - Friedrich Gottelt, XRG Simulation<br>
 25.06.2014 - v0.2 - application of the internal communication concept (iCom) - Friedrich Gottelt, XRG Simulation<br>
-24.04.2017 - v1.2.2 - added noEvent Operator to actualStream - Timm Hoppe, XRG Simulation
+24.04.2017 - v1.2.2 - added noEvent Operator to actualStream - Timm Hoppe, XRG Simulation<br>
+08.08.2017 - v1.2.3 - added noEvent Operator to actualStream - Timm Hoppe, XRG Simulation
 </p>
 
 
@@ -465,35 +469,35 @@ This model is applied in a number of component models either via instantiation o
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
-				<a href='../../../Components/MechanicalSeparation/FeedWaterTank_L2.html'>ClaRa:Components:MechanicalSeparation:FeedWaterTank L2</a>
+				<a href='../../../Components/HeatExchangers/HEXvle2gas_L3_1ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2gas L3 1ph BU ntu</a>
 				
-				<a href='../../../Components/Sensors/SensorVLE_L3_T.html'>ClaRa:Components:Sensors:SensorVLE L3 T</a>
+				<a href='../../../Components/HeatExchangers/HEXvle2gas_L3_1ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2gas L3 1ph BU simple</a>
 				
-				<a href='../../../Components/HeatExchangers/TubeBundle_L2.html'>ClaRa:Components:HeatExchangers:TubeBundle L2</a>
-				
-				<a href='../../../Components/HeatExchangers/IdealShell_L2.html'>ClaRa:Components:HeatExchangers:IdealShell L2</a>
-				
-				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CH_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CH simple</a>
+				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph BU ntu</a>
 				
 				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph BU simple</a>
 				
-				<a href='../../../Components/HeatExchangers/HEXvle2gas_L3_1ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2gas L3 1ph BU ntu</a>
-				
-				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU ntu</a>
+				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_kA.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph kA</a>
 				
 				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU ntu</a>
 				
 				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU simple</a>
 				
-				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU simple</a>
-				
-				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_kA.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph kA</a>
-				
 				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CH_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CH ntu</a>
 				
-				<a href='../../../Components/HeatExchangers/HEXvle2gas_L3_1ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2gas L3 1ph BU simple</a>
+				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CH_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CH simple</a>
 				
-				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph BU ntu</a>
+				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU ntu</a>
+				
+				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU simple</a>
+				
+				<a href='../../../Components/HeatExchangers/IdealShell_L2.html'>ClaRa:Components:HeatExchangers:IdealShell L2</a>
+				
+				<a href='../../../Components/HeatExchangers/TubeBundle_L2.html'>ClaRa:Components:HeatExchangers:TubeBundle L2</a>
+				
+				<a href='../../../Components/MechanicalSeparation/FeedWaterTank_L2.html'>ClaRa:Components:MechanicalSeparation:FeedWaterTank L2</a>
+				
+				<a href='../../../Components/Sensors/SensorVLE_L3_T.html'>ClaRa:Components:Sensors:SensorVLE L3 T</a>
 				
 				<a href='../../../Components/VolumesValvesFittings/Fittings/SprayInjectorVLE_L3.html'>ClaRa:Components:VolumesValvesFittings:Fittings:SprayInjectorVLE L3</a>
 				

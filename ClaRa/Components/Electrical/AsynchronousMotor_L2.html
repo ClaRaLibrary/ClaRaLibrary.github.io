@@ -4,8 +4,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>AsynchronousMotor L2</title>
-	<meta name="generator" content="Zim 0.65">
+	<title>AsynchronousMotor_L2</title>
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -180,9 +180,11 @@
 <ul>
 <li><a href="../Adapters.html" title="Adapters" class="page">Adapters</a></li>
 <li><a href="../BoundaryConditions.html" title="BoundaryConditions" class="page">BoundaryConditions</a></li>
+<li><a href="../Control.html" title="Control" class="page">Control</a></li>
 <li><a href="../Electrical.html" title="Electrical" class="page">Electrical</a>
 <ul>
 <li><b>AsynchronousMotor L2</b></li>
+<li><a href="./AsynchronousMotor_L2_base.html" title="AsynchronousMotor L2 base" class="page">AsynchronousMotor L2 base</a></li>
 </ul>
 </li>
 <li><a href="../FlueGasCleaning.html" title="FlueGasCleaning" class="page">FlueGasCleaning</a></li>
@@ -207,14 +209,14 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>AsynchronousMotor L2 <a name='ClaRa:Components:Electrical:AsynchronousMotor L2'></a></h1>
+			<h1>AsynchronousMotor_L2 <a name='ClaRa:Components:Electrical:AsynchronousMotor L2'></a></h1>
 
 			<p>
-Created Tuesday 15 July 2014
+Created Mittwoch 14 März 2018
 </p>
 
 <p>
-<b>A simple asynchronous electric motor</b>
+<b>A simple asynchronous electric motor with excitation voltage and frequency set by input.</b>
 </p>
 
 <h2>1. Purpose of Model</h2>
@@ -272,8 +274,7 @@ The following connectors are available:<br>
 <h2>5. Nomenclature</h2>
 
 <p>
-a table referencing the nomenclature in the source code, the descriptions of variables and the "human-readable", use the following latex table template:<br>
-<img src="./AsynchronousMotor_L2/equation019.png">
+<img src="./AsynchronousMotor_L2/equation002.png">
 </p>
 
 <h2>6. Governing Equations</h2>
@@ -283,109 +284,16 @@ a table referencing the nomenclature in the source code, the descriptions of var
 <h3>6.1 System Description and General Modelling Approach</h3>
 
 <p>
-The model is based on the simplified equivalent circuit shown below. Based on the theories of phase vector representation common to AC electric engineering the performance of the electric machine is derived. Storage of mechanical energy is considered applying an energy balance for the total system. 
-</p>
-
-<h3>6.2 General Model Equations</h3>
-
-<br>
-
-<h4>Definitions</h4>
-
-<p>
-<img src="./AsynchronousMotor_L2/equation.png">
+The model extends the <a href="./AsynchronousMotor_L2_base.html" title="AsynchronousMotor L2 base" class="page">AsynchronousMotor L2 base</a> model. See according documentation for a detailed description of the underlying model equations.<br>
+The model requires the excitation voltage <img src="./AsynchronousMotor_L2/equation.png"> and the excitation frequency <img src="./AsynchronousMotor_L2/equation001.png"> as inputs.
 </p>
 
 <br>
-
-<h4>Electric Characteristics</h4>
-
-<p>
-The electric performance characteristics are mostly taken from [2].  Basis for the calculation of the electric performance is the following simplified equivalent circuit:<br>
-<img src="./AsynchronousMotor_L2/EquivalentCircuit.png" width="750">
-</p>
-
-<p>
-From the above figure the locked rotor induced voltage can be derived as<br>
-<img src="./AsynchronousMotor_L2/equation010.png">. The absolute value of the induced rotor current is (under the definition that the phase angle of the current is zero) then<br>
-<img src="./AsynchronousMotor_L2/equation011.png"> and the gap power:
-</p>
-
-<p>
-<img src="./AsynchronousMotor_L2/equation012.png"><br>
-Applying definitions (1) and (5) the gap torque reads:<br>
-<img src="./AsynchronousMotor_L2/equation013.png"><br>
-The above formula has a maximum, defined by <img src="./AsynchronousMotor_L2/equation014.png">. Curve sketching gives these values. The breakdown torque depends on locked rotor voltage, synchronous speed, and the rotor's inductance:<br>
-<img src="./AsynchronousMotor_L2/equation001.png">.<br>
-The breakdown slip is depending on the excitation frequency, the rotor's ohmic resistance and its inductance:<br>
-<img src="./AsynchronousMotor_L2/equation002.png">.<br>
-In the above equation the locked rotor voltage depends on the terminal voltage and the ratio of rotor windings to anchor windings is implied be the AC transformer's basic equations:<br>
-<img src="./AsynchronousMotor_L2/equation004.png">.
-</p>
-
-<p>
-sub-dividing  equation (9) by equation (10) gives us the actual gap torque:<br>
-<img src="./AsynchronousMotor_L2/equation003.png">,<br>
-which is called the formula of Kloss
-</p>
-
-<p>
-This equation (13) correlates the actual slip (and thereby the rotational speed) with the torque. Please note that this characteristic line is a function of the rotor bar geometry according to [2] five different geometries can be distinguished leading to different torque speed curves, see figure below. Due to the fact that the formula of Kloss refers to the rotor bar of type "R" (marked blue in the figure) which is quite disadvantageous regarding the starting torque the user can also define a specific characteristic line in a table when setting <tt>useCharLine = true.</tt><br>
-<img src="./AsynchronousMotor_L2/CharacteristicLines2.png" width="400"><br>
-The table definition will be applied as follows:<br>
-<img src="./AsynchronousMotor_L2/equation020.png"><br>
-herein the function <tt>tableIpo </tt>will perform a linear interpolation of the table's entries. The interpolation will be smooth when <tt>smoothness</tt> is set accordingly in the expert settings. Please note, the formula of Kloss implies a frequency dependency of the break down slip. This is not considered when applying the table-based characteristics. 
-</p>
-
-<br>
-
-<h4>Mechanic Energy Conservation</h4>
-
-<p>
-<img src="./AsynchronousMotor_L2/equation006.png">	
-</p>
-
-<h4>Losses and Power Flow</h4>
-
-<p>
-The following simplified Sankey diagram  illustrates the losses taken into account. The ideas for modelling the losses are taken from [3].
-</p>
-
-<p>
-<img src="./AsynchronousMotor_L2/Sankey.png" width="400">
-</p>
-
-<h5>Stator Losses:</h5>
-
-<p>
-For the sake of simplicity the stator's efficiency is assumed to be constant. The terminal power is therefore<br>
-<img src="./AsynchronousMotor_L2/equation008.png">
-</p>
-
-<h5>Rotor Losses:</h5>
-
-<p>
-Assuming no stray losses  the rotor losses can be summarised as <br>
-<img src="./AsynchronousMotor_L2/equation007.png">. <br>
-Thus we can introduce a rotor efficiency:<br>
-<img src="./AsynchronousMotor_L2/equation005.png">
-</p>
 
 <h2>7. Remarks for Usage</h2>
 
 <p>
-For the sake of usability the parameter dialog refers to values that are likely available for the user through the product data sheet of a specific motor:<br>
-The ratio of rotor to stator windings used in equation (12) is calculated<br>
-<img src="./AsynchronousMotor_L2/equation015.png"><br>
-From the nominal excitation frequency and the nominal speed and the number of pole pairs the nominal slip can be determined:<br>
-<img src="./AsynchronousMotor_L2/equation017.png"> <br>
-The ohmic resistance of the rotor can be derived from equations (15) to (17) and (8) under the nominal point conditions:<br>
-<img src="./AsynchronousMotor_L2/equation016.png"><br>
-From normal power, power factor, slip and excitation frequency we can obtain the rotor's inductance:<br>
-<img src="./AsynchronousMotor_L2/equation018.png"><br>
-<img src="./AsynchronousMotor_L2/CharacteristicLines.png" width="500"><br>
-When using table-based characteristics the nominal torque is calculated from the nominal power and speed:<br>
-<img src="./AsynchronousMotor_L2/equation021.png">
+For the sake of usability the parameter dialog refers to values that are likely available for the user through the product data sheet of a specific motor. See the remarks of the documentation of <a href="./AsynchronousMotor_L2_base.html" title="AsynchronousMotor L2 base" class="page">AsynchronousMotor L2 base</a> for calculation of these values.
 </p>
 
 <h2>8. Validation</h2>
@@ -395,10 +303,10 @@ When using table-based characteristics the nominal torque is calculated from the
 <h2>9. References</h2>
 
 <p>
-[1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012.<br>
-[2]   <b>Rolf Fischer, Hermann Linse:</b> "Elektrotechnik für Maschinenbauer - Mit Elektronik, elektrischer Messtechnik, elektrischen Antrieben und Steuerungstechnik", 14th edition, Springer, 2012.<br>
-[3]   <b>Wilfried Hofmann:</b> "Elektrische Maschinen - Lehr und Übungsbuch", 1st edition, Pearson, 2013.
+[1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012.
 </p>
+
+<br>
 
 <h2>10. Version History</h2>
 
@@ -406,6 +314,7 @@ When using table-based characteristics the nominal torque is calculated from the
 <ul>
 <li>2014-July-15 - v0.0 - Initial implementation - F. Gottelt, XRG Simulation GmbH</li>
 <li>2014-August-25 - v0.1 - added table-based characteristcs - F. Gottelt, XRG Simulation GmbH</li>
+<li>2018-03-14 - v1.3.0 - introduced base class of asynchronous motors - T.Hoppe, XRG Simulation GmbH</li>
 </ul>
 </p>
 

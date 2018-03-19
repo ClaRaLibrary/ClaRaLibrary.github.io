@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>SimCenter</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -221,13 +221,13 @@ Created Thursday 13 June 2013
 <h2>Advices for Extension</h2>
 
 <p>
-The ClaRa library might be extended by so-called AddOns in the future. Authors shall consider the following advices when introducing the modelProperties concept in new libraries:<br>
+The ClaRa library might be extended by so-called AddOns in the future. Authors shall consider the following advices when introducing the simCenter concept in new libraries:<br>
 <ul>
-<li>libraries directly depending on the ClaRa shall extend the ClaRa.ModelProperties</li>
-<li>libraries independent from (i.e. not using ClaRa's models) but strongly related to the context of ClaRa shall have an own class ModelProperties, also named ModelProperties</li>
+<li>libraries directly depending on the ClaRa shall extend the ClaRa.SimCenter</li>
+<li>libraries independent from (i.e. not using ClaRa's models) but strongly related to the context of ClaRa shall have an own class SimCenter, also named SimCenter</li>
 <li>libraries using models from the ClaRa and an independent AddOn shall provide a specific ModelProperties extending the ClaRa's ModelProperties and the AddOn's ModelProperties</li>
-<li>libraries using models from the ClaRa and an ClaRa-dependent AddOn shall use the AddOn's ModelProperties</li>
-<li>all ModelProperties shall apply the tab structure provided in the ClaRa. The structure may be extended if necessary. the following tabs are currently available:
+<li>libraries using models from the ClaRa and an ClaRa-dependent AddOn shall use the AddOn's SimCenter</li>
+<li>all SimCenter shall apply the tab structure provided in the ClaRa. The structure may be extended if necessary. the following tabs are currently available:
 <ul>
 <li>General</li>
 <li>Media and Materials</li>
@@ -246,6 +246,8 @@ The ClaRa library might be extended by so-called AddOns in the future. Authors s
 				<a href='./A_User_Guide/GettingStarted/Library_Structure.html'>ClaRa:A User Guide:GettingStarted:Library Structure</a>
 				
 				<a href='./A_User_Guide/Revisions/v1.0.0.html'>ClaRa:A User Guide:Revisions:v1.0.0</a>
+				
+				<a href='./A_User_Guide/Revisions/v1.3.0/New_Fuel_Connectors.html'>ClaRa:A User Guide:Revisions:v1.3.0:New Fuel Connectors</a>
 				<br /><br />
 			</span>
 

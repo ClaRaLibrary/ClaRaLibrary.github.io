@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>Creating Nice ClaRa Documentation</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -253,15 +253,20 @@ in order to use an individual style. Such a style should be adapted from
 <tt>"Path to zim.exe"\share\zim\templates\html\Default_with_index.html</tt><br>
 or <br>
 <tt>"Path to zim.exe"\share\zim\templates\html\Print.html</tt><br>
-or one of the other files i nthis folder.
+or one of the other files in this folder.
+</p>
+
+<p>
+<u>ALWAYS export to separate files for each of the wiki pages. It enables prper navigation in the html file structure.</u>
 </p>
 
 <h2>Exporting a zim notebook to pdf</h2>
 
 <p>
 To create nice LaTEX generated pdf documentation from a zim wiki the following steps are to be considered:<br>
-<ol type="1" start="1">
-<li>in order to ensure that the figures are scaled appropriately modify the Python function creating the LaTEX source code (which can be found under <u>Linux</u> in <a href="file:///usr/share/pyshared/zim/formats/latex.py" title="/usr/share/pyshared/zim/formats/latex.py" class="file">/usr/share/pyshared/zim/formats/latex.py</a> )as follows:
+<ol type="1" start="0">
+<li><u>ALWAYS export to a single tex file! Name the file as the Library is named, e.g. ClaRa.tex. The file ending is essential</u></li>
+<li>in order to ensure that the figures are scaled appropriately modify the Python function creating the LaTEX source code (which can be found under <u>Linux</u> in <a href="file:///usr/share/pyshared/zim/formats/latex.py" title="/usr/share/pyshareim/formats/latex.py" class="file">/usr/share/pyshareim/formats/latex.py</a> )as follows:
 <ol type="a" start="1">
 <li>replace line 189 to 199. This will make all figures having a width of the half textwidth. Therefore arrange at maximum two figures next to each other</li>
 </ol></li>

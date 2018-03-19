@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>v1.3.0</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -189,9 +189,18 @@
 <li><a href="./v1.2.0.html" title="v1.2.0" class="page">v1.2.0</a></li>
 <li><a href="./v1.2.1.html" title="v1.2.1" class="page">v1.2.1</a></li>
 <li><a href="./v1.2.2.html" title="v1.2.2" class="page">v1.2.2</a></li>
-<li><b>v1.3.0</b></li>
+<li><a href="./v1.2.3.html" title="v1.2.3" class="page">v1.2.3</a></li>
+<li><b>v1.3.0</b>
+<ul>
+<li><a href="./v1.3.0/BugfixLogMeanT.html" title="BugfixLogMeanT" class="page">BugfixLogMeanT</a></li>
+<li><a href="./v1.3.0/FluidDissipation.html" title="FluidDissipation" class="page">FluidDissipation</a></li>
+<li><a href="./v1.3.0/New_Fuel_Connectors.html" title="New Fuel Connectors" class="page">New Fuel Connectors</a></li>
+</ul>
+</li>
+<li><a href="./v1.3.1.html" title="v1.3.1" class="page">v1.3.1</a></li>
 <li><a href="./v1.4.0.html" title="v1.4.0" class="page">v1.4.0</a></li>
 <li><a href="./v1.5.0.html" title="v1.5.0" class="page">v1.5.0</a></li>
+<li><a href="./vx.x.x.html" title="vx.x.x" class="page">vx.x.x</a></li>
 </ul></li>
 </ul>
 </li>
@@ -216,199 +225,299 @@ Created Montag 26 Oktober 2015
 </p>
 
 <p>
-<b>This release is planned for End Jan. 2018</b>
+<b>This version was released March 2018.</b>
 </p>
 
-<h1>New Features</h1>
+<h2>Overview</h2>
 
 <br>
 
-<p>
-<ul>
-<li class="unchecked-box">create a summary (for sim center) including the component's exergy, internal energy, exergy flow, mass and exergy loss. Would be nice to have this in a summing manner accumulating the values of the subsystem a component consists of <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">overall sum of fluid masses has to be calculated in the ReleasesClaRa:SimCenter <span class="zim-tag">@R130</span></li>
-</ul>
-</p>
-
-<p>
-<ul>
-<li class="unchecked-box">check if concept of update.bat is still needed. It was reported that update.bat did not work on 64 bit systems <span class="zim-tag">@R130</span> </li>
-<li class="unchecked-box">tidy up parameter dialogues, add missing pictures, check multiple picture dialogues <span class="zim-tag">@R130</span></li>
-</ul>
-</p>
+<h3>New Features</h3>
 
 <br>
 
-<h3>Media Data</h3>
+<h4>General</h4>
 
 <p>
 <ul>
-<li class="unchecked-box">updated fuel media definition
-<ul>
-<li class="unchecked-box">define fuels according to former calculation of LHV -&gt;check if results stay the same <span class="zim-tag">@R130</span></li>
-</ul>
-</li>
-<li class="unchecked-box">add generic insulation material to TILMedia <span class="zim-tag">@R130</span></li>
+<li class="checked-box">FluidDissipation is omitted. All applications of the library are transferred directly to the replaceable models. This is advantageous w.r.t. CPU time and robustness. See <a href="./v1.3.0/FluidDissipation.html" title="+FluidDissipation" class="page">+FluidDissipation</a> for the models affected by the change.</li>
+<li class="checked-box">New fuel connectors which are less error prone and more flexible. See <a href="./v1.3.0/New_Fuel_Connectors.html" title="+New Fuel Connectors" class="page">+New Fuel Connectors</a> for the models affected by this improvement. Change is fully backwards compatible, as old models from ClaRa_Obsolete are used for power plant models built with ClaRa 1.2.2 or lower. See <a href="./v1.3.0/New_Fuel_Connectors.html" title="+New Fuel Connectors" class="page">+New Fuel Connectors</a> for description of manual conversion.</li>
+<li class="checked-box">ClaRa.Components.Furnace have now optional pressure loss models.</li>
+<li class="checked-box">New Examples which are more declarative, better represent the power of ClaRa and are relevant transient scenarios</li>
 </ul>
 </p>
 
-<br>
-
-<h3>Library Structure and Basics of Modeling</h3>
+<h4>Components</h4>
 
 <p>
 <ul>
-<li class="unchecked-box">new fuel connectors being less error prone
-<ul>
-<li class="unchecked-box">update valve <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">update combustion models/ make combustion models replaceable <span class="zim-tag">@R130</span> </li>
-<li class="unchecked-box">update fuel boundaries <span class="zim-tag">@R130</span> </li>
-<li class="unchecked-box">update adapters <span class="zim-tag">@R130</span> </li>
-<li class="unchecked-box">update coal mills <span class="zim-tag">@R130</span> </li>
-</ul></li>
+<li class="checked-box">Improved numerical behaviour of all NTU models, including heat exchangers</li>
+<li class="checked-box">Major pump revision</li>
 </ul>
 </p>
 
-<h4>Utilities</h4>
+<h3>New Models</h3>
 
 <p>
 <ul>
-<li class="unchecked-box">ClaRa.Components.Utilities.Blocks.ReadMatrixFromFile is not Modelica conform -&gt; remove? make Modelica conform version? <span class="zim-tag">@R130</span> </li>
+<li class="checked-box">ClaRa.Components.MechanicalSeparation.Bottle_L3 a start up bottle for once through boilers </li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_L4 was improved to account optionally for (slight) mechanical non-eqilibrium of liquid and gas phase</li>
+<li class="checked-box">Fuel Sensors and fuel splits</li>
+<li class="checked-box">Static Cycle Dispatcher for calculation of required fuel mass flow rate</li>
 </ul>
 </p>
 
-<br>
-
-<h3>Gas Components</h3>
-
-<br>
-
-<h4>HT</h4>
+<h3>Bugfixes</h3>
 
 <p>
 <ul>
-<li class="xchecked-box">CF_length_char added to ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Gas_HT.Convection.Convection_flatWall_L2 to regard tube inclination (further investigation needed)</li>
-</ul>
-</p>
-
-<br>
-
-<h3>VLE Components</h3>
-
-<br>
-
-<h4>Solids</h4>
-
-<p>
-<ul>
-<li class="unchecked-box">wall components can be defined as tube walls (cylindrical) or even plates (affects ThinWall_L2, ThinWall_L4, ThickWall_L4) <span class="zim-tag">@R130</span> </li>
-</ul>
-</p>
-
-<br>
-
-<h4>Pipes</h4>
-
-<p>
-<ul>
-<li class="unchecked-box">for parametrisation of pipes with several passes which start and end the same heigth, the information of inclination of the pipes is needed if more complicated ht models are applied <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">provided an optional slip model to improve accuracy in two phase flow conditions <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">check if advection term in momentum balance can be included, check calculation of velocity by the averaged mass flow rates as this introduces additional couplings <span class="zim-tag">@130</span> </li>
-</ul>
-</p>
-
-<h4>Valves</h4>
-
-<p>
-<ul>
-<li class="unchecked-box">revise ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_FlowFunction <span class="zim-tag">@R130</span>
-<ul>
-<li>has unnecessary parameters</li>
-<li>cross sectional area is not used for calculation, is only taken indirectly into account by zeta value -&gt; problematic if only geometry is known, for example hole in pipe</li>
-</ul></li>
-</ul>
-</p>
-
-<p>
-<ul>
-<li class="xchecked-box">merge ClaRa.Components.VolumesValvesFittings.Valves.ThreeWayValveVLE_L1_simple into <span class="zim-tag">@R130</span> ClaRa.Components.VolumesValvesFittings.Valves.ThreeWayValveVLE_L1 by introducing noFriction PL model </li>
+<li class="checked-box">corrected logarithmic mean temperature difference in furnace package,</li>
 </ul>
 <div style='padding-left: 30pt'>
--&gt; can only be done by decoupling pressures of inlet and outlet2, this component then would break up pressures in a system, component 		which hands over pressure in design flow is more reliable for system simulation. In consequence the ideal pressure loss model 		   ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.IdealSymetric_TWV should be deleted for component
+→ can lead to lowered heat flow by approx. 5 %, see <a href="./v1.3.0/BugfixLogMeanT.html" title="+BugfixLogMeanT" class="page">+BugfixLogMeanT</a> for a list of the affected models
 </div>
-ClaRa.Components.VolumesValvesFittings.Valves.ThreeWayValveVLE_L2 -&gt; discussion<br>
 <ul>
-<li class="xchecked-box">merge ClaRa.Components.VolumesValvesFittings.Valves.ThreeWayValveGas_L1_simple into ClaRa.Components.VolumesValvesFittings.Valves.ThreeWayValveGas_L1 by introducing noFriction PL model </li>
+<li class="checked-box">Corrected bug in LHV_dry calculation of ClaRa.Components.Mills.HardCoalMills.VerticalMill_L3</li>
 </ul>
+<div style='padding-left: 30pt'>
+→ Transient results of mill models changes
+</div>
 </p>
 
 <br>
+
+<h2>Detailed Release Notes</h2>
+
 <br>
 
-<h4>Mechanical Separation</h4>
+<h3>General</h3>
 
 <p>
 <ul>
-<li class="unchecked-box">ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3_advanced and ClaRa.Components.MechanicalSeparation.Drum_L3_advanced: <span class="zim-tag">@R130</span>
-<ul>
-<li class="unchecked-box">make clear numbering of inlets and outlets <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">definition of m_flow_nom in pressure loss models is unclear <span class="zim-tag">@R130</span></li>
-</ul>
-</li>
-<li class="unchecked-box">add variable relative filled volume to summary?</li>
-<li class="unchecked-box">rename Drum_L3_advanced to Drum_L3 as there is no simple drum (which would be a drum with less inlet/outlet ports according to naming of feedwater tank models) <span class="zim-tag">@R130</span> </li>
-<li class="unchecked-box">rename parameters z_in, z_out in ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3 to z_condensate, etc. <span class="zim-tag">@R130</span> </li>
+<li class="checked-box">necessary c-lib for ClaRa delay function is now placed in resources folder → the update.bat for the ClaRa delay function is no longer needed</li>
+<li class="checked-box">save Components.Control.PredictorModel3508.Icons.mo as directories</li>
+<li class="checked-box">move Components/Utilities/Blocks/Check/dslin.mat to Resources/TableBase and renamed it to "exampleTable.mat"</li>
 </ul>
 </p>
+
+<br>
+
+<h3>Examples</h3>
+
+<p>
+added more representative examples<br>
+<ul style='padding-left: 30pt'>
+<li class="checked-box">SteamCycle_01</li>
+<li class="checked-box">SteamCycle_02</li>
+</ul>
+</p>
+
+<br>
+
+<h3>Basics</h3>
+
+<br>
+<br>
+
+<h4>Geometry</h4>
+
+<p>
+<ul>
+<li class="checked-box">add overall heat transfer area to geometry for discretizeable objects</li>
+</ul>
+</p>
+
+<h4>VLE Volumes</h4>
+
+<br>
+
+<p>
+<ul>
+<li class="checked-box">bugfixed smoothed logarithmic mean calculation in L2 heat transfer models in case of negative lower and upper temperature difference, results may change</li>
+</ul>
+</p>
+
+<h5>PressureLosses</h5>
+
+<p>
+<ul>
+<li class="checked-box">start value for pressure drop in pressure Models L2/L3 of zero given 
+<ul>
+<li>initial system of equation is fully defined for L2/L3 models initialising at steady state</li>
+</ul></li>
+</ul>
+</p>
+
+<h4>Gas Volumes</h4>
+
+<p>
+<ul>
+<li class="checked-box">bugfixed smoothed logarithmic mean calculation in L2 heat transfer models in case of negative lower and upper temperature difference, results may change</li>
+<li class="checked-box">updated inlet summary of L4 Volume and L2 Volume</li>
+</ul>
+</p>
+
+<h4>Solid Volumes</h4>
+
+<p>
+<ul>
+<li class="checked-box">renamed wall components for better understanding of usage</li>
+</ul>
+<div style='padding-left: 30pt'>
+→ rename ThinWall_L4 to CylindricalWall_L4 and ThickWall_L4 to CylindricalWall_L4<br>
+→ replaced ThinWall_L2 by discretisable ThinWall_L4 and moved to ClaRa_Obsolete
+</div>
+</p>
+
+<p>
+Improved numerical behaviour of all NTU models, including heat exchangers<br>
+<ul>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.SolidVolumes.NTU_L3</li>
+</ul>
+<div style='padding-left: 30pt'>
+→ heat capacity averaging is now a replceable model and not an encapsulated function<br>
+→ added model for fixed heat capacity<br>
+→ removed pseudo state in energy balance<br>
+→ improved numerics at low/reverse flow conditions, however model is not suited for reverse flow
+</div>
+<ul>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.SolidVolumes.NTU_L3_standalone</li>
+</ul>
+<div style='padding-left: 30pt'>
+→ replaced controller by minimal implementation of PI controller, avoids chattering at zero flow conditions<br>
+→ improved initialisation, allows user defined fixed starting value for yps<br>
+→ fixed controller output for mass flows close to zero
+</div>
+</p>
+
+<br>
+
+<h4>Interfaces</h4>
+
+<p>
+<ul>
+<li class="checked-box">removed ClaRa.Basics.Interfaces.fluidPort_XRG and copied its content to ClaRa.Basics.Interfaces.FluidPortOut (omits one level of inheritance) </li>
+</ul>
+</p>
+
+<br>
+
+<h3>Components</h3>
+
+<br>
+
+<h4>TurboMachines</h4>
+
+<br>
+
+<h5>Pumps</h5>
+
+<p>
+major revision of the <b>PumpVLE_L1_affinity</b> and its derived model <b>PumpVLE_L2_affinity</b><br>
+<ul>
+<li class="checked-box">introduced replaceable models for the hydraulic characteristic and the losses/efficiency calculation. This gives more freedom for future development</li>
+<li class="checked-box">bugfixed the hydraulics for Δp &lt; 0 which referrs to the reverse turbine mode. (previously a speed-independent throttling was assumed which is not reported by the literature) </li>
+<li class="checked-box">simplified the equation for V_flow = f(Δp) as there is only one equation for the three operation modes supported. This gives slightly different results for V_flow &lt; 0 and exp_hyd ≠ 0.5 (which is the default)</li>
+<li class="checked-box">bugfixed calculation of the summary's NPSHa</li>
+<li class="checked-box">extended summary by P_iso and P_shaft</li>
+<li class="checked-box">introduced a visualiser encircling the pump red if NPSHa &lt; 0 (i.e. if steam enters the pump)</li>
+<li class="checked-box">corrected values for P_fluid, tau_shaft, P_shaft for the reverse flow and turbine case which gives different results in these cases but which is uncritical since the previous implementation was not reasonable in theses cases (so we assume no user should experience problems due to these changes).</li>
+<li class="checked-box">changed some variable names making the nomenclature more straight forward.</li>
+<li class="checked-box">changed the rotational energy balance to be in terms of torque</li>
+<li class="checked-box">changed the calculation of the isentropic power from <img src="./v1.3.0/equation.png"> to <img src="./v1.3.0/equation001.png"> which is more precise. Slight changes must be expected.</li>
+<li class="checked-box">added the interface to the simCenter's summary allowing the pump to contribute to the overall power plant efficiency</li>
+<li class="checked-box">updated docu accordingly</li>
+<li class="checked-box">changed default of hydraulic efficiency model exp_rpm from 2 to 0 implying no rpm dependency of the max. efficiency at current speed (priviously we had a very strong dependency) </li>
+</ul>
+</p>
+
+<p>
+minor revision of <b>Pump_VLE_L1_simple</b><br>
+<ul>
+<li class="checked-box">bugfixed calculation of the summary's NPSHa</li>
+<li class="checked-box">introduced a visualiser encircling the pump red if NPSHa &lt; 0 (i.e. if steam enters the pump)</li>
+</ul>
+</p>
+
+<h5>Turbines</h5>
+
+<p>
+<ul>
+<li class="checked-box">renamed replaceable model's package from EfficiencyModels to TurbineEfficiency</li>
+<li class="checked-box">renamed the turbine's ICom  to IComTurbine</li>
+</ul>
+</p>
+
+<br>
 
 <h4>Heat Exchangers</h4>
 
 <p>
 <ul>
-<li class="unchecked-box">New advanced condensing heat exchanger with differentiated drowned and dry tubes <span class="zim-tag">@R130</span> </li>
-<li class="unchecked-box">New HT model for condensation at vertical pipes? <span class="zim-tag">@R130</span> </li>
-<li class="unchecked-box">HEXvle2vle L3 1ph CH simple?</li>
+<li class="checked-box">Improved numerical behaviour of NTU heat exchangers, see Solid Volumes for detailed information</li>
 </ul>
 </p>
 
-<h4>Compressors</h4>
-
 <p>
 <ul>
-<li class="unchecked-box">CompressorGas_L1_affinity: introduced dependency on variable inlet guide vane <span class="zim-tag">@R130</span></li>
+<li class="checked-box">ClaRaPlus.Components.HeatExchangers.HEXvle2vle_L3_2ph_BU_simple adjust connector positions</li>
+<li class="checked-box">ClaRaPlus.Components.HeatExchangers.HEXvle2vle_L3_2ph_BU_ntu
+<ul>
+<li>heat port of liquid zone of shell volume is now connected via mixing component → enhances numerical stability, results may change</li>
+</ul>
+</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CH_ntu</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CH_simple</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_BU_simple</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CU_ntu</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CU_simple</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle_L3_2ph_BU</li>
 </ul>
 </p>
 
-<h3>Furnace</h3>
+<p>
+<ul>
+<li class="checked-box">ClaRa.Components.HeatExchangers.RegenerativeAirPreheater_L4 and ClaRa.Components.HeatExchangers.RegenerativeAirPreheaterPrimaryAndSecondaryAir_L4 Initialisation improved</li>
+</ul>
+</p>
 
 <p>
 <ul>
-<li class="xchecked-box">New gas components: will consider fuel to mass calculation of Furnace volumes? (Which value should be used? Coal mass balance is stationary...)</li>
-<li class="xchecked-box">add explanative parameter dialogue pictures? (Does not work )</li>
+<li class="checked-box">bugfixed images in parameter dialoges
+<ul>
+<li class="checked-box">ClaRaPlus.Basics.ControlVolumes.Fundamentals.Geometry.HollowBlockWithTubesAndCarrierTubes</li>
+<li class="checked-box">ClaRaPlus.Basics.ControlVolumes.Fundamentals.Geometry.HollowBlockWithTubes</li>
+</ul></li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li class="checked-box">bugfixed ClaRa.Components.HeatExchangers.HEXvle2gas_L3_2ph_BU_simple has now a cylindrical wall </li>
 </ul>
 </p>
 
 <br>
 
-<h3>Mills</h3>
+<h4>Mills</h4>
 
 <p>
 <ul>
-<li class="unchecked-box">coal mill improvements:
+<li class="checked-box">ClaRa.Components.Mills.HardCoalMills.RollerBowlMill_L3 improvements:
 <ul>
-<li>allow RowlerBowlMill_L3 to be switched off</li>
-<li>new mill model with physically motivated mass transport, capable for start up and shut down</li>
-<li>updated connectors/fuel definition</li>
+<li>updated connectors/fuel definition, see <a href="./v1.3.0/New_Fuel_Connectors.html" title="+New Fuel Connectors" class="page">+New Fuel Connectors</a></li>
+<li>added a parameter difining a residual humidity of the coal at outlet</li>
+<li>Corrected bug in LHV_dry calculation</li>
 </ul>
 </li>
-<li class="unchecked-box">ClaRa.Components.Mills.HardCoalMills.RollerBowlMill_L1 renamed a number of variables to make the source code more readable (if you): <span class="zim-tag">@R130</span> 
+<li class="checked-box">ClaRa.Components.Mills.HardCoalMills.RollerBowlMill_L3 renamed a number of variables to make the source code more readable:
 <ul>
 <li>m_flow_air → m_flow_air_in</li>
 <li>M_c → mass_rct</li>
 <li>M_pf → mass_pct</li>
 <li>M_cair → mass_pca</li>
 <li>m_flow_coal_pf → m_flow_coal_pulv</li>
-<li>m_flow_coal_in → m_flow_grd</li>
+<li>m_flow_coal_in → m_flow_rct</li>
 <li>m_flow_coal_out → m_flow_wc_out</li>
 <li>W_c_ → m_flow_rc_in</li>
 <li>xi_coal_mix → xi_wc_out</li>
@@ -419,76 +528,98 @@ ClaRa.Components.VolumesValvesFittings.Valves.ThreeWayValveVLE_L2 -&gt; discussi
 </ul>
 </p>
 
-<br>
-
-<h3>Electric Components</h3>
+<h4>VolumesValveFittings</h4>
 
 <br>
 
-<h4>Improvements of Numerics</h4>
+<h5>Pipes</h5>
 
 <p>
 <ul>
-<li class="unchecked-box">zero rotation, reverse rotation of AsynchronousMotor_L2 <span class="zim-tag">@R130</span> </li>
-</ul>
-</p>
-
-<h3>StaticCycle Components</h3>
-
-<p>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_L4 was improved to account for (slight) mechanical non-eqilibrium of liquid and gas phase. Especially, beginning evaporation in boiler tubes or natural circulation can be modelled with higher accuracy. However, still mixed energy, mass and momentum balance equations are used, thus strong non-equilibrium (e.g. countercurrent flow of phases) is not considered.
 <ul>
-<li class="unchecked-box">rename ClaRa.StaticCycles.Machines.Pump to Pump1 and ClaRa.StaticCycles.Machines.Pump_real to Pump1_real to be in accordance with new pump models pump2 and pump3. <span class="zim-tag">@R130</span> </li>
-<li class="unchecked-box">rename ClaRa.StaticCycles.ValvesConnects.FlowAnchor_constPressue1 to ...constPressure1 <span class="zim-tag">@R130</span> </li>
-<li class="unchecked-box">move ClaRa.StaticCycles.ValvesConnects.Tube3 to ClaRa_Obsolete as it is a duplicate of ClaRa.StaticCycles.ValvesConnects.Tube1 <span class="zim-tag">@R130</span> </li>
-<li class="unchecked-box">add dispatcher <span class="zim-tag">@R130</span> </li>
-<li class="unchecked-box">add flame room without tube bundles? calculation of wall temperatures is different than in tube bundle flame rooms <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">example for flamerooms with dispatcher (regression test) <span class="zim-tag">@R130</span>  </li>
-</ul>
-</p>
-
-<h3>Regression Testing</h3>
-
-<p>
-<ul>
-<li class="unchecked-box">add regression test for furnace components with different ht models? <span class="zim-tag">@R130</span> </li>
-</ul>
-</p>
-
-<h1>Known Bugs</h1>
-
-<br>
-
-<h4>Heat Transfer</h4>
-
-<p>
-<ul>
-<li class="unchecked-box">Replace mean heat transfer Nusselt functions for laminar and turbulent flow with local heat transfer functions in following models: <span class="zim-tag">@R130</span>
-<ul>
-<li>ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltPipe_L4 <span class="zim-tag">@R130</span></li>
-<li>ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltPipe_L4_overall <span class="zim-tag">@R130</span></li>
+<li>Replaceable model structure for mechanical equilibrium models was introduced</li>
+<li>Energy balance was reformulated to account for in-situ mixture and mixed cup enthalpy</li>
+<li>A simple analytical slip correlation according to Zivi was implemented</li>
 </ul></li>
 </ul>
 </p>
 
+<h5>Valves</h5>
+
 <p>
 <ul>
-<li class="unchecked-box">Heat transfer for wall tubes in convective area in boiler may be to low with the correlations currently used. They are derived for developed flow over a plate. Neglected is the effect of the wall tube inclination. Furthermore, the wall surface is not a plate but is constructed by welding pipes to each other. This enhances the htc as well. -&gt; check if present correlations are problematic </li>
+<li class="checked-box">ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_FlowFunction can now be parametrised by cross sectional area and outflow number</li>
+<li class="checked-box">ClaRa.Components.VolumesValvesFittings.Valves.ThreeWayValveVLE_L1_simple rearranged energy conservation equation to avoid division by zero</li>
 </ul>
-<div style='padding-left: 120pt'>
-   -&gt; are alternative approaches valid/better like using the perimeter/2 of the pipe as characteristic lenght <br>
--&gt; CF_length_char added <span class="zim-tag">@R130</span>
-</div>
 </p>
 
 <br>
 
-<h4>MechanicalSeparation</h4>
-
-<br>
+<h5>Fittings</h5>
 
 <p>
 <ul>
-<li class="unchecked-box">ClaRa.Components.MechanicalSeparation.Check.TestFeedWaterTank_1Separator does not compile if initOption of tank_L2 is set to steadyState</li>
+<li class="checked-box">Heat transfer model to the souurrounding wall in spray injectors SprayInjectorVLE_L3 and SprayInjectorVLE_L3_advanced are now replaceable models
+<ul>
+<li>the defaults are chosen such that the model behaviour is backward compatible.</li>
+</ul>
+</li>
+<li class="checked-box">add species to joins and splits</li>
+<li class="checked-box">new components
+<ul>
+<li>Fuel fixed ratio splitter</li>
+</ul></li>
+</ul>
+</p>
+
+<h4>Mechanical Separation</h4>
+
+<p>
+<ul>
+<li class="checked-box">moved ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3 zo ClaRa_Obsolete</li>
+<li class="checked-box">renamed ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3_advanced to ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3</li>
+<li class="checked-box">rename Drum_L3_advanced to Drum_L3 as there is no simple drum (which would be a drum with less inlet/outlet ports according to naming of feedwater tank models)</li>
+<li class="checked-box">added four more connctors for additional risers and downcomers in Drum_L3 (the respective changes will be handled by the convert script) </li>
+<li class="checked-box">default material is set to Orstech insulation in drum and feedwater tank models</li>
+<li class="checked-box">moved input CF_lambda to parameter dialogue tab "Heat Losses"</li>
+</ul>
+</p>
+
+<h4>Electric Components</h4>
+
+<p>
+<ul>
+<li class="checked-box">bugfixed ClaRa.Components.Electrical.SimpleGenerator by adding outer simCenter, component does check now with default parameters</li>
+</ul>
+</p>
+
+<br>
+
+<h4>Furnace</h4>
+
+<p>
+<ul>
+<li class="checked-box">bugfix of mean temperature calculation, see <a href="./v1.3.0/BugfixLogMeanT.html" title="+BugfixLogMeanT" class="page">+BugfixLogMeanT</a></li>
+<li class="checked-box">add explanative parameter dialogue pictures in geometry context dialogue</li>
+<li class="checked-box">replaceable pressure loss models on Furnace models</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Gas_HT.Radiation.Radiation_gas2Wall_L2 added annotation, CF_fouling appears now in parameter dialog</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Gas_HT.Radiation.Radiation_gas2Wall_advanced_L2 added annotation, CF_fouling appears now in parameter dialog</li>
+</ul>
+</p>
+
+<br>
+
+<h4>Sensors</h4>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Components.Sensors.SensorVLE_L3_T: added optional consideration of surrounding pipe wall</li>
+<li class="checked-box">New Components 
+<ul>
+<li>Fuel Mass flow sensor</li>
+<li>Fuel Temperature sensor</li>
+</ul></li>
 </ul>
 </p>
 
@@ -496,186 +627,68 @@ ClaRa.Components.VolumesValvesFittings.Valves.ThreeWayValveVLE_L2 -&gt; discussi
 
 <p>
 <ul>
-<li class="unchecked-box">ClaRa.Components.Utilities.Blocks.LimPID limitsAtInit is not used, assert with y_start is thrown anyway. <span class="zim-tag">@R130</span>  </li>
-</ul>
-</p>
-
-<h1>Documentation</h1>
-
-<br>
-
-<h3>ControlVolumes</h3>
-
-<br>
-
-<h4>FluidVolumes</h4>
-
-<p>
-<ul>
-<li class="unchecked-box">VolumeVLE_L4 is missing <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">VolumeVLE_L4_advanced  is missing <span class="zim-tag">@R130</span> </li>
+<li class="checked-box">bugfixed initisalition of LimPID (backward compatible)</li>
+<li class="checked-box">Initisalisation is converted to Integer based (backward compatible, including the previously buggy initisaliation)</li>
+<li class="checked-box">updated wiring to be more transparent of LimPID</li>
+<li class="checked-box">ClaRa.Components.Utilities.Blocks.LimPID now takes parameter limitsAtInit  for checking for valid start values into account</li>
 </ul>
 </p>
 
 <br>
 
-<h4>SolidVolumes</h4>
+<h3>StaticCycle</h3>
 
 <p>
 <ul>
-<li class="unchecked-box">Basics:ControlVolumes:SolidVolumes:NTU L2 effectiveResistance <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">include Nomenclature table for ClaRa.Basics.ControlVolumes.SolidVolumes.NTU_L2, ClaRa.Basics.ControlVolumes.SolidVolumes.NTU_L3 and ClaRa.Basics.ControlVolumes.SolidVolumes.NTU_L3_standalone <span class="zim-tag">@R130</span></li>
+<li class="checked-box">renamed ClaRa.StaticCycles.Machines.Pump to Pump1 and ClaRa.StaticCycles.Machines.Pump_real to Pump1_real to be in accordance with new pump models pump2 and pump3.</li>
+<li class="checked-box">renamed ClaRa.StaticCycles.ValvesConnects.FlowAnchor_constPressue1 to ...constPressure1</li>
+<li class="checked-box">removed ClaRa.StaticCycles.ValvesConnects.Tube3 as it is a duplicate of ClaRa.StaticCycles.ValvesConnects.Tube1 (All instances of Tube3 will be converted to Tube1)</li>
+<li class="checked-box">added dispatcher</li>
+<li class="checked-box">added flame room without tube bundles</li>
+<li class="checked-box">FlameRoom4 removed (doubled with FlameRoom3)</li>
+<li class="checked-box">Bugfix of wall temperature calculation in flameRooms</li>
 </ul>
 </p>
 
-<br>
-<br>
-
-<h4>Fundamentals</h4>
-
 <p>
 <ul>
-<li class="unchecked-box">HeatExchangerTypes_L3   <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">SolidVolumes/Functions  <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">Heat Transfer Carrier Tube Doku update! <span class="zim-tag">@R130</span></li>
+<li class="checked-box">summaries of StaCy components are now accessible during initialisation</li>
 </ul>
 </p>
 
-<h2>Components</h2>
-
-<br>
-
-<h3>HeatExchangers</h3>
+<h3>SubSystems</h3>
 
 <p>
 <ul>
-<li class="unchecked-box">ClaRa.Components.HeatExchangers.HEXvle_L3_2ph_BU <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">simple condenser</li>
-</ul>
-</p>
-
-<h3>Furnace</h3>
-
-<p>
+<li class="checked-box">ClaRa.SubSystems.Boiler.SteamGenerator_L3 initialisation improved
 <ul>
-<li class="unchecked-box">Abstract for building up a discretised 1d furnace model <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">Source of "Verbandsformel" <span class="zim-tag">@R130</span></li>
-</ul>
-</p>
-
-<h3>VolumesValvesFittings</h3>
-
-<br>
-
-<h4>Valves</h4>
-
-<p>
-<ul>
-<li class="unchecked-box">Update Valves: missing pages <span class="zim-tag">@R130</span></li>
-</ul>
-<div style='padding-left: 30pt'>
-ClaRa.Components.VolumesValvesFittings.Valves.ThreeWayValveVLE_L2
-</div>
-</p>
-
-<br>
-
-<h5>Fundamentals</h5>
-
-<p>
-<ul>
-<li class="unchecked-box">Update Fundamentals: missing pages <span class="zim-tag">@R130</span></li>
-</ul>
-<div style='padding-left: 30pt'>
-ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534_incompressible<br>
-ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.IdealSymetric_TWV<br>
-ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.QuadraticFrictionFlowAreaSymetric_TWV<br>
-ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.QuadraticFrictionNominalPointSymetric_TWV
-</div>
-</p>
-
-<br>
-
-<h4>Pipes</h4>
-
-<p>
-<ul>
-<li class="unchecked-box">ClaRa.Components.VolumesValvesFittings.Pipes.TubeBundle_L1_TML <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">ClaRa.Components.VolumesValvesFittings.Pipes.PipeFlow_L2_Simple <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">ClaRa.Components.VolumesValvesFittings.Pipes.PipeFlow_L4_Simple <span class="zim-tag">@R130</span></li>
-<li class="unchecked-box">ClaRa.Components.VolumesValvesFittings.Pipes.PipeFlow_L4_Advanced <span class="zim-tag">@R130</span></li>
-</ul>
-</p>
-
-<br>
-
-<h3>FlueGasCleaning</h3>
-
-<p>
-<ul>
-<li class="unchecked-box">Source for empirical e-filter model <span class="zim-tag">@R130</span> <span class="zim-tag">@LN</span> </li>
-<li class="unchecked-box">explaining picture for e-filter? <span class="zim-tag">@R130</span> <span class="zim-tag">@LN</span> </li>
-<li class="unchecked-box">explaining picture for Desulfurization_controlVolume <span class="zim-tag">@R130</span> <span class="zim-tag">@LN</span> </li>
-</ul>
-</p>
-
-<h3>StaCy</h3>
-
-<p>
-<ul>
-<li class="unchecked-box">Missing Pages <span class="zim-tag">@R130</span>
-<ul>
-<li>ClaRa.StaticCycles.SprayAttemperator</li>
-<li>ClaRa.StaticCycles.Boundary_blue </li>
-<li>ClaRa.StaticCycles.Boundary_green </li>
-<li>ClaRa.StaticCycles.Boundary_red </li>
-<li>ClaRa.StaticCycles.Boundary_yellow  </li>
+<li>start values for input of pressure loss tables are set</li>
 </ul></li>
 </ul>
 </p>
 
-<p>
-<ul>
-<li class="unchecked-box">Documentation StaCy Flame rooms missing <span class="zim-tag">@R130</span> <span class="zim-tag">@LN</span> 
-<ul>
-<li>ClaRa.StaticCycles.Furnace.FlameRoom1</li>
-<li>ClaRa.StaticCycles.Furnace.FlameRoom2</li>
-<li>ClaRa.StaticCycles.Furnace.FlameRoom3</li>
-<li>ClaRa.StaticCycles.Furnace.FlameRoom4</li>
-<li>ClaRa.StaticCycles.Furnace.FlameNaturalCirculation</li>
-</ul>
-</li>
-<li class="unchecked-box">Documentation StaCy burners missing <span class="zim-tag">@R130</span> <span class="zim-tag">@LN</span>
-<ul>
-<li>ClaRa.StaticCycles.Furnace.Burner1</li>
-<li>ClaRa.StaticCycles.Furnace.Burner1</li>
-</ul></li>
-</ul>
-</p>
-
-<h3>HeatExchangers</h3>
+<h3>Visualisation</h3>
 
 <p>
 <ul>
-<li class="unchecked-box">evaluate preheater model against <a href="http://www.ep.liu.se/ecp/076/076/ecp12076076.pdf" title="http://www.ep.liu.se/ecp/076/076/ecp12076076.pdf" class="http">http://www.ep.liu.se/ecp/076/076/ecp12076076.pdf</a> <span class="zim-tag">@R130</span> <span class="zim-tag">@TH</span> </li>
+<li class="checked-box">ClaRa.Visualisation.DynDisplay added an optional connector for the variable to be displayed</li>
+<li class="checked-box">ClaRa.Visualisation.DynamicBar added an optional connector for the variable to be displayed</li>
+<li class="checked-box">updated icons of quadruple-related connectors to be more self-declarative</li>
+<li class="checked-box">updated signal-based bus for steam signals (used in ClaRa.Components.Control.PredictorModels_3508)</li>
+<li class="checked-box">added a visualiser to plot x,y- diagrams, e.g for plotting temperature of furnace height</li>
 </ul>
 </p>
 
 <br>
-<br>
-<br>
 
-<h3>Control</h3>
-
-<p>
-<ul>
-<li class="unchecked-box">Update documentation <span class="zim-tag">@R130</span></li>
-</ul>
-</p>
 
 
 			<br>
 			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../../Components/TurboMachines/Pumps/PumpVLE_L1_affinity.html'>ClaRa:Components:TurboMachines:Pumps:PumpVLE L1 affinity</a>
+				<br /><br />
 			</span>
 
 			

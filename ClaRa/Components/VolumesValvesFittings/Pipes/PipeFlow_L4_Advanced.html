@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>PipeFlow L4 Advanced</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -180,6 +180,7 @@
 <ul>
 <li><a href="../../Adapters.html" title="Adapters" class="page">Adapters</a></li>
 <li><a href="../../BoundaryConditions.html" title="BoundaryConditions" class="page">BoundaryConditions</a></li>
+<li><a href="../../Control.html" title="Control" class="page">Control</a></li>
 <li><a href="../../Electrical.html" title="Electrical" class="page">Electrical</a></li>
 <li><a href="../../FlueGasCleaning.html" title="FlueGasCleaning" class="page">FlueGasCleaning</a></li>
 <li><a href="../../Furnace.html" title="Furnace" class="page">Furnace</a></li>
@@ -223,13 +224,13 @@ Created Wednesday 12 June 2013
 </p>
 
 <p>
-<b>A model for a fluid flow in a pipe. A static momentum balance is applied and the kinetic energy terms are considered. Energy storage in the surrounding wall is not part of the model.</b>
+<b>A model for a fluid flow in a pipe. A dynamic momentum balance is applied and the kinetic energy terms are negelcted. Energy storage in the surrounding wall is not part of the model.</b>
 </p>
 
 <h2>1. Purpose of Model</h2>
 
 <p>
-This model is appropriate if the flow velocities can be in the order of magnitude of the speed of sound and if sound wave effects are of interest. If energy storage in the surrounding wall is of interest consider the combination with <a href="../../../Basics/ControlVolumes/SolidVolumes/ThinWall_L4.html" title="ClaRa:Basics:ControlVolumes:SolidVolumes:ThinWall L4" class="page">ClaRa:Basics:ControlVolumes:SolidVolumes:ThinWall L4</a> or <a href="../../../Basics/ControlVolumes/SolidVolumes/ThickWall_L4.html" title="ClaRa:Basics:ControlVolumes:SolidVolumes:ThickWall L4" class="page">ClaRa:Basics:ControlVolumes:SolidVolumes:ThickWall L4</a>
+This model is appropriate if the flow velocities can be in the order of magnitude of the speed of sound and if sound wave effects are of interest. Furthermore, the advection pressure differences due to accelerating or decelerating flows are considered. If energy storage in the surrounding wall is of interest consider the combination with <a href="../../../Basics/ControlVolumes/SolidVolumes/CylindricalThinWall_L4.html" title="Basics:ControlVolumes:SolidVolumes:CylindricalThinWall L4" class="page">Basics:ControlVolumes:SolidVolumes:CylindricalThinWall L4</a> or <a href="../../../Basics/ControlVolumes/SolidVolumes/CylindricalThickWall_L4.html" title="Basics:ControlVolumes:SolidVolumes:CylindricalThickWall L4" class="page">Basics:ControlVolumes:SolidVolumes:CylindricalThickWall L4</a>
 </p>
 
 <h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
@@ -246,10 +247,10 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <p>
 <ul>
-<li>dynamic energy balance for each control volume taking kinetic energy terms into account</li>
+<li>dynamic energy balance for each control volume</li>
 <li>dynamic mass balance for each control volume</li>
-<li>dynamic momentum balance</li>
-<li>heat transfer to the surrounding</li>
+<li>dynamic momentum balance, including advection pressure differences</li>
+<li>heat transfer to a heat port</li>
 </ul>
 </p>
 
@@ -325,12 +326,21 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
   - removed the derivatives with respect to time of the potential and the kinetic energy are removed from the energy balance<br>
 - added parameter m_flow_start - Timm Hoppe, XRG Simulation
 </div>
+<ul>
+<li>01.08.2017 - v1.2.3 - added velocity to expert settings - Timm Hoppe, XRG Simulation</li>
+</ul>
 </p>
+
+<br>
 
 
 
 			<br>
 			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../../../Basics/ControlVolumes/FluidVolumes/VolumeVLE_L4_Advanced.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced</a>
+				<br /><br />
 			</span>
 
 			

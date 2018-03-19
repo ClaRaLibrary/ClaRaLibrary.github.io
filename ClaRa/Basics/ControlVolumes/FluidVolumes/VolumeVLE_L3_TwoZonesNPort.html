@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>VolumeVLE L3_TwoZonesNPort</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -185,6 +185,7 @@
 <li><a href="./VolumeVLE_L2.html" title="VolumeVLE L2" class="page">VolumeVLE L2</a></li>
 <li><a href="./VolumeVLE_L3_TwoZones.html" title="VolumeVLE L3 TwoZones" class="page">VolumeVLE L3 TwoZones</a></li>
 <li><b>VolumeVLE L3 TwoZonesNPort</b></li>
+<li><a href="./VolumeVLE_L4.html" title="VolumeVLE L4" class="page">VolumeVLE L4</a></li>
 <li><a href="./VolumeVLE_L4_Advanced.html" title="VolumeVLE L4 Advanced" class="page">VolumeVLE L4 Advanced</a></li>
 </ul>
 </li>
@@ -318,9 +319,9 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <br>
 
 <p>
-<a href="../../Interfaces/FluidPortIn.html" title="Basics:Interfaces:FluidPortIn" class="page">Basics:Interfaces:FluidPortIn</a> inlet[geo.N_inlet] - an arbitrary number of inlet ports<br>
-<a href="../../Interfaces/FluidPortOut.html" title="Basics:Interfaces:FluidPortOut" class="page">Basics:Interfaces:FluidPortOut</a> outlet[geo.N_inlet] - an arbitrary number of outlet ports<br>
-<a href="../../Interfaces/HeatPort_a.html" title="Basics:Interfaces:HeatPort a" class="page">Basics:Interfaces:HeatPort a</a> heat
+<a href="../../Interfaces/FluidPortIn.html" title=":ClaRa:Basics:Interfaces:FluidPortIn" class="page">:ClaRa:Basics:Interfaces:FluidPortIn</a> inlet[geo.N_inlet] - an arbitrary number of inlet ports<br>
+<a href="../../Interfaces/FluidPortOut.html" title=":ClaRa:Basics:Interfaces:FluidPortOut" class="page">:ClaRa:Basics:Interfaces:FluidPortOut</a> outlet[geo.N_inlet] - an arbitrary number of outlet ports<br>
+<a href="../../Interfaces/HeatPort_a.html" title=":ClaRa:Basics:Interfaces:HeatPort a" class="page">:ClaRa:Basics:Interfaces:HeatPort a</a> heat
 </p>
 
 <h2>5. Nomenclature</h2>
@@ -381,7 +382,7 @@ The three aspects considered are friction force, static pressure forces and grav
 <h4>Conservation of Energy</h4>
 
 <p>
-The energy balances for both zones consider entering and leaving enthalpy flow rates as well as energy transport between the zones due to heat and mass transfer. The mass flows entering and leaving are allocated to the vapour and liquid zone according to the replaceable model <u>PhaseSeparation</u>, see section<u> 2.3 Spatial Distribution</u>. Please note, there are three terms in the equations below that take the derivatives of volume, density and pressure into account. These terms are derived from the total derivative of the inner energy of the zone and appear here due to the special choice of state variables as discussed in <a href="../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a>.
+The energy balances for both zones consider entering and leaving enthalpy flow rates as well as energy transport between the zones due to heat and mass transfer. The mass flows entering and leaving are allocated to the vapour and liquid zone according to the replaceable model <u>PhaseSeparation</u>, see section<u> 2.3 Spatial Distribution</u>. Please note, there are three terms in the equations below that take the derivatives of volume, density and pressure into account. These terms are derived from the total derivative of the inner energy of the zone and appear here due to the special choice of state variables as discussed in <a href="../../../Basic_Concepts_of_Modelling.html" title=":ClaRa:Basic Concepts of Modelling" class="page">:ClaRa:Basic Concepts of Modelling</a>.
 </p>
 
 <br>
@@ -409,7 +410,8 @@ The liquid and vapour state are defined by the pressure and enthalpy at the resp
 </p>
 
 <p>
-<img src="./VolumeVLE_L3_TwoZonesNPort/equation009.png">
+<img src="./VolumeVLE_L3_TwoZonesNPort/equation009.png"><br>
+See remarks for initalisation with <tt>equalPressures=false.</tt>
 </p>
 
 <h4>Chemistry</h4>
@@ -460,6 +462,7 @@ A summary is available including the following:<br>
 <ul>
 <li>The model shall preferred over <a href="./VolumeVLE_L3_TwoZones.html" title="VolumeVLE L3 TwoZones" class="page">VolumeVLE L3 TwoZones</a> whenever a number of inlet and outlet flows are present as it will be more robust w.r.t. numerical stability and fluctuations between parallel paths, e.g. in different evaporation heating surfaces connected to a steam drum.</li>
 <li>When the model is applied with a phase separating characteristic, e.g. by applying <a href="../Fundamentals/SpatialDistributionAspects/RealSeparated.html" title="ControlVolumes:Fundamentals:SpatialDistributionAspects:RealSeparated" class="page">ControlVolumes:Fundamentals:SpatialDistributionAspects:RealSeparated</a> it is advisable to put the vertical locations of the inlet and outlet connectors not exactly to the top and bottom but to keep some space left. This will improve the numerical stability in case of a completely empty or completely full vessel. </li>
+<li>If <tt>equalPressures=false </tt>it is recommended to use the <tt>initOption</tt> 211. Thus, it is ensured that the vapour pressure is initialised with the pressure p_start. Otherwise, negative initial pressures could occur, if the geodetic pressure difference is larger than the absolute pressure, e.g. in condensers.</li>
 </ul>
 </p>
 
@@ -491,27 +494,29 @@ A summary is available including the following:<br>
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
-				<a href='../../../Components/MechanicalSeparation/SteamSeparatorVLE_L3.html'>ClaRa:Components:MechanicalSeparation:SteamSeparatorVLE L3</a>
+				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU ntu</a>
+				
+				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU simple</a>
+				
+				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CH_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CH ntu</a>
 				
 				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CH_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CH simple</a>
 				
 				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU ntu</a>
 				
-				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU ntu</a>
-				
-				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU simple</a>
-				
 				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU simple</a>
 				
-				<a href='../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CH_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CH ntu</a>
+				<a href='../../../Components/MechanicalSeparation/Bottle_L3.html'>ClaRa:Components:MechanicalSeparation:Bottle L3</a>
+				
+				<a href='../../../Components/MechanicalSeparation/Drum_L3.html'>ClaRa:Components:MechanicalSeparation:Drum L3</a>
+				
+				<a href='../../../Components/MechanicalSeparation/FeedWaterTank_L3.html'>ClaRa:Components:MechanicalSeparation:FeedWaterTank L3</a>
+				
+				<a href='../../../Components/MechanicalSeparation/SteamSeparatorVLE_L3.html'>ClaRa:Components:MechanicalSeparation:SteamSeparatorVLE L3</a>
 				
 				<a href='./VolumeVLE_L3_TwoZones.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L3 TwoZones</a>
 				
 				<a href='../../../Components/VolumesValvesFittings/Fittings/JoinVLE_L3_Y.html'>ClaRa:Components:VolumesValvesFittings:Fittings:JoinVLE L3 Y</a>
-				
-				<a href='../../../Components/MechanicalSeparation/Drum_L3_advanced.html'>ClaRa:Components:MechanicalSeparation:Drum L3 advanced</a>
-				
-				<a href='../../../Components/MechanicalSeparation/FeedWaterTank_L3_advanced.html'>ClaRa:Components:MechanicalSeparation:FeedWaterTank L3 advanced</a>
 				<br /><br />
 			</span>
 

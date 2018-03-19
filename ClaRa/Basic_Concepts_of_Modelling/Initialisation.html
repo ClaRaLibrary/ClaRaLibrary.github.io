@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>Initialisation</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -232,14 +232,21 @@ From ClaRa 1.2.0 on the initialisation of ClaRa components is based on locally d
 208 → "Steady state in pressure and enthalpy" (formerly sometimes referred to as steadyState)<br>
 209 → "Steady in pressure, enthalpy and volume fraction" (formerly sometimes referred to as steadyState)<br>
 210 → "Steady density" (formerly steadyDensity) <br>
-211 → "Fixed values in level, enthalpies and pressures"
+211 → "Fixed values in level, enthalpies and pressures"<br>
+212 → "Fixed values in mass and enthalpies"
 </p>
-
-<br>
 
 <h2>Control States 501- 800</h2>
 
 <br>
+
+<p>
+501 → no init (use start values as guess values)<br>
+502 → steady (integrator) state<br>
+503 → initial output (if applicable, considering man/auto mode)<br>
+504 → force auto output<br>
+505 → force manual output
+</p>
 
 <h2>Mechanic States 801-1000</h2>
 

@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>Finite Volume Approach</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -258,14 +258,17 @@ The individual value of a conserved quantity is then assumed to be located at th
 </p>
 
 <p>
-<img src="./Finite_Volume_Approach/discretisation-0D">	<img src="./Finite_Volume_Approach/discretisation-1D">		<img src="./Finite_Volume_Approach/discretisation-2D">		<img src="./Finite_Volume_Approach/discretisation-3D"> <br>
-0D          1D                            2D                             3D
+<div style='padding-left: 30pt'>
+<img src="./Finite_Volume_Approach/discretisation.png" height="150"> 
+</div>
 </p>
+
+<br>
 
 <h4>ClaRa Application</h4>
 
 <p>
-Within ClaRa, the finite volume approach is widely used, in order to ensure closed mass and energy and momentum balances, as this is the crucial aspect for the analysis and evaluation of dynamic processes in power plants. If needed spatially resolved information will be provided by grids, which are adapted such that the crucial physical properties of a particular component can be captured. There can be different levels of detail for a particular component or system model. See <a href="../A_User_Guide/GettingStarted/Model_Design_Principles.html" title="ClaRa:A User Guide:GettingStarted:Model Design Principles" class="page">ClaRa:A User Guide:GettingStarted:Model Design Principles</a> 
+Within ClaRa, the finite volume approach is widely used, in order to ensure closed mass and energy and momentum balances, as this is the crucial aspect for the analysis and evaluation of dynamic processes in power plants. If needed spatially resolved information will be provided by grids, which are adapted such that the crucial physical properties of a particular component can be captured. There can be different levels of detail for a particular component or system model. See <a href="../A_User_Guide/GettingStarted/Model_Design_Principles.html" title="A User Guide:GettingStarted:Model Design Principles" class="page">A User Guide:GettingStarted:Model Design Principles</a> 
 </p>
 
 <br>
@@ -585,7 +588,7 @@ The momentum states are located at the mass flow locations at the border between
 </div>
  <img src="./Finite_Volume_Approach/equation103.png"><br>
 Notice that we have used the definition of the volume of a flow model cell as <img src="./Finite_Volume_Approach/equation104.png">, so the flow cross sectional area has cancelled here.<br>
-Gravitational pressure difference <img src="./Finite_Volume_Approach/equation107.png"> will be computed from the z-position of the flow cell boundaries. Pressure difference due to friction <img src="./Finite_Volume_Approach/equation108.png"> has to be computed from a pressure loss model (see <a href="./Pressure_Loss_L4_Volumes.html" title="ClaRa:Basic Concepts of Modelling:Pressure Loss L4 Volumes" class="page">ClaRa:Basic Concepts of Modelling:Pressure Loss L4 Volumes</a>). Pressure difference due to convection <img src="./Finite_Volume_Approach/equation109.png"> is computed from the momentum carried by the mass flows at the flow cell boundaries.
+Gravitational pressure difference <img src="./Finite_Volume_Approach/equation107.png"> will be computed from the z-position of the flow cell boundaries. Pressure difference due to friction <img src="./Finite_Volume_Approach/equation108.png"> has to be computed from a pressure loss model (see <a href="./Pressure_Loss_L4_Volumes.html" title="Basic Concepts of Modelling:Pressure Loss L4 Volumes" class="page">Basic Concepts of Modelling:Pressure Loss L4 Volumes</a>). Pressure difference due to convection <img src="./Finite_Volume_Approach/equation109.png"> is computed from the momentum carried by the mass flows at the flow cell boundaries.
 </p>
 
 <p>
@@ -598,7 +601,7 @@ In this case we also neglect <img src="./Finite_Volume_Approach/equation109.png"
 
 <p>
 In the steady  case it is not mandatory to use the staggered grid, since the momentum is computed directly from the pressure loss model.<br>
-Application of these concepts can be found at <a href="../Basics/ControlVolumes/FluidVolumes/VolumeVLE_L4_Advanced.html" title="ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced" class="page">ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced</a> .
+Application of these concepts can be found at <a href="../Basics/ControlVolumes/FluidVolumes/VolumeVLE_L4_Advanced.html" title="Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced" class="page">Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced</a> .
 </p>
 
 <br>
@@ -606,7 +609,7 @@ Application of these concepts can be found at <a href="../Basics/ControlVolumes/
 <h3>4.3 Cylindric Shell Shape for Arrangement of 1D Heat Flow Through Thick Walls</h3>
 
 <p>
-Another example for the usage of the finite volume approach can be found at <a href="../Basics/ControlVolumes/SolidVolumes/ThickWall_L4.html" title="ClaRa:Basics:ControlVolumes:SolidVolumes:ThickWall L4" class="page">ClaRa:Basics:ControlVolumes:SolidVolumes:ThickWall L4</a> .
+Another example for the usage of the finite volume approach can be found at <a href="../Basics/ControlVolumes/SolidVolumes/CylindricalThickWall_L4.html" title="Basics:ControlVolumes:SolidVolumes:CylindricalThickWall L4" class="page">Basics:ControlVolumes:SolidVolumes:CylindricalThickWall L4</a> .
 </p>
 
 <br>
@@ -630,6 +633,10 @@ Another example for the usage of the finite volume approach can be found at <a h
 
 			<br>
 			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../Basics/ControlVolumes/FluidVolumes/VolumeVLE_L4_Advanced.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced</a>
+				<br /><br />
 			</span>
 
 			

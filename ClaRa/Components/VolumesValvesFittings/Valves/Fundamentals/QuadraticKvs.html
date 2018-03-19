@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>QuadraticKvs</title>
-	<meta name="generator" content="Zim 0.65">
+	<meta name="generator" content="Zim 0.67">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -180,6 +180,7 @@
 <ul>
 <li><a href="../../../Adapters.html" title="Adapters" class="page">Adapters</a></li>
 <li><a href="../../../BoundaryConditions.html" title="BoundaryConditions" class="page">BoundaryConditions</a></li>
+<li><a href="../../../Control.html" title="Control" class="page">Control</a></li>
 <li><a href="../../../Electrical.html" title="Electrical" class="page">Electrical</a></li>
 <li><a href="../../../FlueGasCleaning.html" title="FlueGasCleaning" class="page">FlueGasCleaning</a></li>
 <li><a href="../../../Furnace.html" title="Furnace" class="page">Furnace</a></li>
@@ -240,7 +241,7 @@ Created Monday 08 July 2013<br>
 <h2>1. Purpose of Model</h2>
 
 <p>
-The model can be used for introducing pressure loss effects (either due to physical or numerical motivation), when the inlet density of the vessel may vary considerably over time and <u>no</u> <u>choked flow</u> may occur. Since the model neglects changes in kinetic energy it implies either small density changes or adapted flange geometry.  It is possible to use the valve as a check valve, for example to avoid back flows. Since the model takes inlet density into account it is considered less robust than e.g. <a href="./LinearNominalPoint.html" title="ClaRa:Components:VolumesValvesFittings:Valves:Fundamentals:LinearNominalPoint" class="page">ClaRa:Components:VolumesValvesFittings:Valves:Fundamentals:LinearNominalPoint</a> but shows a more realistic behaviour when it comes to density variations in the upstream components.
+The model can be used for introducing pressure loss effects (either due to physical or numerical motivation), when the inlet density of the vessel may vary considerably over time and <u>no</u> <u>choked flow</u> may occur. Since the model neglects changes in kinetic energy it implies either small density changes or adapted flange geometry.  It is possible to use the valve as a check valve, for example to avoid back flows. Since the model takes inlet density into account it is considered less robust than e.g. <a href="./LinearNominalPoint.html" title="Components:VolumesValvesFittings:Valves:Fundamentals:LinearNominalPoint" class="page">Components:VolumesValvesFittings:Valves:Fundamentals:LinearNominalPoint</a> but shows a more realistic behaviour when it comes to density variations in the upstream components.
 </p>
 
 <h2>2. Level of Detail and Physical Effects Considered</h2>
@@ -325,15 +326,15 @@ in<tt> the superordinate valve model</tt>
 				
 				<a href='../../Fittings/SprayInjectorVLE_L3_advanced.html'>ClaRa:Components:VolumesValvesFittings:Fittings:SprayInjectorVLE L3 advanced</a>
 				
-				<a href='../ValveVLE_L1.html'>ClaRa:Components:VolumesValvesFittings:Valves:ValveVLE L1</a>
-				
 				<a href='../ValveFuelFlueGas_L1.html'>ClaRa:Components:VolumesValvesFittings:Valves:ValveFuelFlueGas L1</a>
 				
 				<a href='../ValveGas_L1.html'>ClaRa:Components:VolumesValvesFittings:Valves:ValveGas L1</a>
 				
-				<a href='./Quadratic_EN60534.html'>ClaRa:Components:VolumesValvesFittings:Valves:Fundamentals:Quadratic EN60534</a>
+				<a href='../ValveVLE_L1.html'>ClaRa:Components:VolumesValvesFittings:Valves:ValveVLE L1</a>
 				
 				<a href='./QuadraticFlowFunction.html'>ClaRa:Components:VolumesValvesFittings:Valves:Fundamentals:QuadraticFlowFunction</a>
+				
+				<a href='./Quadratic_EN60534.html'>ClaRa:Components:VolumesValvesFittings:Valves:Fundamentals:Quadratic EN60534</a>
 				<br /><br />
 			</span>
 
