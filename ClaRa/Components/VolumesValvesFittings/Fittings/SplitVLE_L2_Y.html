@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>SplitVLE L2 Y</title>
-	<meta name="generator" content="Zim 0.67">
+	<meta name="generator" content="Zim 0.68">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -415,7 +415,13 @@ A summary is available including the following:<br>
 
 <h2>7. Remarks for Usage</h2>
 
-<br>
+<p>
+<ul>
+<li>The term with the density derivative can be deactivated with setting the parameter <tt>preciseTwoPhase</tt> in the expert setting dialog to <tt>false. </tt>Thus, the influence of h is removed from the right hand side of the equation.</li>
+<li>In many cases positioning of pressure losses at the ports is crucial for the overall simulation performance. In some cases so-called DAE-index reduction problems are caused by inappropriate pressure loss positioning.To help the user with this issue the connections featuring a pressure loss between the respective port and the next pressure state are marked blue, see figure below. Each of the port's pressure loss can be set individually.</li>
+</ul>
+<img src="./SplitVLE_L2_Y/Usage.png" width="400">
+</p>
 
 <h2>8. Validation</h2>
 
@@ -431,11 +437,9 @@ A summary is available including the following:<br>
 
 <p>
 <ul>
-<li>03.03.2013 - v.0.1 - initial </li>
-</ul>
-implementation -Friedrich Gottelt, XRG Simulation<br>
-<ul>
+<li>03.03.2013 - v.0.1 - initial implementation - Friedrich Gottelt, XRG Simulation</li>
 <li>24.04.2017 - v1.2.2 - added noEvent to actualStream operator - Timm Hoppe, XRG Simulation</li>
+<li>26.06.2018 - v1.3.1 - added visualisers for inlet and outlet friction - Friedrich Gottelt, XRG Simulation </li>
 </ul>
 </p>
 

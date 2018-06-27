@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>Quadratic EN60534 incompressible</title>
-	<meta name="generator" content="Zim 0.67">
+	<meta name="generator" content="Zim 0.68">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -200,7 +200,7 @@
 <ul>
 <li><a href="./GenericPressureLoss.html" title="GenericPressureLoss" class="page">GenericPressureLoss</a></li>
 <li><a href="./LinearNominalPoint.html" title="LinearNominalPoint" class="page">LinearNominalPoint</a></li>
-<li><a href="./Quadratic_EN60534.html" title="Quadratic EN60534" class="page">Quadratic EN60534</a></li>
+<li><a href="./Quadratic_EN60534_compressible.html" title="Quadratic EN60534 compressible" class="page">Quadratic EN60534 compressible</a></li>
 <li><b>Quadratic EN60534 incompressible</b></li>
 <li><a href="./QuadraticFlowFunction.html" title="QuadraticFlowFunction" class="page">QuadraticFlowFunction</a></li>
 <li><a href="./QuadraticFrictionFlowAreaSymetric_TWV.html" title="QuadraticFrictionFlowAreaSymetric TWV" class="page">QuadraticFrictionFlowAreaSymetric TWV</a></li>
@@ -237,6 +237,93 @@
 Created Montag 23 November 2015
 </p>
 
+<p>
+<b>This model provides a nonlinear pressure drop model for incompressible flows according tp DIN EN 60534 2-1, Mass flow rate through the vessel depends on the opening, the inlet density and the pressure difference. The flow resistance is defined by the nominal volume flow rate Kv and some geometry parameters. Please note, this model does not support two-phase flow. However choking of the mass flow rate due to evaporation in the vena contracta is considered by the DIN EN 60534 2-1.</b>
+</p>
+
+<h2>1. Purpose of Model</h2>
+
+<br>
+
+<p>
+The model can be used for introducing pressure loss effects (either due to physical or numerical motivation), when the inlet density of the vessel may vary considerably over time and choked flow due to evaporation in vena contracta may occur. Since the model neglects changes in kinetic energy it implies either small density changes or adapted flange geometry.  It is possible to use the valve as a check valve, for example to avoid back flows. Since the model takes inlet density into account it is considered less robust than e.g. <a href="./LinearNominalPoint.html" title="Components:VolumesValvesFittings:Valves:Fundamentals:LinearNominalPoint" class="page">Components:VolumesValvesFittings:Valves:Fundamentals:LinearNominalPoint</a> but shows a more realistic behaviour when it comes to density variations in the upstream components and choked flow conditions. 
+</p>
+
+<h3>2.1 Level of Detail</h3>
+
+<p>
+Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L1</b> because no spatially discretisation is featured
+</p>
+
+<h3>2.2 Physical Effects Considered</h3>
+
+<p>
+<ul>
+<li>choked flow conditions due to evaporation in the vena contracta</li>
+<li>influence of fittings</li>
+</ul>
+</p>
+
+<h2>3. Limits of Validity</h2>
+
+<p>
+<ul>
+<li>no two-phase flow</li>
+<li>no compressible flows</li>
+<li>laminar flow, i.e. Reynolds numbers below 10000</li>
+</ul>
+</p>
+
+<h2>4. Interfaces</h2>
+
+<p>
+the calculated mass flow rate is accessed via<br>
+<tt>inlet.m_flow =</tt> <tt>pressureLoss.m_flow </tt><br>
+in the superordinate valve model
+</p>
+
+<h2>5. Nomenclature</h2>
+
+<p>
+<img src="./Quadratic_EN60534_incompressible/equation.png">
+</p>
+
+<h2>6. Governing Equations</h2>
+
+<p>
+<img src="./Quadratic_EN60534_incompressible/Valve.png" width="500"><br>
+The pressure difference is calculated as follows:<br>
+<img src="./Quadratic_EN60534_incompressible/equation002.png"><br>
+The mass flow rate correlates with the pressure difference as follows:<br>
+<img src="./Quadratic_EN60534_incompressible/equation001.png"><br>
+with the following definitions:<br>
+<img src="./Quadratic_EN60534_incompressible/equation003.png">
+</p>
+
+<h2>7. Remarks for Usage</h2>
+
+<p>
+<img src="./QuadraticFlowFunction/equation012.png">
+</p>
+
+<h2>9. References</h2>
+
+<p>
+[1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 <br>
+[2]   <b>DIN EN 60534 -2.1</b> "Industrial-process control valves – Part 2-1: Flow capacity – Sizing equations for fluid flow under installed conditions" (German version), Beuth Verlag, Germany, 2011.<br>
+[3]   <b>Walter Wagner: "</b>Regelarmaturen<b>"</b>, ISBN 3-8023-15664-2, Vogel Buchverlag, Germany, 1996.
+</p>
+
+<br>
+
+<h2>10. Version History</h2>
+
+<p>
+<ul>
+<li>2013-07-04 - v0.1 - initial implementation - Friedrich Gottelt, XRG Simulation</li>
+<li>2018-04-18 - v1.3.1 - Calculation of choked conditions does now depend on fluid properties - Timm Hoppe, XRG Simulation</li>
+</ul>
+</p>
 
 
 			<br>

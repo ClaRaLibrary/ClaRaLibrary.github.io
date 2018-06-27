@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>v1.4.0</title>
-	<meta name="generator" content="Zim 0.67">
+	<meta name="generator" content="Zim 0.68">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -192,6 +192,7 @@
 <li><a href="./v1.2.3.html" title="v1.2.3" class="page">v1.2.3</a></li>
 <li><a href="./v1.3.0.html" title="v1.3.0" class="page">v1.3.0</a></li>
 <li><a href="./v1.3.1.html" title="v1.3.1" class="page">v1.3.1</a></li>
+<li><a href="./v1.3.2.html" title="v1.3.2" class="page">v1.3.2</a></li>
 <li><b>v1.4.0</b></li>
 <li><a href="./v1.5.0.html" title="v1.5.0" class="page">v1.5.0</a></li>
 <li><a href="./vx.x.x.html" title="vx.x.x" class="page">vx.x.x</a></li>
@@ -247,9 +248,28 @@ Created Montag 26 Oktober 2015
 
 <br>
 
+<h4>Solid Volumes</h4>
+
+<p>
+<ul>
+<li class="unchecked-box">ClaRa.Basics.ControlVolumes.SolidVolumes.CylindricalThinWall_L4,ClaRa.Basics.ControlVolumes.SolidVolumes.ThinPlateWall_L4,</li>
+</ul>
+<div style='padding-left: 30pt'>
+ClaRa.Basics.ControlVolumes.SolidVolumes.CylindricalThickWall_L4 rework Initialisation:
+</div>
+<ul style='padding-left: 30pt'>
+<li>introduce FixedTemperature Option with T=T_start</li>
+<li>introduce NoInit with T(start=T_start)</li>
+</ul>
+</p>
+
 <h3>Components</h3>
 
-<br>
+<p>
+<ul>
+<li class="unchecked-box">Burner and FlameRooms: remove Tau_rad, just use Tau</li>
+</ul>
+</p>
 
 <h4>Pipes</h4>
 
@@ -263,8 +283,68 @@ Created Montag 26 Oktober 2015
 
 <p>
 <ul>
-<li class="unchecked-box">New advanced condensing heat exchanger with differentiated drowned and dry tubes <span class="zim-tag">@R140</span> </li>
-<li class="unchecked-box">New HT model for condensation at vertical pipes? <span class="zim-tag">@R140</span> </li>
+<li class="unchecked-box">improve zero shell flow behaviour of NTU models, whether introduce fixed mass flow for low mass flows entering shell or let NTU wall behave like a normal wall under zero flow conditions</li>
+<li class="unchecked-box">Check zero heat flow behaviour of Q_flow/Q_flow_s</li>
+</ul>
+</p>
+
+<h4>Valves</h4>
+
+<p>
+<ul>
+<li class="unchecked-box">ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534_incompressible: 
+<ul>
+<li>make parameter F_L dependent on actual Kv value of valve</li>
+<li>renamed m_flow_nominal to m_flow_nom</li>
+<li>renamed Kvs to Kvs_in</li>
+<li>renamed Kvs_actual to Kvs</li>
+</ul>
+</li>
+<li class="unchecked-box">ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534:
+<ul>
+<li>renamed to Quadratic_EN60534_compressible</li>
+<li>renamed m_flow_nominal to m_flow_nom</li>
+<li>renamed Kvs to Kvs_in</li>
+<li>renamed Kvs_actual to Kvs</li>
+</ul>
+</li>
+<li class="unchecked-box">ClaRa.Components.VolumesValvesFittings.Valves.ValveVLE_L1:
+<ul>
+<li>rename summary value isSuperCritical to isFlowChoked (EN60534 gives choked flow conditions for evaporation in vena contracta), check other valves (gas/flueGas)</li>
+<li>rework PR_crit, should be calculated in pressure loss model, not in valve model as each pressure loss model as own definition of critical pressure ratio</li>
+</ul></li>
+</ul>
+</p>
+
+<h4>Mechanical Separation</h4>
+
+<p>
+<ul>
+<li class="unchecked-box">ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3_advanced and ClaRa.Components.MechanicalSeparation.Drum_L3_advanced: <span class="zim-tag">@R131</span>
+<ul>
+<li class="unchecked-box">make clear numbering of inlets and outlets <span class="zim-tag">@R131</span></li>
+<li class="unchecked-box">definition of m_flow_nom in pressure loss models is unclear <span class="zim-tag">@R131</span></li>
+</ul></li>
+</ul>
+</p>
+
+<h4>Electric Components</h4>
+
+<p>
+<ul>
+<li class="unchecked-box">zero rotation, reverse rotation of AsynchronousMotor_L2</li>
+<li class="unchecked-box">motor: improve init, shaft.phi should be set to zero, to add additional initial equation (now zero is assumed by solver)</li>
+</ul>
+</p>
+
+<br>
+
+<h4>Mills</h4>
+
+<p>
+<ul>
+<li class="unchecked-box">new mill model with physically motivated mass transport, capable for start up and shut down</li>
+<li class="unchecked-box">check calculation of P_grind in VerticalMill_L3. It differs from validation with literature.</li>
 </ul>
 </p>
 
@@ -278,6 +358,19 @@ Created Montag 26 Oktober 2015
 
 <h3>StaticCycles</h3>
 
+<p>
+<ul>
+<li class="unchecked-box">add calculation of Volume flow rate to pump models (to parametrise affinity pump models)
+<ul>
+<li class="unchecked-box">stacy motor/calculation of required voltage?</li>
+</ul>
+</li>
+<li class="unchecked-box">define Delta_p in Pump models positive? → affinity model requires positive Delta_p_max</li>
+<li class="unchecked-box">rename Rostock static cycle examples</li>
+</ul>
+</p>
+
+<br>
 <br>
 
 <h3>Documentation</h3>

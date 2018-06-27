@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>QuadraticFlowFunction</title>
-	<meta name="generator" content="Zim 0.67">
+	<meta name="generator" content="Zim 0.68">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -200,7 +200,7 @@
 <ul>
 <li><a href="./GenericPressureLoss.html" title="GenericPressureLoss" class="page">GenericPressureLoss</a></li>
 <li><a href="./LinearNominalPoint.html" title="LinearNominalPoint" class="page">LinearNominalPoint</a></li>
-<li><a href="./Quadratic_EN60534.html" title="Quadratic EN60534" class="page">Quadratic EN60534</a></li>
+<li><a href="./Quadratic_EN60534_compressible.html" title="Quadratic EN60534 compressible" class="page">Quadratic EN60534 compressible</a></li>
 <li><a href="./Quadratic_EN60534_incompressible.html" title="Quadratic EN60534 incompressible" class="page">Quadratic EN60534 incompressible</a></li>
 <li><b>QuadraticFlowFunction</b></li>
 <li><a href="./QuadraticFrictionFlowAreaSymetric_TWV.html" title="QuadraticFrictionFlowAreaSymetric TWV" class="page">QuadraticFrictionFlowAreaSymetric TWV</a></li>
@@ -241,7 +241,7 @@ Created Monday 08 July 2013<br>
 <h2>1. Purpose of Model</h2>
 
 <p>
-The model can be used for introducing pressure loss effects (either due to physical or numerical motivation), when the inlet density of the vessel may vary considerably over time and choked flow may occur. Since the model neglects changes in kinetic energy it implies either small density changes or adapted flange geometry.  It is possible to use the valve as a check valve, for example to avoid back flows. Since the model takes inlet density into account it is considered less robust than e.g. <a href="./LinearNominalPoint.html" title="Components:VolumesValvesFittings:Valves:Fundamentals:LinearNominalPoint" class="page">Components:VolumesValvesFittings:Valves:Fundamentals:LinearNominalPoint</a> and <a href="./QuadraticKvs.html" title="Components:VolumesValvesFittings:Valves:Fundamentals:QuadraticKvs" class="page">Components:VolumesValvesFittings:Valves:Fundamentals:QuadraticKvs</a> but shows a more realistic behaviour when it comes to density variations in the upstream components and choked flow conditions. This model will give smaller mass flow rates than <a href="./Quadratic_EN60534.html" title="Components:VolumesValvesFittings:Valves:Fundamentals:Quadratic EN60534" class="page">Components:VolumesValvesFittings:Valves:Fundamentals:Quadratic EN60534</a>.
+The model can be used for introducing pressure loss effects (either due to physical or numerical motivation), when the inlet density of the vessel may vary considerably over time and choked flow may occur. Since the model neglects changes in kinetic energy it implies either small density changes or adapted flange geometry.  It is possible to use the valve as a check valve, for example to avoid back flows. Since the model takes inlet density into account it is considered less robust than e.g. <a href="./LinearNominalPoint.html" title="Components:VolumesValvesFittings:Valves:Fundamentals:LinearNominalPoint" class="page">Components:VolumesValvesFittings:Valves:Fundamentals:LinearNominalPoint</a> and <a href="./QuadraticKvs.html" title="Components:VolumesValvesFittings:Valves:Fundamentals:QuadraticKvs" class="page">Components:VolumesValvesFittings:Valves:Fundamentals:QuadraticKvs</a> but shows a more realistic behaviour when it comes to density variations in the upstream components and choked flow conditions. This model will give smaller mass flow rates than <a href="./Quadratic_EN60534_compressible.html" title="Quadratic EN60534 compressible" class="page">Quadratic EN60534 compressible</a>.
 </p>
 
 <h2>2. Level of Detail and Physical Effects Considered</h2>
@@ -268,6 +268,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <ul>
 <li>no two-phase flow (will result in negative square root evaluation)</li>
 <li>no liquid flow</li>
+<li>ideal gas assumption</li>
 </ul>
 </p>
 
@@ -302,6 +303,12 @@ The outflow function <img src="./QuadraticFlowFunction/equation002.png"> is calc
 </p>
 
 <h2>7. Remarks for Usage</h2>
+
+<p>
+<img src="./QuadraticFlowFunction/equation012.png">
+</p>
+
+<br>
 
 <p>
 The outflow number <img src="./QuadraticFlowFunction/equation003.png"> gives a measure of the real behaviour of the valve compared to an ideal nozzle. It descibes the ratio of measured outflow to theoretical outlfow of an ideal nozzle, i.e. a value of 1 refers to an ideal nozzle. Usually its value is given by the manufacturer. So far only a fixed value can be given. However, it can depend on pressure ratio and valve opening. A typical value of a security valve for vapour and gases is <img src="./QuadraticFlowFunction/equation004.png">. Values for liquids for identical valves with the same opening are 35% lower [3].<br>
