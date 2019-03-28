@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>NusseltPipe L4</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -238,7 +238,7 @@ Created Mittwoch 21 Oktober 2015
 <h2>1. Purpose of Model</h2>
 
 <p>
-A detailed model that takes all relevant dependencies into account. This model is numerically less robust than other models, e.g. <a href="../Generic_HT/CharLine_L4.html" title="HeatTransport:Generic HT:CharLine L4" class="page">HeatTransport:Generic HT:CharLine L4</a> since it takes fluid states and flow regimes into account. Phase change is not supported and will lead to unphysical heat transfer coefficients.
+A detailed model that takes all relevant dependencies into account. This model is numerically less robust than other models, e.g. <a href="../Generic_HT/CharLine_L4.html" title="HeatTransport:Generic HT:CharLine L4" class="page">HeatTransport:Generic HT:CharLine L4</a> since it takes fluid states and flow regimes into account. Phase change is not supported and will lead to unphysical heat transfer coefficients. Two correlations can be chosen. The Gnielinski correlation which takes surfaces roughness into account and the Dittus/Boelter correlation which assumes technical smooth pipes.
 </p>
 
 <h2>2. Level of Detail and Physical Effects Considered</h2>
@@ -266,7 +266,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <p>
 <ul>
-<li>see FluidDissipation documentation for limits of the used equations</li>
+<li>simplified transition regime</li>
 <li>no two phase flow supported</li>
 </ul>
 </p>
@@ -278,8 +278,6 @@ The model communicates via outer models and records. Thus its expects to have:<b
 <ul>
 <li>an outer model named <b>geo</b> as defined <a href="../../Geometry/GenericGeometry.html" title="Fundamentals:Geometry:GenericGeometry" class="page">Fundamentals:Geometry:GenericGeometry</a></li>
 <li>an outer record named <b>iCom</b> as defined in  <a href="../../../../Records/IComBase_L2.html" title="Basics:Records:IComBase L2" class="page">Basics:Records:IComBase L2</a></li>
-<li>an <b>inCon</b> record required for communication with FluidDissipation functions</li>
-<li>an <b>inVar</b> record required for communication with FluidDissipation functions</li>
 </ul>
 It has further a <a href="../../../../Interfaces/HeatPort_a.html" title="Basics:Interfaces:HeatPort a" class="page">Basics:Interfaces:HeatPort a</a> <b>heat</b> that shall be connected with the applying component model.
 </p>
@@ -292,34 +290,47 @@ It has further a <a href="../../../../Interfaces/HeatPort_a.html" title="Basics:
 
 <h2>6. Governing Equations</h2>
 
+<br>
+
 <p>
+The local heat transfer coefficients according to [2] for the laminar and the turbulent regime are calculated as follows:<br>
 <img src="./NusseltPipe_L4/equation.png"><br>
-<img src="./NusseltPipe_L4/equation002.png">
+<img src="./NusseltPipe_L4/equation002.png"><br>
+<img src="./NusseltPipe_L4/equation005.png"><br>
+<img src="./NusseltPipe_L4/equation006.png"><br>
+<img src="./NusseltPipe_L4/equation007.png"><br>
+<img src="./NusseltPipe_L4/equation008.png"><br>
+<img src="./NusseltPipe_L4/equation009.png"><br>
+with<br>
+<img src="./NusseltPipe_L4/equation010.png">
 </p>
 
 <p>
-With Eq. (2) the FluidDissipation function <i>FluidDissipation.HeatTransfer.StraightPipe.kc_overall </i>is called. See FluidDissipation for documentation of the used equations for calculation of the Nusselt number and the heat transfer coefficient <img src="./NusseltPipe_L4/equation003.png">. The necessary media, flow and geometric data is handed over via the records <b>inCon </b>and<b> inVar.</b>
+A smooth transtion between <img src="./NusseltPipe_L4/equation011.png"> of laminar and turbulent heat transfer coefficient is applied. The heat flow rate is calculated as follows:<br>
+<img src="./NusseltPipe_L4/equation012.png">
 </p>
+
+<br>
+<br>
 
 <h2>7. Remarks for Usage</h2>
 
 <p>
 <ul>
 <li>If the computing efford has to be reduced or the model can be made responsible for numerical unstable behavior, use this model to tune e.g. <a href="../Generic_HT/CharLine_L4.html" title="HeatTransport:Generic HT:CharLine L4" class="page">HeatTransport:Generic HT:CharLine L4</a> and replace it.</li>
-<li>Check the results for meaningfulness, if the <img src="./NusseltPipe_L4/equation004.png"> is equal to 1, as the boundary conditions or valid ranges of the FluidDissipation models are violated.</li>
+<li>Check the results for meaningfulness, if the <img src="./NusseltPipe_L4/equation004.png"> is equal to 1, as the boundary conditions or valid ranges of the models are violated.</li>
 </ul>
 </p>
 
 <h2>8. Validation</h2>
 
-<p>
-see FluidDissipation documentation
-</p>
+<br>
 
 <h2>9. References</h2>
 
 <p>
-[1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulationof Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 
+[1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulationof Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 <br>
+[2] <b>Verein Deutscher Ingenieure:</b> "VDI Heat Atlas", chapter Ga: 'Heat transfer in pipes' (in German), 9th edition, Springer 2002
 </p>
 
 <h2>10. Version History</h2>
@@ -327,6 +338,7 @@ see FluidDissipation documentation
 <p>
 <ul>
 <li>2012 - v 0.1 -initial implementation - Ala Renz, Friedrich Gottelt, XRG-Simulation</li>
+<li>2019 - v 1.4.0 - Local htc are calculated instead of mean htc with cell length, added homotopy init - Timm Hoppe, XRG-Simulation</li>
 </ul>
 </p>
 

@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>AsynchronousMotor L2_base</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -324,8 +324,8 @@ which is called the formula of Kloss
 </p>
 
 <p>
-This equation (13) correlates the actual slip (and thereby the rotational speed) with the torque. Please note that this characteristic line is a function of the rotor bar geometry according to [2] five different geometries can be distinguished leading to different torque speed curves, see figure below. Due to the fact that the formula of Kloss refers to the rotor bar of type "R" (marked blue in the figure) which is quite disadvantageous regarding the starting torque the user can also define a specific characteristic line in a table when setting <tt>useCharLine = true.</tt><br>
-<img src="./AsynchronousMotor_L2_base/CharacteristicLines2.png" width="400"><br>
+This equation (13) correlates the actual slip (and thereby the rotational speed) with the torque. Please note that this characteristic line is a function of the rotor bar geometry according to [2] five different geometries can be distinguished leading to different torque speed curves, see figure below. Due to the fact that the formula of Kloss refers to the rotor bar of type "R" (marked blue in the figure) which is quite disadvantageous regarding the starting torque the user can also define a specific characteristic line in a table when setting <tt>useCharLine = true. </tt>According to [4] three different operation modes can be distingueshed: The nomal motor operation (tau &gt; 0 and rpm &gt; 0), the generator operation (tau &lt; 0, rpm &gt; 0) and the counter current brake (tau &gt; 0 and rpm &lt; 0), see figure below. The according behaviour is fewatured from version 1.4.0 on.<br>
+<img src="./AsynchronousMotor_L2_base/CharacteristicLines2.png" width="800"><br>
 The table definition will be applied as follows:<br>
 <img src="./AsynchronousMotor_L2_base/equation020.png"><br>
 herein the function <tt>tableIpo </tt>will perform a linear interpolation of the table's entries. The interpolation will be smooth when <tt>smoothness</tt> is set accordingly in the expert settings. Please note, the formula of Kloss implies a frequency dependency of the break down slip. This is not considered when applying the table-based characteristics. 
@@ -391,7 +391,8 @@ When using table-based characteristics the nominal torque is calculated from the
 <p>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012.<br>
 [2]   <b>Rolf Fischer, Hermann Linse:</b> "Elektrotechnik für Maschinenbauer - Mit Elektronik, elektrischer Messtechnik, elektrischen Antrieben und Steuerungstechnik", 14th edition, Springer, 2012.<br>
-[3]   <b>Wilfried Hofmann:</b> "Elektrische Maschinen - Lehr und Übungsbuch", 1st edition, Pearson, 2013.
+[3]   <b>Wilfried Hofmann:</b> "Elektrische Maschinen - Lehr und Übungsbuch", 1st edition, Pearson, 2013.<br>
+[4]   <b>U. Beckert: </b>"Asynchronmotor - Stationäres Betriebsverhalten, Skriptum für Nichtelektrotechniker", <a href="https://tu-freiberg.de/sites/default/files/media/institut-fuer-elektrotechnik-12774/UBeckert_Scr/asm_stat_verhalten.pdf" title="https://tu-freiberg.de/sites/default/files/media/institut-fuer-elektrotechnik-12774/UBeckert_Scr/asm_stat_verhalten.pdf" class="https">https://tu-freiberg.de/sites/default/files/media/institut-fuer-elektrotechnik-12774/UBeckert_Scr/asm_stat_verhalten.pdf</a>, TU Bergakademie Freiberg Institut für Elektrotechnik, 2005
 </p>
 
 <h2>10. Version History</h2>
@@ -401,8 +402,10 @@ When using table-based characteristics the nominal torque is calculated from the
 <li>2014-July-15 - v0.0 - Initial implementation - F. Gottelt, XRG Simulation GmbH</li>
 <li>2014-August-25 - v0.1 - added table-based characteristcs - F. Gottelt, XRG Simulation GmbH</li>
 <li>2018-03-14 - v1.3.0 - introduced base class of asynchronous motors - T.Hoppe, XRG Simulation GmbH</li>
+<li>2019-01-17 - v1.4.0 - featuring of reverse rotation and zero rotation - F. Gottelt, XRG Simulation GmbH</li>
 </ul>
 </p>
+
 
 
 			<br>

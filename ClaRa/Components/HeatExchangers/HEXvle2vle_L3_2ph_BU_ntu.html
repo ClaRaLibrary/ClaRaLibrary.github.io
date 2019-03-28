@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>HEXvle2vle L3 2ph BU ntu</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -348,8 +348,12 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <p>
 <ul>
 <li>only small transients are allowed due to application of NTU-based wall model.</li>
+<li>no flow reversal is supported</li>
+<li>mass flows from shell side connectors 2 and 3 shall be small compared to mass flow through connector 1</li>
 </ul>
 </p>
+
+<br>
 
 <h2>4. Interfaces</h2>
 
@@ -453,7 +457,11 @@ During first testing of NTU-based heat exchanger models it became apparent that 
 </div>
 <ul>
 <li>17.02.2017 -v 1.2.0 - removed confusing parameter parallelTubes - Timm Hoppe, XRG Simulation GmbH</li>
+<li>08.01.2019 -v 1.4.0    - added kA-value to summary</li>
 </ul>
+<div style='padding-left: 150pt'>
+- bugfixed underlying NTU wall model - Annika Kuhlmann, Timm Hoppe, XRG Simulation GmbH
+</div>
 </p>
 
 

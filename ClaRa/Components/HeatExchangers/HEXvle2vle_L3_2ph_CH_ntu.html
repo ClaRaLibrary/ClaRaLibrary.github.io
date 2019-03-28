@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>HEXvle2vle L3 2ph CH ntu</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -351,6 +351,8 @@ coefficient based on geometry, media data and flow regime - Nusselt number
 <p>
 <ul>
 <li>only small transients are allowed due to application of NTU-based wall model.</li>
+<li>no flow reversal is supported</li>
+<li>mass flows from shell side connectors 2 and 3 shall be small compared to mass flow through connector 1</li>
 </ul>
 </p>
 
@@ -465,9 +467,14 @@ The heat exchanger is validated using measurement data from a German 550 MW bloc
 <div style='padding-left: 150pt'>
   - added optional measurement conectors - Friedrich Gottelt, XRG Simulation GmbH
 </div>
+<ul>
+<li>08.01.2019 -v 1.4.0    - added kA-value to summary</li>
+</ul>
+<div style='padding-left: 180pt'>
+- correct tube length is now handed over to NTU model<br>
+- bugfixed underlying NTU wall model - Annika Kuhlmann, Timm Hoppe, XRG Simulation GmbH
+</div>
 </p>
-
-<br>
 
 
 

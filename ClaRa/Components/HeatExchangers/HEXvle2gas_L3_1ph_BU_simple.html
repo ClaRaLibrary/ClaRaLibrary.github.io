@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>HEXvle2gas L3 1ph BU simple</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -285,7 +285,8 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/CharLine_L2.html" title="Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:CharLine L2" class="page">Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:CharLine L2</a> : All Geo || HTC || Characteristic Line</li>
 <li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/Constant_L2.html" title="Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Constant L2" class="page">Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:Constant L2</a> : All Geo || HTC || Constant</li>
 <li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Generic_HT/IdealHeatTransfer_L2.html" title="Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:IdealHeatTransfer L2" class="page">Basics:ControlVolumes:Fundamentals:HeatTransport:Generic HT:IdealHeatTransfer L2</a> : All Geo || Ideal Heat Transfer</li>
-<li>see remarks of usage</li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Gas_HT/Convection/Convection_tubeBank_L2.html" title="Basics:ControlVolumes:Fundamentals:HeatTransport:Gas HT:Convection:Convection tubeBank L2" class="page">Basics:ControlVolumes:Fundamentals:HeatTransport:Gas HT:Convection:Convection tubeBank L2</a></li>
+<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/Gas_HT/Convection/Convection_finnedTubes_L2.html" title="Basics:ControlVolumes:Fundamentals:HeatTransport:Gas HT:Convection:Convection finnedTubes L2" class="page">Basics:ControlVolumes:Fundamentals:HeatTransport:Gas HT:Convection:Convection finnedTubes L2</a></li>
 </ul>
 </p>
 
@@ -408,20 +409,13 @@ A record summarising the most important variables is provided. Please be aware o
 <h2>7. Remarks for Usage</h2>
 
 <br>
+<br>
+<br>
 
 <p>
 <ul>
-<li>Heat transfer models which require media data can be chosen for the shell side, but cause an error, i.e.:
-<ul>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/VLE_HT/NusseltShell1ph_L2.html" title="Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltShell1ph L2" class="page">Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltShell1ph L2</a></li>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/HeatTransport/VLE_HT/NusseltShell2ph_L2.html" title="Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltShell2ph L2" class="page">Basics:ControlVolumes:Fundamentals:HeatTransport:VLE HT:NusseltShell2ph L2</a></li>
-</ul>
-</li>
-<li>Pressure loss models which require media data can be chosen for the shell side, but cause an error, i.e.:
-<ul>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/VLE_PL/QuadraticNominalPoint_L2.html" title="Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:QuadraticNominalPoint L2" class="page">Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:QuadraticNominalPoint L2</a> </li>
-<li><a href="../../Basics/ControlVolumes/Fundamentals/PressureLoss/VLE_PL/PressureLossCoefficient_L2.html" title="Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:PressureLossCoefficient L2" class="page">Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:PressureLossCoefficient L2</a> </li>
-</ul></li>
+<li>If finned heat transfer models are used the area inside the geo model only shows the heat transfer area of blank tubes without fins but calculates correctly. The effective heat transfer area can be found in the heat transfer model (A_finned).</li>
+<li>Setting CF_geo has no effect for finned tube heat transfer model.</li>
 </ul>
 </p>
 
@@ -477,10 +471,13 @@ Since the model has only one state on the tube side and the shell side respectiv
 </div>
 <ul>
 <li>26.04.2017 -v 1.2.2 - added parameter for internal mass additional to tubes - Timm Hoppe, XRG Simulation GmbH</li>
+<li>08.01.2019 -v 1.4.0  - added kA-value to summary</li>
 </ul>
+<div style='padding-left: 180pt'>
+- new heat transfer models can be chosen<br>
+- introduced parameter <tt>tubeOrientation,</tt> models are parametrisable in a more flexible way - Timm Hoppe and Annika Kuhlmann, XRG Simulation GmbH, Lasse Nielsen TLK Thermo GmbH
+</div>
 </p>
-
-<br>
 
 
 

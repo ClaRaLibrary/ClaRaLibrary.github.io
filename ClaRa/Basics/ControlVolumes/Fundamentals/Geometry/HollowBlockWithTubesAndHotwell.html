@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>HollowBlockWithTubesAndHotwell</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -292,7 +292,7 @@ This model defines geometrical properties of a block shaped shell with a tube ba
 </p>
 
 <p>
-The orientation of the tube bank inside the block is defined with respect to the <tt>flowOrientation</tt> applying the Boolean parameter <tt>parallelTubes</tt>. This is illustrated below:<br>
+The orientation of the tube bank inside the block is defined with the parameter <tt>tubeOrientation</tt>. This is illustrated below:<br>
 <img src="./HollowBlockWithTubesAndHotwell/sketch2.png" height="250">
 </p>
 
@@ -302,7 +302,12 @@ The orientation of the tube bank inside the block is defined with respect to the
 
 <p>
 The HollowBlockWithTubesAndHotwell geometry is basically characterised by the block and hotwell dimensions (length, height, width), the shell side flow orientation and the tube bundle dimensions (diameter, length, Number of tubes and passes) with its relative orientation to the shell side flow direction .<br>
-<img src="./HollowBlockWithTubesAndHotwell/sketch3.png" width="786"><br>
+<img src="./HollowBlockWithTubesAndHotwell/sketch3.png" width="786">
+</p>
+
+<p>
+The tube length is defined with the parameter <tt>tubeOrientation.</tt><br>
+<img src="./HollowBlockWithTubesAndHotwell/equation023.png"><br>
 The volume of the element is given by Eq.1 depending on the shell side flow direction and the relative orientation of the tubes,
 </p>
 
@@ -368,7 +373,7 @@ The fillable height of the component is equivalent to the sum of the heights of 
 
 <p>
 In case of perpendicular tube orientation the lateral and vertical alignment ratio are given by<br>
-<img src="./HollowBlockWithTubesAndHotwell/sketch6.png" width="400">
+<img src="./HollowBlockWithTubesAndHotwell/sketch7.png" width="400">
 </p>
 
 <p>
@@ -396,7 +401,7 @@ Finally the void ratio is determined via
 <br>
 
 <p>
-Whenever the tubes' volume exceeds the block's volume due to a high number of tubes or a large number of passes an assert will raise an error message. The same holds if the cross sectional area <tt>A_cross </tt>vanishes due to a too high interior. Additionally, <tt>z_in</tt> and <tt>z_out</tt> must be smaller than <tt>height_fill </tt>and greater equal than 0.<br>
+Whenever the tubes' volume exceeds the block's volume due to a high number of tubes or a large number of passes an assert will raise an error message. The same holds if the cross sectional area <tt>A_cross </tt>vanishes due to a too high interior. Additionally, <tt>z_in</tt> and <tt>z_out</tt> must be smaller than <tt>height_fill </tt>and greater equal than 0. Also a tube bundle parametrized too large for the volume will lead to an error message.<br>
 <ul>
 <li><tt>A_cross &gt; 0</tt></li>
 <li><tt>volume &gt; 0</tt>  </li>
@@ -404,10 +409,20 @@ Whenever the tubes' volume exceeds the block's volume due to a high number of tu
 <li><tt>z_out &lt; height_fill</tt></li>
 <li><tt>z_in &gt;= 0</tt></li>
 <li><tt>z_out &gt;= 0</tt></li>
+<li><tt>Delta_l_par &lt; 0</tt></li>
+<li><tt>Delta_l_ort &lt; 0</tt></li>
+<li><tt>A_narrowed_par &lt; 0</tt></li>
+<li><tt>A_narrowed_ort &lt; 0</tt></li>
 </ul>
 </p>
 
-<br>
+<p>
+If one or more of the parameters  <tt>Delta_l_par</tt>, <tt>Delta_l_ort</tt>,  <tt>A_narrowed_par</tt> or <tt>A_narrowed_ort </tt>are below 0 the tube bundle is too large in one or multiple volume dimensions. Please check the tube spacing or the number of tube rows to reduce tube bundle size in the specified dimension or increase the height, width or length of the volume so that the tube bundle fits inside.
+</p>
+
+<p>
+If the tube orientation is parallel to flow direction, please be aware that the parameters <tt>Delta_z_par </tt>and <tt>Delta_z_ort</tt> have no reasonable meaning geometrically but maybe have an impact in the heat transfer corellation for tube bundles.
+</p>
 
 <h2>7. Validation</h2>
 
@@ -424,6 +439,10 @@ Whenever the tubes' volume exceeds the block's volume due to a high number of tu
 08.02.2016 - v1.1.0 - bugfixed A_heat[1] (not used in current models) <br>
 <div style='padding-left: 150pt'>
  - introduced assert for inlet outlet height outside the component - Timm Hoppe, XRG Simulation GmbH
+</div>
+07.03.2019 - v1.4.0  - parameter tubeOrientation introduced to improve flexibility of parametrisation<br>
+<div style='padding-left: 150pt'>
+  - added asserts to force meaningful parametrisation - Timm Hoppe, XRG Simulation GmbH, Lasse Nielsen TLK Thermo GmbH
 </div>
 </p>
 

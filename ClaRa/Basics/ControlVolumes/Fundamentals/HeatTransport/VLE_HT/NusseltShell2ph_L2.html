@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>NusseltShell2ph L2</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -280,8 +280,6 @@ The model communicates via outer models and records. Thus its expects to have:<b
 <ul>
 <li>an outer model named <b>geo</b> as defined <a href="../../Geometry/GenericGeometry.html" title="Fundamentals:Geometry:GenericGeometry" class="page">Fundamentals:Geometry:GenericGeometry</a></li>
 <li>an outer record named <b>iCom</b> as defined in  <a href="../../../../Records/IComBase_L2.html" title="Basics:Records:IComBase L2" class="page">Basics:Records:IComBase L2</a></li>
-<li>an <b>inCon</b> record required for communication with FluidDissipation functions</li>
-<li>an <b>inVar</b> record required for communication with FluidDissipation functions</li>
 </ul>
 It has further a <a href="../../../../Interfaces/HeatPort_a.html" title="Basics:Interfaces:HeatPort a" class="page">Basics:Interfaces:HeatPort a</a> <b>heat</b> that shall be connected with the applying component model.
 </p>
@@ -293,6 +291,57 @@ It has further a <a href="../../../../Interfaces/HeatPort_a.html" title="Basics:
 </p>
 
 <h2>6. Governing Equations</h2>
+
+<br>
+<br>
+
+<h3>6.1 Calculation of one phase heat transfer coefficient</h3>
+
+<br>
+
+<p>
+<img src="./NusseltShell2ph_L2/equation013.png"><br>
+with the characteristic length calculated as follows:<br>
+<img src="./NusseltShell2ph_L2/equation014.png"><br>
+The average Nusselt number for the whole tube bundle (for the 1 phase area) is calculated according to:
+</p>
+
+<p>
+<img src="./NusseltShell2ph_L2/equation015.png"><br>
+The one phase Nusselt number is calculated as follows:<br>
+<img src="./NusseltShell2ph_L2/equation017.png"><br>
+with<br>
+<img src="./NusseltShell2ph_L2/equation016.png"><br>
+and<br>
+<img src="./NusseltShell2ph_L2/equation018.png"><br>
+and<br>
+<img src="./NusseltShell2ph_L2/equation019.png"><br>
+and<br>
+<img src="./NusseltShell2ph_L2/equation020.png">
+</p>
+
+<h3>6.2 Calculation of two phase heat transfer coefficient</h3>
+
+<br>
+
+<p>
+<img src="./NusseltShell2ph_L2/equation021.png">
+</p>
+
+<p>
+<img src="./NusseltShell2ph_L2/equation022.png"><br>
+with<br>
+<img src="./NusseltShell2ph_L2/equation023.png"><br>
+The phase change number is calculated as follows:<br>
+<img src="./NusseltShell2ph_L2/equation024.png"><br>
+The two phase Reynolds number is calculated as follows:<br>
+<img src="./NusseltShell2ph_L2/equation025.png">
+</p>
+
+<h3>6.3 Calculation of heat flow rate</h3>
+
+<br>
+<br>
 
 <p>
 <img src="./NusseltShell2ph_L2/equation003.png">
@@ -307,18 +356,11 @@ The heat transfer area can be changed with the integer parameter <img src="./Nus
 </p>
 
 <p>
+<img src="./NusseltShell2ph_L2/equation009.png">
+</p>
+
+<p>
 Please note that for the choice <tt>temperatureDifference="Logarithmic mean" </tt>a number of means is applied to make the equation regular also for zero heat flow and reversing heat flows. If an unsupported string for <tt>temperatureDifference</tt> is provided an assert would raise.
-</p>
-
-<p>
-<img src="./NusseltShell2ph_L2/equation002.png">
-</p>
-
-<p>
-With Eq. (4) the FluidDissipation functions <i>FluidDissipation.HeatTransfer.HeatExchanger.kc_tubeBundle_1ph </i>and <i>FluidDissipation.HeatTransfer.HeatExchanger.kc_tubeBundleFilmCondensation_lam</i> are called. See FluidDissipation for documentation of the used equations for calculation of the Nusselt number and the heat transfer coefficient <img src="./NusseltShell2ph_L2/equation001.png">. The <a href="../../../../Functions/Stepsmoother.html" title="Stepsmoother" class="page">Stepsmoother</a> is used to smooth between the two functions at the phase boundaries. Thus, a total heat transfer coefficient is received.<br>
-<img src="./NusseltShell2ph_L2/equation006.png"><br>
-<img src="./NusseltShell2ph_L2/equation007.png"><br>
-Eq. (4) and (5) call additional information of the FluidDissipation function. 
 </p>
 
 <h2>7. Remarks for Usage</h2>
@@ -344,6 +386,7 @@ see FluidDissipation documentation
 <p>
 <ul>
 <li>2012 - v 0.1 -initial implementation - Ala Renz, Friedrich Gottelt, XRG-Simulation</li>
+<li>2019 - v 1.4.0 - improved calculation of nominal values - Annika Kuhlmann, XRG-Simulation</li>
 </ul>
 </p>
 
@@ -352,12 +395,6 @@ see FluidDissipation documentation
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
-				<a href='../../../../../Components/HeatExchangers/HEXvle2gas_L3_1ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2gas L3 1ph BU ntu</a>
-				
-				<a href='../../../../../Components/HeatExchangers/HEXvle2gas_L3_1ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2gas L3 1ph BU simple</a>
-				
-				<a href='../../../../../Components/HeatExchangers/HEXvle2gas_L3_2ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2gas L3 2ph BU simple</a>
-				
 				<a href='../../../../../Components/HeatExchangers/IdealShell_L2.html'>ClaRa:Components:HeatExchangers:IdealShell L2</a>
 				
 				<a href='../../../FluidVolumes/VolumeVLE_L2.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L2</a>

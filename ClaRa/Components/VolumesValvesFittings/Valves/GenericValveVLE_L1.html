@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>ValveVLE_L1</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -197,12 +197,12 @@
 <li><a href="../Valves.html" title="Valves" class="page">Valves</a>
 <ul>
 <li><a href="./Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a></li>
+<li><a href="./GenericValveGas_L1.html" title="GenericValveGas L1" class="page">GenericValveGas L1</a></li>
+<li><b>GenericValveVLE L1</b></li>
 <li><a href="./ThreeWayValveGas_L1.html" title="ThreeWayValveGas L1" class="page">ThreeWayValveGas L1</a></li>
 <li><a href="./ThreeWayValveGas_L1_simple.html" title="ThreeWayValveGas L1 simple" class="page">ThreeWayValveGas L1 simple</a></li>
 <li><a href="./ThreeWayValveVLE_L1_simple.html" title="ThreeWayValveVLE L1 simple" class="page">ThreeWayValveVLE L1 simple</a></li>
 <li><a href="./ValveFuelFlueGas_L1.html" title="ValveFuelFlueGas L1" class="page">ValveFuelFlueGas L1</a></li>
-<li><a href="./ValveGas_L1.html" title="ValveGas L1" class="page">ValveGas L1</a></li>
-<li><b>ValveVLE L1</b></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -218,7 +218,7 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>ValveVLE_L1 <a name='ClaRa:Components:VolumesValvesFittings:Valves:ValveVLE L1'></a></h1>
+			<h1>ValveVLE_L1 <a name='ClaRa:Components:VolumesValvesFittings:Valves:GenericValveVLE L1'></a></h1>
 
 			<p>
 Created Friday 11 January 2013
@@ -233,7 +233,7 @@ Created Friday 11 January 2013
 <br>
 
 <p>
-<img src="./ValveVLE_L1/ValveVLE_L1.PNG"><br>
+<img src="./GenericValveVLE_L1/ValveVLE_L1.PNG"><br>
 The model can be used for introducing pressure loss effects (either due to physical or numerical motivation). Since the model neglects changes in kinetic energy it implies either small density changes or adapted flange geometry.  It is possible to use the valve as a check valve, for example to avoid back flows. The numerical robustness and accuracy depend strongly on the chosen  <tt>replaceable model</tt> for the pressure loss.
 </p>
 
@@ -325,7 +325,7 @@ all these models are based on the base class called GenericPressureLoss.
 <br>
 
 <p>
- <img src="./ValveVLE_L1/equation.png">
+ <img src="./GenericValveVLE_L1/equation.png">
 </p>
 
 <h2>6. Governing Equations</h2>
@@ -342,7 +342,7 @@ The governing equations consider mainly a isenthalpic throttling process without
 
 <p>
 <div style='padding-left: 60pt'>
- <img src="./ValveVLE_L1/Valve.png" width="500">
+ <img src="./GenericValveVLE_L1/Valve.png" width="500">
 </div>
 </p>
 
@@ -357,7 +357,7 @@ The state change of the valve can be displayed in a enthalpy-entropy-diagram and
 At the vena contracta the outlet pressure is assumed to be reached. From point (1) to the outlet (2) the fluid is decelerated isobarically, thus increasing the specific enthalpy. The model assumes that inlet velocity equals outlet velocity, implying that inlet specific enthalpy equals outlet specific enthalpy. This assumption is made to increase the numerical robustness.<br>
 In reality the expansion process will differ slightly from this ideal two-stepped process, (e.g. due to friction pressure losses from (1 → 2)).  However, since the states at the vena contracta (1) are not calculated this simple modelling ideas are sufficient.<br>
 <div style='padding-left: 150pt'>
-  <img src="./ValveVLE_L1/hs_Throtteling.png" width="400">
+  <img src="./GenericValveVLE_L1/hs_Throtteling.png" width="400">
 </div>
 </p>
 
@@ -371,7 +371,7 @@ In reality the expansion process will differ slightly from this ideal two-steppe
 
 <p>
 For an Isenthalpic state transformation (no storage and no loss of energy, no changes of flow velocity) the enthalpies are equal, that is,<br>
-<img src="./ValveVLE_L1/equation001.png"><br>
+<img src="./GenericValveVLE_L1/equation001.png"><br>
 The above equation (1) implies constant kinetic energy (constant flow velocities) of the flow which must be guaranteed by constructive means, i.e. the outlet cross section must be larger than the inlet cross section to compensate the density decrease. If the medium is incompressible this assumption is fulfilled also for equal inlet and outlet cross sections.
 </p>
 
@@ -379,14 +379,14 @@ The above equation (1) implies constant kinetic energy (constant flow velocities
 
 <p>
 The mass balance for steady flow neglecting mass storage reads<br>
-<img src="./ValveVLE_L1/equation003.png">
+<img src="./GenericValveVLE_L1/equation003.png">
 </p>
 
 <h4>Chemistry</h4>
 
 <p>
 No chemical reaction is  taking place:<br>
-<img src="./ValveVLE_L1/equation002.png">
+<img src="./GenericValveVLE_L1/equation002.png">
 </p>
 
 <h4>Hydraulics</h4>
@@ -403,7 +403,7 @@ A summary is available including the following:<br>
 <ul>
 <li>an outline record:</li>
 </ul>
-<img src="./ValveVLE_L1/equation007.png"><br>
+<img src="./GenericValveVLE_L1/equation007.png"><br>
 <ul>
 <li>and two records of type FlangeVLE named inlet and outlet</li>
 </ul>
@@ -419,7 +419,7 @@ deactivate the control signal input by setting <tt>openingInputIsActive</tt> to 
 forbid reverse flow by setting <tt>checkValve</tt> to <tt>true</tt><br>
 <ul style='padding-left: 30pt'>
 <li>access additional summary information by setting <tt>showExpertSummary</tt> to <tt>true</tt></li>
-<li>create a connector for a <a href="../../../Visualisation/Quadruple.html" title="cross-shaped visualiser" class="page">cross-shaped visualiser</a> by setting <tt>showData</tt> to <tt>true</tt></li>
+<li>create a connector for a cross-shaped visualiser by setting <tt>showData</tt> to <tt>true</tt></li>
 </ul>
 </p>
 
@@ -438,6 +438,7 @@ forbid reverse flow by setting <tt>checkValve</tt> to <tt>true</tt><br>
 <li>2013-07-04 - v0.1 - initial implementation - Friedrich Gottelt, XRG Simulation</li>
 <li>24.04.2017 - v1.2.2 - added noEvent to actualStream operator - Timm Hoppe, XRG Simulation</li>
 <li>11.06.2018 - v1.3.1 - bugfixed outline summary; removed not meaningful pressure loss model from parameter dialog - Timm Hoppe, XRG Simulation</li>
+<li>31.01.2019 - v1.4.0 - renamed class, renamed parameters - Timm Hoppe, XRG Simulation GmbH</li>
 </ul>
 </p>
 

@@ -4,8 +4,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>ValveGas L1</title>
-	<meta name="generator" content="Zim 0.68">
+	<title>GenericValveGas L1</title>
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -197,12 +197,12 @@
 <li><a href="../Valves.html" title="Valves" class="page">Valves</a>
 <ul>
 <li><a href="./Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a></li>
+<li><b>GenericValveGas L1</b></li>
+<li><a href="./GenericValveVLE_L1.html" title="GenericValveVLE L1" class="page">GenericValveVLE L1</a></li>
 <li><a href="./ThreeWayValveGas_L1.html" title="ThreeWayValveGas L1" class="page">ThreeWayValveGas L1</a></li>
 <li><a href="./ThreeWayValveGas_L1_simple.html" title="ThreeWayValveGas L1 simple" class="page">ThreeWayValveGas L1 simple</a></li>
 <li><a href="./ThreeWayValveVLE_L1_simple.html" title="ThreeWayValveVLE L1 simple" class="page">ThreeWayValveVLE L1 simple</a></li>
 <li><a href="./ValveFuelFlueGas_L1.html" title="ValveFuelFlueGas L1" class="page">ValveFuelFlueGas L1</a></li>
-<li><b>ValveGas L1</b></li>
-<li><a href="./ValveVLE_L1.html" title="ValveVLE L1" class="page">ValveVLE L1</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -218,7 +218,7 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>ValveGas L1 <a name='ClaRa:Components:VolumesValvesFittings:Valves:ValveGas L1'></a></h1>
+			<h1>GenericValveGas L1 <a name='ClaRa:Components:VolumesValvesFittings:Valves:GenericValveGas L1'></a></h1>
 
 			<p>
 Created Freitag 13 November 2015
@@ -233,7 +233,7 @@ Created Freitag 13 November 2015
 <br>
 
 <p>
-<img src="./ValveGas_L1/ValveGas.PNG">
+<img src="./GenericValveGas_L1/ValveGas.PNG">
 </p>
 
 <p>
@@ -295,8 +295,8 @@ all these models are based on the base class called GenericPressureLoss.
 <br>
 
 <p>
-<a href="../../../Basics/Interfaces/GasPortIn.html" title="Basics:Interfaces:GasPortIn" class="page">Basics:Interfaces:GasPortIn</a> inlet<br>
-<a href="../../../Basics/Interfaces/GasPortOut.html" title="Basics:Interfaces:GasPortOut" class="page">Basics:Interfaces:GasPortOut</a> outlet
+Basics:Interfaces:GasPortIn inlet<br>
+Basics:Interfaces:GasPortOut outlet
 </p>
 
 <br>
@@ -322,7 +322,7 @@ all these models are based on the base class called GenericPressureLoss.
 <br>
 
 <p>
- <img src="./ValveGas_L1/equation.png">
+ <img src="./GenericValveGas_L1/equation.png">
 </p>
 
 <h2>6. Governing Equations</h2>
@@ -339,7 +339,7 @@ The governing equations consider mainly a isenthalpic throttling process without
 
 <p>
 <div style='padding-left: 60pt'>
-<img src="./ValveVLE_L1/Valve.png" width="500"> 
+<img src="./GenericValveVLE_L1/Valve.png" width="500"> 
 </div>
 </p>
 
@@ -354,10 +354,12 @@ The state change of the valve can be displayed in a enthalpy-entropy-diagram and
 At the vena contracta the outlet pressure is assumed to be reached. From point (1) to the outlet (2) the fluid is decelerated isobarically, thus increasing the specific enthalpy. The model assumes that inlet velocity equals outlet velocity, implying that inlet specific enthalpy equals outlet specific enthalpy. This assumption is made to increase the numerical robustness.<br>
 In reality the expansion process will differ slightly from this ideal two-stepped process, (e.g. due to friction pressure losses from (1 → 2)).  However, since the states at the vena contracta (1) are not calculated this simple modelling ideas are sufficient.<br>
 <div style='padding-left: 150pt'>
-  <img src="./ValveVLE_L1/hs_Throtteling.png" width="400">
+  <img src="./GenericValveVLE_L1/hs_Throtteling.png" width="500">
 </div>
 </p>
 
+<br>
+<br>
 <br>
 
 <h3>6.2 Governing Model Equations</h3>
@@ -368,21 +370,21 @@ In reality the expansion process will differ slightly from this ideal two-steppe
 
 <p>
 No loss of energy and no changes of flow velocity are applied. Therefore, the outlet temperatures are equal to the inlet temperatures.<br>
-<img src="./ValveGas_L1/equation001.png">
+<img src="./GenericValveGas_L1/equation001.png">
 </p>
 
 <h4>Mass Balance</h4>
 
 <p>
 The mass balance for steady flow neglecting mass storage reads<br>
-<img src="./ValveGas_L1/equation002.png">
+<img src="./GenericValveGas_L1/equation002.png">
 </p>
 
 <h4>Chemistry</h4>
 
 <p>
 No chemical reaction is  taking place:<br>
-<img src="./ValveGas_L1/equation003.png">
+<img src="./GenericValveGas_L1/equation003.png">
 </p>
 
 <h4>Hydraulics</h4>
@@ -399,7 +401,7 @@ A summary is available including the following:<br>
 <ul>
 <li>an outline record:</li>
 </ul>
-<img src="./ValveGas_L1/equation005.png"><br>
+<img src="./GenericValveGas_L1/equation005.png"><br>
 <ul>
 <li>and two records of type FlangeGas named inlet and outlet</li>
 </ul>
@@ -415,7 +417,7 @@ deactivate the control signal input by setting <tt>openingInputIsActive</tt> to 
 forbid reverse flow by setting <tt>checkValve</tt> to <tt>true</tt><br>
 <ul style='padding-left: 30pt'>
 <li>access additional summary information by setting <tt>showExpertSummary</tt> to <tt>true</tt></li>
-<li>create a connector for a <a href="../../../Visualisation/Quadruple.html" title="cross-shaped visualiser" class="page">cross-shaped visualiser</a> by setting <tt>showData</tt> to <tt>true</tt></li>
+<li>create a connector for a cross-shaped visualiser by setting <tt>showData</tt> to <tt>true</tt></li>
 </ul>
 </p>
 
@@ -433,6 +435,7 @@ forbid reverse flow by setting <tt>checkValve</tt> to <tt>true</tt><br>
 <ul>
 <li>2013-07-04 - v0.1 - initial implementation - Lasse Nielsen, TLK-Thermo GmbH</li>
 <li>14.06.2018 - v1.3.1 - bugfixed outline summary; removed not meaningful pressure loss model from parameter dialog - Friedrich Gottelt, XRG Simulation GmbH</li>
+<li>31.01.2019 - v1.4.0 - renamed class, renamed parameters - Timm Hoppe, XRG Simulation GmbH</li>
 </ul>
 </p>
 

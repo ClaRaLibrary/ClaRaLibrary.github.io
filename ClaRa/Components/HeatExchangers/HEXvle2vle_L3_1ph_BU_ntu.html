@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>HEXvle2vle L3 1ph BU ntu</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -372,6 +372,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <li>only small transients are allowed due to application of NTU-based wall model.</li>
 <li>chosen NTU-method is only considering one heat transfer zone (for one phase flow), see remarks for usage</li>
 <li>no separate balancing of phases at shell and tube side</li>
+<li>no flow reversal is supported</li>
 </ul>
 </p>
 
@@ -464,6 +465,13 @@ Since the model has only one state on the tube side and the shell side respectiv
 <div style='padding-left: 180pt'>
  - T.Hoppe, F.Gottelt, XRG Simulation
 </div>
+<ul>
+<li>08.01.2019 -v 1.4.0  - added kA-value to summary</li>
+</ul>
+<div style='padding-left: 180pt'>
+- bugfixed underlying NTU wall model
+</div>
+  				    - introduced parameter <tt>tubeOrientation,</tt> models are parametrisable in a more flexible way - Timm Hoppe and Annika Kuhlmann, XRG Simulation GmbH, Lasse Nielsen TLK 						Thermo GmbH
 </p>
 
 

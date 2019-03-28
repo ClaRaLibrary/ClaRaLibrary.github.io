@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>summary</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -214,9 +214,22 @@ Created Tuesday 23 September 2014
 parameter Boolean <tt>contributeToCycleSummary = true</tt> "True if component shall contribute to automatic efficiency calculation" annotation(Dialog(tab="Summary and Visualisation"));
 </div>
 <ul>
-<li>The thermodynamic efficiency calculation sticks strictly to the thermodynamic cycle, i.e.  only components contributing to the cycle are considered, i.e. pumps, turbines, pipes,...</li>
-<li>the electric efficiency additionally takes auxiliary components like motors and generators into account</li>
-<li>components to directly included in the thermodynamic cycle may only contribute to the electric efficiency via an enhancement of the auxiliary power</li>
+<li>boundaries have a parameter called energyType which defines how the energy flow is handled for efficiency calculation:
+<ul>
+<li>energy is effort: energy is used as energy input to the cycle (fuel, heating mass flows)</li>
+<li>energy is profit: energy is used as a product of the cycle (district heating system, process steam)</li>
+<li>energyis loss: energy is not considered in efficiency calculation</li>
+</ul>
+</li>
+<li>different efficiency calculations are implemented:
+<ul>
+<li>eta_gross: gross efficiency without auxiliary power</li>
+<li>eta_net: net efficiency regarding auxiliary power</li>
+<li>eta_util: utilization efficiency regarding auxiliary power and thermal power output (e.g. district heating system)</li>
+<li>spec_heat_cons: specific heat consumption of the cycle (1/eta_gross * 3600) [kJ/kWh]</li>
+</ul>
+</li>
+<li>if a heat input/output is modeled with boundaries please make sure to set boundaries belonging together to the same energyType so that the <b>difference</b> in energy flows between those boundaries is used  for a correct calculation of the efficiencies</li>
 </ul>
 </p>
 
@@ -224,14 +237,10 @@ parameter Boolean <tt>contributeToCycleSummary = true</tt> "True if component sh
 
 <p>
 <ul>
-<li><b>powerIn:</b> heat input to the thermodynamic cycle. <u>Examples:</u> heated pipes, steam generators (simple models), auxiliary steam input</li>
-<li><b>powerOut:</b>
-<ul>
-<li>positive values: output (yield) of the process. <u>Examples:</u> turbine, heat output as district heating, process steam</li>
-<li>negative values: input from, for <u>example</u>, pumps or fans</li>
-</ul>
-</li>
-<li><b>powerAux:</b> input from auxiliary equipment that is not included in the thermodynamic cycle. <u>Examples:</u> e-motor(electric losses), generator(electric losses), burner(?), mills(electric power), fans(electric power),...</li>
+<li><b>powerIn:</b> heat input to the thermodynamic cycle. Examples: heated pipes, steam generators (simple models), auxiliary steam input</li>
+<li><b>powerOut_th: </b>thermal output of the process for example district heating</li>
+<li><b>powerOut_elMech: </b>electric or mechanic power output of the process, for example turbines and generators</li>
+<li><b>powerAux:</b> input from auxiliary equipment , for example pumps, fans and motors </li>
 </ul>
 </p>
 

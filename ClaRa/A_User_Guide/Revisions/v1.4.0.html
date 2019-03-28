@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>v1.4.0</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -192,9 +192,7 @@
 <li><a href="./v1.2.3.html" title="v1.2.3" class="page">v1.2.3</a></li>
 <li><a href="./v1.3.0.html" title="v1.3.0" class="page">v1.3.0</a></li>
 <li><a href="./v1.3.1.html" title="v1.3.1" class="page">v1.3.1</a></li>
-<li><a href="./v1.3.2.html" title="v1.3.2" class="page">v1.3.2</a></li>
 <li><b>v1.4.0</b></li>
-<li><a href="./v1.5.0.html" title="v1.5.0" class="page">v1.5.0</a></li>
 <li><a href="./vx.x.x.html" title="vx.x.x" class="page">vx.x.x</a></li>
 </ul></li>
 </ul>
@@ -220,7 +218,7 @@ Created Montag 26 Oktober 2015
 </p>
 
 <p>
-<b>This release is planned for End of Feb. 2018</b>
+<b>This release is planned for End of Feb. 2019</b>
 </p>
 
 <h2>Overview</h2>
@@ -229,15 +227,31 @@ Created Montag 26 Oktober 2015
 
 <h3>New Features</h3>
 
-<br>
-
-<h3>New Models</h3>
+<p>
+<ul>
+<li class="checked-box">Extended Summary of Heat Exchangers</li>
+<li class="checked-box">Flue gas path can be modelled now more conveniently due to parametrisable pressure losses in FlueGasJunction_L2</li>
+<li class="checked-box">Heat exchangers and flame rooms with tube bundles are parametrisable in a more flexible way</li>
+<li class="checked-box">New asserts to prevent users to parametrize tube bundles bigger than the inheriting volume</li>
+<li class="checked-box">New heat transfer models are available for Gas2VLE heat exchangers</li>
+<li class="checked-box">Lots of minor changes which improve usability of ClaRa</li>
+<li class="checked-box">Lots of minor changes which make models more robust and widen the scope of application</li>
+</ul>
+</p>
 
 <br>
 
 <h3>Bugfixes</h3>
 
-<br>
+<p>
+<ul>
+<li class="checked-box">Bugfix of NTU heat exchangers for cross and parallel flows</li>
+<li class="checked-box">HEXvle2vle_L3_2ph_CH_ntu heat transfer area calculation corrected</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltPipe1ph_L4 correlations for local htc are used now</li>
+<li class="checked-box">Bugfixed ClaRaPlus.Basics.ControlVolumes.Fundamentals.HeatTransport.Gas_HT.Convection.Convection_finnedTubes_L2</li>
+</ul>
+</p>
+
 <br>
 
 <h2>Detailed Release Notes</h2>
@@ -252,66 +266,178 @@ Created Montag 26 Oktober 2015
 
 <p>
 <ul>
-<li class="unchecked-box">ClaRa.Basics.ControlVolumes.SolidVolumes.CylindricalThinWall_L4,ClaRa.Basics.ControlVolumes.SolidVolumes.ThinPlateWall_L4,</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.SolidVolumes.CylindricalThinWall_L4,ClaRa.Basics.ControlVolumes.SolidVolumes.ThinPlateWall_L4,</li>
 </ul>
 <div style='padding-left: 30pt'>
 ClaRa.Basics.ControlVolumes.SolidVolumes.CylindricalThickWall_L4 rework Initialisation:
 </div>
 <ul style='padding-left: 30pt'>
 <li>introduce FixedTemperature Option with T=T_start</li>
-<li>introduce NoInit with T(start=T_start)</li>
 </ul>
 </p>
+
+<h4>Fluid Volumes</h4>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_2 heat transfer for temperature difference with the bulk temperature is possible now</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_L4_Advanced works now with VLE Mixtures and features slip models</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_L4_Simple displays now the velocity in summary</li>
+</ul>
+</p>
+
+<h4>Gas Volumes</h4>
+
+<p>
+<ul>
+<li class="checked-box">PipeFlowGas_L4_simple improved numerical behaviour</li>
+<li class="checked-box">Tau_rad removed from furnace volumes. Radiation time constant now is the same as for other pseudo states</li>
+<li class="checked-box">Medium-Independent values for xi_start and xi_nom were added in VolumeGas_L2, BoundaryGas_pTxi, BoundaryGas_Txim_flow</li>
+<li class="checked-box">Cleaned up parameter dialogue of hopper, burner and flame rooms</li>
+<li class="checked-box">more HT-models available for ClaRa.Basics.ControlVolumes.GasVolumes.VolumeGas_L2 and ClaRa.Basics.ControlVolumes.GasVolumes.VolumeGas_L2_chem </li>
+</ul>
+</p>
+
+<br>
+
+<h5>Heat Transfer</h5>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltShell1ph_L2 improved calculation of nominal values, minor numerical improvements</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltShell2ph_L2 improved calculation of nominal values, minor numerical improvements</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltPipe1ph_L2 improved calculation of nominal values, minor numerical improvements, bugfixed calculation of length for heat transfer coefficient calculation</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.VLE_HT.NusseltPipe1ph_L4 added, homotopy based init, improved calculation of nominal values, minor numerical improvements, implemented calculation of local alphas for each cell instead of mean alphas for total pipe</li>
+<li class="checked-box">Numerical improvements for convective heat transfer models on the furnace side</li>
+<li class="checked-box">Added dropdown menu for radiation heat transfer to walls to be able to choose the used temperature difference calculated with T_out, T_in, T_bulk and the arithmetic mean</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Gas_HT.Convection.Convection_finnedTubes_L2: fin material can now be chosen</li>
+</ul>
+</p>
+
+<h5>Geometry</h5>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.Geometry.HollowBlockWithTubes based geometry enabled to parametrize tube length (convert script available)</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.Geometry.HollowBlockWithTubesAndCarrierTubes based geometry enabled to parametrize tube length (convert script available)</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.Geometry.HollowBlockWithTubesAndHotwell based geometry enabled to parametrize tube length (convert script available)</li>
+<li class="checked-box">New asserts to prevent users from false tube bundle parametrization (if bundle is larger than volume)</li>
+</ul>
+</p>
+
+<br>
+<br>
+<br>
 
 <h3>Components</h3>
 
+<br>
+
+<h4>Electric Components</h4>
+
 <p>
 <ul>
-<li class="unchecked-box">Burner and FlameRooms: remove Tau_rad, just use Tau</li>
+<li class="checked-box">zero rotation, reverse rotation of AsynchronousMotor_L2</li>
+<li class="checked-box">motor: improve init, shaft.phi should be set to zero, to add additional initial equation (now zero is assumed by solver)</li>
 </ul>
 </p>
 
-<h4>Pipes</h4>
+<h4>Furnace</h4>
+
+<br>
 
 <p>
 <ul>
-<li class="unchecked-box">for parametrisation of pipes with several passes which start and end the same heigth, the information of inclination of the pipes is needed if more complicated ht models are applied <span class="zim-tag">@R140</span></li>
+<li class="checked-box">Some chattering countermeasures were introduced in furnace volumes and particle migration model</li>
+<li class="checked-box">ClaRa.Components.Furnace.FlameRoom.FlameRoomWithTubeBundle_L2_Dynamic 
+<ul>
+<li>Parametrisable in a more flexible way by introduction of tubeOrientation parameter</li>
+<li>Asserts introduced to force more consistent parametrisation of tube bundle</li>
+</ul>
+</li>
+<li class="checked-box">ClaRa.Components.Furnace.FlameRoom.FlameRoomWithTubeBundle_L2_Static
+<ul>
+<li>Parametrisable in a more flexible way by introduction of tubeOrientation parameter</li>
+<li>Asserts introduced to force more consistent parametrisation of tube bundle</li>
+</ul>
+</li>
+<li class="checked-box">Removed V_flow_flueGas_out_start from furnace volumes because it was not used</li>
 </ul>
 </p>
 
 <h4>Heat Exchangers</h4>
 
+<br>
+
+<h5>General</h5>
+
+<br>
+
 <p>
 <ul>
-<li class="unchecked-box">improve zero shell flow behaviour of NTU models, whether introduce fixed mass flow for low mass flows entering shell or let NTU wall behave like a normal wall under zero flow conditions</li>
-<li class="unchecked-box">Check zero heat flow behaviour of Q_flow/Q_flow_s</li>
+<li class="checked-box">The overall heat resistance (kA or UA value) was added to the summary of each heat exchanger. This improves comparability of the parametrised heat exchangers with manufacturer or design data.</li>
+<li class="checked-box">Heat transfer models for tube bundles and finned tube bundles made available for gas2vle HEX.</li>
+<li class="checked-box">Introduced parameter tubeOrientation to one phase HEX for more flexible parametrisation.</li>
+<li class="checked-box">Asserts introduced, which require more reasonable parametrisation of the models</li>
+<li class="checked-box">Changed some default values to be consistent with new asserts, see list below to check</li>
 </ul>
 </p>
 
-<h4>Valves</h4>
-
 <p>
 <ul>
-<li class="unchecked-box">ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534_incompressible: 
+<li class="checked-box">HEXvle2vle_L3_1ph_BU_ntu
 <ul>
-<li>make parameter F_L dependent on actual Kv value of valve</li>
-<li>renamed m_flow_nominal to m_flow_nom</li>
-<li>renamed Kvs to Kvs_in</li>
-<li>renamed Kvs_actual to Kvs</li>
+<li>Introduced parameter tubeOrientation</li>
+<li>Changed default values for N_rows, Delta_z_par,Delta_z_ort, width, height</li>
+<li>Bugfix of NTU heat exchangers for cross and parallel flows, this leads to deviating results of HEX with an effectiveness significantly smaller of one.</li>
 </ul>
 </li>
-<li class="unchecked-box">ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534:
+<li class="checked-box">HEXvle2vle_L3_1ph_BU_simple
 <ul>
-<li>renamed to Quadratic_EN60534_compressible</li>
-<li>renamed m_flow_nominal to m_flow_nom</li>
-<li>renamed Kvs to Kvs_in</li>
-<li>renamed Kvs_actual to Kvs</li>
+<li>Introduced parameter tubeOrientation</li>
+<li>Changed default values for Delta_z_par,Delta_z_ort</li>
 </ul>
 </li>
-<li class="unchecked-box">ClaRa.Components.VolumesValvesFittings.Valves.ValveVLE_L1:
+<li class="checked-box">HEXvle2vle_L3_2ph_BU_simple
 <ul>
-<li>rename summary value isSuperCritical to isFlowChoked (EN60534 gives choked flow conditions for evaporation in vena contracta), check other valves (gas/flueGas)</li>
-<li>rework PR_crit, should be calculated in pressure loss model, not in valve model as each pressure loss model as own definition of critical pressure ratio</li>
+<li>Changed default values for position of in/-outlets.</li>
+</ul>
+</li>
+<li class="checked-box">HEXvle2vle_L3_2ph_BU_ntu
+<ul>
+<li>Changed default values for position of in/-outlets.</li>
+<li>Bugfix of NTU heat exchangers for cross and parallel flows, this leads to deviating results of HEX with an effectiveness significantly smaller of one.</li>
+</ul>
+</li>
+<li class="checked-box">HEXvle2vle_L3_2ph_CH_ntu
+<ul>
+<li>parameter for tube length is now handed over correctly to NTU model. Results of models change, which have a different shell length than length_tubes.</li>
+<li>Bugfix of NTU heat exchangers for cross and parallel flows, this leads to deviating results of HEX with an effectiveness significantly smaller of one.</li>
+</ul>
+</li>
+<li class="checked-box">HEXvle2vle_L3_2ph_CU_ntu
+<ul>
+<li>Bugfix of NTU heat exchangers for cross and parallel flows, this leads to deviating results of HEX with an effectiveness significantly smaller of one.</li>
+</ul>
+</li>
+<li class="checked-box">HEXvle2gas_L3_1ph_BU_ntu
+<ul>
+<li>Changed default values for Delta_z_par,Delta_z_ort</li>
+<li>Bugfix of NTU heat exchangers for cross and parallel flows, this leads to deviating results of HEX with an effectiveness significantly smaller of one.</li>
+<li>Introduced parameter tubeOrientation</li>
+<li>New heat transfer models are available for the shell side.</li>
+</ul>
+</li>
+<li class="checked-box">HEXvle2gas_L3_1ph_BU_simple
+<ul>
+<li>Changed default values for Delta_z_par,Delta_z_ort</li>
+<li>Introduced parameter tubeOrientation</li>
+<li>New heat transfer models are available for the shell side.</li>
+</ul>
+</li>
+<li class="checked-box">HEXvle2gas_L3_2ph_BU_simple
+<ul>
+<li>Changed default values for Delta_z_par,Delta_z_ort</li>
 </ul></li>
 </ul>
 </p>
@@ -320,60 +446,78 @@ ClaRa.Basics.ControlVolumes.SolidVolumes.CylindricalThickWall_L4 rework Initiali
 
 <p>
 <ul>
-<li class="unchecked-box">ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3_advanced and ClaRa.Components.MechanicalSeparation.Drum_L3_advanced: <span class="zim-tag">@R131</span>
+<li class="checked-box">Eye connector of Drum_L3 is now an array</li>
+</ul>
+</p>
+
+<h4>Turbo Machines</h4>
+
+<p>
 <ul>
-<li class="unchecked-box">make clear numbering of inlets and outlets <span class="zim-tag">@R131</span></li>
-<li class="unchecked-box">definition of m_flow_nom in pressure loss models is unclear <span class="zim-tag">@R131</span></li>
+<li class="checked-box">Initialisation of turbo machines propagated</li>
+</ul>
+</p>
+
+<h4>Sensors</h4>
+
+<p>
+<ul>
+<li class="checked-box">Numerical Stability of ClaRa.Components.Sensors.SensorGas_L1_xi and ClaRa.Components.Sensors.SensorGas_L1_xi_i introduced by adding noEvent()</li>
+</ul>
+</p>
+
+<h4>Valves</h4>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534_incompressible: 
+<ul>
+<li>renamed m_flow_nominal to m_flow_nom</li>
+<li>renamed Kvs to Kvs_in</li>
+<li>renamed Kvs_actual to Kvs</li>
+</ul>
+</li>
+<li class="checked-box">ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534:
+<ul>
+<li>renamed to Quadratic_EN60534_compressible</li>
+<li>renamed m_flow_nominal to m_flow_nom</li>
+<li>renamed Kvs to Kvs_in</li>
+<li>renamed Kvs_actual to Kvs</li>
+</ul>
+</li>
+<li class="checked-box">ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.QuadraticFlowFunction:
+<ul>
+<li>renamed m_flow_nominal to m_flow_nom</li>
+</ul>
+</li>
+<li class="checked-box">ClaRa.Components.VolumesValvesFittings.Valves.ValveVLE_L1:
+<ul>
+<li>rename summary value isSuperCritical to isFlowChoked (EN60534 gives choked flow conditions for evaporation in vena contracta)</li>
+<li>renamed to GenericValveVLE_L1</li>
+</ul>
+</li>
+<li class="checked-box">ClaRa.Components.VolumesValvesFittings.Valves.ValveGas_L1:
+<ul>
+<li>renamed to GenericValveGas_L1</li>
 </ul></li>
 </ul>
 </p>
 
-<h4>Electric Components</h4>
+<h4>TurboMachines</h4>
 
 <p>
 <ul>
-<li class="unchecked-box">zero rotation, reverse rotation of AsynchronousMotor_L2</li>
-<li class="unchecked-box">motor: improve init, shaft.phi should be set to zero, to add additional initial equation (now zero is assumed by solver)</li>
+<li class="checked-box">Turbines feature now initialisation options for noInit, fixed phi and fixed rpm.</li>
 </ul>
 </p>
-
-<br>
-
-<h4>Mills</h4>
-
-<p>
-<ul>
-<li class="unchecked-box">new mill model with physically motivated mass transport, capable for start up and shut down</li>
-<li class="unchecked-box">check calculation of P_grind in VerticalMill_L3. It differs from validation with literature.</li>
-</ul>
-</p>
-
-<h3>SubSystems</h3>
-
-<br>
-
-<h3>Visualisation</h3>
-
-<br>
 
 <h3>StaticCycles</h3>
 
 <p>
 <ul>
-<li class="unchecked-box">add calculation of Volume flow rate to pump models (to parametrise affinity pump models)
-<ul>
-<li class="unchecked-box">stacy motor/calculation of required voltage?</li>
-</ul>
-</li>
-<li class="unchecked-box">define Delta_p in Pump models positive? → affinity model requires positive Delta_p_max</li>
-<li class="unchecked-box">rename Rostock static cycle examples</li>
+<li class="checked-box">renamed static cycle examples</li>
 </ul>
 </p>
-
-<br>
-<br>
-
-<h3>Documentation</h3>
 
 <br>
 <br>

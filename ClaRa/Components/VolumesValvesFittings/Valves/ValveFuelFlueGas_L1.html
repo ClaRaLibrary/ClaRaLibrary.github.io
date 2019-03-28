@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>ValveFuelFlueGas L1</title>
-	<meta name="generator" content="Zim 0.68">
+	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -197,12 +197,12 @@
 <li><a href="../Valves.html" title="Valves" class="page">Valves</a>
 <ul>
 <li><a href="./Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a></li>
+<li><a href="./GenericValveGas_L1.html" title="GenericValveGas L1" class="page">GenericValveGas L1</a></li>
+<li><a href="./GenericValveVLE_L1.html" title="GenericValveVLE L1" class="page">GenericValveVLE L1</a></li>
 <li><a href="./ThreeWayValveGas_L1.html" title="ThreeWayValveGas L1" class="page">ThreeWayValveGas L1</a></li>
 <li><a href="./ThreeWayValveGas_L1_simple.html" title="ThreeWayValveGas L1 simple" class="page">ThreeWayValveGas L1 simple</a></li>
 <li><a href="./ThreeWayValveVLE_L1_simple.html" title="ThreeWayValveVLE L1 simple" class="page">ThreeWayValveVLE L1 simple</a></li>
 <li><b>ValveFuelFlueGas L1</b></li>
-<li><a href="./ValveGas_L1.html" title="ValveGas L1" class="page">ValveGas L1</a></li>
-<li><a href="./ValveVLE_L1.html" title="ValveVLE L1" class="page">ValveVLE L1</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -295,8 +295,8 @@ all these models are based on the base class called GenericPressureLoss.
 <br>
 
 <p>
-<a href="../../../Basics/Interfaces/FuelFlueGas_inlet.html" title="Basics:Interfaces:FuelFlueGas inlet" class="page">Basics:Interfaces:FuelFlueGas inlet</a> inlet<br>
-<a href="../../../Basics/Interfaces/FuelFlueGas_outlet.html" title="Basics:Interfaces:FuelFlueGas outlet" class="page">Basics:Interfaces:FuelFlueGas outlet</a> outlet
+Basics:Interfaces:FuelFlueGas inlet inlet<br>
+Basics:Interfaces:FuelFlueGas outlet outlet
 </p>
 
 <h3>4.2 Inputs</h3>
@@ -337,7 +337,7 @@ The governing equations consider mainly a isenthalpic throttling process without
 
 <p>
 <div style='padding-left: 60pt'>
-<img src="./ValveVLE_L1/Valve.png" width="500"> 
+<img src="./GenericValveVLE_L1/Valve.png" width="500"> 
 </div>
 </p>
 
@@ -352,7 +352,7 @@ The state change of the valve can be displayed in a enthalpy-entropy-diagram and
 At the vena contracta the outlet pressure is assumed to be reached. From point (1) to the outlet (2) the fluid is decelerated isobarically, thus increasing the specific enthalpy. The model assumes that inlet velocity equals outlet velocity, implying that inlet specific enthalpy equals outlet specific enthalpy. This assumption is made to increase the numerical robustness.<br>
 In reality the expansion process will differ slightly from this ideal two-stepped process, (e.g. due to friction pressure losses from (1 → 2)).  However, since the states at the vena contracta (1) are not calculated this simple modelling ideas are sufficient.<br>
 <div style='padding-left: 150pt'>
-  <img src="./ValveVLE_L1/hs_Throtteling.png" width="400">
+  <img src="./GenericValveVLE_L1/hs_Throtteling.png" width="500">
 </div>
 </p>
 
@@ -417,7 +417,7 @@ deactivate the control signal input by setting <tt>openingInputIsActive</tt> to 
 forbid reverse flow by setting <tt>checkValve</tt> to <tt>true</tt><br>
 <ul style='padding-left: 30pt'>
 <li>access additional summary information by setting <tt>showExpertSummary</tt> to <tt>true</tt></li>
-<li>create a connector for a <a href="../../../Visualisation/Quadruple.html" title="cross-shaped visualiser" class="page">cross-shaped visualiser</a> by setting <tt>showData</tt> to <tt>true</tt></li>
+<li>create a connector for a cross-shaped visualiser by setting <tt>showData</tt> to <tt>true</tt></li>
 </ul>
 </p>
 
