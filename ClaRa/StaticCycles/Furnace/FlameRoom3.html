@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>FlameRoom3</title>
+	<title>FlameRoom2</title>
 	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
@@ -173,11 +173,10 @@
 		<div id="navigation"> <ul>
 <li><a href="../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
 <ul>
-<li><a href="../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
 <li><a href="../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
+<li><a href="../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
 <li><a href="../../Basics.html" title="Basics" class="page">Basics</a></li>
 <li><a href="../../Components.html" title="Components" class="page">Components</a></li>
-<li><a href="../../Examples.html" title="Examples" class="page">Examples</a></li>
 <li><a href="../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
 <li><a href="../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a>
 <ul>
@@ -186,7 +185,10 @@
 <li><a href="../Furnace.html" title="Furnace" class="page">Furnace</a>
 <ul>
 <li><a href="./Boiler_simple.html" title="Boiler simple" class="page">Boiler simple</a></li>
+<li><a href="./Burner1.html" title="Burner1" class="page">Burner1</a></li>
+<li><a href="./Burner2.html" title="Burner2" class="page">Burner2</a></li>
 <li><a href="./FlameRoom1.html" title="FlameRoom1" class="page">FlameRoom1</a></li>
+<li><a href="./FlameRoom2.html" title="FlameRoom2" class="page">FlameRoom2</a></li>
 <li><b>FlameRoom3</b></li>
 </ul>
 </li>
@@ -204,48 +206,202 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>FlameRoom3 <a name='ClaRa:StaticCycles:Furnace:FlameRoom3'></a></h1>
+			<h1>FlameRoom2 <a name='ClaRa:StaticCycles:Furnace:FlameRoom3'></a></h1>
 
 			<p>
-Created Freitag 02 Juni 2017
+Created Freitag 05 April 2019
 </p>
 
 <p>
-<b>Stationary model of a flame room with wall piping and tube bundle.</b> 
+<b>Stationary model of a flame room computing the values for outlet enthalpies, temperatures, mass flow rates and pressure for vle and flue gas media from given values.</b>
 </p>
 
 <h2>1. Purpose of Model</h2>
 
+<br>
+
 <p>
-This model calculates from defined outlet enthalpies of the steam/water side the flame room conditions. Namely, the flue gas inlet temperature is calculated out of an energy balance.
+<img src="./FlameRoom3/StaCy_FlameRoom3.PNG" width="225">
 </p>
 
 <br>
+
+<p>
+The model is supposed to be used for the simplified simulation of static cases. Its main purpose is to provide appropriate start or nominal values for similar dynamic model versions. 
+</p>
+
+<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
+
+<br>
+
+<h4>2.1 Level of Detail</h4>
+
+<br>
+
+<p>
+Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L1</b> because the model only computes a set of parameters under specific conditions i.e. stationary.
+</p>
+
+<h4>2.2 Physical Effects Considered</h4>
+
+<br>
+
+<p>
+<ul style='padding-left: 30pt'>
+<li>Evaporation of fluid at constant pressure</li>
+<li>Gravimetric pressure losses</li>
+</ul>
+</p>
+
+<h2>3. Limits of Validity</h2>
+
+<br>
+
+<p>
+The model is only able to calculate stationary situations.
+</p>
+
+<h2>4. Interfaces</h2>
+
+<br>
+
+<h4>4.1 Steam Signals</h4>
+
+<br>
+
+<p>
+For details see SteamSignal_blue, SteamSignal_red and SteamSignal_green.
+</p>
+
+<p>
+Flue gas inlet: Grey connector<br>
+Flue gas outlet: Grey connector<br>
+Wall inlet: Blue connector<br>
+Wall outlet: Blue connector<br>
+Bundle inlet: Blue connector<br>
+Bundle outlet: Green connector
+</p>
+
+<h4>4.2 Medium Models</h4>
+
+<br>
+
+<p>
+VLE medium model<br>
+Flue gas medium model
+</p>
+
+<h2>5. Nomenclature</h2>
+
+<br>
+
+<p>
+<img src="./FlameRoom3/equation003.png">
+</p>
 
 <h2>6. Governing Equations</h2>
 
 <br>
 
-<h5>Calculation of wall temperatures</h5>
+<p>
+In general the derived equations for the model consider stationary balance of energy.
+</p>
+
+<h4>6.1 Governing Model Equations</h4>
+
+<p>
+The signal directions at the connectors of the flame room are illustrated below:
+</p>
+
+<p>
+<img src="./FlameRoom3/Connectors.png" width="400">
+</p>
+
+<p>
+The relevant equations for the unknown connector parameters are listed below. All other connector parameters are given via the parameter dialogue of the component or from neighbouring components.
+</p>
+
+<p>
+The heat flows to bundle and wall are calculated as follows:
+</p>
+
+<p>
+<img src="./FlameRoom3/equation004.png">
+</p>
+
+<p>
+<img src="./FlameRoom3/equation005.png">
+</p>
+
+<p>
+The friction pressure losses are set by the user via parameters. A load dependent table is used to calculate the part load pressure drops.
+</p>
+
+<p>
+<img src="./FlameRoom3/equation006.png">
+</p>
+
+<p>
+<img src="./FlameRoom3/equation007.png">
+</p>
+
+<p>
+The geodetic pressure losses are calculated using the component inlet and outlet heights.
+</p>
+
+<p>
+<img src="./FlameRoom3/equation008.png">
+</p>
+
+<p>
+<img src="./FlameRoom3/equation009.png">
+</p>
+
+<p>
+The bundle and wall inlet pressure is calculated with the pressure differences due to friction and geodetic height.
+</p>
+
+<p>
+<img src="./FlameRoom3/equation010.png">
+</p>
+
+<p>
+<img src="./FlameRoom3/equation011.png">
+</p>
+
+<p>
+The inlet temperature of the flue gas is calculated within a media object using the calculated inlet enthalpy.
+</p>
+
+<p>
+<img src="./FlameRoom3/equation012.png">
+</p>
+
+<p>
+The flue gas mass flow and composition remain constant.
+</p>
+
+<br>
+
+<h2>7. Remarks for Usage</h2>
 
 <br>
 
 <p>
-The wall temperatures of the bundle pipes at the outer pipe wall on the flue gas side is calculated as follows:
+The model can only be connected with components with matching connector colour (see <i>Example of Usage</i> in <a href="../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a>).
 </p>
 
+<h2>9. References</h2>
+
 <p>
-<img src="./FlameRoom3/equation.png"><br>
-The flue gas temperatures at inlet and outlet are averaged . The average wall temperature is calculated by assuming stationary conduction in a plate:<br>
-<img src="./FlameRoom3/equation001.png"><br>
-The calculation for the wall piping wall temperatures is conducted accordingly. The heat transfer coefficient is calculated as follows:<br>
-<img src="./FlameRoom3/equation002.png">
+[1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulationof Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 
 </p>
 
 <h2>10. Version History</h2>
 
 <p>
-02.06.2017 - 1.2.2 - added wall temperature calculation - Timm Hoppe XRG Simulation GmbH
+04.05.2016 - Version 1.1.1 - Friedrich Gottelt, XRG Simulation GmbH<br>
+06.06.2017 - Version 1.2.2 - Added summary, Timm Hoppe XRG Simulation GmbH
 </p>
 
 

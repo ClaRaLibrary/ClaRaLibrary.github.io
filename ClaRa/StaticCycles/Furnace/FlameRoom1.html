@@ -173,11 +173,10 @@
 		<div id="navigation"> <ul>
 <li><a href="../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
 <ul>
-<li><a href="../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
 <li><a href="../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
+<li><a href="../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
 <li><a href="../../Basics.html" title="Basics" class="page">Basics</a></li>
 <li><a href="../../Components.html" title="Components" class="page">Components</a></li>
-<li><a href="../../Examples.html" title="Examples" class="page">Examples</a></li>
 <li><a href="../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
 <li><a href="../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a>
 <ul>
@@ -186,7 +185,10 @@
 <li><a href="../Furnace.html" title="Furnace" class="page">Furnace</a>
 <ul>
 <li><a href="./Boiler_simple.html" title="Boiler simple" class="page">Boiler simple</a></li>
+<li><a href="./Burner1.html" title="Burner1" class="page">Burner1</a></li>
+<li><a href="./Burner2.html" title="Burner2" class="page">Burner2</a></li>
 <li><b>FlameRoom1</b></li>
+<li><a href="./FlameRoom2.html" title="FlameRoom2" class="page">FlameRoom2</a></li>
 <li><a href="./FlameRoom3.html" title="FlameRoom3" class="page">FlameRoom3</a></li>
 </ul>
 </li>
@@ -303,25 +305,102 @@ Flue gas medium model
 
 <br>
 
-<h4>6.1 General Model Equations</h4>
+<p>
+In general the derived equations for the model consider stationary balance of energy.
+</p>
 
-<br>
+<h4>6.1 Governing Model Equations</h4>
 
 <p>
-To be completed
+The signal directions at the connectors of the flame room are illustrated below:
+</p>
+
+<p>
+<img src="./FlameRoom1/Connectors.png" width="400">
+</p>
+
+<p>
+The relevant equations for the unknown connector parameters are listed below. All other connector parameters are given via the parameter dialogue of the component or from neighbouring components.
+</p>
+
+<p>
+The heat flows to bundle and wall are calculated as follows:
+</p>
+
+<p>
+<img src="./FlameRoom1/equation001.png">
+</p>
+
+<p>
+<img src="./FlameRoom1/equation002.png">
+</p>
+
+<p>
+The bundle mass flow rate is is set by the user via a parameter. P_target_  is used to calculate the part load mass flow rate.
+</p>
+
+<p>
+<img src="./FlameRoom1/equation003.png">
+</p>
+
+<p>
+The friction pressure losses are set by the user via parameters. A load dependent table is used to calculate the part load pressure drops.
+</p>
+
+<p>
+<img src="./FlameRoom1/equation004.png">
+</p>
+
+<p>
+<img src="./FlameRoom1/equation005.png">
+</p>
+
+<p>
+The geodetic pressure losses are calculated using the component inlet and outlet heights.
+</p>
+
+<p>
+<img src="./FlameRoom1/equation007.png">
+</p>
+
+<p>
+<img src="./FlameRoom1/equation008.png">
+</p>
+
+<p>
+The bundle outlet pressure is set by the user via a parameter. P_target_  is used to calculate the part load mass flow rate.
+</p>
+
+<p>
+<img src="./FlameRoom1/equation006.png">
+</p>
+
+<p>
+The bundle and wall inlet pressure is calculated with the pressure differences due to friction and geodetic height.
+</p>
+
+<p>
+<img src="./FlameRoom1/equation009.png">
+</p>
+
+<p>
+<img src="./FlameRoom1/equation010.png">
+</p>
+
+<p>
+The inlet temperature of the flue gas is calculated within a media object using the calculated inlet enthalpy.
+</p>
+
+<p>
+<img src="./FlameRoom1/equation011.png">
+</p>
+
+<p>
+The flue gas mass flow and composition remain constant.
 </p>
 
 <br>
 <br>
-
-<h4>Summary</h4>
-
-<p>
-A summary is available including the following:<br>
-<ul>
-<li><a href="../../Basics/Records/StaCyFlangeVle.html" title="Basics:Records:StaCyFlangeVle" class="page">Basics:Records:StaCyFlangeVle</a> inlet, outlet</li>
-</ul>
-</p>
 
 <h2>7. Remarks for Usage</h2>
 
@@ -340,7 +419,6 @@ The model can only be connected with components with matching connector colour (
 <h2>10. Version History</h2>
 
 <p>
-04.08.2014 - Version 1.0 - Timo Tumforde, XRG Simulation GmbH<br>
 04.05.2016 - Version 1.1.1 - Friedrich Gottelt, XRG Simulation GmbH<br>
 06.06.2017 - Version 1.2.2 - Added summary, Timm Hoppe XRG Simulation GmbH
 </p>

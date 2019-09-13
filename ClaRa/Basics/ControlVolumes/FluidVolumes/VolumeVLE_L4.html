@@ -173,14 +173,19 @@
 		<div id="navigation"> <ul>
 <li><a href="../../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
 <ul>
-<li><a href="../../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
 <li><a href="../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
+<li><a href="../../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
 <li><a href="../../../Basics.html" title="Basics" class="page">Basics</a>
 <ul>
 <li><a href="../../ControlVolumes.html" title="ControlVolumes" class="page">ControlVolumes</a>
 <ul>
+<li><a href="../SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a></li>
 <li><a href="../FluidVolumes.html" title="FluidVolumes" class="page">FluidVolumes</a>
 <ul>
+<li><a href="./Basics.html" title="Basics" class="page">Basics</a></li>
+<li><a href="./Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
+<li><a href="./Components.html" title="Components" class="page">Components</a></li>
+<li><a href="./ControlVolumes.html" title="ControlVolumes" class="page">ControlVolumes</a></li>
 <li><a href="./VolumeVLEGas_L3.html" title="VolumeVLEGas L3" class="page">VolumeVLEGas L3</a></li>
 <li><a href="./VolumeVLE_L2.html" title="VolumeVLE L2" class="page">VolumeVLE L2</a></li>
 <li><a href="./VolumeVLE_L3_TwoZones.html" title="VolumeVLE L3 TwoZones" class="page">VolumeVLE L3 TwoZones</a></li>
@@ -191,7 +196,6 @@
 </li>
 <li><a href="../Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a></li>
 <li><a href="../GasVolumes.html" title="GasVolumes" class="page">GasVolumes</a></li>
-<li><a href="../SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a></li>
 </ul>
 </li>
 <li><a href="../../Functions.html" title="Functions" class="page">Functions</a></li>
@@ -201,7 +205,6 @@
 </ul>
 </li>
 <li><a href="../../../Components.html" title="Components" class="page">Components</a></li>
-<li><a href="../../../Examples.html" title="Examples" class="page">Examples</a></li>
 <li><a href="../../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
 <li><a href="../../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
 <li><a href="../../../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
@@ -231,7 +234,7 @@ This model is appropriate for all flow cases where no fast pressure waves influe
 <h2>2. Further Details</h2>
 
 <p>
-For further details see <a href="./VolumeVLE_L4_Advanced.html" title="VolumeVLE L4 Advanced" class="page">VolumeVLE L4 Advanced</a> as the models equal in all aspects except for the momentum balance
+For further details see <a href="./Basics/ControlVolumes/FluidVolumes/VolumeVLE_L4_Advanced.html" title="VolumeVLE L4 Advanced" class="page">VolumeVLE L4 Advanced</a> as the models equal in all aspects except for the momentum balance
 </p>
 
 <h2>3. Momentum Conservation</h2>
@@ -261,7 +264,7 @@ In the steady  case it is not mandatory to use the staggered grid, since the mom
 </p>
 
 <p>
-According to [1] it is distinguished between the in-situ mixture specific enthalpy <img src="./VolumeVLE_L4/equation001.png"> and the mixed-cup specific enthalpy <img src="./VolumeVLE_L4/equation002.png">. The mixed-cup enthalpy is calculated within the replaceable model for mechanical equilibrium. If the <a href="../Fundamentals/SpatialDistributionAspects/Homogeneous_L4.html" title="homogeneous" class="page">homogeneous</a> model is chosen, the in-situ specific enthalpy will equal the mixed-cup specific enthalpy, thus <img src="./VolumeVLE_L4/equation003.png">. The mass of one control volume is given by<br>
+According to [1] it is distinguished between the in-situ mixture specific enthalpy <img src="./VolumeVLE_L4/equation001.png"> and the mixed-cup specific enthalpy <img src="./VolumeVLE_L4/equation002.png">. The mixed-cup enthalpy is calculated within the replaceable model for mechanical equilibrium. If the <a href="./Basics/ControlVolumes/Fundamentals/SpatialDistributionAspects/Homogeneous_L4.html" title="homogeneous" class="page">homogeneous</a> model is chosen, the in-situ specific enthalpy will equal the mixed-cup specific enthalpy, thus <img src="./VolumeVLE_L4/equation003.png">. The mass of one control volume is given by<br>
 <img src="./VolumeVLE_L4/equation004.png">
 </p>
 

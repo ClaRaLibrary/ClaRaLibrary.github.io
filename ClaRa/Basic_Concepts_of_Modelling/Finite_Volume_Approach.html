@@ -173,9 +173,9 @@
 		<div id="navigation"> <ul>
 <li><a href="../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
 <ul>
-<li><a href="../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
 <li><a href="../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a>
 <ul>
+<li><a href="./Basics.html" title="Basics" class="page">Basics</a></li>
 <li><a href="./Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a></li>
 <li><b>Finite Volume Approach</b></li>
 <li><a href="./Initialisation.html" title="Initialisation" class="page">Initialisation</a></li>
@@ -183,9 +183,9 @@
 <li><a href="./Stucture_of_Models.html" title="Stucture of Models" class="page">Stucture of Models</a></li>
 </ul>
 </li>
+<li><a href="../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
 <li><a href="../Basics.html" title="Basics" class="page">Basics</a></li>
 <li><a href="../Components.html" title="Components" class="page">Components</a></li>
-<li><a href="../Examples.html" title="Examples" class="page">Examples</a></li>
 <li><a href="../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
 <li><a href="../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
 <li><a href="../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
@@ -268,7 +268,7 @@ The individual value of a conserved quantity is then assumed to be located at th
 <h4>ClaRa Application</h4>
 
 <p>
-Within ClaRa, the finite volume approach is widely used, in order to ensure closed mass and energy and momentum balances, as this is the crucial aspect for the analysis and evaluation of dynamic processes in power plants. If needed spatially resolved information will be provided by grids, which are adapted such that the crucial physical properties of a particular component can be captured. There can be different levels of detail for a particular component or system model. See <a href="../A_User_Guide/GettingStarted/Model_Design_Principles.html" title="A User Guide:GettingStarted:Model Design Principles" class="page">A User Guide:GettingStarted:Model Design Principles</a> 
+Within ClaRa, the finite volume approach is widely used, in order to ensure closed mass and energy and momentum balances, as this is the crucial aspect for the analysis and evaluation of dynamic processes in power plants. If needed spatially resolved information will be provided by grids, which are adapted such that the crucial physical properties of a particular component can be captured. There can be different levels of detail for a particular component or system model. See <a href="./A_User_Guide/GettingStarted/Model_Design_Principles.html" title="A User Guide:GettingStarted:Model Design Principles" class="page">A User Guide:GettingStarted:Model Design Principles</a> 
 </p>
 
 <br>
@@ -278,7 +278,7 @@ Within ClaRa, the finite volume approach is widely used, in order to ensure clos
 <br>
 
 <p>
-As shown in the <a href="./Conservation_Laws.html" title="general chapter on conservation laws," class="page">general chapter on conservation laws,</a> we can  specify <img src="./Finite_Volume_Approach/equation061.png"> in equation (2) in order to obtain all relevant balance equations 
+As shown in the <a href="./Basic_Concepts_of_Modelling/Conservation_Laws.html" title="general chapter on conservation laws," class="page">general chapter on conservation laws,</a> we can  specify <img src="./Finite_Volume_Approach/equation061.png"> in equation (2) in order to obtain all relevant balance equations 
 </p>
 
 <p>
@@ -302,12 +302,12 @@ In what follows we will  write down the generic balance equations for the finite
 <p>
 Introducing the  mass flows <img src="./Finite_Volume_Approach/equation028.png">, where <img src="./Finite_Volume_Approach/equation029.png"> represents elements of a partition of  <img src="./Finite_Volume_Approach/equation091.png">  we can write (2) as<br>
 <img src="./Finite_Volume_Approach/equation027.png"> <br>
-The mass flows can be caused either by convection or by diffusion (compare to <a href="./Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a> eqn (6) ). <br>
+The mass flows can be caused either by convection or by diffusion (compare to <a href="./Basic_Concepts_of_Modelling/Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a> eqn (6) ). <br>
 Here we neglect internal mass flow sources.
 </p>
 
 <p>
-In ClaRa models equation (2) is used in order to define the time derivative for pressure according to (compare to <a href="./Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a> eqn(12)).
+In ClaRa models equation (2) is used in order to define the time derivative for pressure according to (compare to <a href="./Basic_Concepts_of_Modelling/Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a> eqn(12)).
 </p>
 
 <p>
@@ -360,7 +360,7 @@ Notice again that by (3) we only have <img src="./Finite_Volume_Approach/equatio
 </p>
 
 <p>
-In the presence of a multi-component medium  <a href="./Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a> eqn(12) will obtain additional terms:<br>
+In the presence of a multi-component medium  <a href="./Basic_Concepts_of_Modelling/Conservation_Laws.html" title="Conservation Laws" class="page">Conservation Laws</a> eqn(12) will obtain additional terms:<br>
 <div style='padding-left: 60pt'>
 <img src="./Finite_Volume_Approach/equation086.png"> ,
 </div>
@@ -588,7 +588,7 @@ The momentum states are located at the mass flow locations at the border between
 </div>
  <img src="./Finite_Volume_Approach/equation103.png"><br>
 Notice that we have used the definition of the volume of a flow model cell as <img src="./Finite_Volume_Approach/equation104.png">, so the flow cross sectional area has cancelled here.<br>
-Gravitational pressure difference <img src="./Finite_Volume_Approach/equation107.png"> will be computed from the z-position of the flow cell boundaries. Pressure difference due to friction <img src="./Finite_Volume_Approach/equation108.png"> has to be computed from a pressure loss model (see <a href="./Pressure_Loss_L4_Volumes.html" title="Basic Concepts of Modelling:Pressure Loss L4 Volumes" class="page">Basic Concepts of Modelling:Pressure Loss L4 Volumes</a>). Pressure difference due to convection <img src="./Finite_Volume_Approach/equation109.png"> is computed from the momentum carried by the mass flows at the flow cell boundaries.
+Gravitational pressure difference <img src="./Finite_Volume_Approach/equation107.png"> will be computed from the z-position of the flow cell boundaries. Pressure difference due to friction <img src="./Finite_Volume_Approach/equation108.png"> has to be computed from a pressure loss model (see <a href="./Basic_Concepts_of_Modelling/Pressure_Loss_L4_Volumes.html" title="Basic Concepts of Modelling:Pressure Loss L4 Volumes" class="page">Basic Concepts of Modelling:Pressure Loss L4 Volumes</a>). Pressure difference due to convection <img src="./Finite_Volume_Approach/equation109.png"> is computed from the momentum carried by the mass flows at the flow cell boundaries.
 </p>
 
 <p>
@@ -601,7 +601,7 @@ In this case we also neglect <img src="./Finite_Volume_Approach/equation109.png"
 
 <p>
 In the steady  case it is not mandatory to use the staggered grid, since the momentum is computed directly from the pressure loss model.<br>
-Application of these concepts can be found at <a href="../Basics/ControlVolumes/FluidVolumes/VolumeVLE_L4_Advanced.html" title="Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced" class="page">Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced</a> .
+Application of these concepts can be found at <a href="./Basics/ControlVolumes/FluidVolumes/VolumeVLE_L4_Advanced.html" title="Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced" class="page">Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced</a> .
 </p>
 
 <br>
@@ -609,7 +609,7 @@ Application of these concepts can be found at <a href="../Basics/ControlVolumes/
 <h3>4.3 Cylindric Shell Shape for Arrangement of 1D Heat Flow Through Thick Walls</h3>
 
 <p>
-Another example for the usage of the finite volume approach can be found at <a href="../Basics/ControlVolumes/SolidVolumes/CylindricalThickWall_L4.html" title="Basics:ControlVolumes:SolidVolumes:CylindricalThickWall L4" class="page">Basics:ControlVolumes:SolidVolumes:CylindricalThickWall L4</a> .
+Another example for the usage of the finite volume approach can be found at <a href="./Basics/ControlVolumes/SolidVolumes/CylindricalThickWall_L4.html" title="Basics:ControlVolumes:SolidVolumes:CylindricalThickWall L4" class="page">Basics:ControlVolumes:SolidVolumes:CylindricalThickWall L4</a> .
 </p>
 
 <br>
@@ -633,10 +633,6 @@ Another example for the usage of the finite volume approach can be found at <a h
 
 			<br>
 			<span class="backlinks">
-				<hr class='footnotes'>
-				<b>Backlinks:</b>
-				<a href='../Basics/ControlVolumes/FluidVolumes/VolumeVLE_L4_Advanced.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced</a>
-				<br /><br />
 			</span>
 
 			
