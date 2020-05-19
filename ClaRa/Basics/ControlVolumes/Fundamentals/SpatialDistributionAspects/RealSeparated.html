@@ -173,13 +173,12 @@
 		<div id="navigation"> <ul>
 <li><a href="../../../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
 <ul>
-<li><a href="../../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
 <li><a href="../../../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
+<li><a href="../../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
 <li><a href="../../../../Basics.html" title="Basics" class="page">Basics</a>
 <ul>
 <li><a href="../../../ControlVolumes.html" title="ControlVolumes" class="page">ControlVolumes</a>
 <ul>
-<li><a href="../../SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a></li>
 <li><a href="../../FluidVolumes.html" title="FluidVolumes" class="page">FluidVolumes</a></li>
 <li><a href="../../Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a>
 <ul>
@@ -189,8 +188,6 @@
 <li><a href="../PressureLoss.html" title="PressureLoss" class="page">PressureLoss</a></li>
 <li><a href="../SpatialDistributionAspects.html" title="SpatialDistributionAspects" class="page">SpatialDistributionAspects</a>
 <ul>
-<li><a href="./Basics.html" title="Basics" class="page">Basics</a></li>
-<li><a href="./ControlVolumes.html" title="ControlVolumes" class="page">ControlVolumes</a></li>
 <li><a href="./Homogeneous_L4.html" title="Homogeneous L4" class="page">Homogeneous L4</a></li>
 <li><a href="./IdeallySeparated.html" title="IdeallySeparated" class="page">IdeallySeparated</a></li>
 <li><a href="./IdeallyStirred.html" title="IdeallyStirred" class="page">IdeallyStirred</a></li>
@@ -202,6 +199,7 @@
 </ul>
 </li>
 <li><a href="../../GasVolumes.html" title="GasVolumes" class="page">GasVolumes</a></li>
+<li><a href="../../SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a></li>
 </ul>
 </li>
 <li><a href="../../../Functions.html" title="Functions" class="page">Functions</a></li>
@@ -211,6 +209,7 @@
 </ul>
 </li>
 <li><a href="../../../../Components.html" title="Components" class="page">Components</a></li>
+<li><a href="../../../../Examples.html" title="Examples" class="page">Examples</a></li>
 <li><a href="../../../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
 <li><a href="../../../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
 <li><a href="../../../../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
@@ -310,7 +309,7 @@ This zone allocation of incoming flows strongly refers to the homogeneity of an 
 <p>
 The difference between case 4 and case 5 is illustrated below (case 3 is similar to left figure, with swapped phases). Imagine an inflow of liquid that transports large vapour bubbles. You assume that both , the liquid and vapour fraction of the mass flow shall enter the vapour volume as the flange is located above the filling level. In that case the condensation of the incoming vapour is subject to the control volume's condensation and evaporation model. This setting refers to figure 3 below. However, you might also expect that the incoming vapour remains in the vapour zone while the liquid fraction goes directly to the liquid volume which refers to the figure 4 below. Again, back flow through the ports is supported applying symmetrical equations.<br>
 <img src="./RealSeparated/separation_case3.png" height="220">   <img src="./RealSeparated/separation_case4.png" width="600"><br>
-For the sake of numerical robustness the <a href="./Basics/Functions/Stepsmoother.html" title="Basics:Functions:Stepsmoother" class="page">Basics:Functions:Stepsmoother</a> is applied to implement the above distinction of cases which leads to a principal behavior as illustrated below.<br>
+For the sake of numerical robustness the <a href="../../../Functions/Stepsmoother.html" title="Basics:Functions:Stepsmoother" class="page">Basics:Functions:Stepsmoother</a> is applied to implement the above distinction of cases which leads to a principal behavior as illustrated below.<br>
 <img src="./RealSeparated/smoothSQ.png" width="300"><br>
 Based on the zone allocation <tt>za</tt> the entering and leaving mass flows at the ports are allocated to the two zones by introducing zone related (or phase related) mass flow rates:<br>
 <img src="./RealSeparated/equation003.png"><br>
@@ -363,6 +362,36 @@ To be combined with two-zonal control volumes with an arbitrary number of inlet 
 
 			<br>
 			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../../../../Components/HeatExchangers/HEXvle2gas_L3_2ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2gas L3 2ph BU simple</a>
+				
+				<a href='../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU ntu</a>
+				
+				<a href='../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU simple</a>
+				
+				<a href='../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CH_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CH ntu</a>
+				
+				<a href='../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CH_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CH simple</a>
+				
+				<a href='../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU ntu</a>
+				
+				<a href='../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU simple</a>
+				
+				<a href='../../../../Components/MechanicalSeparation/Bottle_L3.html'>ClaRa:Components:MechanicalSeparation:Bottle L3</a>
+				
+				<a href='../../../../Components/MechanicalSeparation/Drum_L3.html'>ClaRa:Components:MechanicalSeparation:Drum L3</a>
+				
+				<a href='../../../../Components/MechanicalSeparation/FeedWaterTank_L3.html'>ClaRa:Components:MechanicalSeparation:FeedWaterTank L3</a>
+				
+				<a href='../../../../Components/MechanicalSeparation/SteamSeparatorVLE_L3.html'>ClaRa:Components:MechanicalSeparation:SteamSeparatorVLE L3</a>
+				
+				<a href='../../FluidVolumes/VolumeVLEGas_L3.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLEGas L3</a>
+				
+				<a href='../../FluidVolumes/VolumeVLE_L3_TwoZones.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L3 TwoZones</a>
+				
+				<a href='../../FluidVolumes/VolumeVLE_L3_TwoZonesNPort.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L3 TwoZonesNPort</a>
+				<br /><br />
 			</span>
 
 			

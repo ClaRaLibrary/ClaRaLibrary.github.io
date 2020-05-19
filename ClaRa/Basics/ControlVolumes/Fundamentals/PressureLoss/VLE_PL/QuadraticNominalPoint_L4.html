@@ -173,13 +173,12 @@
 		<div id="navigation"> <ul>
 <li><a href="../../../../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
 <ul>
-<li><a href="../../../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
 <li><a href="../../../../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
+<li><a href="../../../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
 <li><a href="../../../../../Basics.html" title="Basics" class="page">Basics</a>
 <ul>
 <li><a href="../../../../ControlVolumes.html" title="ControlVolumes" class="page">ControlVolumes</a>
 <ul>
-<li><a href="../../../SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a></li>
 <li><a href="../../../FluidVolumes.html" title="FluidVolumes" class="page">FluidVolumes</a></li>
 <li><a href="../../../Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a>
 <ul>
@@ -192,8 +191,6 @@
 <li><a href="../Generic_PL.html" title="Generic PL" class="page">Generic PL</a></li>
 <li><a href="../VLE_PL.html" title="VLE PL" class="page">VLE PL</a>
 <ul>
-<li><a href="./Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
-<li><a href="./Basics.html" title="Basics" class="page">Basics</a></li>
 <li><a href="./PressureLossCoefficient_L2.html" title="PressureLossCoefficient L2" class="page">PressureLossCoefficient L2</a></li>
 <li><a href="./QuadraticNominalPoint_L2.html" title="QuadraticNominalPoint L2" class="page">QuadraticNominalPoint L2</a></li>
 <li><b>QuadraticNominalPoint L4</b></li>
@@ -204,6 +201,7 @@
 </ul>
 </li>
 <li><a href="../../../GasVolumes.html" title="GasVolumes" class="page">GasVolumes</a></li>
+<li><a href="../../../SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a></li>
 </ul>
 </li>
 <li><a href="../../../../Functions.html" title="Functions" class="page">Functions</a></li>
@@ -213,6 +211,7 @@
 </ul>
 </li>
 <li><a href="../../../../../Components.html" title="Components" class="page">Components</a></li>
+<li><a href="../../../../../Examples.html" title="Examples" class="page">Examples</a></li>
 <li><a href="../../../../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
 <li><a href="../../../../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
 <li><a href="../../../../../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
@@ -259,7 +258,7 @@ This <i>replaceable model</i> is compatible to models of level of detail <b>L4 <
 <p>
 The model communicates via outer models and records. Thus, it expects to have:<br>
 <ul>
-<li>an outer record named <b>iCom</b> as defined in  <a href="./Basics/Records/IComBase_L3.html" title="Basics:Records:IComBase L3" class="page">Basics:Records:IComBase L3</a></li>
+<li>an outer record named <b>iCom</b> as defined in  <a href="../../../../Records/IComBase_L3.html" title="Basics:Records:IComBase L3" class="page">Basics:Records:IComBase L3</a></li>
 <li>an outer model named <b>geo</b> as defined <a href="../../Geometry/GenericGeometry.html" title="Fundamentals:Geometry:GenericGeometry" class="page">Fundamentals:Geometry:GenericGeometry</a></li>
 <li>an <b>inCon</b> record required for communication with FluidDissipation functions</li>
 <li>an <b>inVar</b> record required for communication with FluidDissipation functions</li>
@@ -275,14 +274,14 @@ The model communicates via outer models and records. Thus, it expects to have:<b
 <h2>6. Governing Equations</h2>
 
 <p>
-This pressure loss model bases on the <a href="./Basics/ControlVolumes/Fundamentals/PressureLoss/VLE_PL/QuadraticNominalPoint_L2.html" title="QuadraticPressureLoss_L2" class="page">QuadraticPressureLoss_L2</a> model. <br>
+This pressure loss model bases on the <a href="./QuadraticNominalPoint_L2.html" title="QuadraticPressureLoss_L2" class="page">QuadraticPressureLoss_L2</a> model. <br>
 <img src="./QuadraticNominalPoint_L4/equation001.png"><br>
 The user can choose between four different flow models for this pressure loss model. This results in four cases:<br>
 (a) no pressure loss at inlet, no pressure loss at outlet<br>
 (b) no pressure loss at inlet, pressure loss at outlet<br>
 (c) pressure loss at inlet, no pressure loss at outlet<br>
 (d) pressure loss at inlet, pressure loss at outlet<br>
-The pressure coefficient <img src="./QuadraticNominalPoint_L4/equation002.png"> is distributed linearly over the component according to the chosen flow model, see <a href="./Basic_Concepts_of_Modelling/Pressure_Loss_L4_Volumes.html" title="Basic Concepts of Modelling:Pressure Loss L4 Volumes" class="page">Basic Concepts of Modelling:Pressure Loss L4 Volumes</a>e for a detailed description. Thus, the pressure coefficient array <img src="./QuadraticNominalPoint_L4/equation003.png"> is received. The mass flow is calculated by handing over the cross sectional area <img src="./QuadraticNominalPoint_L4/equation004.png">, the regularization point <img src="./QuadraticNominalPoint_L4/equation005.png">, the pressure coefficient array  <img src="./QuadraticNominalPoint_L4/equation003.png">  and the density array  <img src="./QuadraticNominalPoint_L4/equation006.png">  to the FluidDissipation function "dp_pressureLossCoefficient_MFLOW" via communication records.<br>
+The pressure coefficient <img src="./QuadraticNominalPoint_L4/equation002.png"> is distributed linearly over the component according to the chosen flow model, see <a href="../../../../../Basic_Concepts_of_Modelling/Pressure_Loss_L4_Volumes.html" title="Basic Concepts of Modelling:Pressure Loss L4 Volumes" class="page">Basic Concepts of Modelling:Pressure Loss L4 Volumes</a>e for a detailed description. Thus, the pressure coefficient array <img src="./QuadraticNominalPoint_L4/equation003.png"> is received. The mass flow is calculated by handing over the cross sectional area <img src="./QuadraticNominalPoint_L4/equation004.png">, the regularization point <img src="./QuadraticNominalPoint_L4/equation005.png">, the pressure coefficient array  <img src="./QuadraticNominalPoint_L4/equation003.png">  and the density array  <img src="./QuadraticNominalPoint_L4/equation006.png">  to the FluidDissipation function "dp_pressureLossCoefficient_MFLOW" via communication records.<br>
 <img src="./QuadraticNominalPoint_L4/equation007.png"><br>
 Equation (2) gives the functionality of the FluidDissipation function. See the FluidDissipation documentation for more information. 
 </p>
@@ -290,7 +289,7 @@ Equation (2) gives the functionality of the FluidDissipation function. See the F
 <h2>7. Remarks for Usage</h2>
 
 <p>
-The model should be used if huge changes in the load can be expected. The model bases on the quadratic correlation of mass flow rate to pressure loss. Thus, the accuracy in load points which differ significantly from the nominal point is better than in the <a href="./Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/LinearPressureLoss_L4.html" title="LinearPressureLoss L4" class="page">LinearPressureLoss L4</a> model.
+The model should be used if huge changes in the load can be expected. The model bases on the quadratic correlation of mass flow rate to pressure loss. Thus, the accuracy in load points which differ significantly from the nominal point is better than in the <a href="../Generic_PL/LinearPressureLoss_L4.html" title="LinearPressureLoss L4" class="page">LinearPressureLoss L4</a> model.
 </p>
 
 <h2>8. Validation</h2>
@@ -317,6 +316,12 @@ The model should be used if huge changes in the load can be expected. The model 
 
 			<br>
 			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../../../FluidVolumes/VolumeVLE_L4_Advanced.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced</a>
+				
+				<a href='../Generic_PL/QuadraticNominalPoint_L4.html'>ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticNominalPoint L4</a>
+				<br /><br />
 			</span>
 
 			

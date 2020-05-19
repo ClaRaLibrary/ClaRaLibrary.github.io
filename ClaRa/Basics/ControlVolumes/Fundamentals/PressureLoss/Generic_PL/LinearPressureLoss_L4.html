@@ -173,13 +173,12 @@
 		<div id="navigation"> <ul>
 <li><a href="../../../../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
 <ul>
-<li><a href="../../../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
 <li><a href="../../../../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
+<li><a href="../../../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
 <li><a href="../../../../../Basics.html" title="Basics" class="page">Basics</a>
 <ul>
 <li><a href="../../../../ControlVolumes.html" title="ControlVolumes" class="page">ControlVolumes</a>
 <ul>
-<li><a href="../../../SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a></li>
 <li><a href="../../../FluidVolumes.html" title="FluidVolumes" class="page">FluidVolumes</a></li>
 <li><a href="../../../Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a>
 <ul>
@@ -191,8 +190,6 @@
 <li><a href="../Gas_PL.html" title="Gas PL" class="page">Gas PL</a></li>
 <li><a href="../Generic_PL.html" title="Generic PL" class="page">Generic PL</a>
 <ul>
-<li><a href="./Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
-<li><a href="./Basics.html" title="Basics" class="page">Basics</a></li>
 <li><a href="./GenericPressureLoss.html" title="GenericPressureLoss" class="page">GenericPressureLoss</a></li>
 <li><a href="./LinearParallelZones_L3.html" title="LinearParallelZones L3" class="page">LinearParallelZones L3</a></li>
 <li><a href="./LinearPressureLoss_L2.html" title="LinearPressureLoss L2" class="page">LinearPressureLoss L2</a></li>
@@ -214,6 +211,7 @@
 </ul>
 </li>
 <li><a href="../../../GasVolumes.html" title="GasVolumes" class="page">GasVolumes</a></li>
+<li><a href="../../../SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a></li>
 </ul>
 </li>
 <li><a href="../../../../Functions.html" title="Functions" class="page">Functions</a></li>
@@ -223,6 +221,7 @@
 </ul>
 </li>
 <li><a href="../../../../../Components.html" title="Components" class="page">Components</a></li>
+<li><a href="../../../../../Examples.html" title="Examples" class="page">Examples</a></li>
 <li><a href="../../../../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
 <li><a href="../../../../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
 <li><a href="../../../../../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
@@ -270,7 +269,7 @@ This <i>replaceable model</i> is compatible to models of level of detail <b>L4 <
 <p>
 The model communicates via outer models and records. Thus, it expects to have:<br>
 <ul>
-<li>an outer record named <b>iCom</b> as defined in  <a href="./Basics/Records/IComBase_L3.html" title="Basics:Records:IComBase L3" class="page">Basics:Records:IComBase L3</a></li>
+<li>an outer record named <b>iCom</b> as defined in  <a href="../../../../Records/IComBase_L3.html" title="Basics:Records:IComBase L3" class="page">Basics:Records:IComBase L3</a></li>
 <li>an outer model named <b>geo</b> as defined <a href="../../Geometry/GenericGeometry.html" title="Fundamentals:Geometry:GenericGeometry" class="page">Fundamentals:Geometry:GenericGeometry</a></li>
 </ul>
 </p>
@@ -286,14 +285,14 @@ The model communicates via outer models and records. Thus, it expects to have:<b
 <h2>6. Governing Equations</h2>
 
 <p>
-This pressure loss model bases on the <a href="./Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/LinearPressureLoss_L2.html" title="LinearPressureLoss_L2" class="page">LinearPressureLoss_L2</a> model. <br>
+This pressure loss model bases on the <a href="./LinearPressureLoss_L2.html" title="LinearPressureLoss_L2" class="page">LinearPressureLoss_L2</a> model. <br>
 <img src="./LinearPressureLoss_L4/equation009.png"><br>
 The user can choose between four different flow models for this pressure loss model. This results in four cases:<br>
 (1) no pressure loss at inlet, no pressure loss at outlet<br>
 (2) no pressure loss at inlet, pressure loss at outlet<br>
 (3) pressure loss at inlet, no pressure loss at outlet<br>
 (4) pressure loss at inlet, pressure loss at outlet<br>
-See <a href="./Basic_Concepts_of_Modelling/Pressure_Loss_L4_Volumes.html" title="Basic Concepts of Modelling:Pressure Loss L4 Volumes" class="page">Basic Concepts of Modelling:Pressure Loss L4 Volumes</a> for a detailed description of the idea behind the different flow models.
+See <a href="../../../../../Basic_Concepts_of_Modelling/Pressure_Loss_L4_Volumes.html" title="Basic Concepts of Modelling:Pressure Loss L4 Volumes" class="page">Basic Concepts of Modelling:Pressure Loss L4 Volumes</a> for a detailed description of the idea behind the different flow models.
 </p>
 
 <h2>7. Remarks for Usage</h2>
@@ -327,6 +326,22 @@ The model can be used as long as a huge deviation for the mass flow from nominal
 
 			<br>
 			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../../../../../Components/HeatExchangers/RegenerativeAirPreheaterSecAir_L4.html'>ClaRa:Components:HeatExchangers:RegenerativeAirPreheaterSecAir L4</a>
+				
+				<a href='../../../../../Components/HeatExchangers/RegenerativeAirPreheater_L4.html'>ClaRa:Components:HeatExchangers:RegenerativeAirPreheater L4</a>
+				
+				<a href='../../../FluidVolumes/VolumeVLE_L4_Advanced.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced</a>
+				
+				<a href='../../../GasVolumes/VolumeGas_L4.html'>ClaRa:Basics:ControlVolumes:GasVolumes:VolumeGas L4</a>
+				
+				<a href='../../../../../Components/VolumesValvesFittings/Pipes/PipeFlowGas_L4_Simple.html'>ClaRa:Components:VolumesValvesFittings:Pipes:PipeFlowGas L4 Simple</a>
+				
+				<a href='./QuadraticNominalPoint_L4.html'>ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticNominalPoint L4</a>
+				
+				<a href='../VLE_PL/QuadraticNominalPoint_L4.html'>ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:QuadraticNominalPoint L4</a>
+				<br /><br />
 			</span>
 
 			

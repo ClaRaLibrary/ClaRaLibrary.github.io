@@ -173,16 +173,17 @@
 		<div id="navigation"> <ul>
 <li><a href="../../../../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
 <ul>
-<li><a href="../../../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
 <li><a href="../../../../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
+<li><a href="../../../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
 <li><a href="../../../../../Basics.html" title="Basics" class="page">Basics</a>
 <ul>
 <li><a href="../../../../ControlVolumes.html" title="ControlVolumes" class="page">ControlVolumes</a>
 <ul>
+<li><a href="../../../FluidVolumes.html" title="FluidVolumes" class="page">FluidVolumes</a></li>
+<li><a href="../../../Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a></li>
+<li><a href="../../../GasVolumes.html" title="GasVolumes" class="page">GasVolumes</a></li>
 <li><a href="../../../SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a>
 <ul>
-<li><a href="../../Basics.html" title="Basics" class="page">Basics</a></li>
-<li><a href="../../Components.html" title="Components" class="page">Components</a></li>
 <li><a href="../../CylindricalThickWall_L4.html" title="CylindricalThickWall L4" class="page">CylindricalThickWall L4</a></li>
 <li><a href="../../CylindricalThinWall_L4.html" title="CylindricalThinWall L4" class="page">CylindricalThinWall L4</a></li>
 <li><a href="../../Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a>
@@ -194,20 +195,16 @@
 <li><b>CrossFlow</b></li>
 <li><a href="./GeneralHeatExchanger.html" title="GeneralHeatExchanger" class="page">GeneralHeatExchanger</a></li>
 <li><a href="./ParallelFlow.html" title="ParallelFlow" class="page">ParallelFlow</a></li>
-<li><a href="./SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a></li>
 <li><a href="./TubeBundle.html" title="TubeBundle" class="page">TubeBundle</a></li>
 </ul></li>
 </ul>
 </li>
 <li><a href="../../NTU_L2.html" title="NTU L2" class="page">NTU L2</a></li>
+<li><a href="../../NTU_L2_effectiveResistance.html" title="NTU L2 effectiveResistance" class="page">NTU L2 effectiveResistance</a></li>
 <li><a href="../../NTU_L3.html" title="NTU L3" class="page">NTU L3</a></li>
 <li><a href="../../NTU_L3_standalone.html" title="NTU L3 standalone" class="page">NTU L3 standalone</a></li>
 <li><a href="../../ThinWall_L4.html" title="ThinWall L4" class="page">ThinWall L4</a></li>
-</ul>
-</li>
-<li><a href="../../../FluidVolumes.html" title="FluidVolumes" class="page">FluidVolumes</a></li>
-<li><a href="../../../Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a></li>
-<li><a href="../../../GasVolumes.html" title="GasVolumes" class="page">GasVolumes</a></li>
+</ul></li>
 </ul>
 </li>
 <li><a href="../../../../Functions.html" title="Functions" class="page">Functions</a></li>
@@ -217,6 +214,7 @@
 </ul>
 </li>
 <li><a href="../../../../../Components.html" title="Components" class="page">Components</a></li>
+<li><a href="../../../../../Examples.html" title="Examples" class="page">Examples</a></li>
 <li><a href="../../../../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
 <li><a href="../../../../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
 <li><a href="../../../../../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
@@ -261,7 +259,7 @@ This <i>replaceable model</i> is compatible to models of level of detail <b>L2  
 <h2>3. Limits of Validity</h2>
 
 <p>
-The limits of validity of the applying model <a href="./SolidVolumes/NTU_L2.html" title="SolidVolumes:NTU L2" class="page">SolidVolumes:NTU L2</a> are applicable.
+The limits of validity of the applying model <a href="../../NTU_L2.html" title="SolidVolumes:NTU L2" class="page">SolidVolumes:NTU L2</a> are applicable.
 </p>
 
 <h2>4. Interfaces</h2>
@@ -277,7 +275,7 @@ The limits of validity of the applying model <a href="./SolidVolumes/NTU_L2.html
 <h2>6. Governing Equations</h2>
 
 <p>
-The VDI Wärmeatlas [2] provides an approach for calculating the heat exchanger performance in a simple and uniform way. This approach references the performance of the ideal counter current heat exchanger and applies a correction factor to it. This correction factor is used in <a href="./SolidVolumes/NTU_L2.html" title="SolidVolumes:NTU L2" class="page">SolidVolumes:NTU L2</a> and calculated here depending on the specific geometry chosen. In [2] a considerable number of heat exchangers is listed which is beyond the scope of this package but can be easily implemented in the future.<br>
+The VDI Wärmeatlas [2] provides an approach for calculating the heat exchanger performance in a simple and uniform way. This approach references the performance of the ideal counter current heat exchanger and applies a correction factor to it. This correction factor is used in <a href="../../NTU_L2.html" title="SolidVolumes:NTU L2" class="page">SolidVolumes:NTU L2</a> and calculated here depending on the specific geometry chosen. In [2] a considerable number of heat exchangers is listed which is beyond the scope of this package but can be easily implemented in the future.<br>
 The flow type dependent correction factor is defined as the ratio of NTU values for counter current and the actual type.
 </p>
 
@@ -328,6 +326,12 @@ The following heat exchanger types are currently featured:<br>
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
+				<a href='../../../../../Components/HeatExchangers/HEXvle2gas_L3_1ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2gas L3 1ph BU ntu</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph BU ntu</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_kA.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph kA</a>
+				
 				<a href='../../NTU_L2.html'>ClaRa:Basics:ControlVolumes:SolidVolumes:NTU L2</a>
 				<br /><br />
 			</span>

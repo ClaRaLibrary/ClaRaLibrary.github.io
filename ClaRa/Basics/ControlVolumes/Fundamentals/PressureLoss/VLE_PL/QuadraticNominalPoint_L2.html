@@ -173,13 +173,12 @@
 		<div id="navigation"> <ul>
 <li><a href="../../../../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
 <ul>
-<li><a href="../../../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
 <li><a href="../../../../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a></li>
+<li><a href="../../../../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
 <li><a href="../../../../../Basics.html" title="Basics" class="page">Basics</a>
 <ul>
 <li><a href="../../../../ControlVolumes.html" title="ControlVolumes" class="page">ControlVolumes</a>
 <ul>
-<li><a href="../../../SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a></li>
 <li><a href="../../../FluidVolumes.html" title="FluidVolumes" class="page">FluidVolumes</a></li>
 <li><a href="../../../Fundamentals.html" title="Fundamentals" class="page">Fundamentals</a>
 <ul>
@@ -192,8 +191,6 @@
 <li><a href="../Generic_PL.html" title="Generic PL" class="page">Generic PL</a></li>
 <li><a href="../VLE_PL.html" title="VLE PL" class="page">VLE PL</a>
 <ul>
-<li><a href="./Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
-<li><a href="./Basics.html" title="Basics" class="page">Basics</a></li>
 <li><a href="./PressureLossCoefficient_L2.html" title="PressureLossCoefficient L2" class="page">PressureLossCoefficient L2</a></li>
 <li><b>QuadraticNominalPoint L2</b></li>
 <li><a href="./QuadraticNominalPoint_L4.html" title="QuadraticNominalPoint L4" class="page">QuadraticNominalPoint L4</a></li>
@@ -204,6 +201,7 @@
 </ul>
 </li>
 <li><a href="../../../GasVolumes.html" title="GasVolumes" class="page">GasVolumes</a></li>
+<li><a href="../../../SolidVolumes.html" title="SolidVolumes" class="page">SolidVolumes</a></li>
 </ul>
 </li>
 <li><a href="../../../../Functions.html" title="Functions" class="page">Functions</a></li>
@@ -213,6 +211,7 @@
 </ul>
 </li>
 <li><a href="../../../../../Components.html" title="Components" class="page">Components</a></li>
+<li><a href="../../../../../Examples.html" title="Examples" class="page">Examples</a></li>
 <li><a href="../../../../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
 <li><a href="../../../../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
 <li><a href="../../../../../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
@@ -260,7 +259,7 @@ This <i>replaceable model</i> is compatible to models of level of detail <b>L2 <
 <p>
 The model communicates via outer models and records. Thus, it expects to have:<br>
 <ul>
-<li>an outer record named <b>iCom</b> as defined in  <a href="./Basics/Records/IComBase_L2.html" title="Basics:Records:IComBase L2" class="page">Basics:Records:IComBase L2</a></li>
+<li>an outer record named <b>iCom</b> as defined in  <a href="../../../../Records/IComBase_L2.html" title="Basics:Records:IComBase L2" class="page">Basics:Records:IComBase L2</a></li>
 <li>an outer model named <b>geo</b> as defined <a href="../../Geometry/GenericGeometry.html" title="Fundamentals:Geometry:GenericGeometry" class="page">Fundamentals:Geometry:GenericGeometry</a></li>
 </ul>
 </p>
@@ -287,7 +286,7 @@ Equation (1) and (2) can be reformulated to<br>
 <h2>7. Remarks for Usage</h2>
 
 <p>
-The model should be used if huge changes in the load and in the density of the fluid can be expected. The model bases on the quadratic correlation of mass flow rate to pressure loss. Thus, the accuracy in load points which differ significantly from the nominal point is better than in the <a href="./Basics/ControlVolumes/Fundamentals/PressureLoss/Generic_PL/LinearPressureLoss_L2.html" title="LinearPressureLoss L2" class="page">LinearPressureLoss L2</a> model.
+The model should be used if huge changes in the load and in the density of the fluid can be expected. The model bases on the quadratic correlation of mass flow rate to pressure loss. Thus, the accuracy in load points which differ significantly from the nominal point is better than in the <a href="../Generic_PL/LinearPressureLoss_L2.html" title="LinearPressureLoss L2" class="page">LinearPressureLoss L2</a> model.
 </p>
 
 <h2>8. Validation</h2>
@@ -314,6 +313,48 @@ The model should be used if huge changes in the load and in the density of the f
 
 			<br>
 			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../../../../../Components/HeatExchangers/HEXvle2gas_L3_1ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2gas L3 1ph BU ntu</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2gas_L3_1ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2gas L3 1ph BU simple</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph BU ntu</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph BU simple</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2vle_L3_1ph_kA.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 1ph kA</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU ntu</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_BU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph BU simple</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CH_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CH ntu</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CH_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CH simple</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_ntu.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU ntu</a>
+				
+				<a href='../../../../../Components/HeatExchangers/HEXvle2vle_L3_2ph_CU_simple.html'>ClaRa:Components:HeatExchangers:HEXvle2vle L3 2ph CU simple</a>
+				
+				<a href='../../../../../Components/HeatExchangers/IdealShell_L2.html'>ClaRa:Components:HeatExchangers:IdealShell L2</a>
+				
+				<a href='../../../../../Components/HeatExchangers/TubeBundle_L2.html'>ClaRa:Components:HeatExchangers:TubeBundle L2</a>
+				
+				<a href='../../../../../Components/MechanicalSeparation/FeedWaterTank_L2.html'>ClaRa:Components:MechanicalSeparation:FeedWaterTank L2</a>
+				
+				<a href='../../../FluidVolumes/VolumeVLE_L2.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L2</a>
+				
+				<a href='../../../../../Components/VolumesValvesFittings/Fittings/SprayInjectorVLE_L3.html'>ClaRa:Components:VolumesValvesFittings:Fittings:SprayInjectorVLE L3</a>
+				
+				<a href='../../../../../Components/VolumesValvesFittings/Fittings/SprayInjectorVLE_L3_advanced.html'>ClaRa:Components:VolumesValvesFittings:Fittings:SprayInjectorVLE L3 advanced</a>
+				
+				<a href='../Gas_PL/QuadraticPressureLoss_Simple_L4.html'>ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Gas PL:QuadraticPressureLoss Simple L4</a>
+				
+				<a href='../Generic_PL/QuadraticNominalPoint_L2.html'>ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:Generic PL:QuadraticNominalPoint L2</a>
+				
+				<a href='./QuadraticNominalPoint_L4.html'>ClaRa:Basics:ControlVolumes:Fundamentals:PressureLoss:VLE PL:QuadraticNominalPoint L4</a>
+				<br /><br />
 			</span>
 
 			
