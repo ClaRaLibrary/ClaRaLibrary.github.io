@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>v1.0.1</title>
+	<title>v1.5.1</title>
 	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
@@ -182,7 +182,7 @@
 <ul>
 <li><a href="./v0.2.2_alpha.html" title="v0.2.2 alpha" class="page">v0.2.2 alpha</a></li>
 <li><a href="./v1.0.0.html" title="v1.0.0" class="page">v1.0.0</a></li>
-<li><b>v1.0.1</b></li>
+<li><a href="./v1.0.1.html" title="v1.0.1" class="page">v1.0.1</a></li>
 <li><a href="./v1.1.0.html" title="v1.1.0" class="page">v1.1.0</a></li>
 <li><a href="./v1.1.1.html" title="v1.1.1" class="page">v1.1.1</a></li>
 <li><a href="./v1.1.2.html" title="v1.1.2" class="page">v1.1.2</a></li>
@@ -195,7 +195,7 @@
 <li><a href="./v1.4.0.html" title="v1.4.0" class="page">v1.4.0</a></li>
 <li><a href="./v1.4.1.html" title="v1.4.1" class="page">v1.4.1</a></li>
 <li><a href="./v1.5.0.html" title="v1.5.0" class="page">v1.5.0</a></li>
-<li><a href="./v1.5.1.html" title="v1.5.1" class="page">v1.5.1</a></li>
+<li><b>v1.5.1</b></li>
 <li><a href="./vx.x.x.html" title="vx.x.x" class="page">vx.x.x</a></li>
 </ul></li>
 </ul>
@@ -214,77 +214,14 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>v1.0.1 <a name='ClaRa:A User Guide:Revisions:v1.0.1'></a></h1>
+			<h1>v1.5.1 <a name='ClaRa:A User Guide:Revisions:v1.5.1'></a></h1>
 
 			<p>
-Created Wednesday 04 February 2015
+Created Mittwoch 27 Mai 2020
 </p>
 
 <p>
-<b>This version was released  01.07.2015</b>
-</p>
-
-<h1>New Features</h1>
-
-<br>
-
-<h3>General</h3>
-
-<br>
-<br>
-
-<h3>Media Data</h3>
-
-<br>
-
-<h3>Library Structure and Basics of Modelling</h3>
-
-<br>
-
-<h3>Gas Components</h3>
-
-<br>
-
-<p>
-<ul>
-<li class="checked-box">bugfixed quadruple port m_flow was taken from shell side instead of tube side
-<ul>
-<li class="checked-box">ClaRa.Components.HeatExchangers.HEXvle2gas_L3_2ph_BU_simple</li>
-<li class="checked-box">ClaRa.Components.HeatExchangers.HEXvle2gas_L3_1ph_BU_simple</li>
-<li class="checked-box">ClaRa.Components.HeatExchangers.HEXvle2gas_L3_1ph_BU_advancedNTU</li>
-<li class="checked-box">ClaRa.Components.HeatExchangers.HEXvle2gas_L3_1ph_BU</li>
-</ul></li>
-</ul>
-</p>
-
-<br>
-
-<p>
-<ul>
-<li class="checked-box">improved homotopy initialisation of  <a href="../../Components/TurboMachines/Pumps/PumpVLE_L1_simple.html" title="PumpVLE L1 simple," class="page">PumpVLE L1 simple,</a> <a href="../../Components/TurboMachines/Pumps/PumpVLE_L1_affinity.html" title="PumpVLE L1 affinity" class="page">PumpVLE L1 affinity</a> and PumpVLE_L2_affinity</li>
-<li class="checked-box">bugfixed models ClaRa.Components.HeatExchangers.IdealShell_L2 and ClaRa.Components.HeatExchangers.TubeBundle_L2 (ClaRa.SimCenter instead of ClaRa.simCenter)</li>
-<li class="checked-box">propagated flowOrientation of shell side in ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CH_simple</li>
-<li class="checked-box">propagated wall material in ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3 and ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3_advanced and ClaRa.Components.MechanicalSeparation.Drum_L3_advanced</li>
-<li class="checked-box">propagated expert parameter Tau_stab in ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CU_ntu, ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CH_ntu and ClaRa.Components.HeatExchangers.HEXvle2vle_L3_1ph_BU_ntu</li>
-</ul>
-</p>
-
-<br>
-
-<h1>Known Bugs</h1>
-
-<p>
-<ul>
-<li class="checked-box">a number of summaries were erroneous according to sign of mass flows or missing values</li>
-<li class="checked-box">changed zonal allocation of heat transfer coefficients in ClaRa.Components.HeatEchangers.HEXvle2vle_L3_2ph_CH_ntu: 
-<ul>
-<li>ntu.alpha_o[3]={shell.heattransfer.alpha[2], shell.heattransfer.alpha[2], shell.heattransfer.alpha[1]} instead of old  ntu.alpha_o[3]={shell.heattransfer.alpha[1], shell.heattransfer.alpha[2], shell.heattransfer.alpha[2]}</li>
-<li>This will lead to slightly different results depending on the difference between  shell.heattransfer.alpha[1] and shell.heattransfer.alpha[2]</li>
-</ul>
-</li>
-<li class="checked-box">ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3 and ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3_advanced and ClaRa.Components.MechanicalSeparation.Drum_L3_advanced: corrected diameter of the surrounding walls (formerly the walls diameter was set to half the diameter of the volume)</li>
-<li class="checked-box">fixed bug in calculation of smallShellFlow[1] in ClaRa.Basics.ControlVolumes.SolidVolumes.NTU_L3. This leads to correct calculation of cp_error[1] now. However, this is a summary-only variable</li>
-</ul>
+<b>Hotfix for TransiEnt library</b>
 </p>
 
 
