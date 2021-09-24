@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>v1.0.0</title>
-	<meta name="generator" content="Zim 0.69">
+	<meta name="generator" content="Zim 0.73.5">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -169,16 +169,16 @@
 
 <body>
 	<div class="wrapper">
-		<div id="kopfzeile"> <img src = "../../../_resources/ClaRaInfoHeader.png" alt=""/></div><br>
+		<div id="kopfzeile"> <img src = "..\..\..\_resources\ClaRaInfoHeader.png" alt=""/></div><br>
 		<div id="navigation"> <ul>
-<li><a href="../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
+<li><a href="..\..\..\ClaRa.html" title="ClaRa" class="page">ClaRa</a>
 <ul>
-<li><a href="../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a>
+<li><a href="..\..\A_User_Guide.html" title="A User Guide" class="page">A User Guide</a>
 <ul>
-<li><a href="../Contact.html" title="Contact" class="page">Contact</a></li>
-<li><a href="../GettingStarted.html" title="GettingStarted" class="page">GettingStarted</a></li>
-<li><a href="../Licence.html" title="Licence" class="page">Licence</a></li>
-<li><a href="../Revisions.html" title="Revisions" class="page">Revisions</a>
+<li><a href="..\Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="..\GettingStarted.html" title="GettingStarted" class="page">GettingStarted</a></li>
+<li><a href="..\Licence.html" title="Licence" class="page">Licence</a></li>
+<li><a href="..\Revisions.html" title="Revisions" class="page">Revisions</a>
 <ul>
 <li><a href="./v0.2.2_alpha.html" title="v0.2.2 alpha" class="page">v0.2.2 alpha</a></li>
 <li><b>v1.0.0</b></li>
@@ -197,21 +197,23 @@
 <li><a href="./v1.5.0.html" title="v1.5.0" class="page">v1.5.0</a></li>
 <li><a href="./v1.5.1.html" title="v1.5.1" class="page">v1.5.1</a></li>
 <li><a href="./v1.6.0.html" title="v1.6.0" class="page">v1.6.0</a></li>
+<li><a href="./v1.6.1.html" title="v1.6.1" class="page">v1.6.1</a></li>
+<li><a href="./v1.7.0.html" title="v1.7.0" class="page">v1.7.0</a></li>
 <li><a href="./vx.x.x.html" title="vx.x.x" class="page">vx.x.x</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
-<li><a href="../../Basics.html" title="Basics" class="page">Basics</a></li>
-<li><a href="../../Components.html" title="Components" class="page">Components</a></li>
-<li><a href="../../Examples.html" title="Examples" class="page">Examples</a></li>
-<li><a href="../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
-<li><a href="../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
-<li><a href="../../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
-<li><a href="../../Visualisation.html" title="Visualisation" class="page">Visualisation</a></li>
+<li><a href="..\..\Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
+<li><a href="..\..\Basics.html" title="Basics" class="page">Basics</a></li>
+<li><a href="..\..\Components.html" title="Components" class="page">Components</a></li>
+<li><a href="..\..\Examples.html" title="Examples" class="page">Examples</a></li>
+<li><a href="..\..\SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
+<li><a href="..\..\StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
+<li><a href="..\..\SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
+<li><a href="..\..\Visualisation.html" title="Visualisation" class="page">Visualisation</a></li>
 </ul>
 </li>
-<li><a href="../../../ZIM_DocumentationTemplate.html" title="ZIM DocumentationTemplate" class="page">ZIM DocumentationTemplate</a></li>
+<li><a href="..\..\..\ZIM_DocumentationTemplate.html" title="ZIM DocumentationTemplate" class="page">ZIM DocumentationTemplate</a></li>
 </ul>
  </div>
 		<div id="content">
@@ -246,14 +248,14 @@ This is the first official release. Compared to the previous inoffcial versions 
 
 <p>
 <ul>
-<li class="checked-box">the basic models from which the components are mostly build  were restructured intruducing an improved structure of the internal comunication record (the so-called iCom). In former times the internal comunication between the model and the replaceable sub-models were handled via a public records that was also used as  a summary for the user. In this concept the communication record must contain the sum of all variables needed by all replaceable models. This created extra effort for maintenance and library enhancement and increases the memory used for storage and during simulation. Therefore we created a more flexible structure that especially splitted the functionality of media property calculation, summary for the user, geometry data handling, and  replaceable model's functionality. See <a href="../GettingStarted/Model_Design_Principles.html" title="A User Guide:GettingStarted:Model Design Principles" class="page">A User Guide:GettingStarted:Model Design Principles</a> for the general ideas of model design. </li>
+<li class="checked-box">the basic models from which the components are mostly build  were restructured intruducing an improved structure of the internal comunication record (the so-called iCom). In former times the internal comunication between the model and the replaceable sub-models were handled via a public records that was also used as  a summary for the user. In this concept the communication record must contain the sum of all variables needed by all replaceable models. This created extra effort for maintenance and library enhancement and increases the memory used for storage and during simulation. Therefore we created a more flexible structure that especially splitted the functionality of media property calculation, summary for the user, geometry data handling, and  replaceable model's functionality. See <a href="..\GettingStarted\Model_Design_Principles.html" title="A User Guide:GettingStarted:Model Design Principles" class="page">A User Guide:GettingStarted:Model Design Principles</a> for the general ideas of model design. </li>
 <li class="checked-box">all heat transfer models and geometries revised (please read about the known issues after restructuring)</li>
 <li class="checked-box">the library structure changed in some minor points
 <ul>
 <li class="checked-box">blocks from the package Control.Blocks and blocks from the package Basics.Blocks are united in the  package Components.Utilities.Blocks</li>
 </ul>
 </li>
-<li class="checked-box">to help the user with finding appropriate initial values the package <a href="../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a> replaces the former CycleINIT. It is far more easy to use, more powerful and less error-prone. Existing CycleINIT classes will be featured using the library obsolete_CycleINIT.</li>
+<li class="checked-box">to help the user with finding appropriate initial values the package <a href="..\..\StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a> replaces the former CycleINIT. It is far more easy to use, more powerful and less error-prone. Existing CycleINIT classes will be featured using the library obsolete_CycleINIT.</li>
 <li class="checked-box">renamed a lot of components to have more selfdeclaring names, especially the packages BoundaryConditions, TurboMachines HeatEchangers are affected.</li>
 </ul>
 </p>
@@ -262,7 +264,7 @@ This is the first official release. Compared to the previous inoffcial versions 
 
 <p>
 <ul>
-<li class="checked-box">the ModelProperties model that centralises global definitions (e.g. media and materials, ambient conditions) is enhanced by a easy-to-use efficiency calculation and model summary record. The component is renamed to <a href="../../SimCenter.html" title="SimCenter" class="page">SimCenter</a>.</li>
+<li class="checked-box">the ModelProperties model that centralises global definitions (e.g. media and materials, ambient conditions) is enhanced by a easy-to-use efficiency calculation and model summary record. The component is renamed to <a href="..\..\SimCenter.html" title="SimCenter" class="page">SimCenter</a>.</li>
 </ul>
 </p>
 
@@ -280,7 +282,7 @@ This is the first official release. Compared to the previous inoffcial versions 
 
 <p>
 <ul>
-<li class="checked-box">improved accuracy and numerical robustness of <a href="../../Components/TurboMachines/Pumps/PumpVLE_L1_affinity.html" title="Pump L1 shaftQuadratic" class="page">Pump L1 shaftQuadratic</a> (backward compatible)</li>
+<li class="checked-box">improved accuracy and numerical robustness of <a href="..\..\Components\TurboMachines\Pumps\PumpVLE_L1_affinity.html" title="Pump L1 shaftQuadratic" class="page">Pump L1 shaftQuadratic</a> (backward compatible)</li>
 <li class="checked-box">new drum model </li>
 <li class="checked-box">new non-ideal mixer</li>
 <li class="checked-box">new three way valves</li>
@@ -294,7 +296,7 @@ This is the first official release. Compared to the previous inoffcial versions 
 
 <p>
 <ul>
-<li class="checked-box">new <a href="../../Components/Electrical/AsynchronousMotor_L2.html" title="AsynchronousMotor L2" class="page">AsynchronousMotor L2</a></li>
+<li class="checked-box">new <a href="..\..\Components\Electrical\AsynchronousMotor_L2.html" title="AsynchronousMotor L2" class="page">AsynchronousMotor L2</a></li>
 </ul>
 </p>
 
