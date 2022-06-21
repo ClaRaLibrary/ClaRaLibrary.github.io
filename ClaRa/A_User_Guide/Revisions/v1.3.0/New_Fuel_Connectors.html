@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>New Fuel Connectors</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -205,6 +205,7 @@
 <li><a href="..\v1.6.0.html" title="v1.6.0" class="page">v1.6.0</a></li>
 <li><a href="..\v1.6.1.html" title="v1.6.1" class="page">v1.6.1</a></li>
 <li><a href="..\v1.7.0.html" title="v1.7.0" class="page">v1.7.0</a></li>
+<li><a href="..\v1.8.0.html" title="v1.8.0" class="page">v1.8.0</a></li>
 <li><a href="..\vx.x.x.html" title="vx.x.x" class="page">vx.x.x</a></li>
 </ul></li>
 </ul>
@@ -229,7 +230,7 @@
 Created Freitag 02 März 2018
 </p>
 
-<h4>Models affected by Update</h4>
+<h4>Models affected by Update<a id="models-affected-by-update" class="h_anchor"></a></h4>
 
 <br>
 
@@ -250,7 +251,7 @@ The following models are affected by the Update of the fuel connectors:<br>
 </ul>
 </p>
 
-<h4>Manual Conversion</h4>
+<h4>Manual Conversion<a id="manual-conversion" class="h_anchor"></a></h4>
 
 <p>
 With ClaRa 1.3.0 the handling of fuel property calculation has been improved. The properties are calculated in a fuel model and do always depent on the local composition of the fuel. To obtain the same results as before, the fuel definition in a fuel boundary has to be adapted.<br>
@@ -258,7 +259,7 @@ For models built with ClaRa 1.2.2 or lower, the update is fully backwards compat
 <img src="./New_Fuel_Connectors/ManualConversionFuelUpdate.PNG" width="750">
 </p>
 
-<h2>Manual Update Tasks</h2>
+<h2>Manual Update Tasks<a id="manual-update-tasks" class="h_anchor"></a></h2>
 
 <p>
 In case you have used these models, just change the modifiers of fuel models in:<br>
@@ -272,7 +273,7 @@ In case you have used these models, just change the modifiers of fuel models in:
 There are three cases to be considered:
 </p>
 
-<h3>Case 1 In Fuel Boundaries the Parameter LHV_calculationType is set to "Verbandsformel"</h3>
+<h3>Case 1 In Fuel Boundaries the Parameter LHV_calculationType is set to "Verbandsformel"<a id="case-1-in-fuel-boundaries-the-parameter-lhv_calculationtype-is-set-to-verbandsformel" class="h_anchor"></a></h3>
 
 <p>
 switch the fuel according to the following table:<br>
@@ -282,7 +283,7 @@ Coal_v2 			|  Fuel_verbandsformel_v2<br>
 Coal_reference 	|  Fuel_verbandsformel_v3
 </p>
 
-<h3>Case 2 In Fuel Boundaries the Parameter LHV_calculationType is set to "predefined"</h3>
+<h3>Case 2 In Fuel Boundaries the Parameter LHV_calculationType is set to "predefined"<a id="case-2-in-fuel-boundaries-the-parameter-lhv_calculationtype-is-set-to-predefined" class="h_anchor"></a></h3>
 
 <p>
 If no changes to LHV_predefined and cp are made in the fuel boundaries switch according to the following table<br>
@@ -295,7 +296,7 @@ xi_const or xi (active connector if variable_xi = true) must be recalculated as 
 
 <br>
 
-<h3>Case 2 In Fuel Boundaries the Parameter LHV_calculationType is set to "predefined" and changes are made to LHV_predefined and/or cp</h3>
+<h3>Case 2 In Fuel Boundaries the Parameter LHV_calculationType is set to "predefined" and changes are made to LHV_predefined and/or cp<a id="case-2-in-fuel-boundaries-the-parameter-lhv_calculationtype-is-set-to-predefined-and-changes-are-made-to-lhv_predefined-andor-cp" class="h_anchor"></a></h3>
 
 <p>
 In that case a new fuel must be defined recalculating the cp and LHV such that the respective values are met with the given composition. This could be done using the following functions:<br>
@@ -311,7 +312,7 @@ Adapt the modifier of the fuel inside the <a href="..\..\..\SimCenter.html" titl
 And copy the obtained value for xi_new to the xi_const value of your fuel boundaries.
 </p>
 
-<h2>Limits of conversion</h2>
+<h2>Limits of conversion<a id="limits-of-conversion" class="h_anchor"></a></h2>
 
 <p>
 In version 1.0.0 illogical combinations of LHV calculation types and variable compositions at the fuel boundaries were featured that are now handled correctly:<br>

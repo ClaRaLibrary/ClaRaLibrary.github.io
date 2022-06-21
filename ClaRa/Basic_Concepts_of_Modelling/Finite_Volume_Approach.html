@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>Finite Volume Approach</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -210,7 +210,7 @@ Created Dienstag 08 März 2016
 The finite volume approach is a widely used method in order to discretize physics laws in differential form, such that they can be implemented on a computer and numerically solved. 
 </p>
 
-<h2>1 General Integral Form of Conservation Laws</h2>
+<h2>1 General Integral Form of Conservation Laws<a id="1-general-integral-form-of-conservation-laws" class="h_anchor"></a></h2>
 
 <br>
 
@@ -226,7 +226,7 @@ In the finite volume approach the integral form (1) of an according <a href="./C
 In what follows we will always consider control volumes, which are independent of time.
 </p>
 
-<h2>2 Idea of Finite Volume Approach</h2>
+<h2>2 Idea of Finite Volume Approach<a id="2-idea-of-finite-volume-approach" class="h_anchor"></a></h2>
 
 <p>
 The basic idea is to replace the density <img src="./Finite_Volume_Approach/equation041.png"> by its average:  <br>
@@ -243,14 +243,14 @@ where <img src="./Finite_Volume_Approach/equation029.png"> represents an element
 In all ClaRa models the flows <img src="./Finite_Volume_Approach/equation051.png"> will effectively be connector flows or flows between neighboured control volumes.
 </p>
 
-<h4>Controversy on the Approach:</h4>
+<h4>Controversy on the Approach:<a id="controversy-on-the-approach" class="h_anchor"></a></h4>
 
 <p>
 A <b>great advantage</b> of the finite volume approach is that it is inherent conservative: by construction conservation laws are respected.<br>
 One <b>disadvantage</b> of the finite volume approach is the neglect of finite propagation times (e.g. temperature steps in mass flows, pressure shocks). Due to the averaging process, we loose spatially resolved information: We assume physical quantities such as temperature to be constant over the control volume. This means for example, that a temperature step in the incoming mass flows has an immediate effect on the temperature throughout the whole control volume. Outgoing mass flows will immediately notice a temperature change as well. Sometimes this may lead to oscillatory behaviour (chattering) of numerical solutions, e.g. if the medium state inside a control volume is close to the two-phase-region. <b>Another side-effect</b> is  the 'washing out' of steep steps, due to the mixing inside the control volume. For example, a steep increase of temperature in the incoming mass flows will manifest itself in an immediately starting but less steep temperature change of the outgoing mass flows. This effect is called <b>numerical diffusion</b>. 
 </p>
 
-<h4>Spatial Information and Geometry</h4>
+<h4>Spatial Information and Geometry<a id="spatial-information-and-geometry" class="h_anchor"></a></h4>
 
 <p>
 In order to re-establish spatial resolution in a finite volume based model one needs to arrange several control volumes according to the underlying geometry of the system. Such a spatial arrangement of cells is called a grid. <br>
@@ -265,7 +265,7 @@ The individual value of a conserved quantity is then assumed to be located at th
 
 <br>
 
-<h4>ClaRa Application</h4>
+<h4>ClaRa Application<a id="clara-application" class="h_anchor"></a></h4>
 
 <p>
 Within ClaRa, the finite volume approach is widely used, in order to ensure closed mass and energy and momentum balances, as this is the crucial aspect for the analysis and evaluation of dynamic processes in power plants. If needed spatially resolved information will be provided by grids, which are adapted such that the crucial physical properties of a particular component can be captured. There can be different levels of detail for a particular component or system model. See <a href="..\A_User_Guide\GettingStarted\Model_Design_Principles.html" title="A User Guide:GettingStarted:Model Design Principles" class="page">A User Guide:GettingStarted:Model Design Principles</a> 
@@ -273,7 +273,7 @@ Within ClaRa, the finite volume approach is widely used, in order to ensure clos
 
 <br>
 
-<h2>3 Generic Control Volumes</h2>
+<h2>3 Generic Control Volumes<a id="3-generic-control-volumes" class="h_anchor"></a></h2>
 
 <br>
 
@@ -293,11 +293,11 @@ As shown in the <a href="./Conservation_Laws.html" title="general chapter on con
 In what follows we will  write down the generic balance equations for the finite volume approach.
 </p>
 
-<h3>3.1 Mass Balance</h3>
+<h3>3.1 Mass Balance<a id="31-mass-balance" class="h_anchor"></a></h3>
 
 <br>
 
-<h4>3.1.1 Single Component</h4>
+<h4>3.1.1 Single Component<a id="311-single-component" class="h_anchor"></a></h4>
 
 <p>
 Introducing the  mass flows <img src="./Finite_Volume_Approach/equation028.png">, where <img src="./Finite_Volume_Approach/equation029.png"> represents elements of a partition of  <img src="./Finite_Volume_Approach/equation091.png">  we can write (2) as<br>
@@ -320,7 +320,7 @@ In ClaRa models equation (2) is used in order to define the time derivative for 
 Usually the pressure is taken as a state instead of the density.
 </p>
 
-<h4>3.1.2 Species Balance for Multi Component Media</h4>
+<h4>3.1.2 Species Balance for Multi Component Media<a id="312-species-balance-for-multi-component-media" class="h_anchor"></a></h4>
 
 <br>
 
@@ -373,7 +373,7 @@ and accordingly one finds for the time derivative of the pressure<br>
 <br>
 <br>
 
-<h3>3.3 Energy Balance</h3>
+<h3>3.3 Energy Balance<a id="33-energy-balance" class="h_anchor"></a></h3>
 
 <p>
 Introducing the inner energy <img src="./Finite_Volume_Approach/equation031.png">and the energy flows <img src="./Finite_Volume_Approach/equation032.png"> we may write<br>
@@ -395,7 +395,7 @@ Therefore the energy balance takes the form
 Here we neglect internal energy sources.
 </p>
 
-<h3>3.4 Momentum Balance</h3>
+<h3>3.4 Momentum Balance<a id="34-momentum-balance" class="h_anchor"></a></h3>
 
 <p>
 In order to evaluate the momentum balance for the so far unspecified control volume <img src="./Finite_Volume_Approach/equation042.png"> we  <br>
@@ -434,11 +434,11 @@ Since the shape of <img src="./Finite_Volume_Approach/equation042.png"> is not s
 <br>
 <br>
 
-<h2>4 Examples for Specific Dimensions and Shapes</h2>
+<h2>4 Examples for Specific Dimensions and Shapes<a id="4-examples-for-specific-dimensions-and-shapes" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>4.2 Generic 0-D Control Volume</h3>
+<h3>4.2 Generic 0-D Control Volume<a id="42-generic-0-d-control-volume" class="h_anchor"></a></h3>
 
 <p>
 Think of a single control volume. Assume  we only have a mass flow in positive x-direction (from West to East co-linear to the according surface normals. We have to specify the flow cross-sectional areas (<img src="./Finite_Volume_Approach/equation017.png">) as shown in the left figure below. We are flexible in choosing thee shape of the cross sectional areas . Beside quadratic it could for example be circular. In the latter case the volume <img src="./Finite_Volume_Approach/equation018.png"> is a cylinder as shown in the second figure below.
@@ -463,7 +463,7 @@ We have an inlet and outlet to the control volume, indicated by the two icons of
 Then we obtain for the balance equations:
 </p>
 
-<h4>Mass Balance</h4>
+<h4>Mass Balance<a id="mass-balance" class="h_anchor"></a></h4>
 
 <p>
 <div style='padding-left: 60pt'>
@@ -473,7 +473,7 @@ Then we obtain for the balance equations:
 
 <br>
 
-<h4>Species Balance</h4>
+<h4>Species Balance<a id="species-balance" class="h_anchor"></a></h4>
 
 <p>
 <div style='padding-left: 60pt'>
@@ -483,7 +483,7 @@ Then we obtain for the balance equations:
 
 <br>
 
-<h4>Energy Balance</h4>
+<h4>Energy Balance<a id="energy-balance" class="h_anchor"></a></h4>
 
 <p>
 <div style='padding-left: 60pt'>
@@ -493,7 +493,7 @@ Then we obtain for the balance equations:
 
 <br>
 
-<h4>Momentum Balance</h4>
+<h4>Momentum Balance<a id="momentum-balance" class="h_anchor"></a></h4>
 
 <p>
 <div style='padding-left: 60pt'>
@@ -516,7 +516,7 @@ In this case the momentum is not a state. Mass flows / flow velocities are compu
 <br>
 <br>
 
-<h3>4.2 Different Shapes for Arrangement of 1D Pipe Flow</h3>
+<h3>4.2 Different Shapes for Arrangement of 1D Pipe Flow<a id="42-different-shapes-for-arrangement-of-1d-pipe-flow" class="h_anchor"></a></h3>
 
 <p>
 In many situations (e.g. pipe models) it is reasonable to simplify models by restricting to 1 dimensional mass flows. <br>
@@ -536,7 +536,7 @@ This leads to a the following 1-dimensional discretization scheme, where we have
 In the figure above each control volume is given similar to the 0-dimensional case. 
 </p>
 
-<h4>Mass Balance</h4>
+<h4>Mass Balance<a id="mass-balance" class="h_anchor"></a></h4>
 
 <p>
 <div style='padding-left: 60pt'>
@@ -545,7 +545,7 @@ In the figure above each control volume is given similar to the 0-dimensional ca
 <img src="./Finite_Volume_Approach/equation100.png">
 </p>
 
-<h4>Species Balance</h4>
+<h4>Species Balance<a id="species-balance" class="h_anchor"></a></h4>
 
 <p>
 <div style='padding-left: 60pt'>
@@ -556,7 +556,7 @@ In the figure above each control volume is given similar to the 0-dimensional ca
 
 <br>
 
-<h4>Energy Balance</h4>
+<h4>Energy Balance<a id="energy-balance" class="h_anchor"></a></h4>
 
 <p>
 <div style='padding-left: 60pt'>
@@ -571,7 +571,7 @@ When working with a double resolution grid in the Modelica code it is  necessary
 This implies that <img src="./Finite_Volume_Approach/equation098.png"> need to be interpolated at odd <img src="./Finite_Volume_Approach/equation097.png"> and mass flows / velocities need to be interpolated at even <img src="./Finite_Volume_Approach/equation097.png">.
 </p>
 
-<h4>Momentum Balance</h4>
+<h4>Momentum Balance<a id="momentum-balance" class="h_anchor"></a></h4>
 
 <p>
 The necessity of working with a double resolution grid becomes more clear, if we take a look at the momentum balance:<br>
@@ -606,7 +606,7 @@ Application of these concepts can be found at <a href="..\Basics\ControlVolumes\
 
 <br>
 
-<h3>4.3 Cylindric Shell Shape for Arrangement of 1D Heat Flow Through Thick Walls</h3>
+<h3>4.3 Cylindric Shell Shape for Arrangement of 1D Heat Flow Through Thick Walls<a id="43-cylindric-shell-shape-for-arrangement-of-1d-heat-flow-through-thick-walls" class="h_anchor"></a></h3>
 
 <p>
 Another example for the usage of the finite volume approach can be found at <a href="..\Basics\ControlVolumes\SolidVolumes\CylindricalThickWall_L4.html" title="Basics:ControlVolumes:SolidVolumes:CylindricalThickWall L4" class="page">Basics:ControlVolumes:SolidVolumes:CylindricalThickWall L4</a> .
@@ -615,14 +615,14 @@ Another example for the usage of the finite volume approach can be found at <a h
 <br>
 <br>
 
-<h2>References</h2>
+<h2>References<a id="references" class="h_anchor"></a></h2>
 
 <p>
 [1] <b>S.V. Patankar</b>, "Numerical Heat Transfer and Fluid Flow", Hemisphere Publishing Corporation, 1980.<br>
 [2] <b>H.K. Versteeg and W. Malalasekera</b>, "An introduction to computational fluid dynamics, The finite volume method", Longman Scientific &amp; Technical, 1995
 </p>
 
-<h2>Version History</h2>
+<h2>Version History<a id="version-history" class="h_anchor"></a></h2>
 
 <p>
  Date - Version - Description of changes - author/reviser<br>

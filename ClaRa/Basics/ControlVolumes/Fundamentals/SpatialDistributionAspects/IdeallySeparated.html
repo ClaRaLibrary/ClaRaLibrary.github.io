@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>IdeallySeparated</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -230,19 +230,19 @@ Created Monday 10 June 2013
 <b>Ideal separation of the phases, level dependent states at the ports</b>
 </p>
 
-<h2>1. Purpose of Model</h2>
+<h2>1. Purpose of Model<a id="1-purpose-of-model" class="h_anchor"></a></h2>
 
 <p>
 The model is applied if phase separation dominates mixing effects (turbulence) due to slow velocities. Since the model implies the separability into two phases the applying model should ensure states in the two-phase region.
 </p>
 
-<h2>2. Physical Insight</h2>
+<h2>2. Physical Insight<a id="2-physical-insight" class="h_anchor"></a></h2>
 
 <p>
 This <i>replaceable model</i> is compatible to models of level of detail <b>L2 </b>according to Brunnemann et al. [1].
 </p>
 
-<h2>3. Limits of Validity</h2>
+<h2>3. Limits of Validity<a id="3-limits-of-validity" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -251,28 +251,28 @@ This <i>replaceable model</i> is compatible to models of level of detail <b>L2 <
 </ul>
 </p>
 
-<h2>4. Interfaces</h2>
+<h2>4. Interfaces<a id="4-interfaces" class="h_anchor"></a></h2>
 
 <br>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Nomenclature<a id="5-nomenclature" class="h_anchor"></a></h2>
 
 <p>
 <img src="./IdeallySeparated/equation.png">
 </p>
 
-<h2>6. Governing Equations</h2>
+<h2>6. Governing Equations<a id="6-governing-equations" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>6.1 Determination of the port enthalpies</h3>
+<h3>6.1 Determination of the port enthalpies<a id="61-determination-of-the-port-enthalpies" class="h_anchor"></a></h3>
 
 <p>
 The specific enthalpy at the outlet port depends on the filling level in the vessel as illustrated below. A smooth transition between the two cases ensures robust and fast simulation.<br>
  <img src="./IdeallySeparated/sketch1.png" width="450">
 </p>
 
-<h3>6.2 Determination of the Filling Level</h3>
+<h3>6.2 Determination of the Filling Level<a id="62-determination-of-the-filling-level" class="h_anchor"></a></h3>
 
 <p>
 In order to derive a general form of filling level determination a concept based on pre-calculated geometry shapes is chosen here. The basic idea is to calculate the level from the liquid volume and an effective horizontal area. Thus, the actual, absolute filling level is defined as<br>
@@ -286,27 +286,27 @@ with the relative filling level<br>
 and the parameters <img src="./IdeallySeparated/equation009.png"> and <img src="./IdeallySeparated/equation011.png"> being a reference values for the horizontal area and the filling level, respectively.
 </p>
 
-<h2>7. Remarks for Usage</h2>
+<h2>7. Remarks for Usage<a id="7-remarks-for-usage" class="h_anchor"></a></h2>
 
 <p>
 The model is compatible to control volumes of level of detail L2, e.g. <a href="..\..\FluidVolumes\VolumeVLE_L2.html" title="ControlVolumes:FluidVolumes:VolumeVLE L2" class="page">ControlVolumes:FluidVolumes:VolumeVLE L2</a>.
 </p>
 
-<h2>8. Validation</h2>
+<h2>8. Validation<a id="8-validation" class="h_anchor"></a></h2>
 
 <br>
 
-<h2>9. References</h2>
+<h2>9. References<a id="9-references" class="h_anchor"></a></h2>
 
 <p>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 
 </p>
 
-<h2>10. Authorship and Copyright Statement for original (initial) Contribution</h2>
+<h2>10. Authorship and Copyright Statement for original (initial) Contribution<a id="10-authorship-and-copyright-statement-for-original-initial-contribution" class="h_anchor"></a></h2>
 
 <p>
 <b>Author:</b><br>
- DYNCAP/DYNSTART development team, Copyright 2011 - 2020.<br>
+ DYNCAP/DYNSTART development team, Copyright 2011 - 2022.<br>
 <b>Remarks:</b><br>
  This component was developed during DYNCAP/DYNSTART projects.<br>
 <b>Acknowledgements:</b><br>
@@ -316,7 +316,7 @@ The model is compatible to control volumes of level of detail L2, e.g. <a href="
  By agreeing to ClaRa CLA, version 1.0 the author has granted the ClaRa development team a permanent right to use and modify his initial contribution as well as to publish it or its modified versions under the 3-clause BSD License.
 </p>
 
-<h2>11. Version History</h2>
+<h2>11. Version History<a id="11-version-history" class="h_anchor"></a></h2>
 
 <p>
 <ul>

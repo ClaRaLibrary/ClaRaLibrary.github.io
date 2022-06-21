@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>PumpVLE L1 simple</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -226,24 +226,24 @@ Created Tuesday 11 December 2012
 <b>An analytic model for a pump featuring static conservation of mass, energy and momentum. Here the fluid is considered to be incompressible. Thus, the hydraulic characteristics of the pump are modelled taking a constant density into account. The effect of strongly reduced flow rates when steam is drawn into the inlet at constant rotational speed and pressure difference is caught qualitatively. The model is singular at zero mass flow rates.</b>
 </p>
 
-<h2>1. Purpose of Model</h2>
+<h2>1. Purpose of Model<a id="1-purpose-of-model" class="h_anchor"></a></h2>
 
 <p>
 <img src="./pump.png" height="236"><img src="./PumpVLE_L1_simple/PumpVLE_L1_simple.PNG" width="400"><br>
 The model is appropriate when the time behaviour of the flow rate and outlet states of a pump depending on drive power and pressure difference is required and if the behaviour of the attached mechanical and electrical equipment is not of interest. If unusual operation (including failure with backflow or zero flow) or the behaviour of attached equipment is of interest, use <a href="./PumpVLE_L1_affinity.html" title="PumpVLE L1 affinity" class="page">PumpVLE L1 affinity</a>.
 </p>
 
-<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
+<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight<a id="2-level-of-detail-physical-effects-considered-and--physical-insight" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>2.1 Level of Detail</h3>
+<h3>2.1 Level of Detail<a id="21-level-of-detail" class="h_anchor"></a></h3>
 
 <p>
 Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L1</b> because the system is modelled in an phenomenological manner, without calculating state equations. The model is of the flow model type. However, conservation of mass and energy is granted.
 </p>
 
-<h3>2.2 Physical Effects Considered</h3>
+<h3>2.2 Physical Effects Considered<a id="22-physical-effects-considered" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -257,7 +257,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <br>
 
-<h3>2.3 Level of Insight</h3>
+<h3>2.3 Level of Insight<a id="23-level-of-insight" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -266,7 +266,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>3. Limits of Validity</h2>
+<h2>3. Limits of Validity<a id="3-limits-of-validity" class="h_anchor"></a></h2>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -277,11 +277,11 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>4. Interfaces</h2>
+<h2>4. Interfaces<a id="4-interfaces" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>4.1 Physical Connectors</h3>
+<h3>4.1 Physical Connectors<a id="41-physical-connectors" class="h_anchor"></a></h3>
 
 <br>
 
@@ -299,7 +299,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h3>4.2 Medium Models</h3>
+<h3>4.2 Medium Models<a id="42-medium-models" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -307,7 +307,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Nomenclature<a id="5-nomenclature" class="h_anchor"></a></h2>
 
 <br>
 
@@ -315,7 +315,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <img src="./PumpVLE_L1_simple/equation.png">
 </p>
 
-<h2>6. Governing Equations</h2>
+<h2>6. Governing Equations<a id="6-governing-equations" class="h_anchor"></a></h2>
 
 <br>
 
@@ -323,7 +323,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 In general the derived dynamical equations for the model consider the balance of certain properties like: mass, energy and momentum. For the model, mechanical and hydraulic efficiency of the pump are used.
 </p>
 
-<h3>6.1 System Description and General model approach</h3>
+<h3>6.1 System Description and General model approach<a id="61-system-description-and-general-model-approach" class="h_anchor"></a></h3>
 
 <br>
 
@@ -331,11 +331,11 @@ In general the derived dynamical equations for the model consider the balance of
 The derived dynamical equations for the model are balances of mass, energy and momentum considering the mechanic and hydraulic efficiencies. There are no transient state variables defined, i.e. the model equations are purely algebraic. 
 </p>
 
-<h3>6.2 Governing Model Equations</h3>
+<h3>6.2 Governing Model Equations<a id="62-governing-model-equations" class="h_anchor"></a></h3>
 
 <br>
 
-<h4>Energy Conservation</h4>
+<h4>Energy Conservation<a id="energy-conservation" class="h_anchor"></a></h4>
 
 <p>
 The constant energy balance of the pump reads<br>
@@ -348,44 +348,39 @@ where the hydraulic power of the shaft given by the (constant) hydraulic and mec
 </p>
 
 <p>
+and where <img src="./PumpVLE_L1_simple/equation012.png"> is a numerical factor for computational stability.<br>
 Please note that the backflow definition of the stream variable <img src="./PumpVLE_L1_simple/equation010.png"> is a dummy value since backflow is not supported.
 </p>
 
-<h4>Mass Conservation</h4>
+<h4>Mass Conservation<a id="mass-conservation" class="h_anchor"></a></h4>
 
 <p>
 A constant fluid mass is assumed, which yields <br>
 <img src="./PumpVLE_L1_simple/equation008.png">
 </p>
 
-<h4>Momentum Conservation</h4>
+<h4>Momentum Conservation<a id="momentum-conservation" class="h_anchor"></a></h4>
 
 <p>
 Balance of stationary momentum is used to model the pressure changes at the outlet port of the pump,<br>
 <img src="./PumpVLE_L1_simple/equation004.png">
 </p>
 
-<h4>Hydraulics</h4>
+<h4>Hydraulics<a id="hydraulics" class="h_anchor"></a></h4>
 
 <p>
-The volume flow rate trough the system is given by<br>
-<img src="./PumpVLE_L1_simple/equation002.png"><br>
-where <img src="./PumpVLE_L1_simple/equation003.png"> is a numerical factor for computational stability.
-</p>
-
-<p>
-The inlet mass flow rate is defined by<br>
+The volume flow rate trough the system is  related to the inlet mass flow rate and inlet density.<br>
 <img src="./PumpVLE_L1_simple/equation001.png"><br>
-Note that the combination of equation (3) and (6) imply constant density over the pump which may lead to errors of approx. 5 % for high pressure differences (and water as fluid).
+Note that the combination of equation (3) and (5) imply constant density over the pump which may lead to errors of approx. 5 % for high pressure differences (and water as fluid).
 </p>
 
-<h4>Chemistry</h4>
+<h4>Chemistry<a id="chemistry" class="h_anchor"></a></h4>
 
 <p>
 No chemical reaction is considered.
 </p>
 
-<h4>Summary</h4>
+<h4>Summary<a id="summary" class="h_anchor"></a></h4>
 
 <p>
 A summary is available including the following:<br>
@@ -401,7 +396,7 @@ A summary is available including the following:<br>
 </ul>
 </p>
 
-<h2>7. Remarks for Usage</h2>
+<h2>7. Remarks for Usage<a id="7-remarks-for-usage" class="h_anchor"></a></h2>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -412,7 +407,7 @@ A summary is available including the following:<br>
 
 <br>
 
-<h2>9. References</h2>
+<h2>9. References<a id="9-references" class="h_anchor"></a></h2>
 
 <br>
 
@@ -420,21 +415,21 @@ A summary is available including the following:<br>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 
 </p>
 
-<h2>10. Authorship and Copyright Statement for original (initial) Contribution</h2>
+<h2>10. Authorship and Copyright Statement for original (initial) Contribution<a id="10-authorship-and-copyright-statement-for-original-initial-contribution" class="h_anchor"></a></h2>
 
 <p>
 <b>Author:</b><br>
- DYNCAP/DYNSTART development team, Copyright 2011 - 2020.<br>
+ DYNCAP/DYNSTART development team, Copyright 2011 - 2022.<br>
 <b>Remarks:</b><br>
  This component was developed during DYNCAP/DYNSTART projects.<br>
 <b>Acknowledgements:</b><br>
- ClaRa originated from the collaborative research projects DYNCAP and DYNSTART. Both research projects were supported by the German Federal Ministry for Economic Affairs and Energy (FKZ 03ET2009 and FKZ 03ET7060).<br>
+ClaRa originated from the collaborative research projects DYNCAP and DYNSTART. Both research projects were supported by the German Federal Ministry for Economic Affairs and Energy (FKZ 03ET2009 and FKZ 03ET7060).<br>
 <b>CLA:</b><br>
- The author(s) have agreed to ClaRa CLA, version 1.0. See <a href="https://claralib.com/pdf/CLA.pdf" title="https://claralib.com/pdf/CLA.pdf" class="https">https://claralib.com/pdf/CLA.pdf</a><br>
+The author(s) have agreed to ClaRa CLA, version 1.0. See <a href="https://claralib.com/pdf/CLA.pdf" title="https://claralib.com/pdf/CLA.pdf" class="https">https://claralib.com/pdf/CLA.pdf</a><br>
  By agreeing to ClaRa CLA, version 1.0 the author has granted the ClaRa development team a permanent right to use and modify his initial contribution as well as to publish it or its modified versions under the 3-clause BSD License.
 </p>
 
-<h2>11. Version History</h2>
+<h2>11. Version History<a id="11-version-history" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -456,6 +451,8 @@ A summary is available including the following:<br>
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
 				<a href='..\..\..\A_User_Guide\Revisions\v1.0.1.html'>ClaRa:A User Guide:Revisions:v1.0.1</a>
+				
+				<a href='..\Compressors\CompressorVLE_L1_simple.html'>ClaRa:Components:TurboMachines:Compressors:CompressorVLE L1 simple</a>
 				
 				<a href='./PumpVLE_L1_affinity.html'>ClaRa:Components:TurboMachines:Pumps:PumpVLE L1 affinity</a>
 				<br /><br />

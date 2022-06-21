@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>NusseltPipe L4</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -235,23 +235,23 @@ Created Mittwoch 21 Oktober 2015
 <b>Heat transfer model based on Nusselt Number for one-phase pipe flow. Takes Geometry data, flow data and media data into account</b>
 </p>
 
-<h2>1. Purpose of Model</h2>
+<h2>1. Purpose of Model<a id="1-purpose-of-model" class="h_anchor"></a></h2>
 
 <p>
 A detailed model that takes all relevant dependencies into account. This model is numerically less robust than other models, e.g. <a href="..\Generic_HT\CharLine_L4.html" title="HeatTransport:Generic HT:CharLine L4" class="page">HeatTransport:Generic HT:CharLine L4</a> since it takes fluid states and flow regimes into account. Phase change is not supported and will lead to unphysical heat transfer coefficients. Two correlations can be chosen. The Gnielinski correlation which takes surfaces roughness into account and the Dittus/Boelter correlation which assumes technical smooth pipes.
 </p>
 
-<h2>2. Level of Detail and Physical Effects Considered</h2>
+<h2>2. Level of Detail and Physical Effects Considered<a id="2-level-of-detail-and-physical-effects-considered" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>2.1 Level of Detail</h3>
+<h3>2.1 Level of Detail<a id="21-level-of-detail" class="h_anchor"></a></h3>
 
 <p>
 Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L4</b> because the system is modelled with the use of balance equations, which are spatially averaged over the component.
 </p>
 
-<h3>2.2 Physical Effects Considered</h3>
+<h3>2.2 Physical Effects Considered<a id="22-physical-effects-considered" class="h_anchor"></a></h3>
 
 <p>
 <ul>
@@ -262,7 +262,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>3. Limits of Validity</h2>
+<h2>3. Limits of Validity<a id="3-limits-of-validity" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -271,7 +271,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>4. Interfaces</h2>
+<h2>4. Interfaces<a id="4-interfaces" class="h_anchor"></a></h2>
 
 <p>
 The model communicates via outer models and records. Thus its expects to have:<br>
@@ -282,13 +282,13 @@ The model communicates via outer models and records. Thus its expects to have:<b
 It has further a <a href="..\..\..\..\Interfaces\HeatPort_a.html" title="Basics:Interfaces:HeatPort a" class="page">Basics:Interfaces:HeatPort a</a> <b>heat</b> that shall be connected with the applying component model.
 </p>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Nomenclature<a id="5-nomenclature" class="h_anchor"></a></h2>
 
 <p>
 <img src="./NusseltPipe_L4/equation001.png">
 </p>
 
-<h2>6. Governing Equations</h2>
+<h2>6. Governing Equations<a id="6-governing-equations" class="h_anchor"></a></h2>
 
 <br>
 
@@ -313,7 +313,7 @@ A smooth transtion between <img src="./NusseltPipe_L4/equation011.png"> of lamin
 <br>
 <br>
 
-<h2>7. Remarks for Usage</h2>
+<h2>7. Remarks for Usage<a id="7-remarks-for-usage" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -322,22 +322,22 @@ A smooth transtion between <img src="./NusseltPipe_L4/equation011.png"> of lamin
 </ul>
 </p>
 
-<h2>8. Validation</h2>
+<h2>8. Validation<a id="8-validation" class="h_anchor"></a></h2>
 
 <br>
 
-<h2>9. References</h2>
+<h2>9. References<a id="9-references" class="h_anchor"></a></h2>
 
 <p>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulationof Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 <br>
 [2] <b>Verein Deutscher Ingenieure:</b> "VDI Heat Atlas", chapter Ga: 'Heat transfer in pipes' (in German), 9th edition, Springer 2002
 </p>
 
-<h2>10. Authorship and Copyright Statement for original (initial) Contribution</h2>
+<h2>10. Authorship and Copyright Statement for original (initial) Contribution<a id="10-authorship-and-copyright-statement-for-original-initial-contribution" class="h_anchor"></a></h2>
 
 <p>
 <b>Author:</b><br>
- DYNCAP/DYNSTART development team, Copyright 2011 - 2020.<br>
+ DYNCAP/DYNSTART development team, Copyright 2011 - 2022.<br>
 <b>Remarks:</b><br>
  This component was developed during DYNCAP/DYNSTART projects.<br>
 <b>Acknowledgements:</b><br>
@@ -347,7 +347,7 @@ A smooth transtion between <img src="./NusseltPipe_L4/equation011.png"> of lamin
  By agreeing to ClaRa CLA, version 1.0 the author has granted the ClaRa development team a permanent right to use and modify his initial contribution as well as to publish it or its modified versions under the 3-clause BSD License.
 </p>
 
-<h2>11. Version History</h2>
+<h2>11. Version History<a id="11-version-history" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -361,6 +361,8 @@ A smooth transtion between <img src="./NusseltPipe_L4/equation011.png"> of lamin
 			<span class="backlinks">
 				<hr class='footnotes'>
 				<b>Backlinks:</b>
+				<a href='..\..\..\..\..\Components\HeatExchangers\FlatTubeFinnedHEXvle2gas_L4.html'>ClaRa:Components:HeatExchangers:FlatTubeFinnedHEXvle2gas L4</a>
+				
 				<a href='..\..\..\FluidVolumes\VolumeVLE_L4_Advanced.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L4 Advanced</a>
 				<br /><br />
 			</span>

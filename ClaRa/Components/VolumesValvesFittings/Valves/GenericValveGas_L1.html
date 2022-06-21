@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>GenericValveGas L1</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -228,7 +228,7 @@ Created Freitag 13 November 2015
 <b>A model for for valves, throttles, orifices and similar components. The pressure loss and the opening characteristics can be user-defined using replaceable models. </b>
 </p>
 
-<h2>1. Purpose of Model</h2>
+<h2>1. Purpose of Model<a id="1-purpose-of-model" class="h_anchor"></a></h2>
 
 <br>
 
@@ -240,17 +240,17 @@ Created Freitag 13 November 2015
 The model can be used for introducing pressure loss effects (either due to physical or numerical motivation). Since the model neglects changes in kinetic energy it implies either small density changes or adapted flange geometry.  It is possible to use the valve as a check valve, for example to avoid back flows. The numerical robustness and accuracy depend strongly on the chosen <tt>replaceable model</tt> for the pressure loss.
 </p>
 
-<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
+<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight<a id="2-level-of-detail-physical-effects-considered-and--physical-insight" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>2.1 Level of Detail</h3>
+<h3>2.1 Level of Detail<a id="21-level-of-detail" class="h_anchor"></a></h3>
 
 <p>
 Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L1</b> because the system is modelled under phenomenological considerations that cause the pressure to drop, i.e. the opening of the valve.
 </p>
 
-<h3>2.2 Physical Effects Considered</h3>
+<h3>2.2 Physical Effects Considered<a id="22-physical-effects-considered" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -262,7 +262,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h3>2.3 Level of Insight</h3>
+<h3>2.3 Level of Insight<a id="23-level-of-insight" class="h_anchor"></a></h3>
 
 <p>
 The pressure loss can be defined  by choosing and modifying the <tt>replaceable model </tt><u>PressureLoss </u>in the parameter dialog. The following models are available:<br>
@@ -278,7 +278,7 @@ The pressure loss can be defined  by choosing and modifying the <tt>replaceable 
 all these models are based on the base class called GenericPressureLoss.
 </p>
 
-<h2>3. Limits of Validity</h2>
+<h2>3. Limits of Validity<a id="3-limits-of-validity" class="h_anchor"></a></h2>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -286,11 +286,11 @@ all these models are based on the base class called GenericPressureLoss.
 </ul>
 </p>
 
-<h2>4. Interfaces</h2>
+<h2>4. Interfaces<a id="4-interfaces" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>4.1 Physical Connectors</h3>
+<h3>4.1 Physical Connectors<a id="41-physical-connectors" class="h_anchor"></a></h3>
 
 <br>
 
@@ -301,7 +301,7 @@ Basics:Interfaces:GasPortOut outlet
 
 <br>
 
-<h3>4.2 Inputs</h3>
+<h3>4.2 Inputs<a id="42-inputs" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -309,7 +309,7 @@ Basics:Interfaces:GasPortOut outlet
 </ul>
 </p>
 
-<h3>4.3 Medium Models</h3>
+<h3>4.3 Medium Models<a id="43-medium-models" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -317,7 +317,7 @@ Basics:Interfaces:GasPortOut outlet
 </ul>
 </p>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Nomenclature<a id="5-nomenclature" class="h_anchor"></a></h2>
 
 <br>
 
@@ -325,11 +325,11 @@ Basics:Interfaces:GasPortOut outlet
  <img src="./GenericValveGas_L1/equation.png">
 </p>
 
-<h2>6. Governing Equations</h2>
+<h2>6. Governing Equations<a id="6-governing-equations" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>6.1 System Description and General model approach</h3>
+<h3>6.1 System Description and General model approach<a id="61-system-description-and-general-model-approach" class="h_anchor"></a></h3>
 
 <p>
 The governing equations consider mainly a isenthalpic throttling process without energy losses. The hydraulic model assumes a geometric definition as sketched below. The fluid may have inlet and outlet fittings to couple the valve to the surrounding piping. The resistance of these fittings is taken into account via a geometry correction factor.
@@ -362,39 +362,39 @@ In reality the expansion process will differ slightly from this ideal two-steppe
 <br>
 <br>
 
-<h3>6.2 Governing Model Equations</h3>
+<h3>6.2 Governing Model Equations<a id="62-governing-model-equations" class="h_anchor"></a></h3>
 
 <br>
 
-<h4>Energy Balance</h4>
+<h4>Energy Balance<a id="energy-balance" class="h_anchor"></a></h4>
 
 <p>
 No loss of energy and no changes of flow velocity are applied. Therefore, the outlet temperatures are equal to the inlet temperatures.<br>
 <img src="./GenericValveGas_L1/equation001.png">
 </p>
 
-<h4>Mass Balance</h4>
+<h4>Mass Balance<a id="mass-balance" class="h_anchor"></a></h4>
 
 <p>
 The mass balance for steady flow neglecting mass storage reads<br>
 <img src="./GenericValveGas_L1/equation002.png">
 </p>
 
-<h4>Chemistry</h4>
+<h4>Chemistry<a id="chemistry" class="h_anchor"></a></h4>
 
 <p>
 No chemical reaction is  taking place:<br>
 <img src="./GenericValveGas_L1/equation003.png">
 </p>
 
-<h4>Hydraulics</h4>
+<h4>Hydraulics<a id="hydraulics" class="h_anchor"></a></h4>
 
 <p>
 The hydraulics are defined in the corresponding replaceable models and are accessed via<br>
 <tt>inlet.m_flow =</tt> <tt>pressureLoss.m_flow</tt>
 </p>
 
-<h4>Summaries</h4>
+<h4>Summaries<a id="summaries" class="h_anchor"></a></h4>
 
 <p>
 A summary is available including the following:<br>
@@ -407,7 +407,7 @@ A summary is available including the following:<br>
 </ul>
 </p>
 
-<h2>7. Remarks for Usage</h2>
+<h2>7. Remarks for Usage<a id="7-remarks-for-usage" class="h_anchor"></a></h2>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -421,7 +421,7 @@ forbid reverse flow by setting <tt>checkValve</tt> to <tt>true</tt><br>
 </ul>
 </p>
 
-<h2>9. References</h2>
+<h2>9. References<a id="9-references" class="h_anchor"></a></h2>
 
 <p>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012. <br>
@@ -429,11 +429,11 @@ forbid reverse flow by setting <tt>checkValve</tt> to <tt>true</tt><br>
 [3]   <b>Walter Wagner: "</b>Regelarmaturen<b>"</b>, ISBN 3-8023-15664-2, Vogel Buchverlag, Germany, 1996.
 </p>
 
-<h2>10. Authorship and Copyright Statement for original (initial) Contribution</h2>
+<h2>10. Authorship and Copyright Statement for original (initial) Contribution<a id="10-authorship-and-copyright-statement-for-original-initial-contribution" class="h_anchor"></a></h2>
 
 <p>
 <b>Author:</b><br>
- DYNCAP/DYNSTART development team, Copyright 2011 - 2020.<br>
+ DYNCAP/DYNSTART development team, Copyright 2011 - 2022.<br>
 <b>Remarks:</b><br>
  This component was developed during DYNCAP/DYNSTART projects.<br>
 <b>Acknowledgements:</b><br>
@@ -443,7 +443,7 @@ forbid reverse flow by setting <tt>checkValve</tt> to <tt>true</tt><br>
  By agreeing to ClaRa CLA, version 1.0 the author has granted the ClaRa development team a permanent right to use and modify his initial contribution as well as to publish it or its modified versions under the 3-clause BSD License.
 </p>
 
-<h2>11. Version History</h2>
+<h2>11. Version History<a id="11-version-history" class="h_anchor"></a></h2>
 
 <p>
 <ul>

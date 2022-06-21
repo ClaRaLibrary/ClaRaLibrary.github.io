@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>Handling Large Power Plant Models with Colleagues</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -206,7 +206,7 @@ Created Friday 15 August 2014
 <b>How to handle large power plant models in projects with a number of colleagues? This section may give you advice.</b>
 </p>
 
-<h2>Subdivide your Power Plant</h2>
+<h2>Subdivide your Power Plant<a id="subdivide-your-power-plant" class="h_anchor"></a></h2>
 
 <p>
 In most cases the power plant will be subdivided into functional sub system e.g the feedwater system, the condensate system, the boiler or the turbine. Therefore:
@@ -224,7 +224,7 @@ These submodels will have connectors to be connected to other subsystems but the
 <u>An easy way to create modifiers is (using DYMOLA 2015) to right-click on the instance and choose "Show Component". Changes done in this view will end up in modifiers of the instance</u>
 </p>
 
-<h2>Get Access to Visualisers in SubSystems</h2>
+<h2>Get Access to Visualisers in SubSystems<a id="get-access-to-visualisers-in-subsystems" class="h_anchor"></a></h2>
 
 <p>
 If you have applied models from the <a href="..\Visualisation.html" title="Visualisation" class="page">Visualisation</a> package then this is crucial to you:
@@ -240,7 +240,7 @@ In order to have a sufficient font size consider setting <tt>largeFonts = true</
 
 <br>
 
-<h2>Use the Bus</h2>
+<h2>Use the Bus<a id="use-the-bus" class="h_anchor"></a></h2>
 
 <p>
 Use the expandable connector concept described and illustrated in the Modelica Standard Library to handle various signals for measurement, control and set point definitions. Since a lot of signals must be handled in full-scale power plant models consider <a href="./Handling_Large_Power_Plant_Models_with_Colleagues/Using_Busses_for_Signal_Handling.html" title="Using Busses for Signal Handling" class="page">Using Busses for Signal Handling</a>

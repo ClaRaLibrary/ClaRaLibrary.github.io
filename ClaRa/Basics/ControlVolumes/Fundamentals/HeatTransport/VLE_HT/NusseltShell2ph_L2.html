@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>NusseltShell2ph L2</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -237,23 +237,23 @@ Created Thursday 13 June 2013
 <b>Heat transfer model based on Nusselt Number for single-phase and two-phase (condensation) shell flow around a tube bundle. Takes Geometry data, flow data and media data into account</b>
 </p>
 
-<h2>1. Purpose of Model</h2>
+<h2>1. Purpose of Model<a id="1-purpose-of-model" class="h_anchor"></a></h2>
 
 <p>
 A detailed model for shell geometries with a tube bundle, e.g. heat exchangers, that takes all relevant dependencies, including condensation, into account. This model is numerically less robust than other models, e.g <a href="..\Generic_HT\CharLine_L2.html" title="HeatTransport:Generic HT:CharLine L2" class="page">HeatTransport:Generic HT:CharLine L2</a> since it takes fluid states and flow regimes into account.
 </p>
 
-<h2>2. Level of Detail and Physical Effects Considered</h2>
+<h2>2. Level of Detail and Physical Effects Considered<a id="2-level-of-detail-and-physical-effects-considered" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>2.1 Level of Detail</h3>
+<h3>2.1 Level of Detail<a id="21-level-of-detail" class="h_anchor"></a></h3>
 
 <p>
 Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L2</b> because the system is modelled with the use of balance equations, which are spatially averaged over the component.
 </p>
 
-<h3>2.2 Physical Effects Considered</h3>
+<h3>2.2 Physical Effects Considered<a id="22-physical-effects-considered" class="h_anchor"></a></h3>
 
 <p>
 <ul>
@@ -264,7 +264,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>3. Limits of Validity</h2>
+<h2>3. Limits of Validity<a id="3-limits-of-validity" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -273,7 +273,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>4. Interfaces</h2>
+<h2>4. Interfaces<a id="4-interfaces" class="h_anchor"></a></h2>
 
 <p>
 The model communicates via outer models and records. Thus its expects to have:<br>
@@ -284,18 +284,18 @@ The model communicates via outer models and records. Thus its expects to have:<b
 It has further a <a href="..\..\..\..\Interfaces\HeatPort_a.html" title="Basics:Interfaces:HeatPort a" class="page">Basics:Interfaces:HeatPort a</a> <b>heat</b> that shall be connected with the applying component model.
 </p>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Nomenclature<a id="5-nomenclature" class="h_anchor"></a></h2>
 
 <p>
 <img src="./NusseltShell2ph_L2/equation.png">
 </p>
 
-<h2>6. Governing Equations</h2>
+<h2>6. Governing Equations<a id="6-governing-equations" class="h_anchor"></a></h2>
 
 <br>
 <br>
 
-<h3>6.1 Calculation of one phase heat transfer coefficient</h3>
+<h3>6.1 Calculation of one phase heat transfer coefficient<a id="61-calculation-of-one-phase-heat-transfer-coefficient" class="h_anchor"></a></h3>
 
 <br>
 
@@ -320,7 +320,7 @@ and<br>
 <img src="./NusseltShell2ph_L2/equation020.png">
 </p>
 
-<h3>6.2 Calculation of two phase heat transfer coefficient</h3>
+<h3>6.2 Calculation of two phase heat transfer coefficient<a id="62-calculation-of-two-phase-heat-transfer-coefficient" class="h_anchor"></a></h3>
 
 <br>
 
@@ -338,7 +338,7 @@ The two phase Reynolds number is calculated as follows:<br>
 <img src="./NusseltShell2ph_L2/equation025.png">
 </p>
 
-<h3>6.3 Calculation of heat flow rate</h3>
+<h3>6.3 Calculation of heat flow rate<a id="63-calculation-of-heat-flow-rate" class="h_anchor"></a></h3>
 
 <br>
 <br>
@@ -363,29 +363,29 @@ The heat transfer area can be changed with the integer parameter <img src="./Nus
 Please note that for the choice <tt>temperatureDifference="Logarithmic mean" </tt>a number of means is applied to make the equation regular also for zero heat flow and reversing heat flows. If an unsupported string for <tt>temperatureDifference</tt> is provided an assert would raise.
 </p>
 
-<h2>7. Remarks for Usage</h2>
+<h2>7. Remarks for Usage<a id="7-remarks-for-usage" class="h_anchor"></a></h2>
 
 <p>
 Check the results for meaningfulness, if the <img src="./NusseltShell2ph_L2/equation006.png"> or <img src="./NusseltShell2ph_L2/equation008.png"> are equal to 1, as the boundary conditions or valid ranges of the FluidDissipation models are violated.
 </p>
 
-<h2>8. Validation</h2>
+<h2>8. Validation<a id="8-validation" class="h_anchor"></a></h2>
 
 <p>
 see FluidDissipation documentation
 </p>
 
-<h2>9. References</h2>
+<h2>9. References<a id="9-references" class="h_anchor"></a></h2>
 
 <p>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 
 </p>
 
-<h2>10. Authorship and Copyright Statement for original (initial) Contribution</h2>
+<h2>10. Authorship and Copyright Statement for original (initial) Contribution<a id="10-authorship-and-copyright-statement-for-original-initial-contribution" class="h_anchor"></a></h2>
 
 <p>
 <b>Author:</b><br>
- DYNCAP/DYNSTART development team, Copyright 2011 - 2020.<br>
+ DYNCAP/DYNSTART development team, Copyright 2011 - 2022.<br>
 <b>Remarks:</b><br>
  This component was developed during DYNCAP/DYNSTART projects.<br>
 <b>Acknowledgements:</b><br>
@@ -395,7 +395,7 @@ see FluidDissipation documentation
  By agreeing to ClaRa CLA, version 1.0 the author has granted the ClaRa development team a permanent right to use and modify his initial contribution as well as to publish it or its modified versions under the 3-clause BSD License.
 </p>
 
-<h2>11. Version History</h2>
+<h2>11. Version History<a id="11-version-history" class="h_anchor"></a></h2>
 
 <p>
 <ul>

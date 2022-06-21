@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>AsynchronousMotor L2_base</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -219,23 +219,23 @@ Created Tuesday 15 July 2014
 <b>This is the base class for asynchronous electric motors.</b>
 </p>
 
-<h2>1. Purpose of Model</h2>
+<h2>1. Purpose of Model<a id="1-purpose-of-model" class="h_anchor"></a></h2>
 
 <p>
 This base class provides the basic equation for the simple asynchronous motor models.
 </p>
 
-<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
+<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight<a id="2-level-of-detail-physical-effects-considered-and--physical-insight" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>2.1 Level of Detail</h3>
+<h3>2.1 Level of Detail<a id="21-level-of-detail" class="h_anchor"></a></h3>
 
 <p>
 Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L2</b> because the system is modelled with the use of (mechanical) balance equation, which are spatially averaged over the component.
 </p>
 
-<h3>2.2 Physical Effects Considered</h3>
+<h3>2.2 Physical Effects Considered<a id="22-physical-effects-considered" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -245,13 +245,13 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h3>2.3 Level of Insight</h3>
+<h3>2.3 Level of Insight<a id="23-level-of-insight" class="h_anchor"></a></h3>
 
 <p>
 currently no different levels of insight are available for the considered physical effects
 </p>
 
-<h2>3. Limits of Validity</h2>
+<h2>3. Limits of Validity<a id="3-limits-of-validity" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -259,32 +259,32 @@ currently no different levels of insight are available for the considered physic
 </ul>
 </p>
 
-<h2>4. Interfaces</h2>
+<h2>4. Interfaces<a id="4-interfaces" class="h_anchor"></a></h2>
 
 <br>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Nomenclature<a id="5-nomenclature" class="h_anchor"></a></h2>
 
 <p>
 a table referencing the nomenclature in the source code, the descriptions of variables and the "human-readable", use the following latex table template:<br>
 <img src="./AsynchronousMotor_L2_base/equation019.png">
 </p>
 
-<h2>6. Governing Equations</h2>
+<h2>6. Governing Equations<a id="6-governing-equations" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>6.1 System Description and General Modelling Approach</h3>
+<h3>6.1 System Description and General Modelling Approach<a id="61-system-description-and-general-modelling-approach" class="h_anchor"></a></h3>
 
 <p>
 The model is based on the simplified equivalent circuit shown below. Based on the theories of phase vector representation common to AC electric engineering the performance of the electric machine is derived. Storage of mechanical energy is considered applying an energy balance for the total system. 
 </p>
 
-<h3>6.2 General Model Equations</h3>
+<h3>6.2 General Model Equations<a id="62-general-model-equations" class="h_anchor"></a></h3>
 
 <br>
 
-<h4>Definitions</h4>
+<h4>Definitions<a id="definitions" class="h_anchor"></a></h4>
 
 <p>
 <img src="./AsynchronousMotor_L2_base/equation.png">
@@ -292,7 +292,7 @@ The model is based on the simplified equivalent circuit shown below. Based on th
 
 <br>
 
-<h4>Electric Characteristics</h4>
+<h4>Electric Characteristics<a id="electric-characteristics" class="h_anchor"></a></h4>
 
 <p>
 The electric performance characteristics are mostly taken from [2].  Basis for the calculation of the electric performance is the following simplified equivalent circuit:<br>
@@ -333,13 +333,13 @@ herein the function <tt>tableIpo </tt>will perform a linear interpolation of the
 
 <br>
 
-<h4>Mechanic Energy Conservation</h4>
+<h4>Mechanic Energy Conservation<a id="mechanic-energy-conservation" class="h_anchor"></a></h4>
 
 <p>
 <img src="./AsynchronousMotor_L2_base/equation006.png">	
 </p>
 
-<h4>Losses and Power Flow</h4>
+<h4>Losses and Power Flow<a id="losses-and-power-flow" class="h_anchor"></a></h4>
 
 <p>
 The following simplified Sankey diagram  illustrates the losses taken into account. The ideas for modelling the losses are taken from [3].
@@ -349,14 +349,14 @@ The following simplified Sankey diagram  illustrates the losses taken into accou
 <img src="./AsynchronousMotor_L2_base/Sankey.png" width="400">
 </p>
 
-<h5>Stator Losses:</h5>
+<h5>Stator Losses:<a id="stator-losses" class="h_anchor"></a></h5>
 
 <p>
 For the sake of simplicity the stator's efficiency is assumed to be constant. The terminal power is therefore<br>
 <img src="./AsynchronousMotor_L2_base/equation008.png">
 </p>
 
-<h5>Rotor Losses:</h5>
+<h5>Rotor Losses:<a id="rotor-losses" class="h_anchor"></a></h5>
 
 <p>
 Assuming no stray losses  the rotor losses can be summarised as <br>
@@ -365,7 +365,7 @@ Thus we can introduce a rotor efficiency:<br>
 <img src="./AsynchronousMotor_L2_base/equation005.png">
 </p>
 
-<h2>7. Remarks for Usage</h2>
+<h2>7. Remarks for Usage<a id="7-remarks-for-usage" class="h_anchor"></a></h2>
 
 <p>
 For the sake of usability the parameter dialog refers to values that are likely available for the user through the product data sheet of a specific motor:<br>
@@ -382,11 +382,11 @@ When using table-based characteristics the nominal torque is calculated from the
 <img src="./AsynchronousMotor_L2_base/equation021.png">
 </p>
 
-<h2>8. Validation</h2>
+<h2>8. Validation<a id="8-validation" class="h_anchor"></a></h2>
 
 <br>
 
-<h2>9. References</h2>
+<h2>9. References<a id="9-references" class="h_anchor"></a></h2>
 
 <p>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012.<br>
@@ -395,11 +395,11 @@ When using table-based characteristics the nominal torque is calculated from the
 [4]   <b>U. Beckert: </b>"Asynchronmotor - Stationäres Betriebsverhalten, Skriptum für Nichtelektrotechniker", <a href="https://tu-freiberg.de/sites/default/files/media/institut-fuer-elektrotechnik-12774/UBeckert_Scr/asm_stat_verhalten.pdf" title="https://tu-freiberg.de/sites/default/files/media/institut-fuer-elektrotechnik-12774/UBeckert_Scr/asm_stat_verhalten.pdf" class="https">https://tu-freiberg.de/sites/default/files/media/institut-fuer-elektrotechnik-12774/UBeckert_Scr/asm_stat_verhalten.pdf</a>, TU Bergakademie Freiberg Institut für Elektrotechnik, 2005
 </p>
 
-<h2>10. Authorship and Copyright Statement for original (initial) Contribution</h2>
+<h2>10. Authorship and Copyright Statement for original (initial) Contribution<a id="10-authorship-and-copyright-statement-for-original-initial-contribution" class="h_anchor"></a></h2>
 
 <p>
 <b>Author:</b><br>
- DYNCAP/DYNSTART development team, Copyright 2011 - 2020.<br>
+ DYNCAP/DYNSTART development team, Copyright 2011 - 2022.<br>
 <b>Remarks:</b><br>
  This component was developed during DYNCAP/DYNSTART projects.<br>
 <b>Acknowledgements:</b><br>
@@ -409,7 +409,7 @@ When using table-based characteristics the nominal torque is calculated from the
  By agreeing to ClaRa CLA, version 1.0 the author has granted the ClaRa development team a permanent right to use and modify his initial contribution as well as to publish it or its modified versions under the 3-clause BSD License.
 </p>
 
-<h2>11. Version History</h2>
+<h2>11. Version History<a id="11-version-history" class="h_anchor"></a></h2>
 
 <p>
 <ul>

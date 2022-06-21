@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>VolumeGas L2</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -221,7 +221,7 @@ Created Thursday 18 July 2013
 <b>Basic model of a gas volume with dynamic energy and mass balances, taking convective heat transfer and pressure losses into account.</b>  
 </p>
 
-<h2>1. Purpose of Model</h2>
+<h2>1. Purpose of Model<a id="1-purpose-of-model" class="h_anchor"></a></h2>
 
 <br>
 
@@ -233,11 +233,11 @@ Created Thursday 18 July 2013
 The model is used as a basic model to form various components which handle gaseous media.
 </p>
 
-<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
+<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight<a id="2-level-of-detail-physical-effects-considered-and--physical-insight" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>2.1 Level of Detail</h3>
+<h3>2.1 Level of Detail<a id="21-level-of-detail" class="h_anchor"></a></h3>
 
 <br>
 
@@ -245,7 +245,7 @@ The model is used as a basic model to form various components which handle gaseo
 Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L2</b>.
 </p>
 
-<h3>2.2 Physical Effects Considered</h3>
+<h3>2.2 Physical Effects Considered<a id="22-physical-effects-considered" class="h_anchor"></a></h3>
 
 <br>
 
@@ -259,11 +259,11 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h3>2.3 Level of Insight</h3>
+<h3>2.3 Level of Insight<a id="23-level-of-insight" class="h_anchor"></a></h3>
 
 <br>
 
-<h4>Heat Transfer</h4>
+<h4>Heat Transfer<a id="heat-transfer" class="h_anchor"></a></h4>
 
 <p>
 <ul>
@@ -274,7 +274,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h4>Pressure Loss</h4>
+<h4>Pressure Loss<a id="pressure-loss" class="h_anchor"></a></h4>
 
 <p>
 <ul>
@@ -284,7 +284,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h4>Geometry</h4>
+<h4>Geometry<a id="geometry" class="h_anchor"></a></h4>
 
 <p>
 <ul>
@@ -295,7 +295,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>3. Limits of Validity</h2>
+<h2>3. Limits of Validity<a id="3-limits-of-validity" class="h_anchor"></a></h2>
 
 <br>
 
@@ -308,11 +308,11 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>4. Interfaces</h2>
+<h2>4. Interfaces<a id="4-interfaces" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>4.1 Physical Connectors</h3>
+<h3>4.1 Physical Connectors<a id="41-physical-connectors" class="h_anchor"></a></h3>
 
 <br>
 
@@ -322,7 +322,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <a href="..\..\Interfaces\HeatPort_a.html" title="Basics:Interfaces:HeatPort a" class="page">Basics:Interfaces:HeatPort a</a> heat
 </p>
 
-<h3>4.2 Medium Models</h3>
+<h3>4.2 Medium Models<a id="42-medium-models" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -330,7 +330,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Nomenclature<a id="5-nomenclature" class="h_anchor"></a></h2>
 
 <br>
 
@@ -338,11 +338,11 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <img src="./VolumeGas_L2/equation009.png">
 </p>
 
-<h2>6. Governing Equations</h2>
+<h2>6. Governing Equations<a id="6-governing-equations" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>6.1 System Description and General model approach</h3>
+<h3>6.1 System Description and General model approach<a id="61-system-description-and-general-model-approach" class="h_anchor"></a></h3>
 
 <br>
 
@@ -350,11 +350,11 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 The model describes an ideally stirred volume element with heat transfer to the surrounding.
 </p>
 
-<h3>6.2 Governing Model Equations</h3>
+<h3>6.2 Governing Model Equations<a id="62-governing-model-equations" class="h_anchor"></a></h3>
 
 <br>
 
-<h4>Conservation of Mass</h4>
+<h4>Conservation of Mass<a id="conservation-of-mass" class="h_anchor"></a></h4>
 
 <p>
 Via parameter preset the user can determine whether the mass balance is calculated dynamic or static. The dynamic mass balance is calculated as follows:
@@ -372,7 +372,7 @@ and the static mass balance:
 <img src="./VolumeGas_L2/equation001.png">
 </p>
 
-<h4>Conservation of Momentum</h4>
+<h4>Conservation of Momentum<a id="conservation-of-momentum" class="h_anchor"></a></h4>
 
 <p>
 We use balance of stationary momentum to model the pressure losses on the control volume. The friciton pressure losses are calculated with the replaceable pressure loss models. In the model the pressure distribution is given by the influence of friction in the x direction, which is given with the direction of the flow. The friction pressure loss is lumped at the inlet to avoid direct coupling of two flow models.
@@ -386,7 +386,7 @@ We use balance of stationary momentum to model the pressure losses on the contro
 <img src="./VolumeGas_L2/equation005.png">
 </p>
 
-<h4>Conservation of Energy</h4>
+<h4>Conservation of Energy<a id="conservation-of-energy" class="h_anchor"></a></h4>
 
 <p>
 The energy balance considers ingoing and outgoing enthalpy flow rates as well as energy transport to the surrounding (<img src="./VolumeGas_L2/equation007.png">). Please note the special structure of the energy balance with the differences of ingoing and outgoing enthalpies and the cell enthalpy and the additional term for the pressure derivative which is derived from the total derivative of the inner energy of the cell. The structure results from to the special choice of state variables as discussed in <a href="..\..\..\Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a>.
@@ -412,7 +412,7 @@ while for stationary energy balance the following equation is used:
 <img src="./VolumeGas_L2/equation010.png">
 </p>
 
-<h4>Conservation of Gas Components</h4>
+<h4>Conservation of Gas Components<a id="conservation-of-gas-components" class="h_anchor"></a></h4>
 
 <p>
 The composition is a vector of the component mass fractions. The calculation of the outlet composition depends on the type of mass conservation. If the dynamic mass balance is used, the outlet composition is calculated as follows:
@@ -430,7 +430,7 @@ while for static mass balance the following equation is used:
 <img src="./VolumeGas_L2/equation003.png">
 </p>
 
-<h4>Summary</h4>
+<h4>Summary<a id="summary" class="h_anchor"></a></h4>
 
 <p>
 A summary record is available which bundles important component values.
@@ -438,19 +438,19 @@ A summary record is available which bundles important component values.
 
 <br>
 
-<h2>7. Remarks for Usage</h2>
+<h2>7. Remarks for Usage<a id="7-remarks-for-usage" class="h_anchor"></a></h2>
 
 <p>
 This model is applied in a number of component models either via instantiation of inheritance.
 </p>
 
-<h2>8. References</h2>
+<h2>8. References<a id="8-references" class="h_anchor"></a></h2>
 
 <p>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 
 </p>
 
-<h2>9. Version History</h2>
+<h2>9. Version History<a id="9-version-history" class="h_anchor"></a></h2>
 
 <p>
 Date - Version - Description of changes - author/revisor<br>

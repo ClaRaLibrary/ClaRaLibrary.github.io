@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>BoundaryVLE phxi</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -228,24 +228,24 @@ Created Tuesday 18 June 2013
 <b>This model provides a the pressure boundary emitting fluid at a specified specific enthalpy and composition. Both, positive and negative flows are supported.</b>
 </p>
 
-<h2>1. Purpose of Model</h2>
+<h2>1. Purpose of Model<a id="1-purpose-of-model" class="h_anchor"></a></h2>
 
 <p>
 This model can be used to set up constant or variable boundary conditions for the fluid medium in the water steam cycle. It can either serve as an idealised pressure boundary, where a required mass flow (defined in another component, e.g. a pump or valve) is emitted from the source assuming an infinite reservoir. Alternatively, the source pressure can vary depending on the mass flow rate.
 </p>
 
-<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
+<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight<a id="2-level-of-detail-physical-effects-considered-and--physical-insight" class="h_anchor"></a></h2>
 
 <br>
 <br>
 
-<h3>2.1 Level of Detail</h3>
+<h3>2.1 Level of Detail<a id="21-level-of-detail" class="h_anchor"></a></h3>
 
 <p>
 Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L1</b> because the system is modelled without  the use of balance equations.
 </p>
 
-<h3>2.2 Physical Effects Considered</h3>
+<h3>2.2 Physical Effects Considered<a id="22-physical-effects-considered" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -256,13 +256,13 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <br>
 
-<h3>2.3 Level of Insight</h3>
+<h3>2.3 Level of Insight<a id="23-level-of-insight" class="h_anchor"></a></h3>
 
 <p>
 No different levels of detail are available.
 </p>
 
-<h2>3. Limits of Validity</h2>
+<h2>3. Limits of Validity<a id="3-limits-of-validity" class="h_anchor"></a></h2>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -272,7 +272,7 @@ No different levels of detail are available.
 
 <br>
 
-<h2>4. Interfaces</h2>
+<h2>4. Interfaces<a id="4-interfaces" class="h_anchor"></a></h2>
 
 <br>
 
@@ -280,7 +280,7 @@ No different levels of detail are available.
 <a href="..\..\Basics\Interfaces\FluidPortIn.html" title="Basics:Interfaces:FluidPortIn" class="page">Basics:Interfaces:FluidPortIn</a> steam_a
 </p>
 
-<h3>4.1 Physical Connectors</h3>
+<h3>4.1 Physical Connectors<a id="41-physical-connectors" class="h_anchor"></a></h3>
 
 <p>
 <ul>
@@ -294,11 +294,11 @@ No different levels of detail are available.
 </ul>
 </p>
 
-<h3>4.2 Summaries</h3>
+<h3>4.2 Summaries<a id="42-summaries" class="h_anchor"></a></h3>
 
 <br>
 
-<h3>4.3 Inputs</h3>
+<h3>4.3 Inputs<a id="43-inputs" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -312,7 +312,7 @@ No different levels of detail are available.
 </ul>
 </p>
 
-<h3>4.2 Medium Models.</h3>
+<h3>4.2 Medium Models.<a id="42-medium-models" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -322,7 +322,7 @@ No different levels of detail are available.
 
 <br>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Nomenclature<a id="5-nomenclature" class="h_anchor"></a></h2>
 
 <br>
 
@@ -330,7 +330,7 @@ No different levels of detail are available.
 <img src="./BoundaryVLE_phxi/equation001.png">
 </p>
 
-<h2>6. Governing Equations</h2>
+<h2>6. Governing Equations<a id="6-governing-equations" class="h_anchor"></a></h2>
 
 <p>
 This boundary defines all relevant values for the stream connector used in ClaRa's VLE (vapour-liquid equilibrium) media based models. The pressure is a variable in this set of equations while the mass flow is predefined. The definition of the mass flow can be either variable (via a conditional input connector) or constant (via a parameter) and it can be ideal (thus strictly following the user input) or non-ideal (thus correcting the user input according to a linear pressure dependency). 
@@ -347,7 +347,7 @@ According to the definition of stream connectors its stream variables must be de
 If the boundary acts permanently or temporarily as a sink the equations (3) and (4) will not be evaluated.
 </p>
 
-<h2>7. Remarks for Usage</h2>
+<h2>7. Remarks for Usage<a id="7-remarks-for-usage" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -358,21 +358,21 @@ If the boundary acts permanently or temporarily as a sink the equations (3) and 
 
 <br>
 
-<h2>8. Validation</h2>
+<h2>8. Validation<a id="8-validation" class="h_anchor"></a></h2>
 
 <br>
 
-<h2>9. References</h2>
+<h2>9. References<a id="9-references" class="h_anchor"></a></h2>
 
 <p>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulationof Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 
 </p>
 
-<h2>10. Authorship and Copyright Statement for original (initial) Contribution</h2>
+<h2>10. Authorship and Copyright Statement for original (initial) Contribution<a id="10-authorship-and-copyright-statement-for-original-initial-contribution" class="h_anchor"></a></h2>
 
 <p>
 <b>Author:</b><br>
- DYNCAP/DYNSTART development team, Copyright 2011 - 2020.<br>
+ DYNCAP/DYNSTART development team, Copyright 2011 - 2022.<br>
 <b>Remarks:</b><br>
  This component was developed during DYNCAP/DYNSTART projects.<br>
 <b>Acknowledgements:</b><br>
@@ -382,7 +382,7 @@ If the boundary acts permanently or temporarily as a sink the equations (3) and 
  By agreeing to ClaRa CLA, version 1.0 the author has granted the ClaRa development team a permanent right to use and modify his initial contribution as well as to publish it or its modified versions under the 3-clause BSD License.
 </p>
 
-<h2>11. Version History</h2>
+<h2>11. Version History<a id="11-version-history" class="h_anchor"></a></h2>
 
 <p>
 <ul>

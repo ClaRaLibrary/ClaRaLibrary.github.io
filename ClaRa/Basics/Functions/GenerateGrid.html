@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>GenerateGrid</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -216,7 +216,7 @@ Created Montag 08 Februar 2016
 <b>This function computes the discretisation of a given interval I of length L into N cells. It allows to distribute the N cells into a fixed number of sub-intervals. Each of these sub-intervals can feature a stretching of its cells' lengths.</b>
 </p>
 
-<h2>1.  Purpose of Function</h2>
+<h2>1.  Purpose of Function<a id="1--purpose-of-function" class="h_anchor"></a></h2>
 
 <p>
 In situations in which large gradients (e.g. temperature, pressure) need to be transferred into a discretised component, e.g. a pipe, it can be numerically advantageous to choose a non-equidistant discretisation, where the discretisation intervals exposed to potential large gradients are chosen smaller. 
@@ -226,19 +226,19 @@ In situations in which large gradients (e.g. temperature, pressure) need to be t
 The function GenerateGrid provides a straight forward way to generate such stretched discretisation.
 </p>
 
-<h2>2. Limits of Validity</h2>
+<h2>2. Limits of Validity<a id="2-limits-of-validity" class="h_anchor"></a></h2>
 
 <p>
 Each of the sub-intervals shall have at least 2 cells. Otherwise the scaling of each sub-interval becomes meaningless. 
 </p>
 
-<h2>3. Interfaces</h2>
+<h2>3. Interfaces<a id="3-interfaces" class="h_anchor"></a></h2>
 
 <p>
 <img src="./GenerateGrid/equation.png">
 </p>
 
-<h2>4. Nomenclature</h2>
+<h2>4. Nomenclature<a id="4-nomenclature" class="h_anchor"></a></h2>
 
 <br>
 
@@ -248,11 +248,11 @@ Each of the sub-intervals shall have at least 2 cells. Otherwise the scaling of 
 
 <br>
 
-<h2>5. Governing Equations</h2>
+<h2>5. Governing Equations<a id="5-governing-equations" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>Idea:</h3>
+<h3>Idea:<a id="idea" class="h_anchor"></a></h3>
 
 <p>
 We want to assign a stretching to the <img src="./GenerateGrid/equation004.png"> cells of a discretised model. This results in a vector <img src="./GenerateGrid/equation005.png"> containing <img src="./GenerateGrid/equation006.png"> sub-interval of the physical length <img src="./GenerateGrid/equation007.png">.
@@ -262,7 +262,7 @@ We want to assign a stretching to the <img src="./GenerateGrid/equation004.png">
 <img src="./GenerateGrid/equation030.png">
 </p>
 
-<h3>Implementation</h3>
+<h3>Implementation<a id="implementation" class="h_anchor"></a></h3>
 
 <p>
 The input <img src="./GenerateGrid/equation009.png"> consists of a vector of <img src="./GenerateGrid/equation010.png"> signed reals, e.g 
@@ -324,15 +324,15 @@ with the normalisation constant<br>
 
 <br>
 
-<h2>6. Remarks for Usage</h2>
+<h2>6. Remarks for Usage<a id="6-remarks-for-usage" class="h_anchor"></a></h2>
 
 <br>
 
-<h2>7. Validation</h2>
+<h2>7. Validation<a id="7-validation" class="h_anchor"></a></h2>
 
 <br>
 
-<h4>Example:</h4>
+<h4>Example:<a id="example" class="h_anchor"></a></h4>
 
 <br>
 
@@ -352,11 +352,11 @@ This corresponds to the following discretisation:<br>
 <br>
 <br>
 
-<h2>8. References</h2>
+<h2>8. References<a id="8-references" class="h_anchor"></a></h2>
 
 <br>
 
-<h2>9. Version History</h2>
+<h2>9. Version History<a id="9-version-history" class="h_anchor"></a></h2>
 
 <p>
   09.02.2016 - 0.1 - initial implementation - Johannes Brunnemann, XRG Simulation GmbH

@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>VolumeVLE L3_TwoZonesNPort</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -222,7 +222,7 @@ Created Monday 22 October 2012
 <b>Basic two-zone model heat and mass storage as well as convective heat transfer and pressure differences due to friction and geostatic effects taking for each of the zones  into account.  Variable number of inlet and outlet ports.</b>
 </p>
 
-<h2>1. Purpose of Model</h2>
+<h2>1. Purpose of Model<a id="1-purpose-of-model" class="h_anchor"></a></h2>
 
 <br>
 
@@ -234,11 +234,11 @@ The models is recommended when two distinct phases (vapour and liquid) are prese
 </ul>
 </p>
 
-<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
+<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight<a id="2-level-of-detail-physical-effects-considered-and--physical-insight" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>2.1 Level of Detail</h3>
+<h3>2.1 Level of Detail<a id="21-level-of-detail" class="h_anchor"></a></h3>
 
 <br>
 
@@ -246,7 +246,7 @@ The models is recommended when two distinct phases (vapour and liquid) are prese
 Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L3</b> because the system is modelled with the use of balance equations for two distinct zones, namely the zone of liquid and vapour volume.
 </p>
 
-<h3>2.2 Physical Effects Considered</h3>
+<h3>2.2 Physical Effects Considered<a id="22-physical-effects-considered" class="h_anchor"></a></h3>
 
 <br>
 
@@ -262,11 +262,11 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h3>2.3 Level of Insight</h3>
+<h3>2.3 Level of Insight<a id="23-level-of-insight" class="h_anchor"></a></h3>
 
 <br>
 
-<h4>Heat Transfer</h4>
+<h4>Heat Transfer<a id="heat-transfer" class="h_anchor"></a></h4>
 
 <p>
 <ul>
@@ -277,7 +277,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <u>Currently, only simple models for heat transfer are supported. Future versions will support more models.</u>
 </p>
 
-<h4>Pressure Loss</h4>
+<h4>Pressure Loss<a id="pressure-loss" class="h_anchor"></a></h4>
 
 <p>
 <ul>
@@ -288,7 +288,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <u>Currently, only simple models for pressure loss are available. Future versions may support more models. However, the geometric interpretation of the pressure loss is not always clear.</u>
 </p>
 
-<h4>Spacial Distribution</h4>
+<h4>Spacial Distribution<a id="spacial-distribution" class="h_anchor"></a></h4>
 
 <p>
 <ul>
@@ -299,7 +299,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <br>
 
-<h2>3. Limits of Validity</h2>
+<h2>3. Limits of Validity<a id="3-limits-of-validity" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -310,11 +310,11 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <br>
 
-<h2>4. Interfaces</h2>
+<h2>4. Interfaces<a id="4-interfaces" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>4.1 Physical Connectors</h3>
+<h3>4.1 Physical Connectors<a id="41-physical-connectors" class="h_anchor"></a></h3>
 
 <br>
 
@@ -324,17 +324,17 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <a href="..\..\Interfaces\HeatPort_a.html" title="Basics:Interfaces:HeatPort a" class="page">Basics:Interfaces:HeatPort a</a> heat
 </p>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Nomenclature<a id="5-nomenclature" class="h_anchor"></a></h2>
 
 <p>
 <img src="./VolumeVLE_L3_TwoZonesNPort/equation001.png">
 </p>
 
-<h2>6. Governing Equations</h2>
+<h2>6. Governing Equations<a id="6-governing-equations" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>6.1 System Description and General model approach</h3>
+<h3>6.1 System Description and General model approach<a id="61-system-description-and-general-model-approach" class="h_anchor"></a></h3>
 
 <br>
 
@@ -348,11 +348,11 @@ The general model structure is defined as illustrated below: Two distinct volume
 
 <br>
 
-<h3>6.2 Governing Model Equations</h3>
+<h3>6.2 Governing Model Equations<a id="62-governing-model-equations" class="h_anchor"></a></h3>
 
 <br>
 
-<h4>Conservation of Mass</h4>
+<h4>Conservation of Mass<a id="conservation-of-mass" class="h_anchor"></a></h4>
 
 <p>
 The mass balance for each of the zones considers evaporation and condensation mass flow rates, volume changes and mass flows through the inlet and outlet connectors. These mass flows are allocated to the vapour and liquid zone according to the replaceable model <u>PhaseSeparation</u>, see section<u> 2.3 Spatial Distribution</u>. The balance equations read:
@@ -364,7 +364,7 @@ The mass balance for each of the zones considers evaporation and condensation ma
 
 <br>
 
-<h4>Conservation of Momentum</h4>
+<h4>Conservation of Momentum<a id="conservation-of-momentum" class="h_anchor"></a></h4>
 
 <p>
 The momentum balances applied for each of the ports allow the calculation of pressure distribution at the model boundaries. Two major simplifications are applied:<br>
@@ -379,7 +379,7 @@ The three aspects considered are friction force, static pressure forces and grav
 <img src="./VolumeVLE_L3_TwoZonesNPort/equation004.png">
 </p>
 
-<h4>Conservation of Energy</h4>
+<h4>Conservation of Energy<a id="conservation-of-energy" class="h_anchor"></a></h4>
 
 <p>
 The energy balances for both zones consider entering and leaving enthalpy flow rates as well as energy transport between the zones due to heat and mass transfer. The mass flows entering and leaving are allocated to the vapour and liquid zone according to the replaceable model <u>PhaseSeparation</u>, see section<u> 2.3 Spatial Distribution</u>. Please note, there are three terms in the equations below that take the derivatives of volume, density and pressure into account. These terms are derived from the total derivative of the inner energy of the zone and appear here due to the special choice of state variables as discussed in <a href="..\..\..\Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a>.
@@ -403,7 +403,7 @@ The model's density is taken as an explicit function of the states, its total de
 <img src="./VolumeVLE_L3_TwoZonesNPort/equation035.png">
 </p>
 
-<h4>Location of Pressure States</h4>
+<h4>Location of Pressure States<a id="location-of-pressure-states" class="h_anchor"></a></h4>
 
 <p>
 The liquid and vapour state are defined by the pressure and enthalpy at the respective zones. While the spec. enthalpy and the density of the zones is defined by the energy and mass balance equations for each of the zones the pressure of the zones are connected to each other via algebraic equations defining the relative position of the two states. Depending on the parameter <tt>equalPressures</tt> the liquid and vapour zone pressure can be either equal or not:
@@ -414,28 +414,28 @@ The liquid and vapour state are defined by the pressure and enthalpy at the resp
 See remarks for initalisation with <tt>equalPressures=false.</tt>
 </p>
 
-<h4>Chemistry</h4>
+<h4>Chemistry<a id="chemistry" class="h_anchor"></a></h4>
 
 <p>
 No chemical reactions are considered leading to the following <img src="./VolumeVLE_L3_TwoZonesNPort/equation006.png"> species mass balances for the two zones. Note that these equations are only valid (and evaluated) when a mixture of fluids is used i.e. the number of species <img src="./VolumeVLE_L3_TwoZonesNPort/equation007.png">.<br>
 <img src="./VolumeVLE_L3_TwoZonesNPort/equation037.png">
 </p>
 
-<h4>Mass Transfer between the Zones</h4>
+<h4>Mass Transfer between the Zones<a id="mass-transfer-between-the-zones" class="h_anchor"></a></h4>
 
 <p>
 The evaporation and condensation mass flow rates are determined according to the vapour mass fraction in the liquid zone and the liquid fraction in the vapour zone introducing two time constants for evaporation and condensation, respectively. These can be tuned by the user and affect strongly the behaviour of the model. See [2] for a discussion of these parameters.<br>
 <img src="./VolumeVLE_L3_TwoZonesNPort/equation002.png">
 </p>
 
-<h4>Heat Transfer between the Zones</h4>
+<h4>Heat Transfer between the Zones<a id="heat-transfer-between-the-zones" class="h_anchor"></a></h4>
 
 <p>
 The model for the inter-phase heat transfer assumes constant values for heat phase surface and heat transfer coefficient:<br>
 <img src="./VolumeVLE_L3_TwoZonesNPort/equation003.png">
 </p>
 
-<h4>Summary</h4>
+<h4>Summary<a id="summary" class="h_anchor"></a></h4>
 
 <p>
 A summary is available including the following:<br>
@@ -449,7 +449,7 @@ A summary is available including the following:<br>
 </ul>
 </p>
 
-<h2>7. Remarks for Usage</h2>
+<h2>7. Remarks for Usage<a id="7-remarks-for-usage" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -466,18 +466,18 @@ A summary is available including the following:<br>
 </ul>
 </p>
 
-<h2>9. References</h2>
+<h2>9. References<a id="9-references" class="h_anchor"></a></h2>
 
 <p>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 <br>
 [2] <b>Sebastian Meinke and Friedrich Gottelt, Martin Müller, Egon Hassel: "</b>Modelling of Coal-Fired Power Units with ThermoPower Focussing on Start-Up Process", 8th Modelica Conference, Dresden, Germany, 2011
 </p>
 
-<h2>10. Authorship and Copyright Statement for original (initial) Contribution</h2>
+<h2>10. Authorship and Copyright Statement for original (initial) Contribution<a id="10-authorship-and-copyright-statement-for-original-initial-contribution" class="h_anchor"></a></h2>
 
 <p>
 <b>Author:</b><br>
- DYNCAP/DYNSTART development team, Copyright 2011 - 2020.<br>
+ DYNCAP/DYNSTART development team, Copyright 2011 - 2022.<br>
 <b>Remarks:</b><br>
  This component was developed during DYNCAP/DYNSTART projects.<br>
 <b>Acknowledgements:</b><br>
@@ -487,7 +487,7 @@ A summary is available including the following:<br>
  By agreeing to ClaRa CLA, version 1.0 the author has granted the ClaRa development team a permanent right to use and modify his initial contribution as well as to publish it or its modified versions under the 3-clause BSD License.
 </p>
 
-<h2>11. Version History</h2>
+<h2>11. Version History<a id="11-version-history" class="h_anchor"></a></h2>
 
 <p>
  Date - Version - Description of changes - author/revisor<br>

@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>E Filter L2 Empirical</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -230,23 +230,23 @@ Created Mittwoch 21 Juni 2017
 <b>Model for an E-Filter reaction taking a variable separation rate into account.</b> 
 </p>
 
-<h2>1. Purpose of Model</h2>
+<h2>1. Purpose of Model<a id="1-purpose-of-model" class="h_anchor"></a></h2>
 
 <p>
 Replaceable model to be used in <a href="../../GasVolumes/Volume_Gas_L2_Chem.txt" title="GasVolumes:Volume_Gas_L2_Chem" class="file">GasVolumes:Volume_Gas_L2_Chem</a> for a simple E-Filter reaction that separates dust at a variable separation rate.
 </p>
 
-<h2>2. Physical Insight</h2>
+<h2>2. Physical Insight<a id="2-physical-insight" class="h_anchor"></a></h2>
 
 <p>
 This <i>replaceable model</i> is compatible to models of level of detail <b>L2 </b>according to Brunnemann et al. [1].
 </p>
 
-<h2>3. Limits of Validity</h2>
+<h2>3. Limits of Validity<a id="3-limits-of-validity" class="h_anchor"></a></h2>
 
 <br>
 
-<h2>4. Interfaces</h2>
+<h2>4. Interfaces<a id="4-interfaces" class="h_anchor"></a></h2>
 
 <p>
 The model communicates via outer models and records. Thus its expects to have:<br>
@@ -255,7 +255,7 @@ The model communicates via outer models and records. Thus its expects to have:<b
 </ul>
 </p>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Nomenclature<a id="5-nomenclature" class="h_anchor"></a></h2>
 
 <p>
 A table referencing the nomenclature in the source code, the descriptions of variables and the "human-readable" 
@@ -265,13 +265,13 @@ A table referencing the nomenclature in the source code, the descriptions of var
 <img src="./E_Filter_L2_Empirical/equation.png">
 </p>
 
-<h2>6. Governing Equations</h2>
+<h2>6. Governing Equations<a id="6-governing-equations" class="h_anchor"></a></h2>
 
 <p>
  Mass and energy balances are calculated in <a href="../../GasVolumes/Volume_Gas_L2_Chem.txt" title="GasVolumes:Volume_Gas_L2_Chem." class="file">GasVolumes:Volume_Gas_L2_Chem.</a>
 </p>
 
-<h4>Conservation of Components</h4>
+<h4>Conservation of Components<a id="conservation-of-components" class="h_anchor"></a></h4>
 
 <p>
 The composition is a vector of the component mass fractions. The calculation of the outlet composition depends on the type of mass conservation. If the dynamic mass balance is used, the outlet composition is calculated as follows:<br>
@@ -288,7 +288,7 @@ while for static mass balance the following equation is used:
 <img src="./E_Filter_L2_Empirical/equation002.png">
 </p>
 
-<h4>Separation process</h4>
+<h4>Separation process<a id="separation-process" class="h_anchor"></a></h4>
 
 <p>
 The the separated dust mass flow and the flue gas volume flow are calculated according to the current flow direction.<br>
@@ -324,17 +324,17 @@ The power consumption is calculated as follows:
 <br>
 <br>
 
-<h2>7. Remarks for Usage</h2>
+<h2>7. Remarks for Usage<a id="7-remarks-for-usage" class="h_anchor"></a></h2>
 
 <br>
 
-<h2>8. References</h2>
+<h2>8. References<a id="8-references" class="h_anchor"></a></h2>
 
 <p>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulationof Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 
 </p>
 
-<h2>9. Version History</h2>
+<h2>9. Version History<a id="9-version-history" class="h_anchor"></a></h2>
 
 <p>
 <ul>

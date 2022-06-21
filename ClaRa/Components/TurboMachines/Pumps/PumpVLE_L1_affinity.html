@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>PumpVLE L1 affinity</title>
-	<meta name="generator" content="Zim 0.73.5">
+	<meta name="generator" content="Zim 0.74.3">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
 	<![if !IE]>
@@ -226,24 +226,24 @@ Created Tuesday 11 December 2012
 <b>An analytic model for a pump featuring static conservation of mass, energy and momentum. Here the fluid is considered to be incompressible. Thus, the hydraulic characteristics of the pump are modelled taking a constant density into account. The effect of strongly reduced flow rates when steam is drawn into the inlet at constant rotational speed and pressure difference is caught qualitatively. The model is capable to calculate zero mass flow and reverse flow.</b>
 </p>
 
-<h2>1. Purpose of Model</h2>
+<h2>1. Purpose of Model<a id="1-purpose-of-model" class="h_anchor"></a></h2>
 
 <p>
 <img src="./pump.png" height="236"><img src="./PumpVLE_L1_affinity/PumpVLE_L1_affinity.PNG"><br>
 The model is appropriate when the time behaviour of the flow rate and outlet states of a pump depending on drive power and pressure difference is required and if the behaviour of the attached mechanical and electrical equipment is of interest. Especially, if zero flow rates or even back might occur in the simulation this model should be preferred over <a href="./PumpVLE_L1_simple.html" title="PumpVLE L1 simple" class="page">PumpVLE L1 simple</a>.
 </p>
 
-<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight</h2>
+<h2>2. Level of Detail, Physical Effects Considered and  Physical Insight<a id="2-level-of-detail-physical-effects-considered-and--physical-insight" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>2.1 Level of Detail</h3>
+<h3>2.1 Level of Detail<a id="21-level-of-detail" class="h_anchor"></a></h3>
 
 <p>
 Referring to Brunnemann et al. [1], this model refers to the level of detail <b>L1</b> because the system is modelled in an phenomenological manner, without calculating state equations. The model is of the flow model type. However, conservation of mass and energy is granted.
 </p>
 
-<h3>2.2 Physical Effects Considered</h3>
+<h3>2.2 Physical Effects Considered<a id="22-physical-effects-considered" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -257,7 +257,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <br>
 
-<h3>2.3 Level of Insight</h3>
+<h3>2.3 Level of Insight<a id="23-level-of-insight" class="h_anchor"></a></h3>
 
 <br>
 
@@ -269,7 +269,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>3. Limits of Validity</h2>
+<h2>3. Limits of Validity<a id="3-limits-of-validity" class="h_anchor"></a></h2>
 
 <br>
 
@@ -281,11 +281,11 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h2>4. Interfaces</h2>
+<h2>4. Interfaces<a id="4-interfaces" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>4.1 Physical Connectors</h3>
+<h3>4.1 Physical Connectors<a id="41-physical-connectors" class="h_anchor"></a></h3>
 
 <br>
 
@@ -307,7 +307,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 </ul>
 </p>
 
-<h3>4.2 Medium Models</h3>
+<h3>4.2 Medium Models<a id="42-medium-models" class="h_anchor"></a></h3>
 
 <p>
 <ul style='padding-left: 30pt'>
@@ -317,7 +317,7 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 
 <br>
 
-<h2>5. Nomenclature</h2>
+<h2>5. Nomenclature<a id="5-nomenclature" class="h_anchor"></a></h2>
 
 <br>
 
@@ -325,23 +325,23 @@ Referring to Brunnemann et al. [1], this model refers to the level of detail <b>
 <img src="./PumpVLE_L1_affinity/equation011.png">
 </p>
 
-<h2>6. Governing Equations</h2>
+<h2>6. Governing Equations<a id="6-governing-equations" class="h_anchor"></a></h2>
 
 <p>
 The model considers static balance equations for mass and energy. The fluid momentum balance is reduced to a static pressure balance. In case <tt>steadyStateTorque = false</tt> a dynamic rotational momentum balance is applied. 
 </p>
 
-<h3>6.1 System Description and General model approach</h3>
+<h3>6.1 System Description and General model approach<a id="61-system-description-and-general-model-approach" class="h_anchor"></a></h3>
 
 <p>
 The equations for the model are balances of mass, energy and momentum considering the Mechanic and Hydraulic efficiencies. Optionally, a mechanical shaft connector can be activated applying either steady state or transient rotational dynamics.
 </p>
 
-<h3>6.2 Governing Model Equations</h3>
+<h3>6.2 Governing Model Equations<a id="62-governing-model-equations" class="h_anchor"></a></h3>
 
 <br>
 
-<h3>Energy Conservation</h3>
+<h3>Energy Conservation<a id="energy-conservation" class="h_anchor"></a></h3>
 
 <p>
 The following powers are distinguished in the model: The shaft power is transferred by a driving turbine or an e-motor to the pump's shaft. This term is shown on the left at the figure below. On the other edge of the figure the ideal (adiabatic and friction-free) compression power at given pressure difference and volume flow is shown. It is referred to as isentropic power. Adding losses to that ideal compression power gives the power actually transferred to the fluid. Finally, the difference between the shaft power provided by an external driving unit and the power consumed for compression gives a change of rotational speed.
@@ -364,7 +364,7 @@ In the above equation (2-a) the arrows indicate a flow direction from inlet to o
 
 <br>
 
-<h3>Mass Conservation</h3>
+<h3>Mass Conservation<a id="mass-conservation" class="h_anchor"></a></h3>
 
 <p>
 A constant fluid mass is assumed, which yields <br>
@@ -379,7 +379,7 @@ The mass flow rate is then obtained from equation (3) (as shown in figure 1) ,
 <img src="./PumpVLE_L1_affinity/equation002.png">
 </p>
 
-<h3>Momentum Conservation</h3>
+<h3>Momentum Conservation<a id="momentum-conservation" class="h_anchor"></a></h3>
 
 <p>
 Balance of stationary momentum is used to model the pressure changes at the outlet port of the pump,
@@ -389,13 +389,13 @@ Balance of stationary momentum is used to model the pressure changes at the outl
 <img src="./PumpVLE_L1_affinity/equation010.png">
 </p>
 
-<h3>Rotational Mechanics</h3>
+<h3>Rotational Mechanics<a id="rotational-mechanics" class="h_anchor"></a></h3>
 
 <p>
 The mechanical connector (shaft) can dedicated whether to be used or not via the parameter <tt>useMechanicalPort. </tt>
 </p>
 
-<h4>a) mechanical port is used</h4>
+<h4>a) mechanical port is used<a id="a-mechanical-port-is-used" class="h_anchor"></a></h4>
 
 <p>
  If the shaft is activated then a dynamic torque balance is evaluated:<br>
@@ -407,7 +407,7 @@ where the shafts acceleration may be  zero (<tt>useSteadyTorque = true</tt>) or 
 <a href="..\Fundamentals\PumpEfficiency\EfficiencyCurves_Q1.html" title="Fundamentals:PumpEfficiency:EfficiencyCurves Q1" class="page">Fundamentals:PumpEfficiency:EfficiencyCurves Q1</a>
 </p>
 
-<h4>b) mechanical port is NOT used</h4>
+<h4>b) mechanical port is NOT used<a id="b-mechanical-port-is-not-used" class="h_anchor"></a></h4>
 
 <p>
 If the mechanical port is deactivated the parameter <tt>rpm_fixed </tt>is used to define the rotational speed and the shaft angle is set to zero.<br>
@@ -417,31 +417,31 @@ If the mechanical port is deactivated the parameter <tt>rpm_fixed </tt>is used t
 <img src="./PumpVLE_L1_affinity/equation023.png">
 </p>
 
-<h3>Hydraulics</h3>
+<h3>Hydraulics<a id="hydraulics" class="h_anchor"></a></h3>
 
 <p>
 The hydraulic characteristics is encapsulated in a replaceable model. The following characteristics are supported:<br>
 <a href="..\Fundamentals\PumpHydraulics\MetaStable_Q12.html" title="Fundamentals:PumpHydraulics:MetaStable Q12" class="page">Fundamentals:PumpHydraulics:MetaStable Q12</a>
 </p>
 
-<h3>Losses</h3>
+<h3>Losses<a id="losses" class="h_anchor"></a></h3>
 
 <p>
 The losses are calculated by a replaceable model. The following models are available:<br>
 <a href="..\Fundamentals\PumpEfficiency\EfficiencyCurves_Q1.html" title="Fundamentals:PumpEfficiency:EfficiencyCurves Q1" class="page">Fundamentals:PumpEfficiency:EfficiencyCurves Q1</a>
 </p>
 
-<h3>Chemistry</h3>
+<h3>Chemistry<a id="chemistry" class="h_anchor"></a></h3>
 
 <p>
 No chemical reaction is considered, i.e. inlet composition equals outlet composition.
 </p>
 
-<h3>Reporting</h3>
+<h3>Reporting<a id="reporting" class="h_anchor"></a></h3>
 
 <br>
 
-<h4>Summary</h4>
+<h4>Summary<a id="summary" class="h_anchor"></a></h4>
 
 <p>
 A summary is available including the following:<br>
@@ -459,7 +459,7 @@ A summary is available including the following:<br>
 
 <br>
 
-<h2>7. Remarks for Usage</h2>
+<h2>7. Remarks for Usage<a id="7-remarks-for-usage" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -469,25 +469,25 @@ A summary is available including the following:<br>
 </ul>
 </p>
 
-<h2>8. Validation</h2>
+<h2>8. Validation<a id="8-validation" class="h_anchor"></a></h2>
 
 <br>
 
-<h3>8.1.</h3>
+<h3>8.1.<a id="81" class="h_anchor"></a></h3>
 
 <p>
 For validation purposes a feedwater pump of a coal-fired power plant of the the 600 MW class is considered. The figures below compare values from the characteristic map of the pump with calculated data from the models <a href="..\Fundamentals\PumpEfficiency\EfficiencyCurves_Q1.html" title=":EfficiencyCurves Q1" class="page">:EfficiencyCurves Q1</a> and <a href="..\Fundamentals\PumpHydraulics\MetaStable_Q12.html" title=":MetaStable Q124" class="page">:MetaStable Q124</a>. The congruence is good over a wide range of operation points and gives reasonable results beyond the normal field of operation which improves numerical robustness of applying models. <br>
 <img src="./PumpVLE_L1_affinity/eta_m_flow.png" width="400"><img src="./PumpVLE_L1_affinity/Delta_p_m_flow_Sulzer.png" width="400">
 </p>
 
-<h3>8.2.</h3>
+<h3>8.2.<a id="82" class="h_anchor"></a></h3>
 
 <p>
 The data provided in [4] were digitised and used for comparisson using the replaceable models <a href="..\Fundamentals\PumpHydraulics\MetaStable_Q12.html" title="Fundamentals:PumpHydraulics:MetaStable Q12" class="page">Fundamentals:PumpHydraulics:MetaStable Q12</a> and <a href="..\Fundamentals\PumpEfficiency\EfficiencyCurves_Q1.html" title="Fundamentals:PumpEfficiency:EfficiencyCurves Q1" class="page">Fundamentals:PumpEfficiency:EfficiencyCurves Q1</a>. The results show very good congruence of measurement data and simulation results for rpm &gt; 0 and moderate back flow. See also the respective replaceable models for detailed discussion.<br>
 <img src="./PumpVLE_L1_affinity/Delta_p_V_flow_Knapp.png" width="400"><img src="./PumpVLE_L1_affinity/tau_m_flow_Knapp.png" width="400">
 </p>
 
-<h2>9. References</h2>
+<h2>9. References<a id="9-references" class="h_anchor"></a></h2>
 
 <br>
 
@@ -500,11 +500,11 @@ The data provided in [4] were digitised and used for comparisson using the repla
 
 <br>
 
-<h2>10. Authorship and Copyright Statement for original (initial) Contribution</h2>
+<h2>10. Authorship and Copyright Statement for original (initial) Contribution<a id="10-authorship-and-copyright-statement-for-original-initial-contribution" class="h_anchor"></a></h2>
 
 <p>
 <b>Author:</b><br>
- DYNCAP/DYNSTART development team, Copyright 2011 - 2020.<br>
+ DYNCAP/DYNSTART development team, Copyright 2011 - 2022.<br>
 <b>Remarks:</b><br>
  This component was developed during DYNCAP/DYNSTART projects.<br>
 <b>Acknowledgements:</b><br>
@@ -514,7 +514,7 @@ The data provided in [4] were digitised and used for comparisson using the repla
  By agreeing to ClaRa CLA, version 1.0 the author has granted the ClaRa development team a permanent right to use and modify his initial contribution as well as to publish it or its modified versions under the 3-clause BSD License.
 </p>
 
-<h2>11. Version History</h2>
+<h2>11. Version History<a id="11-version-history" class="h_anchor"></a></h2>
 
 <p>
 <ul>
@@ -536,11 +536,11 @@ The data provided in [4] were digitised and used for comparisson using the repla
 				
 				<a href='..\..\..\A_User_Guide\Revisions\v1.4.1.html'>ClaRa:A User Guide:Revisions:v1.4.1</a>
 				
+				<a href='..\..\..\A_User_Guide\Revisions\v1.7.0.html'>ClaRa:A User Guide:Revisions:v1.7.0</a>
+				
 				<a href='./PumpVLE_L1_simple.html'>ClaRa:Components:TurboMachines:Pumps:PumpVLE L1 simple</a>
 				
 				<a href='..\Fundamentals\PumpEfficiency\EfficiencyCurves_Q1.html'>ClaRa:Components:TurboMachines:Fundamentals:PumpEfficiency:EfficiencyCurves Q1</a>
-				
-				<a href='..\..\..\A_User_Guide\Revisions\v1.7.0.html'>ClaRa:A User Guide:Revisions:v1.7.0</a>
 				<br /><br />
 			</span>
 
